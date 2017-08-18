@@ -1,0 +1,23 @@
+ApsContent = function () {
+	var that = this; 
+	
+	that.componentData = {
+
+"specComp" : 
+%FULL_COMP_SPEC_DEFINITION_JSON%,
+
+"spec" : 
+%FULL_SPEC_DEFINITION_JSON%, 
+
+"specInclude" : 
+%FULL_SPEC_INCLUDE_DEFINITION_JSON%, 
+
+"specAbout" : 
+%FULL_ABOUT_SPEC_DEFINITION_JSON%
+
+};
+
+	org_scn_community_component_Core(that, that.componentData);
+    
+	return that;
+};

@@ -1,0 +1,2 @@
+	id="org.scn.community.geovis"
+	title="Lumira Designer SCN Community Geovisualizations [Legacy]"

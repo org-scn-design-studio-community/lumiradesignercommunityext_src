@@ -1,0 +1,135 @@
+
+<component
+	id="NiceChart"
+	title="Nice Chart 2.0"
+	tooltip="Nice Chart 2.0"
+	icon="res/NiceChart/NiceChart.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityVisualizations"
+	databound="true"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/NiceChart/NiceChart</requireJs>
+
+	<cssInclude>res/NiceChart/NiceChart.css</cssInclude>
+	
+	
+	<property
+		id="DChartType"
+		type="String"
+		title="Chart Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DColorDistance"
+		type="float"
+		title="Starting Colour Distance"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DColorHue"
+		type="int"
+		title="Starting Colour Hue"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DColorPalette"
+		type="String"
+		title="Starting Colour Palette"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLegendPosition"
+		type="String"
+		title="Legend Position"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLegendWidth"
+		type="int"
+		title="Width Of Legend In Px"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DMaxDataPoints"
+		type="int"
+		title="Maximum Number Of Data Points"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DShowLegend"
+		type="boolean"
+		title="Show Legend"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSwapAxes"
+		type="boolean"
+		title="Swap Axes"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="data"
+		type="ResultSet"
+		title="Result Set"
+		group="DataBinding"
+		visible="false">
+
+		<option name="maxCells" value="100000" />
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+		<option name="presentationDelimiter" value=" | " />
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">600</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="DChartType"><![CDATA[Line]]></defaultValue>
+		<defaultValue property="DColorDistance"><![CDATA[0.2]]></defaultValue>
+		<defaultValue property="DColorHue"><![CDATA[120]]></defaultValue>
+		<defaultValue property="DColorPalette"><![CDATA[Triade]]></defaultValue>
+		<defaultValue property="DLegendPosition"><![CDATA[Right]]></defaultValue>
+		<defaultValue property="DLegendWidth"><![CDATA[200]]></defaultValue>
+		<defaultValue property="DMaxDataPoints"><![CDATA[100]]></defaultValue>
+		<defaultValue property="DShowLegend"><![CDATA[true]]></defaultValue>
+		<defaultValue property="DSwapAxes"><![CDATA[false]]></defaultValue>
+		<defaultValue property="data"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

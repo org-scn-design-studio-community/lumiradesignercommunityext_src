@@ -1,0 +1,94 @@
+
+/**
+ * Generated ZTL Class for TimeOut
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.TimeOut extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Show Counter Property
+	 */	
+	void setCounterVisible( /**Show Counter*/ boolean counterVisible){*
+		this.counterVisible = counterVisible;
+	*}
+
+	/**
+	 * Gets Show Counter Property
+	 */	
+	boolean isCounterVisible() {*
+		return this.counterVisible;
+	*}
+
+
+
+	/**
+	 * Sets Logoff Popup Text Property
+	 */	
+	void setLogoffText( /**Logoff Popup Text*/ String logoffText){*
+		this.logoffText = logoffText;
+	*}
+
+	/**
+	 * Gets Logoff Popup Text Property
+	 */	
+	String getLogoffText() {*
+		return this.logoffText;
+	*}
+
+
+
+	/**
+	 * Sets Is periodic? Property
+	 */	
+	void setPeriodic( /**Is periodic?*/ boolean periodic){*
+		this.periodic = periodic;
+	*}
+
+	/**
+	 * Gets Is periodic? Property
+	 */	
+	boolean isPeriodic() {*
+		return this.periodic;
+	*}
+
+
+
+
+
+	/**
+	 * Sets Timeout after (ms) Property
+	 */	
+	void setTimer( /**Timeout after (ms)*/ int timer){*
+		this.timer = timer;
+	*}
+
+	/**
+	 * Gets Timeout after (ms) Property
+	 */	
+	int getTimer() {*
+		return this.timer;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+	void startTimer(){*
+		this.start = calcTimestamp();
+	*}
+	
+	void stopTimer(){*
+		this.stop = calcTimestamp();
+	*}
+	
+	void logoff(){*
+		this.logoff = calcTimestamp();
+	*}
+	
+	@Visibility(private)
+	/**
+	 *	Workaround for strange DesignStudio lifecycle handling when calling functions via scriptting triggers
+	 */
+	String calcTimestamp() {*
+		return new Date().valueOf();
+	*}
+}

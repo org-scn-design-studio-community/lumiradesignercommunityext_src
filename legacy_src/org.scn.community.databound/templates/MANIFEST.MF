@@ -1,0 +1,2 @@
+Bundle-Name: Lumira Designer SCN Community Data Bound [Legacy]
+Bundle-SymbolicName: org.scn.community.databound;singleton:=true

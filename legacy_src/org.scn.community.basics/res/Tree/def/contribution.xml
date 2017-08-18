@@ -1,0 +1,130 @@
+
+<component
+	id="Tree"
+	title="Tree 2.0"
+	tooltip="Tree"
+	icon="res/Tree/Tree.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/Tree/Tree</requireJs>
+
+	<cssInclude>res/Tree/Tree.css</cssInclude>
+	
+	
+	<property
+		id="allowExpanding"
+		type="boolean"
+		title="Allow Expanding Nodes"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Nodes"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="defaultImage"
+		type="Url"
+		title="Url For Default Picture"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="expandNodes"
+		type="boolean"
+		title="Expand Nodes"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="expandedKey"
+		type="String"
+		title="Technical Proprty For Expanded Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="nodesContent"
+		type="String"
+		title="Nodes"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onFirstExpand"
+		type="ScriptText"
+		title="Event For On First Expand"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="roundtrip"
+		type="int"
+		title="Technical Proprty For Roundtrip"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Technical Proprty For Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">230</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="allowExpanding"><![CDATA[true]]></defaultValue>
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="defaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="expandNodes"><![CDATA[false]]></defaultValue>
+		<defaultValue property="expandedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="nodesContent"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="onFirstExpand"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="roundtrip"><![CDATA[0]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

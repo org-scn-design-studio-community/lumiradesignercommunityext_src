@@ -1,0 +1,91 @@
+
+<component
+	id="ApplicationHeader"
+	title="Application Header 2.0"
+	tooltip="Application Header"
+	icon="res/ApplicationHeader/ApplicationHeader.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ApplicationHeader/ApplicationHeader</requireJs>
+
+	<cssInclude>res/ApplicationHeader/ApplicationHeader.css</cssInclude>
+	
+	
+	<property
+		id="displayLogoff"
+		type="boolean"
+		title="Display Logoff"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="displayWelcome"
+		type="boolean"
+		title="Display Welcome"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="logoSrc"
+		type="String"
+		title="Logo Source"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="logoText"
+		type="String"
+		title="Logo Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onLogoff"
+		type="ScriptText"
+		title="On Logoff"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="userName"
+		type="String"
+		title="User Name"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">0</defaultValue>
+		<defaultValue property="WIDTH">auto</defaultValue>
+		<defaultValue property="HEIGHT">38</defaultValue>
+		
+		<defaultValue property="displayLogoff"><![CDATA[]]></defaultValue>
+		<defaultValue property="displayWelcome"><![CDATA[true]]></defaultValue>
+		<defaultValue property="logoSrc"><![CDATA[]]></defaultValue>
+		<defaultValue property="logoText"><![CDATA[]]></defaultValue>
+		<defaultValue property="onLogoff"><![CDATA[]]></defaultValue>
+		<defaultValue property="userName"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

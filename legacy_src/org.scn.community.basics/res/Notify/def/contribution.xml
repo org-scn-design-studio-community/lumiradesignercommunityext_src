@@ -1,0 +1,92 @@
+
+<component
+	id="Notify"
+	title="Notify 2.0"
+	tooltip="Notify - Leandro Cardoso"
+	icon="res/Notify/Notify.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/Notify/Notify</requireJs>
+
+	<cssInclude>res/Notify/Notify.css</cssInclude>
+	
+	
+	<property
+		id="delay"
+		type="int"
+		title="Delay(Seconds)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="layout"
+		type="String"
+		title="Layout"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="modal"
+		type="boolean"
+		title="Modal"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="msgtext"
+		type="String"
+		title="Msgtext"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="msgtype"
+		type="String"
+		title="Msgtype"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="shownote"
+		type="String"
+		title="Shownote"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">100</defaultValue>
+		<defaultValue property="HEIGHT">100</defaultValue>
+		
+		<defaultValue property="delay"><![CDATA[3]]></defaultValue>
+		<defaultValue property="layout"><![CDATA[center]]></defaultValue>
+		<defaultValue property="modal"><![CDATA[true]]></defaultValue>
+		<defaultValue property="msgtext"><![CDATA[]]></defaultValue>
+		<defaultValue property="msgtype"><![CDATA[]]></defaultValue>
+		<defaultValue property="shownote"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

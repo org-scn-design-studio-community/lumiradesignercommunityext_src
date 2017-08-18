@@ -1,0 +1,215 @@
+
+<component
+	id="BulletChartGen"
+	title="Bullet Chart (Gen Prototype)"
+	tooltip="Bullet Chart Visualization"
+	icon="res/BulletChartGen/BulletChartGen.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityPrototypes"
+	databound="true"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/BulletChartGen/BulletChartGen</requireJs>
+
+	<cssInclude>res/BulletChartGen/BulletChartGen.css</cssInclude>
+	
+	
+	<property
+		id="clickedgraphkey"
+		type="String"
+		title="Clicked Key"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="comparison"
+		type="boolean"
+		title="comparon values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="data"
+		type="ResultSet"
+		title="Dataset"
+		group="DataBinding"
+		visible="true">
+
+		<option name="maxCells" value="100000" />
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+		<option name="presentationDelimiter" value=" | " />
+	</property>
+	<property
+		id="extrapolation"
+		type="String"
+		title="Extrapolation Values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="graphTitle"
+		type="String"
+		title="Graph Title"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="keydimension"
+		type="String"
+		title="Unique key values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="labeldimension"
+		type="String"
+		title="dimension holding label values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="maxgraphheight"
+		type="int"
+		title="max height "
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="mingraphheight"
+		type="int"
+		title="Minimum Height"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="realization"
+		type="String"
+		title="Realization Column"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="showalert"
+		type="String"
+		title="When to show an alert"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="showaxis"
+		type="boolean"
+		title="Show X axis"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="sublabeldimension"
+		type="String"
+		title="Clicked Key"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="threshold1"
+		type="String"
+		title="threshold 1 values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="threshold2"
+		type="String"
+		title="threshold 2 values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="threshold3"
+		type="String"
+		title="threshold 3 values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="threshold4"
+		type="String"
+		title="threshold 4 values"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="threshold5"
+		type="String"
+		title="threshold 5 values"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">600</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="clickedgraphkey"><![CDATA[]]></defaultValue>
+		<defaultValue property="comparison"><![CDATA[]]></defaultValue>
+		<defaultValue property="data"><![CDATA[null]]></defaultValue>
+		<defaultValue property="extrapolation"><![CDATA[]]></defaultValue>
+		<defaultValue property="graphTitle"><![CDATA[]]></defaultValue>
+		<defaultValue property="keydimension"><![CDATA[]]></defaultValue>
+		<defaultValue property="labeldimension"><![CDATA[]]></defaultValue>
+		<defaultValue property="maxgraphheight"><![CDATA[40]]></defaultValue>
+		<defaultValue property="mingraphheight"><![CDATA[40]]></defaultValue>
+		<defaultValue property="realization"><![CDATA[]]></defaultValue>
+		<defaultValue property="showalert"><![CDATA[comparison]]></defaultValue>
+		<defaultValue property="showaxis"><![CDATA[true]]></defaultValue>
+		<defaultValue property="sublabeldimension"><![CDATA[]]></defaultValue>
+		<defaultValue property="threshold1"><![CDATA[]]></defaultValue>
+		<defaultValue property="threshold2"><![CDATA[]]></defaultValue>
+		<defaultValue property="threshold3"><![CDATA[]]></defaultValue>
+		<defaultValue property="threshold4"><![CDATA[]]></defaultValue>
+		<defaultValue property="threshold5"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

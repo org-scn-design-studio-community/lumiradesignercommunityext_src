@@ -1,0 +1,1143 @@
+/* GENERATED - DO NOT EDIT */
+/**
+ * Copyright 2015, Contributors
+ * 
+ * Original Source Code Location:
+ *  https://github.com/org-scn-design-studio-community/sdkpackage/
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *  
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *  
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License. 
+ */
+
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_AlignEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort type 
+ */
+class org_scn_community_shared_Align extends Enum {
+
+	/** Start */
+	org_scn_community_shared_AlignEnumfield Start;
+       
+	/** End */
+	org_scn_community_shared_AlignEnumfield End;
+
+	/** None */
+	org_scn_community_shared_AlignEnumfield None;
+
+	/** Both */
+	org_scn_community_shared_AlignEnumfield both;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_BarColorEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort direction 
+ */
+class org_scn_community_shared_BarColor extends Enum {
+
+	/** Critical */
+	org_scn_community_shared_BarColorEnumfield Critical;
+       
+	/** Negative */
+	org_scn_community_shared_BarColorEnumfield Negative;
+
+	/** Neutral */
+	org_scn_community_shared_BarColorEnumfield Neutral;
+
+	/** Positive */
+	org_scn_community_shared_BarColorEnumfield Positive;
+}
+
+/**
+	Array Holder for Component, Name and Type
+ */
+class org.scn.community.shared.ComponentHolder {
+	  Component component;
+	  String name;
+	  String type;
+}
+
+/**
+	Array for Components
+	<br>
+	var panels = COMPONENTHOLDER.getPanels();<br>
+	<br>
+	// a loop for all entries<br>
+	// content is of type Component<br>
+	panels.forEach(function(element, index) {<br>
+	
+		// panel is of type Component<br>
+		var componentWidth = element.getWidth();<br>
+	});
+ */
+class org.scn.community.shared.ComponentArray extends Array {
+	org.scn.community.shared.ComponentArray (org.scn.community.shared.ComponentHolder h);
+}
+
+
+/**
+	Array Holder for DataSourceAlias, Name and Type
+ */
+class org.scn.community.shared.DataSourceHolder {
+	  DataSourceAlias datasource;
+	  String name;
+	  String type;
+}
+
+/**
+	Array for DataSourceAlias
+	<br>
+	var panels = COMPONENTHOLDER.getPanels();<br>
+	<br>
+	// a loop for all entries<br>
+	// content is of type DataSourceAlias<br>
+	panels.forEach(function(element, index) {<br>
+	
+		// panel is of type DataSourceAlias<br>
+		var componentWidth = element.getWidth();<br>
+	});
+ */
+class org.scn.community.shared.DataSourceArray extends Array {
+	org.scn.community.shared.DataSourceArray (org.scn.community.shared.DataSourceHolder h);
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_BrowserEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort direction 
+ */
+class org_scn_community_shared_Browser extends Enum {
+
+	/** DEFAULT */
+	org_scn_community_shared_BrowserEnumfield CHROME;
+       
+	/** EMPH */
+	org_scn_community_shared_BrowserEnumfield SAFARI;
+
+	/** ACCEPT */
+	org_scn_community_shared_BrowserEnumfield MOZILLA;
+
+	/** REJECT */
+	org_scn_community_shared_BrowserEnumfield IE;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_ButtonStyleEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort direction 
+ */
+class org_scn_community_shared_ButtonStyle extends Enum {
+
+	/** DEFAULT */
+	org_scn_community_shared_ButtonStyleEnumfield Default;
+       
+	/** EMPH */
+	org_scn_community_shared_ButtonStyleEnumfield Emph;
+
+	/** ACCEPT */
+	org_scn_community_shared_ButtonStyleEnumfield Accept;
+
+	/** REJECT */
+	org_scn_community_shared_ButtonStyleEnumfield Reject;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_ButtonTypeEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort direction 
+ */
+class org_scn_community_shared_ButtonType extends Enum {
+
+	/** Default */
+	org_scn_community_shared_ButtonTypeEnumfield Default;
+       
+	/** Transparent */
+	org_scn_community_shared_ButtonTypeEnumfield Transparent;
+
+	/** Accept */
+	org_scn_community_shared_ButtonTypeEnumfield Accept;
+
+	/** Reject */
+	org_scn_community_shared_ButtonTypeEnumfield Reject;
+	
+	/** Back */
+	org_scn_community_shared_ButtonTypeEnumfield Back;
+	
+	/** Emphasized */
+	org_scn_community_shared_ButtonTypeEnumfield Emphasized;
+	
+	/** Up */
+	org_scn_community_shared_ButtonTypeEnumfield Up;
+}
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_ChartColorPaleteEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify
+ */
+class org_scn_community_shared_ChartColorPalete extends Enum {
+       
+	/** Mono */
+	org_scn_community_shared_ChartColorPaleteEnumfield Mono;	
+    
+	/** Monochromatic */
+	org_scn_community_shared_ChartColorPaleteEnumfield Monochromatic;	
+    
+	/** Contrast */
+	org_scn_community_shared_ChartColorPaleteEnumfield Contrast;	
+    
+	/** Triade */
+	org_scn_community_shared_ChartColorPaleteEnumfield Triade;	
+    
+	/** Tetrade */
+	org_scn_community_shared_ChartColorPaleteEnumfield Tetrade;	
+    
+	/** Analogic */
+	org_scn_community_shared_ChartColorPaleteEnumfield Analogic;	
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_ChartSimpleTypeEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify
+ */
+class org_scn_community_shared_ChartSimpleType extends Enum {
+
+	/** Line */
+	org_scn_community_shared_ChartSimpleTypeEnumfield Line;
+       
+	/** Bar */
+	org_scn_community_shared_ChartSimpleTypeEnumfield Bar;	
+    
+	/** LineBar */
+	org_scn_community_shared_ChartSimpleTypeEnumfield LineBar;	
+    
+	/** Radar */
+	org_scn_community_shared_ChartSimpleTypeEnumfield Radar;	
+    
+	/** PolarArea */
+	org_scn_community_shared_ChartSimpleTypeEnumfield PolarArea;	
+    
+	/** Pie */
+	org_scn_community_shared_ChartSimpleTypeEnumfield Pie;	
+    
+	/** Doughnut */
+	org_scn_community_shared_ChartSimpleTypeEnumfield Doughnut;	
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_ContentNotationEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify field 
+ */
+class org_scn_community_shared_ContentNotation extends Enum {
+
+	/** PARENT_CHILD_TEXT_URL, for components which are supporting this notation */
+	org_scn_community_shared_ContentNotationEnumfield PARENT_CHILD_TEXT_URL;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_DateViewTypeEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort type 
+ */
+class org_scn_community_shared_DateViewType extends Enum {
+
+	/** Day */
+	org_scn_community_shared_DateViewTypeEnumfield Day;
+       
+	/** Week */
+	org_scn_community_shared_DateViewTypeEnumfield Week;
+
+	/** Month */
+	org_scn_community_shared_DateViewTypeEnumfield Month;
+
+	/** Year */
+	org_scn_community_shared_DateViewTypeEnumfield Year;
+
+	/** Custom_Week */
+	org_scn_community_shared_DateViewTypeEnumfield Custom_Week;
+
+	/** Custom_Duration */
+	org_scn_community_shared_DateViewTypeEnumfield Custom_Duration;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_DimensionSetEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort direction 
+ */
+class org_scn_community_shared_DimensionSet extends Enum {
+
+	/** ALL_DIMENSIONS */
+	org_scn_community_shared_DimensionSetEnumfield All;
+       
+	/** RESULT_SET_DIMENSIONS */
+	org_scn_community_shared_DimensionSetEnumfield Resultset;
+
+	/** CUSTOM_DIMENSIONS */
+	org_scn_community_shared_DimensionSetEnumfield Custom;
+}
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_DecimalPlacesEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants definition 
+ */
+class org_scn_community_shared_DecimalPlaces extends Enum {
+
+	/** 0 */
+	org_scn_community_shared_DecimalPlacesEnumfield D0;
+       
+	/** 1 */
+	org_scn_community_shared_DecimalPlacesEnumfield D1;
+
+	/** 2 */
+	org_scn_community_shared_DecimalPlacesEnumfield D2;
+
+	/** 3 */
+	org_scn_community_shared_DecimalPlacesEnumfield D3;
+
+	/** 4 */
+	org_scn_community_shared_DecimalPlacesEnumfield D4;
+
+	/** 5 */
+	org_scn_community_shared_DecimalPlacesEnumfield D5;
+
+	/** 6 */
+	org_scn_community_shared_DecimalPlacesEnumfield D6;
+
+	/** 7 */
+	org_scn_community_shared_DecimalPlacesEnumfield D7;
+
+	/** 8 */
+	org_scn_community_shared_DecimalPlacesEnumfield D8;
+
+	/** 9 */
+	org_scn_community_shared_DecimalPlacesEnumfield D9;
+
+	/** 10 */
+	org_scn_community_shared_DecimalPlacesEnumfield D10;
+
+	/** 11 */
+	org_scn_community_shared_DecimalPlacesEnumfield D11;
+
+	/** 12 */
+	org_scn_community_shared_DecimalPlacesEnumfield D12;
+
+	/** 13 */
+	org_scn_community_shared_DecimalPlacesEnumfield D13;
+
+	/** 14 */
+	org_scn_community_shared_DecimalPlacesEnumfield D14;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_FormatStyleEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort type 
+ */
+class org_scn_community_shared_FormatStyle extends Enum {
+
+	/** Short */
+	org_scn_community_shared_FormatStyleEnumfield Short;
+       
+	/** Medium */
+	org_scn_community_shared_FormatStyleEnumfield Medium;
+
+	/** Long */
+	org_scn_community_shared_FormatStyleEnumfield Long;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_FormattingOperatorEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort type 
+ */
+class org_scn_community_shared_FormattingOperator extends Enum {
+
+	/** Use_First */
+	org_scn_community_shared_FormattingOperatorEnumfield Use_First;
+       
+	/** Use_Last */
+	org_scn_community_shared_FormattingOperatorEnumfield Use_Last;
+
+	/** Collect */
+	org_scn_community_shared_FormattingOperatorEnumfield Collect;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_HorizontalAlignEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort type 
+ */
+class org_scn_community_shared_HorizontalAlign extends Enum {
+
+	/** Left */
+	org_scn_community_shared_HorizontalAlignEnumfield Left;
+       
+	/** Right */
+	org_scn_community_shared_HorizontalAlignEnumfield Right;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_ImageSizeEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify field 
+ */
+class org_scn_community_shared_ImageSize extends Enum {
+
+	/** 16x16 pixels */
+	org_scn_community_shared_ImageSizeEnumfield Size_16px;
+
+	/** 32x32 pixels */
+	org_scn_community_shared_ImageSizeEnumfield Size_32px;
+
+	/** 64x64 pixels */
+	org_scn_community_shared_ImageSizeEnumfield Size_64px;
+	
+	/** 128x128 pixels */
+	org_scn_community_shared_ImageSizeEnumfield Size_128px;
+}
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_MemberDisplayEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort type 
+ */
+class org_scn_community_shared_MemberDisplay extends Enum {
+
+	/** Text */
+	org_scn_community_shared_MemberDisplayEnumfield Text;
+       
+	/** Text Value */
+	org_scn_community_shared_MemberDisplayEnumfield Text_Value;
+
+	/** Text Key*/
+	org_scn_community_shared_MemberDisplayEnumfield Text_Key;
+
+	/** Text Count*/
+	org_scn_community_shared_MemberDisplayEnumfield Text_Count;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_MemberSelectionEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify member selection 
+ */
+class org_scn_community_shared_MemberSelection extends Enum {
+
+	/** Top */
+	org_scn_community_shared_MemberSelectionEnumfield Top;
+	
+	/** Bottom */
+	org_scn_community_shared_MemberSelectionEnumfield Bottom;
+		
+	/** Both */
+	org_scn_community_shared_MemberSelectionEnumfield Both;
+}
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_NavigationTypeEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort type 
+ */
+class org_scn_community_shared_NavigationType extends Enum {
+
+	/** PAGINATOR */
+	org_scn_community_shared_NavigationTypeEnumfield Paginator;
+       
+	/** SCROLLBAR */
+	org_scn_community_shared_NavigationTypeEnumfield Scrollbar;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_OrientationEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify
+ */
+class org_scn_community_shared_Orientation extends Enum {
+
+	/** Horizontal */
+	org_scn_community_shared_OrientationEnumfield Horizontal;
+       
+	/** Vertical */
+	org_scn_community_shared_OrientationEnumfield Vertical;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_OrientationTypeEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort type 
+ */
+class org_scn_community_shared_OrientationType extends Enum {
+
+	/** Horizontal Top */
+	org_scn_community_shared_OrientationTypeEnumfield HorizontalTop;
+       
+	/** Horizontal Bottom */
+	org_scn_community_shared_OrientationTypeEnumfield HorizontalBottom;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_PlacementTypeEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort direction 
+ */
+class org_scn_community_shared_PlacementType extends Enum {
+
+	/** Auto */
+	org_scn_community_shared_PlacementTypeEnumfield Auto;
+       
+	/** Horizontal */
+	org_scn_community_shared_PlacementTypeEnumfield Horizontal;
+
+	/** Vertical */
+	org_scn_community_shared_PlacementTypeEnumfield Vertical;
+
+	/** Left */
+	org_scn_community_shared_PlacementTypeEnumfield Left;
+	
+	/** Right */
+	org_scn_community_shared_PlacementTypeEnumfield Right;
+	
+	/** Top */
+	org_scn_community_shared_PlacementTypeEnumfield Top;
+	
+	/** Bottom */
+	org_scn_community_shared_PlacementTypeEnumfield Bottom;
+	
+	/** After */
+	org_scn_community_shared_PlacementTypeEnumfield After;
+	
+	/** Before */
+	org_scn_community_shared_PlacementTypeEnumfield Before;
+}
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_SelectionStateEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify field 
+ */
+class org_scn_community_shared_SelectionState extends Enum {
+
+	/** Checked */
+	org_scn_community_shared_SelectionStateEnumfield Checked;
+       
+	/** Unchecked */
+	org_scn_community_shared_SelectionStateEnumfield Unchecked;
+
+	/** Mixed */
+	org_scn_community_shared_SelectionStateEnumfield Mixed;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_SelectionTypeEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort type 
+ */
+class org_scn_community_shared_SelectionType extends Enum {
+
+	/** Single */
+	org_scn_community_shared_SelectionTypeEnumfield Single;
+       
+	/** Range */
+	org_scn_community_shared_SelectionTypeEnumfield Range;
+
+	/** Multiple */
+	org_scn_community_shared_SelectionTypeEnumfield Multiple;
+	
+	/** Single Toggle */
+	org_scn_community_shared_SelectionTypeEnumfield SingleToggle;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_SecondValueContentEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify field 
+ */
+class org_scn_community_shared_SecondValueContent extends Enum {
+
+	/** Value */
+	org_scn_community_shared_SecondValueContentEnumfield Value;
+       
+	/** Key */
+	org_scn_community_shared_SecondValueContentEnumfield Key;
+
+	/** Count */
+	org_scn_community_shared_SecondValueContentEnumfield Count;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_SortDirectionEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort direction 
+ */
+class org_scn_community_shared_SortDirection extends Enum {
+
+	/** ASCENDING */
+	org_scn_community_shared_SortDirectionEnumfield Ascending;
+       
+	/** DESCENDING */
+	org_scn_community_shared_SortDirectionEnumfield Descending;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_SelectionTypeEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort type 
+ */
+class org_scn_community_shared_SelectionType extends Enum {
+
+	/** Single */
+	org_scn_community_shared_SelectionTypeEnumfield Single;
+       
+	/** Range */
+	org_scn_community_shared_SelectionTypeEnumfield Range;
+
+	/** Multiple */
+	org_scn_community_shared_SelectionTypeEnumfield Multiple;
+	
+	/** Single Toggle */
+	org_scn_community_shared_SelectionTypeEnumfield SingleToggle;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_SortTypeEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort type 
+ */
+class org_scn_community_shared_SortType extends Enum {
+
+	/** Default */
+	org_scn_community_shared_SortTypeEnumfield Default;
+       
+	/** Alphabetical */
+	org_scn_community_shared_SortTypeEnumfield Alphabetical;
+
+	/** Count */
+	org_scn_community_shared_SortTypeEnumfield Count;
+	
+	/** Selected */
+	org_scn_community_shared_SortTypeEnumfield Selected;
+
+	/** Value */
+	org_scn_community_shared_SortTypeEnumfield Value;
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_WrappingEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify
+ */
+class org_scn_community_shared_Wrapping extends Enum {
+
+	/** None */
+	org_scn_community_shared_WrappingEnumfield None;
+       
+	/** Off */
+	org_scn_community_shared_WrappingEnumfield Off;
+
+	/** Soft */
+	org_scn_community_shared_WrappingEnumfield Soft;
+
+	/** Hard */
+	org_scn_community_shared_WrappingEnumfield Hard;
+}
+
+/**
+	Holder for Dimension, Member. You can access the content as in below example.
+	<br>
+	var content = COMPONENT.getSelectedElementsArray();<br>
+	
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.DimensionMemberArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.DimensionMember<br>
+		var elDimension = element.dimension;<br>
+		var elMember = element.member;<br>
+	});
+ */
+class org.scn.community.shared.DimensionMember {
+  String dimension;
+  String member;
+}
+
+/**
+	Array for org.scn.community.shared.DimensionMember. You can use this array as in below example.
+	<br>
+	var content = COMPONENT.getSelectedElementsArray();<br>
+	<br>
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.DimensionMemberArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.DimensionMemberValue<br>
+		var elDimension = element.dimension;<br>
+		var elMember = element.member;<br>
+	});
+ */
+class org.scn.community.shared.DimensionMemberArray extends Array {
+	org.scn.community.shared.DimensionMemberArray (org.scn.community.shared.DimensionMember b);
+}
+
+
+class org.scn.community.shared.HierarchyMember {
+	int 		ID;
+	String 		key;
+	String 		text;
+	int 		level;
+	String 		type;
+	int 		parentID;
+	String 		parentKey;
+	boolean 	isLeaf;
+	String 		nodeState;
+}
+
+class org.scn.community.shared.HierarchyMemberArray extends Array {
+	org.scn.community.shared.HierarchyMemberArray (org.scn.community.shared.HierarchyMember b);
+}
+/**
+	Holder for Key, Text. You can access the content as in below example.
+	<br>
+	var content = COMPONENT.getSelectedElementsArray();<br>
+	
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.KeyArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.Key<br>
+		var elKey = element.key;<br>
+	});
+ */
+class org.scn.community.shared.Key {
+  String key;
+}
+
+/**
+	Array for org.scn.community.shared.KeyText. You can use this array as in below example.
+	<br>
+	var content = COMPONENT.getSelectedElementsArray();<br>
+	<br>
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.KeyArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.KeyValue<br>
+		var elKey = element.key;<br>
+	});
+ */
+class org.scn.community.shared.KeyArray extends Array {
+	org.scn.community.shared.KeyArray (org.scn.community.shared.Key b);
+}
+
+/**
+	Holder for Key, Label. You can access the content as in below example.
+	<br>
+	var content = COMPONENT.getSelectedElementsArray();<br>
+	
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.KeyLabelArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.KeyLabel<br>
+		var elKey = element.key;<br>
+		var elLabel = element.label;<br>
+	});
+ */
+class org.scn.community.shared.KeyLabel {
+  String key;
+  String label;
+}
+
+/**
+	Array for org.scn.community.shared.KeyLabel. You can use this array as in below example.
+	<br>
+	var content = COMPONENT.getSelectedElementsArray();<br>
+	<br>
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.KeyLabelArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.KeyLabelValue<br>
+		var elKey = element.key;<br>
+		var elLabel = element.label;<br>
+	});
+ */
+class org.scn.community.shared.KeyLabelArray extends Array {
+	org.scn.community.shared.KeyLabelArray (org.scn.community.shared.KeyLabel b);
+}
+
+/**
+	Holder for Key, Text. You can access the content as in below example.
+	<br>
+	var content = COMPONENT.getSelectedElementsArray();<br>
+	
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.KeyTextArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.KeyText<br>
+		var elKey = element.key;<br>
+		var elText = element.text;<br>
+	});
+ */
+class org.scn.community.shared.KeyText {
+  String key;
+  String text;
+}
+
+/**
+	Array for org.scn.community.shared.KeyText. You can use this array as in below example.
+	<br>
+	var content = COMPONENT.getSelectedElementsArray();<br>
+	<br>
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.KeyTextArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.KeyTextValue<br>
+		var elKey = element.key;<br>
+		var elText = element.text;<br>
+	});
+ */
+class org.scn.community.shared.KeyTextArray extends Array {
+	org.scn.community.shared.KeyTextArray (org.scn.community.shared.KeyText b);
+}
+
+/**
+	Holder for Key, Label, Value. You can access the content as in below example.
+	<br>
+	var content = COLLECTION_1.getAsKeyLabelValueArray();<br>
+	
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.KeyLabelValueArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.KeyLabelValue<br>
+		var elKey = element.key;<br>
+		var elLabel = element.label;<br>
+	 	var elValue = "( " + element.value + " )");<br>
+	});
+ */
+class org.scn.community.shared.KeyLabelValue {
+  String key;
+  String label;
+  float value;
+}
+
+/**
+	Array for org.scn.community.shared.KeyLabelValue. You can use this array as in below example.
+	<br>
+	var content = COLLECTION_1.getAsKeyLabelValueArray();<br>
+	<br>
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.KeyLabelValueArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.KeyLabelValue<br>
+		var elKey = element.key;<br>
+		var elLabel = element.label;<br>
+	 	var elValue = "( " + element.value + " )");<br>
+	});
+ */
+class org.scn.community.shared.KeyLabelValueArray extends Array {
+	org.scn.community.shared.KeyLabelValueArray (org.scn.community.shared.KeyLabelValue b);
+}
+
+/**
+	Holder for Key, Label, Value + param1, param2, param3. You can access the content as in below example.
+	<br>
+	var content = COLLECTION_1.getAsKeyLabelValueProperty();<br>
+	
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.KeyLabelValuePropertyArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.KeyLabelValueProperty<br>
+		var elKey = element.key;<br>
+		var elLabel = element.label;<br>
+	 	var elValue = "( " + element.value + " )");<br>
+	 	<br>
+	 	var param1 = element.property1;<br>
+	 	var param2 = element.property2;<br>
+	 	var param3 = element.property3;<br>
+	});
+ */
+class org.scn.community.shared.KeyLabelValueProperty {
+	String key;
+	String label;
+	float value;
+	String prop1;
+	String prop2;
+	String prop3;
+}
+
+/**
+Array for org.scn.community.shared.KeyLabelValueProperty. You can use this array as in below example.
+<br>
+var content = COLLECTION_1.getAsKeyLabelValuePropertyArray();<br>
+<br>
+// a loop for all entries<br>
+// content is of type org.scn.community.shared.KeyLabelValuePropertyArray<br>
+content.forEach(function(element, index) {<br>
+
+	// element is of type org.scn.community.shared.KeyLabelValueProperty<br>
+	var elKey = element.key;<br>
+	var elLabel = element.label;<br>
+ 	var elValue = "( " + element.value + " )");<br>
+ 	<br>
+ 	var param1 = element.prop1;<br>
+ 	var param2 = element.prop2;<br>
+ 	var param3 = element.prop3;<br>
+ });
+*/
+class org.scn.community.shared.KeyLabelValuePropertyArray extends Array {
+	org.scn.community.shared.KeyLabelValuePropertyArray (org.scn.community.shared.KeyLabelValueProperty b);
+}
+
+/**
+	Holder for Name, Value. You can access the content as in below example.
+	<br>
+	var content = COMPONENT.getSelectedElementsArray();<br>
+	
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.NameValueArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.NameValue<br>
+		var elName = element.name;<br>
+		var elValue = element.value;<br>
+	});
+ */
+class org.scn.community.shared.NameValue {
+  String name;
+  String value;
+}
+
+/**
+	Array for org.scn.community.shared.NameValue. You can use this array as in below example.
+	<br>
+	var content = COMPONENT.getSelectedElementsArray();<br>
+	<br>
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.NameValueArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.NameValueValue<br>
+		var elName = element.name;<br>
+		var elValue = element.value;<br>
+	});
+ */
+class org.scn.community.shared.NameValueArray extends Array {
+	org.scn.community.shared.NameValueArray (org.scn.community.shared.NameValue b);
+}
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_ValidationStateEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify field 
+ */
+class org_scn_community_shared_ValidationState extends Enum {
+
+	/** None */
+	org_scn_community_shared_ValidationStateEnumfield None;
+       
+	/** Error */
+	org_scn_community_shared_ValidationStateEnumfield Error;
+
+	/** Success */
+	org_scn_community_shared_ValidationStateEnumfield Success;
+	
+	/** Warning */
+	org_scn_community_shared_ValidationStateEnumfield Warning;
+}
+
+/**
+	Holder for value. You can use the content as in below example.
+	<br>
+	var content = COLLECTION_1.getAsValueTextArray();<br>
+	<br>
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.ValueTextArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.ValueText<br>
+		var elValue = element.value;<br>
+		var elText = element.text;<br>
+	});
+*/
+class org.scn.community.shared.ValueText {
+  String value;
+  String text;
+}
+
+/**
+	Array for org.scn.community.shared.ValueText. You can use this array as in below example.
+	<br>
+	var content = ARRAY_1.getAsValueTextArray();<br>
+	<br>
+	// a loop for all entries<br>
+	// content is of type org.scn.community.shared.ValueTextArray<br>
+	content.forEach(function(element, index) {<br>
+	
+		// element is of type org.scn.community.shared.ValueText<br>
+		var elValue = element.value;<br>
+		var elText = element.text;<br>
+	});
+*/
+class org.scn.community.shared.ValueTextArray extends Array {
+	org.scn.community.shared.ValueTextArray (org.scn.community.shared.ValueText b);
+}

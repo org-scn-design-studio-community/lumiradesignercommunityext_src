@@ -1,0 +1,622 @@
+
+/**
+ * Generated ZTL Class for CheckBoxGroup
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.CheckBoxGroup extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Checkbox Width (Horizontal) Property
+	 */	
+	void setCheckboxWidth( /**Checkbox Width (Horizontal)*/ int checkboxWidth){*
+		this.checkboxWidth = checkboxWidth;
+	*}
+
+	/**
+	 * Gets Checkbox Width (Horizontal) Property
+	 */	
+	int getCheckboxWidth() {*
+		return this.checkboxWidth;
+	*}
+
+	/**
+	 * Clean All Elements from the Array.
+	 */	
+	void cleanAllElements (){*
+		this.cleanAll = true;
+
+		var elementsArray = [];
+		this.elements = JSON.stringify(elementsArray);
+	*}
+
+	/**
+	 * Remove All Elements from the Array.
+	 * You can use also <code>cleanAllElements()</code>
+	 */	
+	@Visibility(deprecated)
+	void removeAllElements (){*
+		this.cleanAll = true;
+
+		var elementsArray = [];
+		this.elements = JSON.stringify(elementsArray);
+	*}
+
+	/** Adds a root element containing key [String], text [String], url [String], selected [boolean].
+
+ 	<example>
+	You want to add 2 root elements
+	<code>
+	CHECKBOXGROUP.addElement(key [String], text [String], url [String], selected [boolean]);<br>
+	CHECKBOXGROUP.addElement(key [String], text [String], url [String], selected [boolean]);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void addElement (
+			/**Unique Key*/String key, 
+			/**Given Text*/String text, 
+			/**Given Url*/String url, 
+			/**Selected*/boolean selected
+			) {*
+
+		
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			text:text, 
+			url:url, 
+			selected:selected
+			};
+
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			this.elements = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.elements);
+
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				alreadyFound = true;
+				break;
+			}
+		}
+
+		if(!alreadyFound) {
+			elementsJson.push(itemDef);
+		}
+
+		this.elements = JSON.stringify(elementsJson);
+	*}
+	
+	/** Removes a root element by key.
+
+ 	<example>
+	You want to remove root element
+	<code>
+	CHECKBOXGROUP.removeElement(String key);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void removeElement (
+			String key
+			) {*
+
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			this.elements = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.elements);
+
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson.splice(i,1);
+				break;
+			}
+		}
+
+		// remove all items with this parent
+		for (var i = elementsJson.length - 1; i >= 0; i--){
+			if (elementsJson[i].parentKey == key) {
+				elementsJson.splice(i,1);
+			}
+		}
+
+		this.elements = JSON.stringify(elementsJson);
+	*}
+
+	/** Insert a root element by index.
+
+ 	<example>
+	You want to insert a root element
+	<code>
+	CHECKBOXGROUP.insertElement(index [int], key [String], text [String], url [String], selected [boolean]);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void insertElement (
+			/**Index to Insert (0-based)*/int insertionIndex0based,
+			/**Unique Key*/String key, 
+			/**Given Text*/String text, 
+			/**Given Url*/String url, 
+			/**Selected*/boolean selected
+			) {*
+
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			this.elements = "[]";
+		}
+		
+		var elementsJson = JSON.parse(this.elements);
+		var newElementsJson = [];
+
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			text:text, 
+			url:url, 
+			selected:selected
+		};
+
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (i == insertionIndex0based) {
+				newElementsJson.push(itemDef);
+			}
+
+			newElementsJson.push(elementsJson[i]);
+		}
+
+		this.elements = JSON.stringify(newElementsJson);
+	*}
+
+	/**
+	 * Updates given Element<br/>
+	 */
+	void updateElement (
+			/**Unique Key*/String key, 
+			/**Given Text*/String text, 
+			/**Given Url*/String url, 
+			/**Selected*/boolean selected
+			) 
+	{*
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			this.elements = "[]";
+		}
+
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			text:text, 
+			url:url, 
+			selected:selected
+		};
+
+		var elementsJson = JSON.parse(this.elements);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == elementKey) {
+				elementsJson[i] = itemDef;
+				break;
+			}
+		}
+
+		this.elements = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Returns Key at given Index<br/>
+	 */
+	String getElementAtIndex (
+			/**Index to pick the key*/ int index0based
+			) 
+	{*
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			this.elements = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.elements);
+
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (index0based == i) {
+				return elementsJson[i].key;
+			}
+		}
+
+		return "";
+	*}
+
+	/**
+	 * Gets Elements As JSON String
+	 */	
+	String getElementsAsJSON() {*
+		var jsonObject = JSON.parse(this.elements);
+		return JSON.stringify(jsonObject, null, 4);
+	*}
+
+	/**
+	 * Cleans All Elements
+	 */	
+	String cleanAllElements() {*
+		this.elements = "[]";
+	*}
+	
+	/**
+	 * Sets the Text for Element keys<br/>
+	 */
+	void setElementTexts (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Text */ String text
+			) 
+	{*
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.elements);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].text = text;
+					break;
+				}
+			}
+		}
+		
+		this.elements = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Text for Element Key<br/>
+	 */
+	void setElementText (
+			/**/ String key,
+			/**/ String text
+			) 
+	{*
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elements);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].text = text;
+				break;
+			}
+		}
+
+		this.elements = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Text for Element Key<br/>
+	 */
+	String getElementText (
+			/**/ String key
+			) 
+	{*
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elements);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].text;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Url for Element keys<br/>
+	 */
+	void setElementUrls (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Url */ String url
+			) 
+	{*
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.elements);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].url = url;
+					break;
+				}
+			}
+		}
+		
+		this.elements = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Url for Element Key<br/>
+	 */
+	void setElementUrl (
+			/**/ String key,
+			/**/ String url
+			) 
+	{*
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elements);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].url = url;
+				break;
+			}
+		}
+
+		this.elements = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Url for Element Key<br/>
+	 */
+	String getElementUrl (
+			/**/ String key
+			) 
+	{*
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elements);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].url;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Selected for Element keys<br/>
+	 */
+	void setElementSelecteds (
+			/**/ String keys,
+			/**/ String separator
+			) 
+	{*
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.elements);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			// clean all
+			elementsJson[i].selected = false;
+			
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].selected = true;
+					break;
+				}
+			}
+		}
+		
+		this.elements = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Selected for Element Key<br/>
+	 */
+	void setElementSelected (
+			/**/ String key,
+			/**/ boolean selected
+			) 
+	{*
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elements);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].selected = selected;
+				break;
+			}
+		}
+
+		this.elements = JSON.stringify(elementsJson);
+	*}
+
+		
+	/**
+	 * Clean all Selected of Element keys<br/>
+	 */
+	void cleanAllElementSelecteds (
+			) 
+	{*
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			return;
+		}
+	
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			// clean all
+			elementsJson[i].selected = false;
+		}
+		
+		this.elements = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Selected for Element Key<br/>
+	 */
+	String getElementSelected (
+			/**/ String key
+			) 
+	{*
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elements);
+
+		var value = undefined;
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].selected;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+
+	/**
+	 * Returns the Selected keys<br/>
+	 */
+	org.scn.community.shared.KeyArray getElementSelectedKeysArray (
+			) 
+	{*
+		if (this.elements === undefined || this.elements === "" || this.elements === "<delete>"){
+			return [];
+		}
+		
+		var elementsJson = JSON.parse(this.elements);
+		
+		var newElementsJson = [];
+		
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].selected == true) {
+				newElementsJson.push({"key": elementsJson[i].key});
+			}
+		}
+		
+		return newElementsJson;
+	*}
+
+
+
+	/**
+	 * Sets Fallback Picture Url Property
+	 */	
+	void setFallbackPicture( /**Fallback Picture Url*/ String fallbackPicture){*
+		this.fallbackPicture = fallbackPicture;
+	*}
+
+	/**
+	 * Gets Fallback Picture Url Property
+	 */	
+	String getFallbackPicture() {*
+		return this.fallbackPicture;
+	*}
+
+
+
+	/**
+	 * Sets Size Of The Picture Property by String
+	 */	
+	void setPictureSizeByString( /**Size Of The Picture*/ String pictureSize){*
+		this.pictureSize = pictureSize;
+	*}
+
+	/**
+	 * Gets Size Of The Picture Property as String
+	 */	
+	String getPictureSizeAsString() {*
+		return this.pictureSize;
+	*}
+	
+	/**
+	 * Sets Size Of The Picture Property by Choice Option
+	 */	
+	void setPictureSize( /**Size Of The Picture*/ org_scn_community_shared_ConstImageSizeEnumfield pictureSize){*
+		this.pictureSize = pictureSize;
+	*}
+	
+	/**
+	 * Gets Size Of The Picture Property as Choice Option
+	 */	
+	org_scn_community_shared_ConstImageSizeEnumfield getPictureSize() {*
+		return this.pictureSize;
+	*}
+
+	/**
+	 * Sets Layout Property by String
+	 */	
+	void setSelLayoutByString( /**Layout*/ String selLayout){*
+		this.selLayout = selLayout;
+	*}
+
+	/**
+	 * Gets Layout Property as String
+	 */	
+	String getSelLayoutAsString() {*
+		return this.selLayout;
+	*}
+	
+	/**
+	 * Sets Layout Property by Choice Option
+	 */	
+	void setSelLayout( /**Layout*/ org_scn_community_shared_Enumfield selLayout){*
+		this.selLayout = selLayout;
+	*}
+	
+	/**
+	 * Gets Layout Property as Choice Option
+	 */	
+	org_scn_community_shared_Enumfield getSelLayout() {*
+		return this.selLayout;
+	*}
+
+	/**
+	 * Sets Use Pictures Property
+	 */	
+	void setWithPicture( /**Use Pictures*/ boolean withPicture){*
+		this.withPicture = withPicture;
+	*}
+
+	/**
+	 * Gets Use Pictures Property
+	 */	
+	boolean isWithPicture() {*
+		return this.withPicture;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}

@@ -1,0 +1,175 @@
+
+/**
+ * Generated ZTL Class for DateRangeScroller
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.DateRangeScroller extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Date Property
+	 */	
+	void setDate( /**Date*/ String date){*
+		this.DDate = date;
+	*}
+
+	/**
+	 * Gets Date Property
+	 */	
+	String getDate() {*
+		return this.DDate;
+	*}
+
+	/**
+	 * Gets End Date Property
+	 */	
+	String getEndDate() {*
+		return this.DEndDate;
+	*}
+
+	/**
+	 * Sets Language Dependent Format Property
+	 */	
+	void setLangFormat( /**Language Dependent Format*/ boolean langFormat){*
+		this.DLangFormat = langFormat;
+	*}
+
+	/**
+	 * Gets Language Dependent Format Property
+	 */	
+	boolean isLangFormat() {*
+		return this.DLangFormat;
+	*}
+
+	/**
+	 * Sets Custom Pattern Property
+	 */	
+	void setLangPattern( /**Custom Pattern*/ String langPattern){*
+		this.DLangPattern = langPattern;
+	*}
+
+	/**
+	 * Gets Custom Pattern Property
+	 */	
+	String getLangPattern() {*
+		return this.DLangPattern;
+	*}
+
+	/**
+	 * Sets Custom Relative Property
+	 */	
+	void setLangRelative( /**Custom Relative*/ boolean langRelative){*
+		this.DLangRelative = langRelative;
+	*}
+
+	/**
+	 * Gets Custom Relative Property
+	 */	
+	boolean isLangRelative() {*
+		return this.DLangRelative;
+	*}
+
+	/**
+	 * Sets Custom Style Property by String
+	 */	
+	void setLangStyleByString( /**Custom Style*/ String langStyle){*
+		this.DLangStyle = langStyle;
+	*}
+
+	/**
+	 * Gets Custom Style Property as String
+	 */	
+	String getLangStyleAsString() {*
+		return this.DLangStyle;
+	*}
+	
+	/**
+	 * Sets Custom Style Property by Choice Option
+	 */	
+	void setLangStyle( /**Custom Style*/ org_scn_community_shared_FormatStyleEnumfield langStyle){*
+		this.DLangStyle = langStyle;
+	*}
+	
+	/**
+	 * Gets Custom Style Property as Choice Option
+	 */	
+	org_scn_community_shared_FormatStyleEnumfield getLangStyle() {*
+		return this.DLangStyle;
+	*}
+
+	/**
+	 * Sets Day Of Week To Start Property
+	 */	
+	void setSpecialDay( /**Day Of Week To Start*/ int specialDay){*
+		this.DSpecialDay = specialDay;
+	*}
+
+	/**
+	 * Gets Day Of Week To Start Property
+	 */	
+	int getSpecialDay() {*
+		return this.DSpecialDay;
+	*}
+
+	/**
+	 * Sets Duration Of Custom Range Property
+	 */	
+	void setSpecialDuration( /**Duration Of Custom Range*/ int specialDuration){*
+		this.DSpecialDuration = specialDuration;
+	*}
+
+	/**
+	 * Gets Duration Of Custom Range Property
+	 */	
+	int getSpecialDuration() {*
+		return this.DSpecialDuration;
+	*}
+
+	/**
+	 * Gets Start Date Property
+	 */	
+	String getStartDate() {*
+		return this.DStartDate;
+	*}
+
+	/**
+	 * Sets Range View Type Property by String
+	 */	
+	void setViewTypeByString( /**Range View Type*/ String viewType){*
+		this.DViewType = viewType;
+	*}
+
+	/**
+	 * Gets Range View Type Property as String
+	 */	
+	String getViewTypeAsString() {*
+		return this.DViewType;
+	*}
+	
+	/**
+	 * Sets Range View Type Property by Choice Option
+	 */	
+	void setViewType( /**Range View Type*/ org_scn_community_shared_DateViewTypeEnumfield viewType){*
+		this.DViewType = viewType;
+	*}
+	
+	/**
+	 * Gets Range View Type Property as Choice Option
+	 */	
+	org_scn_community_shared_DateViewTypeEnumfield getViewType() {*
+		return this.DViewType;
+	*}
+
+	/**
+	 * Gets Editable Property
+	 */	
+	boolean isEditable() {*
+		return this.editable;
+	*}
+
+
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}

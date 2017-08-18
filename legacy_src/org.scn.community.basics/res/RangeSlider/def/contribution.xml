@@ -1,0 +1,160 @@
+
+<component
+	id="RangeSlider"
+	title="Range Slider 2.0"
+	tooltip="Range Slider"
+	icon="res/RangeSlider/RangeSlider.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/RangeSlider/RangeSlider</requireJs>
+
+	<cssInclude>res/RangeSlider/RangeSlider.css</cssInclude>
+	
+	
+	<property
+		id="DLiveChangeActive"
+		type="boolean"
+		title="Activate Live Change Event (prototype)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="liveValue"
+		type="float"
+		title="First Value (Live)"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="liveValue2"
+		type="float"
+		title="Second Value (Live)"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="max"
+		type="float"
+		title="Maximum Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="min"
+		type="float"
+		title="Minimum Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onChange"
+		type="ScriptText"
+		title="On Change"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onLiveChange"
+		type="ScriptText"
+		title="On Live Change"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="smallStepWidth"
+		type="float"
+		title="Small Step Width"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="stepLabels"
+		type="boolean"
+		title="Step Labels"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="totalUnits"
+		type="int"
+		title="Total Units"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="value"
+		type="float"
+		title="First Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="value2"
+		type="float"
+		title="Second Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="vertical"
+		type="boolean"
+		title="Change To Vertical Orientation"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">30</defaultValue>
+		
+		<defaultValue property="DLiveChangeActive"><![CDATA[false]]></defaultValue>
+		<defaultValue property="liveValue"><![CDATA[0.0]]></defaultValue>
+		<defaultValue property="liveValue2"><![CDATA[0.0]]></defaultValue>
+		<defaultValue property="max"><![CDATA[100.0]]></defaultValue>
+		<defaultValue property="min"><![CDATA[0.0]]></defaultValue>
+		<defaultValue property="onChange"><![CDATA[]]></defaultValue>
+		<defaultValue property="onLiveChange"><![CDATA[]]></defaultValue>
+		<defaultValue property="smallStepWidth"><![CDATA[10]]></defaultValue>
+		<defaultValue property="stepLabels"><![CDATA[100]]></defaultValue>
+		<defaultValue property="totalUnits"><![CDATA[10]]></defaultValue>
+		<defaultValue property="value"><![CDATA[0.0]]></defaultValue>
+		<defaultValue property="value2"><![CDATA[100.0]]></defaultValue>
+		<defaultValue property="vertical"><![CDATA[false]]></defaultValue>
+
+	</initialization>
+
+</component>

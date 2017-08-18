@@ -1,0 +1,42 @@
+
+<component
+	id="JsonObject"
+	title="Json Object"
+	tooltip="Utility for work with Json Object"
+	icon="res/JsonObject/JsonObject.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="TECHNICAL_COMPONENTS"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/JsonObject/JsonObject</requireJs>
+
+	<cssInclude>res/JsonObject/JsonObject.css</cssInclude>
+	
+	
+	<property
+		id="contentJson"
+		type="String"
+		title="Properties"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		
+		<defaultValue property="contentJson"><![CDATA[{}]]></defaultValue>
+
+	</initialization>
+
+</component>

@@ -1,0 +1,13 @@
+
+/**
+ * Class for Tag Cloud
+ */
+
+class org.scn.community.databound.tagCloud extends org.scn.community.shared.DataComponent {
+
+/* Returns the Key of the currently selected Tree Element. */
+	String getSelectedNodeKey() {*
+		return this.selectedNode;
+	*}
+	
+}

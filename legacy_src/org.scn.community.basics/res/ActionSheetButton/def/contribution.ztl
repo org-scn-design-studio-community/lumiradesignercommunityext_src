@@ -1,0 +1,469 @@
+
+/**
+ * Generated ZTL Class for ActionSheetButton
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.ActionSheetButton extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Type Property by String
+	 */	
+	void setButtonTypeByString( /**Type*/ String buttonType){*
+		this.buttonType = buttonType;
+	*}
+
+	/**
+	 * Gets Type Property as String
+	 */	
+	String getButtonTypeAsString() {*
+		return this.buttonType;
+	*}
+	
+	/**
+	 * Sets Type Property by Choice Option
+	 */	
+	void setButtonType( /**Type*/ org_scn_community_shared_ButtonTypeEnumfield buttonType){*
+		this.buttonType = buttonType;
+	*}
+	
+	/**
+	 * Gets Type Property as Choice Option
+	 */	
+	org_scn_community_shared_ButtonTypeEnumfield getButtonType() {*
+		return this.buttonType;
+	*}
+
+	/**
+	 * Sets Icon Property
+	 */	
+	void setIcon( /**Icon*/ String icon){*
+		this.icon = icon;
+	*}
+
+	/**
+	 * Gets Icon Property
+	 */	
+	String getIcon() {*
+		return this.icon;
+	*}
+
+	/** Adds a root element containing key [String], text [String], icon [String].
+
+ 	<example>
+	You want to add 2 root elements
+	<code>
+	ACTIONSHEETBUTTON.addItem(key [String], text [String], icon [String]);<br>
+	ACTIONSHEETBUTTON.addItem(key [String], text [String], icon [String]);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void addItem (
+			/**Unique Property Key*/String key, 
+			/**Text*/String text, 
+			/**Icon*/String icon
+			) {*
+
+		
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			text:text, 
+			icon:icon
+			};
+
+		if (this.items === undefined || this.items === "" || this.items === "<delete>"){
+			this.items = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.items);
+
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				alreadyFound = true;
+				break;
+			}
+		}
+
+		if(!alreadyFound) {
+			elementsJson.push(itemDef);
+		}
+
+		this.items = JSON.stringify(elementsJson);
+	*}
+	
+	/** Removes a root element by key.
+
+ 	<example>
+	You want to remove root element
+	<code>
+	ACTIONSHEETBUTTON.removeItem(String key);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void removeItem (
+			String key
+			) {*
+
+		if (this.items === undefined || this.items === "" || this.items === "<delete>"){
+			this.items = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.items);
+
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson.splice(i,1);
+				break;
+			}
+		}
+
+		// remove all items with this parent
+		for (var i = elementsJson.length - 1; i >= 0; i--){
+			if (elementsJson[i].parentKey == key) {
+				elementsJson.splice(i,1);
+			}
+		}
+
+		this.items = JSON.stringify(elementsJson);
+	*}
+
+	/** Insert a root element by index.
+
+ 	<example>
+	You want to insert a root element
+	<code>
+	ACTIONSHEETBUTTON.insertItem(index [int], key [String], text [String], icon [String]);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void insertItem (
+			/**Index to Insert (0-based)*/int insertionIndex0based,
+			/**Unique Property Key*/String key, 
+			/**Text*/String text, 
+			/**Icon*/String icon
+			) {*
+
+		if (this.items === undefined || this.items === "" || this.items === "<delete>"){
+			this.items = "[]";
+		}
+		
+		var elementsJson = JSON.parse(this.items);
+		var newElementsJson = [];
+
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			text:text, 
+			icon:icon
+		};
+
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (i == insertionIndex0based) {
+				newElementsJson.push(itemDef);
+			}
+
+			newElementsJson.push(elementsJson[i]);
+		}
+
+		this.items = JSON.stringify(newElementsJson);
+	*}
+
+	/**
+	 * Updates given Item<br/>
+	 */
+	void updateItem (
+			/**Unique Property Key*/String key, 
+			/**Text*/String text, 
+			/**Icon*/String icon
+			) 
+	{*
+		if (this.items === undefined || this.items === "" || this.items === "<delete>"){
+			this.items = "[]";
+		}
+
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			text:text, 
+			icon:icon
+		};
+
+		var elementsJson = JSON.parse(this.items);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == elementKey) {
+				elementsJson[i] = itemDef;
+				break;
+			}
+		}
+
+		this.items = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Returns Key at given Index<br/>
+	 */
+	String getItemAtIndex (
+			/**Index to pick the key*/ int index0based
+			) 
+	{*
+		if (this.items === undefined || this.items === "" || this.items === "<delete>"){
+			this.items = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.items);
+
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (index0based == i) {
+				return elementsJson[i].key;
+			}
+		}
+
+		return "";
+	*}
+
+	/**
+	 * Gets Items As JSON String
+	 */	
+	String getItemsAsJSON() {*
+		var jsonObject = JSON.parse(this.items);
+		return JSON.stringify(jsonObject, null, 4);
+	*}
+
+	/**
+	 * Cleans All Items
+	 */	
+	String cleanAllItems() {*
+		this.items = "[]";
+	*}
+	
+	/**
+	 * Sets the Text for Item keys<br/>
+	 */
+	void setItemTexts (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Text */ String text
+			) 
+	{*
+		if (this.items === undefined || this.items === "" || this.items === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.items);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].text = text;
+					break;
+				}
+			}
+		}
+		
+		this.items = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Text for Item Key<br/>
+	 */
+	void setItemText (
+			/**/ String key,
+			/**/ String text
+			) 
+	{*
+		if (this.items === undefined || this.items === "" || this.items === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.items);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].text = text;
+				break;
+			}
+		}
+
+		this.items = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Text for Item Key<br/>
+	 */
+	String getItemText (
+			/**/ String key
+			) 
+	{*
+		if (this.items === undefined || this.items === "" || this.items === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.items);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].text;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Icon for Item keys<br/>
+	 */
+	void setItemIcons (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Icon */ String icon
+			) 
+	{*
+		if (this.items === undefined || this.items === "" || this.items === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.items);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].icon = icon;
+					break;
+				}
+			}
+		}
+		
+		this.items = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Icon for Item Key<br/>
+	 */
+	void setItemIcon (
+			/**/ String key,
+			/**/ String icon
+			) 
+	{*
+		if (this.items === undefined || this.items === "" || this.items === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.items);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].icon = icon;
+				break;
+			}
+		}
+
+		this.items = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Icon for Item Key<br/>
+	 */
+	String getItemIcon (
+			/**/ String key
+			) 
+	{*
+		if (this.items === undefined || this.items === "" || this.items === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.items);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].icon;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+
+
+
+
+
+	/**
+	 * Sets Placement Property by String
+	 */	
+	void setPlacementByString( /**Placement*/ String placement){*
+		this.placement = placement;
+	*}
+
+	/**
+	 * Gets Placement Property as String
+	 */	
+	String getPlacementAsString() {*
+		return this.placement;
+	*}
+	
+	/**
+	 * Sets Placement Property by Choice Option
+	 */	
+	void setPlacement( /**Placement*/ org_scn_community_shared_PlacementEnumfield placement){*
+		this.placement = placement;
+	*}
+	
+	/**
+	 * Gets Placement Property as Choice Option
+	 */	
+	org_scn_community_shared_PlacementEnumfield getPlacement() {*
+		return this.placement;
+	*}
+
+	/**
+	 * Gets Selected Item Property
+	 */	
+	String getSelectedItem() {*
+		return this.selectedItem;
+	*}
+
+	/**
+	 * Gets Selected Key Property
+	 */	
+	String getSelectedKey() {*
+		return this.selectedKey;
+	*}
+
+	/**
+	 * Sets Title Property
+	 */	
+	void setText( /**Title*/ String text){*
+		this.text = text;
+	*}
+
+	/**
+	 * Gets Title Property
+	 */	
+	String getText() {*
+		return this.text;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}

@@ -1,0 +1,2 @@
+Component.subclass(myComponentData.fullComponentName, myComponentData.instance);
+

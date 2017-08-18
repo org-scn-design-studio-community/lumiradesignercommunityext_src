@@ -1,0 +1,101 @@
+
+<component
+	id="RatingIndicator"
+	title="Rating Indicator 2.0"
+	tooltip="Rating Indicator"
+	icon="res/RatingIndicator/RatingIndicator.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/RatingIndicator/RatingIndicator</requireJs>
+
+	<cssInclude>res/RatingIndicator/RatingIndicator.css</cssInclude>
+	
+	
+	<property
+		id="editable"
+		type="boolean"
+		title="Editable"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="iconHovered"
+		type="Url"
+		title="Icon Hovered"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="iconSelected"
+		type="Url"
+		title="Icon Selected"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="iconUnselected"
+		type="Url"
+		title="Icon Unselected"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="maxValue"
+		type="int"
+		title="Maximum Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onChange"
+		type="ScriptText"
+		title="On Change"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="value"
+		type="float"
+		title="Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">200</defaultValue>
+		<defaultValue property="HEIGHT">40</defaultValue>
+		
+		<defaultValue property="editable"><![CDATA[true]]></defaultValue>
+		<defaultValue property="iconHovered"><![CDATA[]]></defaultValue>
+		<defaultValue property="iconSelected"><![CDATA[]]></defaultValue>
+		<defaultValue property="iconUnselected"><![CDATA[]]></defaultValue>
+		<defaultValue property="maxValue"><![CDATA[5]]></defaultValue>
+		<defaultValue property="onChange"><![CDATA[]]></defaultValue>
+		<defaultValue property="value"><![CDATA[3.5]]></defaultValue>
+
+	</initialization>
+
+</component>

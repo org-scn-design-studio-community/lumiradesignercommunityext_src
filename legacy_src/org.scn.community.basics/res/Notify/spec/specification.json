@@ -1,0 +1,152 @@
+{
+	"msgtext" : {
+		"template" : "String",
+		"type" : "String",
+		"value" : "",
+		"visible": false,
+		"opts" : {
+			"ztlType": "String",
+			"ztlFunction": "-get",
+			"desc" : "Msgtext",
+			"cat" : "Display",
+			"tooltip" : "Msgtext",
+			"apsControl" : "text",
+			"noAps" : true,
+			"noZtl" : false
+		}
+	},
+	"msgtype" : {
+		"template" : "String",
+		"type" : "String",
+		"value" : "",
+		"visible": false,
+		"opts" : {
+			"ztlType": "String",
+			"ztlFunction": "-get",
+			"desc" : "Msgtype",
+			"cat" : "Display",
+			"tooltip" : "Msgtype",
+			"apsControl" : "text",
+			"noAps" : true,
+			"noZtl" : false
+		}
+	},
+	"shownote" : {
+		"template" : "String",
+		"type" : "String",
+		"value" : "",
+		"visible": false,
+		"opts" : {
+			"ztlType": "String",
+			"ztlFunction": "-get",
+			"desc" : "Shownote",
+			"cat" : "Display",
+			"tooltip" : "Shownote",
+			"apsControl" : "text",
+			"noAps" : true,
+			"noZtl" : false
+		}
+	},
+
+
+
+	"delay" : {
+		"template" : "int",
+		"type" : "int",
+		"value" : "3",
+		"visible": true,
+		"opts" : {
+			"ztlType": "int",
+			"ztlFunction": "",
+			"desc" : "Delay(Seconds)",
+			"cat" : "Display",
+			"tooltip" : "Delay(Seconds)",
+			"apsControl" : "spinner",
+			"noAps" : false,
+			"noZtl" : false
+		}
+	},
+	"layout" : {
+		"template" : "Choice",
+		"type" : "String",
+		"value" : "center",
+		"visible": true,
+		"opts" : {
+			"ztlType": "Choice",
+			"choiceType": "-",
+			"ztlFunction": "",
+			"desc" : "Layout",
+			"cat" : "Unsorted",
+			"tooltip" : "Layout",
+			"apsControl" : "combobox",
+			"options":[
+				{
+					"key" : "top",
+					"text" : "top"
+				},
+				{
+					"key" : "topCenter",
+					"text" : "topCenter"
+				},
+				{
+					"key" : "topLeft",
+					"text" : "topLeft"
+				},
+				{
+					"key" : "topRight",
+					"text" : "topRight"
+				},
+				{
+					"key" : "center",
+					"text" : "center"
+				},
+				{
+					"key" : "centerLeft",
+					"text" : "centerLeft"
+				},
+				{
+					"key" : "centerRight",
+					"text" : "centerRight"
+				},
+				{
+					"key" : "bottom",
+					"text" : "bottom"
+				},
+				{
+					"key" : "bottomCenter",
+					"text" : "bottomCenter"
+				},
+				{
+					"key" : "bottomLeft",
+					"text" : "bottomLeft"
+				},
+				{
+					"key" : "bottomRight",
+					"text" : "bottomRight"
+				}
+				
+            ],
+			"noAps" : false,
+			"noZtl" : false
+		}
+	},
+	"modal" : {
+		"template" : "boolean",
+		"type" : "boolean",
+		"value" : "true",
+		"visible": true,
+		"opts" : {
+			"ztlType": "boolean",
+			"ztlFunction": "",
+			"desc" : "Modal",
+			"cat" : "Display",
+			"tooltip" : "Modal",
+			"apsControl" : "checkbox",
+			"noAps" : false,
+			"noZtl" : false
+		}
+	},
+
+
+
+}

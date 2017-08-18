@@ -1,0 +1,148 @@
+	/**
+	 * Returns as Json String (indented)
+	 */
+	String getAsJSON (optional boolean noLinebreaks) {*
+		if(noLinebreaks == undefined) {noLinebreaks = false;}
+		
+		var jsonObject = JSON.parse(this.contentJson);
+		if(noLinebreaks) {
+			return JSON.stringify(jsonObject);
+		}
+		return JSON.stringify(jsonObject, null, 4);
+	*}
+	
+	/**
+	 * Returns as Json String
+	 */
+	JSON getAsJSONObject () {*
+		return JSON.parse(this.contentJson);
+	*}
+
+	/**
+	 * Returns casted to MultiDimFilter
+	 */
+	JSON getAsMultiDimFilter () {*
+		return JSON.parse(this.contentJson);
+	*}
+	
+	/**
+	 * Returns casted to MultiDimFilterExt
+	 */
+	JSON getAsMultiDimFilterExt () {*
+		return JSON.parse(this.contentJson);
+	*}
+	
+	String getValueAsString (String key) {*
+		var js = JSON.parse(this.contentJson);
+		var result = [];
+		if(js instanceof Array){
+			for(var i=0;i<js.length;i++){
+				var myObject = js[i];
+				if(myObject[key] != undefined){
+					result.push(myObject[key]);
+				}
+			}
+			return JSON.stringify(result);
+		}
+		else if(js[key] != undefined) {
+			return js[key];
+		}
+		
+		return "N/A";
+	*}
+
+	JSON getValueAsJsonObject (String key) {*
+		var js = JSON.parse(this.contentJson);
+	
+		var result = [];
+		if(js instanceof Array){
+			for(var i=0;i<js.length;i++){
+				var myObject = js[i];
+				if(myObject[key] != undefined){
+					result.push(myObject[key]);
+				}
+			}
+			return result;
+		}
+		else if(js[key] != undefined) {
+			var jsValue = js[key];
+			
+			return jsValue;
+		}
+
+   	    // not there, empty one
+		return {};
+	*}
+	
+	/**
+	 * Creates from a string value in notation "{'key':'value', 'key2':'value2'}"
+	 */
+	void createFromValue (String jsonValue) {*
+		var js = JSON.parse(jsonValue);
+		this.contentJson = JSON.stringify(js);
+	*}
+	
+	/**
+	 * Creates from different Json Object
+	 */
+	void createFromJSON (JSON json) {*
+		this.contentJson = JSON.stringify(json);
+	*}
+	
+	/**
+	 * Clears the Json Object to empty object
+	 */
+	void clear () {*
+		this.contentJson = "{}";
+	*}
+	
+	/**
+	Returns the content of property Return Headers as loopable name/value array.
+	<example>
+	You want to loop at values:
+	<code>
+	var content = POSTRESPONSEPARSER.getReturnHeadersAsNameValueArray();<br>
+	<br>
+	// a loop for all entries<br>
+	content.forEach(function(element, index) {<br>
+		LISTBOX_1.addItem(element.name, element.value);<br>
+	});
+	</code>
+	This LISTBOX_1 has now following values entries:<br>
+		<ul>
+		<li>key: k1; value: v1</li>
+		<li>key: k2; value: v2</li>
+		<li>key: k3; value: v3</li></ul>
+	</example>
+	*/
+	org.scn.community.shared.NameValueArray getReturnHeadersAsNameValueArray () {*
+		var s = this.contentJson;  
+		var js = []; 
+		if(s!="") js = JSON.parse(s);
+		
+		var tempA = [];
+		
+		if(js instanceof Array){
+			for(var i=0;i<js.length;i++){
+				var myObject = js[i];
+				var itemDef = { 
+					"name": "" + i, 
+					"value": myObject
+				};
+				
+				tempA.push(itemDef);
+			}
+			return result;
+		} else {
+			for (var iI in js) {
+				var itemDef = { 
+					"name": "" + iI, 
+					"value": js[iI]
+				};
+
+				tempA.push(itemDef);
+			}
+		}
+
+		return tempA;
+	*}

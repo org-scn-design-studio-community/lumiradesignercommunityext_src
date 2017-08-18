@@ -1,0 +1,27 @@
+
+<!-- Fiori LaunchPad Component -->
+<component id="LaunchPad"
+	title="Launch Pad 2.0"
+	tooltip="Fiori-Inspired LaunchPad/Tile Container"
+	icon="res/LaunchPad/LaunchPad.png"
+	handlerType="sapui5"
+	modes="commons m"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics">
+
+	<requireJs modes="commons">res/LaunchPad/LaunchPad_commons</requireJs>
+	<requireJs modes="m">res/LaunchPad/LaunchPad</requireJs>
+	
+  	<property group="Display" type="String" title="Tile Config" id="tileConfig" visible="false"/>
+  	<property group="Display" type="String" title="Selected Tile" id="selectedTile" visible="false"/>
+  	<property group="Events" type="ScriptText" title="On Tile Select" id="onTileSelect"/>
+  	<initialization>
+		<defaultValue property="tileConfig">[]</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+  		<defaultValue property="WIDTH">575</defaultValue>
+		<defaultValue property="HEIGHT">575</defaultValue>
+  	</initialization>
+</component>

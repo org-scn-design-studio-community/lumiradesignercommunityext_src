@@ -1,0 +1,122 @@
+
+<component
+	id="NotificationBar"
+	title="Notification Bar 2.0"
+	tooltip="Notification Bar"
+	icon="res/NotificationBar/NotificationBar.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/NotificationBar/NotificationBar</requireJs>
+
+	<cssInclude>res/NotificationBar/NotificationBar.css</cssInclude>
+	
+	
+	<property
+		id="categories"
+		type="String"
+		title="Categories"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="connectToCommonMessages"
+		type="boolean"
+		title="Connect To Common Messages"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="defaultImage"
+		type="Url"
+		title="Url For Default Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="deleteNotificationOnClick"
+		type="boolean"
+		title="Delete Notification When Clicked"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="minimize"
+		type="String"
+		title="Minimize function trigger"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="notifications"
+		type="String"
+		title="Notifications"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="removeAllOnMinimize"
+		type="boolean"
+		title="Remove All Notifications When Minimized"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="showOnNewNotifications"
+		type="boolean"
+		title="Show Notification Bar When New Notifications Are Available"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="splitNotificationsByPriority"
+		type="boolean"
+		title="Split Notifications By Priority"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">0</defaultValue>
+		<defaultValue property="WIDTH">auto</defaultValue>
+		<defaultValue property="HEIGHT">40</defaultValue>
+		
+		<defaultValue property="categories"><![CDATA[]]></defaultValue>
+		<defaultValue property="connectToCommonMessages"><![CDATA[false]]></defaultValue>
+		<defaultValue property="defaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="deleteNotificationOnClick"><![CDATA[false]]></defaultValue>
+		<defaultValue property="minimize"><![CDATA[]]></defaultValue>
+		<defaultValue property="notifications"><![CDATA[]]></defaultValue>
+		<defaultValue property="removeAllOnMinimize"><![CDATA[false]]></defaultValue>
+		<defaultValue property="showOnNewNotifications"><![CDATA[true]]></defaultValue>
+		<defaultValue property="splitNotificationsByPriority"><![CDATA[true]]></defaultValue>
+
+	</initialization>
+
+</component>

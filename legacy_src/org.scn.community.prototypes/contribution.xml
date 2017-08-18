@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GENERATED - DO NOT EDIT -->
+<sdkExtension
+	id="org.scn.community.prototypes"
+	title="Lumira Designer SCN Community Prototypes [Legacy]"
+
+	xmlns="http://www.sap.com/bi/zen/sdk"
+	version="3.0"
+	vendor="SCN Lumira Designer Community"
+	eula="Content is free for use and distribution under Apache License Version 2.0. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License. For details refer to https://github.com/org-scn-design-studio-community/sdkpackage//blob/master/LICENSE">
+
+  <license>
+   Apache License
+   Version 2.0, January 2004
+   http://www.apache.org/licenses/
+   https://github.com/org-scn-design-studio-community/sdkpackage//blob/master/LICENSE
+	 
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      &quot;License&quot; shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      &quot;Licensor&quot; shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      &quot;Legal Entity&quot; shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      &quot;control&quot; means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      &quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      &quot;Source&quot; form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      &quot;Object&quot; form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      &quot;Work&quot; shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      &quot;Derivative Works&quot; shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      &quot;Contribution&quot; shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, &quot;submitted&quot;
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as &quot;Not a Contribution.&quot;
+
+      &quot;Contributor&quot; shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a &quot;NOTICE&quot; text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+  </license>
+
+	<group
+		id="ScnCommunityPrototypes"
+		title="Scn Community Prototypes [Legacy]"/>
+
+<component
+	id="ApsTester"
+	title="Aps Tester"
+	tooltip="Application Property Sheet Tester"
+	icon="res/ApsTester/ApsTester.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityPrototypes"
+	databound="true"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ApsTester/ApsTester</requireJs>
+
+	<cssInclude>res/ApsTester/ApsTester.css</cssInclude>
+	
+	
+	<property
+		id="checkboxExample"
+		type="boolean"
+		title="Ignore Totals"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="checkboxOnlyGetterExample"
+		type="boolean"
+		title="Ignore Totals"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="colorExample"
+		type="Color"
+		title="Simple Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="comboboxExample"
+		type="String"
+		title="Simple Choice"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="data"
+		type="ResultSet"
+		title="Data"
+		group="DataBinding"
+		visible="true">
+
+		<option name="maxCells" value="100000" />
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+		<option name="presentationDelimiter" value=" | " />
+	</property>
+	<property
+		id="doublearray"
+		type="String"
+		title="Complex Array"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="paletteExample"
+		type="String"
+		title="Color Palette"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="singlearray"
+		type="String"
+		title="Single Array"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="spinnerExample"
+		type="int"
+		title="Some numbers"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="stringarray"
+		type="String"
+		title="Simple String Array"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="textExample"
+		type="String"
+		title="A saple text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">200</defaultValue>
+		<defaultValue property="HEIGHT">200</defaultValue>
+		
+		<defaultValue property="checkboxExample"><![CDATA[true]]></defaultValue>
+		<defaultValue property="checkboxOnlyGetterExample"><![CDATA[true]]></defaultValue>
+		<defaultValue property="colorExample"><![CDATA[]]></defaultValue>
+		<defaultValue property="comboboxExample"><![CDATA[quantile]]></defaultValue>
+		<defaultValue property="data"><![CDATA[null]]></defaultValue>
+		<defaultValue property="doublearray"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="paletteExample"><![CDATA[]]></defaultValue>
+		<defaultValue property="singlearray"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="spinnerExample"><![CDATA[0]]></defaultValue>
+		<defaultValue property="stringarray"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="textExample"><![CDATA[initial]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ApsTesterUI5"
+	title="Aps Tester UI5"
+	tooltip="Application Property Sheet Tester UI5"
+	icon="res/ApsTesterUI5/ApsTesterUI5.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityPrototypes"
+	databound="true"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ApsTesterUI5/ApsTesterUI5</requireJs>
+
+	<cssInclude>res/ApsTesterUI5/ApsTesterUI5.css</cssInclude>
+	
+	
+	<property
+		id="checkboxExample"
+		type="boolean"
+		title="Ignore Totals"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="checkboxOnlyGetterExample"
+		type="boolean"
+		title="Ignore Totals"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="colorExample"
+		type="Color"
+		title="Simple Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="comboboxExample"
+		type="String"
+		title="Simple Choice"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="data"
+		type="ResultSet"
+		title="Data"
+		group="DataBinding"
+		visible="true">
+
+		<option name="maxCells" value="100000" />
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+		<option name="presentationDelimiter" value=" | " />
+	</property>
+	<property
+		id="paletteExample"
+		type="String"
+		title="Color Palette"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="spinnerExample"
+		type="int"
+		title="Some numbers"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="textExample"
+		type="String"
+		title="A saple text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">200</defaultValue>
+		<defaultValue property="HEIGHT">200</defaultValue>
+		
+		<defaultValue property="checkboxExample"><![CDATA[true]]></defaultValue>
+		<defaultValue property="checkboxOnlyGetterExample"><![CDATA[true]]></defaultValue>
+		<defaultValue property="colorExample"><![CDATA[]]></defaultValue>
+		<defaultValue property="comboboxExample"><![CDATA[quantile]]></defaultValue>
+		<defaultValue property="data"><![CDATA[null]]></defaultValue>
+		<defaultValue property="paletteExample"><![CDATA[]]></defaultValue>
+		<defaultValue property="spinnerExample"><![CDATA[]]></defaultValue>
+		<defaultValue property="textExample"><![CDATA[initial]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ApplicationHeaderE"
+	title="(PROTOTYPE!) Application Header (with Event)"
+	handlerType="sapui5"
+	icon="res/ApplicationHeaderEventTrigger/ApplicationHeader.png"
+	group="ScnCommunityPrototypes"
+>
+	<jsInclude>res/require_loader.js</jsInclude>
+	<jsInclude>res/common_basics.js</jsInclude>
+	<jsInclude>res/ApplicationHeaderEventTrigger/ApplicationHeader.js</jsInclude>
+
+	<property
+		id="displayLogoff"
+		title="Display Logoff"
+		tooltip="If set to true, the logoff area will be displayed at the right hand side of the application header."
+		type="boolean" />
+	<property
+		id="displayWelcome"
+		title="Display Welcome"
+		tooltip="By default, set to true and dislpays the welcome text."
+		type="boolean" />
+	<property
+		id="logoSrc"
+		title="Logo Source"
+		tooltip="Path (src) to the logo icon to be displayed in the application header."
+		type="Url" />
+	<property
+		id="logoText"
+		title="Logo Text"
+		tooltip="The text that will be displayed beside the logo in the application header. This property is optional."
+		type="String" />
+	<property
+		id="userName"
+		title="User Name"
+		tooltip="User name that will be displayed beside the welcome text."
+		type="String" />
+	<property
+		id="onLogoff"
+		title="On Logoff"
+		tooltip="Fires an event to log off the user from the application."
+		group="Events"
+		type="ScriptText" />
+
+	<property  
+	  id="onSetAppName"  
+	  title="Set Application Name"  
+	  type="ScriptText"  
+    visible="false"/>  
+  <property  
+	  id="appName"  
+	  title="Application Name"  
+	  type="String"  
+	  visible="false"/>  
+   
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">0</defaultValue>
+		<defaultValue property="WIDTH">auto</defaultValue>
+		<defaultValue property="HEIGHT">38</defaultValue>
+		<defaultValue property="displayWelcome">true</defaultValue>
+  	<defaultValue property="onSetAppName">this.private_setAppInfoName();</defaultValue>
+	</initialization>
+</component>
+<component
+	id="ApplicationHeaderO"
+	title="(PROTOTYPE!) Application Header (OnBeforeRender)"
+	handlerType="sapui5"
+	icon="res/ApplicationHeaderOnBeforeRender/ApplicationHeader.png"
+	group="ScnCommunityPrototypes"
+>
+	<jsInclude>res/require_loader.js</jsInclude>
+	<jsInclude>res/common_basics.js</jsInclude>
+	<jsInclude>res/ApplicationHeaderOnBeforeRender/ApplicationHeader.js</jsInclude>
+
+	<property
+		id="displayLogoff"
+		title="Display Logoff"
+		tooltip="If set to true, the logoff area will be displayed at the right hand side of the application header."
+		type="boolean" />
+	<property
+		id="displayWelcome"
+		title="Display Welcome"
+		tooltip="By default, set to true and dislpays the welcome text."
+		type="boolean" />
+	<property
+		id="logoSrc"
+		title="Logo Source"
+		tooltip="Path (src) to the logo icon to be displayed in the application header."
+		type="Url" />
+	<property
+		id="logoText"
+		title="Logo Text"
+		tooltip="The text that will be displayed beside the logo in the application header. This property is optional."
+		type="String" />
+	<property
+		id="userName"
+		title="User Name"
+		tooltip="User name that will be displayed beside the welcome text."
+		type="String" />
+	<property
+		id="onLogoff"
+		title="On Logoff"
+		tooltip="Fires an event to log off the user from the application."
+		group="Events"
+		type="ScriptText" />
+		
+	<property  
+	  id="onBeforeRender"  
+	  title="Set Application Name"  
+	  type="ScriptText"  
+    visible="false"/>  
+ 
+  <property  
+	  id="appName"  
+	  title="Application Name"  
+	  type="String"  
+	  visible="false"/>  
+	    
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">0</defaultValue>
+		<defaultValue property="WIDTH">auto</defaultValue>
+		<defaultValue property="HEIGHT">38</defaultValue>
+		<defaultValue property="displayWelcome">true</defaultValue>
+  	<defaultValue property="onBeforeRender">this.private_beforeRender();</defaultValue>
+	</initialization>
+</component>
+<component
+	id="ProgressSet" title="Progress Bar Set" handlerType="div" icon="res/ProgressSet/ProgressSet.png" group="ScnCommunityPrototypes"
+	propertySheetPath="aps/PropertyPage.html">
+	<requireJs modes="commons m">res/ProgressSet/ProgressSet</requireJs>
+  	<property type="String" title="Bar Config" id="barConfig" visible="false"/>
+  	<property type="String" title="Selected Bar" id="selectedBar" visible="false"/>
+  	<property type="String" title="Orientation" id="orientation" visible="true">
+  		<possibleValue>horizontal</possibleValue>
+  		<possibleValue>vertical</possibleValue>
+  	</property>
+	<property type="boolean" title="In-Line Labels" id="inlineLabels" visible="true"/>
+  	<property type="boolean" title="Gradient is Full Width" id="gradientFullWidth" visible="true"/>
+  	<property type="float" title="Gradient Start (0.00 - 1.00)" id="gradientStart" visible="true"/>
+  	<property type="float" title="Gradient Start Opacity (0.00 - 1.00)" id="gradientStartOpacity" visible="true"/>
+  	<property type="Color" title="Gradient Start Color" id="gradientStartColor" visible="true"/>
+  	<property type="float" title="Gradient Stop (0.00 - 1.00)" id="gradientStop" visible="true"/>
+  	<property type="float" title="Gradient Stop Opacity (0.00 - 1.00)" id="gradientStopOpacity" visible="true"/>
+  	<property type="Color" title="Gradient Stop Color" id="gradientStopColor" visible="true"/>
+  	<property type="String" title="Palette" id="palette" visible="false"/>
+  	<property type="float" title="Bar Fill Opacity (0.00 - 1.00)" id="barFillOpacity" visible="true"/>
+  	<property type="int" title="Bar Roundness" id="barRoundness" visible="true"/>
+  	<property type="int" title="Bar Height (-1 = auto height)" id="barHeight" visible="true"/>
+  	<property type="int" title="Label Width" id="labelWidth" visible="true"/>
+  	<property type="ScriptText" title="On Bar Select" id="onBarSelect"/>
+  	<initialization>
+  		<defaultValue property="orientation">horizontal</defaultValue>
+  		<defaultValue property="barConfig">[{&quot;title&quot;:&quot;Measure&quot;,&quot;fillColor&quot;:&quot;auto&quot;,&quot;number&quot;:&quot;10&quot;,&quot;numberUnit&quot;:&quot;USD&quot;,&quot;styleClass&quot;:&quot;&quot;},{&quot;title&quot;:&quot;Measure1&quot;,&quot;fillColor&quot;:&quot;auto&quot;,&quot;number&quot;:&quot;15&quot;,&quot;numberUnit&quot;:&quot;USD&quot;,&quot;styleClass&quot;:&quot;&quot;},{&quot;title&quot;:&quot;Measure2&quot;,&quot;fillColor&quot;:&quot;auto&quot;,&quot;number&quot;:&quot;30&quot;,&quot;numberUnit&quot;:&quot;USD&quot;,&quot;styleClass&quot;:&quot;&quot;},{&quot;title&quot;:&quot;Measure3&quot;,&quot;fillColor&quot;:&quot;auto&quot;,&quot;number&quot;:&quot;20&quot;,&quot;numberUnit&quot;:&quot;USD&quot;,&quot;styleClass&quot;:&quot;&quot;},{&quot;title&quot;:&quot;Measure4&quot;,&quot;fillColor&quot;:&quot;auto&quot;,&quot;number&quot;:&quot;45&quot;,&quot;numberUnit&quot;:&quot;USD&quot;,&quot;styleClass&quot;:&quot;&quot;}]</defaultValue>
+  		<defaultValue property="palette">#8DD3C7,#FFFFB3,#BEBADA,#FB8072,#80B1D3,#FDB462,#B3DE69,#FCCDE5,#D9D9D9,#BC80BD,#CCEBC5,#FFED6F</defaultValue>
+  		<defaultValue property="inlineLabels">false</defaultValue>
+  		<defaultValue property="gradientFullWidth">false</defaultValue>
+  		<defaultValue property="barFillOpacity">1</defaultValue>
+  		<defaultValue property="barRoundness">5</defaultValue>
+  		<defaultValue property="barHeight">-1</defaultValue>
+  		<defaultValue property="labelWidth">150</defaultValue>
+  		<defaultValue property="gradientStart">.15</defaultValue>
+  		<defaultValue property="gradientStartOpacity">.35</defaultValue>
+  		<defaultValue property="gradientStartColor">#FFFFFF</defaultValue>
+  		<defaultValue property="gradientStop">.85</defaultValue>
+  		<defaultValue property="gradientStopColor">#FFFFFF</defaultValue>
+  		<defaultValue property="gradientStopOpacity">.05</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+  		<defaultValue property="WIDTH">400</defaultValue>
+		<defaultValue property="HEIGHT">200</defaultValue>
+  	</initialization>
+</component>
+<component
+	id="BulletChartGen"
+	title="Bullet Chart (Gen Prototype)"
+	tooltip="Bullet Chart Visualization"
+	icon="res/BulletChartGen/BulletChartGen.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityPrototypes"
+	databound="true"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/BulletChartGen/BulletChartGen</requireJs>
+
+	<cssInclude>res/BulletChartGen/BulletChartGen.css</cssInclude>
+	
+	
+	<property
+		id="clickedgraphkey"
+		type="String"
+		title="Clicked Key"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="comparison"
+		type="boolean"
+		title="comparon values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="data"
+		type="ResultSet"
+		title="Dataset"
+		group="DataBinding"
+		visible="true">
+
+		<option name="maxCells" value="100000" />
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+		<option name="presentationDelimiter" value=" | " />
+	</property>
+	<property
+		id="extrapolation"
+		type="String"
+		title="Extrapolation Values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="graphTitle"
+		type="String"
+		title="Graph Title"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="keydimension"
+		type="String"
+		title="Unique key values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="labeldimension"
+		type="String"
+		title="dimension holding label values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="maxgraphheight"
+		type="int"
+		title="max height "
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="mingraphheight"
+		type="int"
+		title="Minimum Height"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="realization"
+		type="String"
+		title="Realization Column"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="showalert"
+		type="String"
+		title="When to show an alert"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="showaxis"
+		type="boolean"
+		title="Show X axis"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="sublabeldimension"
+		type="String"
+		title="Clicked Key"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="threshold1"
+		type="String"
+		title="threshold 1 values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="threshold2"
+		type="String"
+		title="threshold 2 values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="threshold3"
+		type="String"
+		title="threshold 3 values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="threshold4"
+		type="String"
+		title="threshold 4 values"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="threshold5"
+		type="String"
+		title="threshold 5 values"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">600</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="clickedgraphkey"><![CDATA[]]></defaultValue>
+		<defaultValue property="comparison"><![CDATA[]]></defaultValue>
+		<defaultValue property="data"><![CDATA[null]]></defaultValue>
+		<defaultValue property="extrapolation"><![CDATA[]]></defaultValue>
+		<defaultValue property="graphTitle"><![CDATA[]]></defaultValue>
+		<defaultValue property="keydimension"><![CDATA[]]></defaultValue>
+		<defaultValue property="labeldimension"><![CDATA[]]></defaultValue>
+		<defaultValue property="maxgraphheight"><![CDATA[40]]></defaultValue>
+		<defaultValue property="mingraphheight"><![CDATA[40]]></defaultValue>
+		<defaultValue property="realization"><![CDATA[]]></defaultValue>
+		<defaultValue property="showalert"><![CDATA[comparison]]></defaultValue>
+		<defaultValue property="showaxis"><![CDATA[true]]></defaultValue>
+		<defaultValue property="sublabeldimension"><![CDATA[]]></defaultValue>
+		<defaultValue property="threshold1"><![CDATA[]]></defaultValue>
+		<defaultValue property="threshold2"><![CDATA[]]></defaultValue>
+		<defaultValue property="threshold3"><![CDATA[]]></defaultValue>
+		<defaultValue property="threshold4"><![CDATA[]]></defaultValue>
+		<defaultValue property="threshold5"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="SapMList"
+	title="(PROTOTYPE!) Sap M List"
+	icon="res/SapMList/SapMList.png"
+	handlerType="sapui5"
+	group="ScnCommunityPrototypes"
+>
+
+	<jsInclude>os/iscroll-4/src/iscroll.js</jsInclude>
+	<jsInclude>os/sapui5/load.sap.m.js</jsInclude>
+	<jsInclude>res/require_loader.js</jsInclude>
+	<jsInclude>res/common_basics.js</jsInclude>
+	<jsInclude>res/SapMList/SapMList.js</jsInclude>
+	<cssInclude>res/SapMList/SapMList.css</cssInclude>
+
+	<initialization>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">600</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+	
+	</initialization>	
+</component><component id="RapidPrototype"
+		title="Rapid Prototyping"
+		tooltip="Not recommended for production use!"
+		icon="res/RapidPrototype/RapidPrototype.png"
+		handlerType="div"
+		modes="commons m"
+		group="ScnCommunityPrototypes"
+		propertySheetPath="aps/PropertyPage.html"
+		databound="true">
+		
+		<requireJs modes="commons m">res/RapidPrototype/RapidPrototype</requireJs>
+		<property id="repositoryPath" type="Url" title="Path to BIAPP Repository" tooltip="Property for auto calculation of the root folder" visible="false" />
+		<property id="HTML" type="String" title="HTML" group="Display" />
+		<property id="useHTMLMime" type="boolean" title="HTML" group="Display" />
+		<property id="HTMLMime" type="String" title="HTML" group="Display" />
+		<property id="TCSSUrl"	type="Url" title="Temporary property for CSS Resource" visible="false">
+			<option name="kind" value="CSS"/>
+		</property>
+		<property id="afterInit" type="String" title="JavaScript" group="Display" />
+		<property type="String" title="Placeholder 1" id="term1"></property>
+		<property type="String" title="Manual Replacement 1" id="replacement1"></property>
+				
+		<property type="String" title="Placeholder 2" id="term2"></property>
+		<property type="String" title="Manual Replacement 2" id="replacement2"></property>
+		
+		<property type="String" title="Placeholder 3" id="term3"></property>
+		<property type="String" title="Manual Replacement 3" id="replacement3"></property>
+		
+		<property type="String" title="Placeholder 4" id="term4"></property>
+		<property type="String" title="Manual Replacement 4" id="replacement4"></property>
+		
+		<property type="String" title="Placeholder 5" id="term5"></property>
+		<property type="String" title="Manual Replacement 5" id="replacement5"></property>
+		
+		<property type="String" title="Placeholder 6" id="term6"></property>
+		<property type="String" title="Manual Replacement 6" id="replacement6"></property>
+
+		<property type="String" title="Placeholder 7" id="term7"></property>
+		<property type="String" title="Manual Replacement 7" id="replacement7"></property>
+
+		<property type="String" title="Placeholder 8" id="term8"></property>
+		<property type="String" title="Manual Replacement 8" id="replacement8"></property>
+
+		<property type="String" title="Placeholder 9" id="term9"></property>
+		<property type="String" title="Manual Replacement 9" id="replacement9"></property>
+		
+		<property type="String" title="Placeholder 10" id="term10"></property>
+		<property type="String" title="Manual Replacement 10" id="replacement10"></property>
+		
+		<property type="ResultCell" title="Databound Replacement 1" id="KPIreplacement1"></property>
+		<property type="ResultCell" title="Databound Replacement 2" id="KPIreplacement2"></property>
+		<property type="ResultCell" title="Databound Replacement 3" id="KPIreplacement3"></property>
+		<property type="ResultCell" title="Databound Replacement 4" id="KPIreplacement4"></property>
+		<property type="ResultCell" title="Databound Replacement 5" id="KPIreplacement5"></property>
+		<property type="ResultCell" title="Databound Replacement 6" id="KPIreplacement6"></property>
+		<property type="ResultCell" title="Databound Replacement 7" id="KPIreplacement7"></property>
+		<property type="ResultCell" title="Databound Replacement 8" id="KPIreplacement8"></property>
+		<property type="ResultCell" title="Databound Replacement 9" id="KPIreplacement9"></property>
+		<property type="ResultCell" title="Databound Replacement 10" id="KPIreplacement10"></property>
+		
+		<initialization>
+			<defaultValue property="useHTMLMime">false</defaultValue>
+			<defaultValue property="repositoryPath">
+				<![CDATA[REPOSITORY_ROOT.GIF]]>
+			</defaultValue>
+			<defaultValue property="term1">{kpi1}</defaultValue>
+			<defaultValue property="term2">{kpi2}</defaultValue>
+			<defaultValue property="term3">{kpi3}</defaultValue>
+			<defaultValue property="term4">{kpi4}</defaultValue>
+			<defaultValue property="term5">{kpi5}</defaultValue>
+			<defaultValue property="term6">{kpi6}</defaultValue>
+			<defaultValue property="term7">{kpi7}</defaultValue>
+			<defaultValue property="term8">{kpi8}</defaultValue>
+			<defaultValue property="term9">{kpi9}</defaultValue>
+			<defaultValue property="term10">{kpi10}</defaultValue>
+			<defaultValue property="TOP_MARGIN">0</defaultValue>
+			<defaultValue property="LEFT_MARGIN">0</defaultValue>
+			<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+			<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+			<defaultValue property="WIDTH">400</defaultValue>
+			<defaultValue property="HEIGHT">300</defaultValue>
+			<defaultValue property="HTML"><![CDATA[HTML Here.  <b>Sales:</b>{kpi1}]]></defaultValue>
+		</initialization>
+	</component>
+<component
+	id="GoogleCandle"
+	title="Google Candle Chart (Prototype)"
+	tooltip="Google Candle Chart"
+	icon="res/GoogleCandle/GoogleCandle.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityPrototypes"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/GoogleCandle/GoogleCandle</requireJs>
+
+	<cssInclude>res/GoogleCandle/GoogleCandle.css</cssInclude>
+	
+	
+	<property
+		id="candles"
+		type="String"
+		title="Candles"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">600</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="candles"><![CDATA[[]]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+</sdkExtension>

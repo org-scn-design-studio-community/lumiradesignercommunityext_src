@@ -1,0 +1,52 @@
+
+<component
+	id="EmbeddedMedia"
+	title="Embedded Media 2.0"
+	tooltip="Embedded Media - Include external media directly in your application"
+	icon="res/EmbeddedMedia/EmbeddedMedia.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/EmbeddedMedia/EmbeddedMedia</requireJs>
+
+	<cssInclude>res/EmbeddedMedia/EmbeddedMedia.css</cssInclude>
+	
+	
+	<property
+		id="tag"
+		type="String"
+		title="Tag"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="url"
+		type="String"
+		title="Url"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">600</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="tag"><![CDATA[embed]]></defaultValue>
+		<defaultValue property="url"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

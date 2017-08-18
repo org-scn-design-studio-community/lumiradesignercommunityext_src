@@ -1,0 +1,88 @@
+
+/**
+ * Class for MultiComboBox
+ */
+class org.scn.community.databound.MultiComboBox extends org.scn.community.shared.DataComponent {
+
+	/** gest the dimension */
+	boolean getEnabled () {*
+		return this.DEnabled;	
+	*}
+	
+	/** sets the dimension */
+	void setEnabled (boolean enabled) {*
+		this.DEnabled = enabled;	
+	*}
+	
+	/** returns the selected key 
+    <example>
+	
+	<code>
+    
+	</code>
+	</example>
+	*/
+	String getSelectedKey () {*
+		return this.DSelectedKey;	
+	*}
+	/** Clear selection 
+    <example>
+	
+	<code>
+    
+	</code>
+	</example>
+	*/
+	String clearSelection () {*
+		this.DSelectedKey = "";
+		this.DSelectedText = "";
+		this.DSelectedKeyBexReady = "";
+	*}
+	/** returns the selected key 
+    <example>
+	
+	<code>
+    
+	</code>
+	</example>
+	*/
+	String getSelectedKeyBexReady () {*
+		return this.DSelectedKeyBexReady;	
+	*}
+
+	/** returns the selected text */
+	String getSelectedText () {*
+		return this.DSelectedText;	
+	*}
+	
+	/** gets the dimension */
+	String getDimension () {*
+		return this.DDimension;	
+	*}
+	
+	/** sets the dimension */
+	void setDimension (String dimension) {*
+		this.DDimension = dimension;	
+	*}
+	/**
+	 * Set to true to enable Ascending sorting, false for the opposite
+	 */
+	void setSortingDirection (boolean direction) {* 
+		if(direction){
+			this.DSortingDirection = "Ascending";	
+		}else{
+			this.DSortingDirection = "Descending";
+		}
+	*}
+	/**
+	 * 
+	 */
+	void setSkipResult (boolean skip) {* 
+		this.DSkipResultRow = skip;
+	*}
+	
+	void setItems (String itemList) {*
+		this.DItemList = itemList;
+	*}
+	
+}

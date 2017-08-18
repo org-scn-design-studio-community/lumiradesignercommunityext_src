@@ -1,0 +1,264 @@
+
+/**
+ * Generated ZTL Class for Gauge
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.Gauge extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets End Value Property
+	 */	
+	void setEndValue( /**End Value*/ int endValue){*
+		this.endValue = endValue;
+	*}
+
+	/**
+	 * Gets End Value Property
+	 */	
+	int getEndValue() {*
+		return this.endValue;
+	*}
+
+	/**
+	 * Sets First Colour Property
+	 */	
+	void setFirstColor( /**First Colour*/ String firstColor){*
+		this.firstColor = firstColor;
+	*}
+
+	/**
+	 * Gets First Colour Property
+	 */	
+	String getFirstColor() {*
+		return this.firstColor;
+	*}
+
+	/**
+	 * Sets Gradient Colour Property
+	 */	
+	void setGradientColor( /**Gradient Colour*/ boolean gradientColor){*
+		this.gradientColor = gradientColor;
+	*}
+
+	/**
+	 * Gets Gradient Colour Property
+	 */	
+	boolean isGradientColor() {*
+		return this.gradientColor;
+	*}
+
+	/**
+	 * Sets Show Number Property
+	 */	
+	void setHaveNumbers( /**Show Number*/ boolean haveNumbers){*
+		this.haveNumbers = haveNumbers;
+	*}
+
+	/**
+	 * Gets Show Number Property
+	 */	
+	boolean isHaveNumbers() {*
+		return this.haveNumbers;
+	*}
+
+	/**
+	 * Sets Indicator Value Property
+	 */	
+	void setIndicatorValue( /**Indicator Value*/ float indicatorValue){*
+		this.indicatorValue = indicatorValue;
+	*}
+
+	/**
+	 * Gets Indicator Value Property
+	 */	
+	float getIndicatorValue() {*
+		return this.indicatorValue;
+	*}
+
+	/**
+	 * Sets Main Colour Property
+	 */	
+	void setMainColor( /**Main Colour*/ String mainColor){*
+		this.mainColor = mainColor;
+	*}
+
+	/**
+	 * Gets Main Colour Property
+	 */	
+	String getMainColor() {*
+		return this.mainColor;
+	*}
+
+	/**
+	 * Sets Needle Colour Property
+	 */	
+	void setNeedleColor( /**Needle Colour*/ String needleColor){*
+		this.needleColor = needleColor;
+	*}
+
+	/**
+	 * Gets Needle Colour Property
+	 */	
+	String getNeedleColor() {*
+		return this.needleColor;
+	*}
+
+	/**
+	 * Sets Number Of Big Ticks Property
+	 */	
+	void setNumOfBigTicks( /**Number Of Big Ticks*/ int numOfBigTicks){*
+		this.numOfBigTicks = numOfBigTicks;
+	*}
+
+	/**
+	 * Gets Number Of Big Ticks Property
+	 */	
+	int getNumOfBigTicks() {*
+		return this.numOfBigTicks;
+	*}
+
+	/**
+	 * Sets Number Of Small Ticks Property
+	 */	
+	void setNumOfSmallTicks( /**Number Of Small Ticks*/ int numOfSmallTicks){*
+		this.numOfSmallTicks = numOfSmallTicks;
+	*}
+
+	/**
+	 * Gets Number Of Small Ticks Property
+	 */	
+	int getNumOfSmallTicks() {*
+		return this.numOfSmallTicks;
+	*}
+
+	/**
+	 * Sets Second Colour Property
+	 */	
+	void setSecondColor( /**Second Colour*/ String secondColor){*
+		this.secondColor = secondColor;
+	*}
+
+	/**
+	 * Gets Second Colour Property
+	 */	
+	String getSecondColor() {*
+		return this.secondColor;
+	*}
+
+	/**
+	 * Sets Show Value Property
+	 */	
+	void setShowValue( /**Show Value*/ boolean showValue){*
+		this.showValue = showValue;
+	*}
+
+	/**
+	 * Gets Show Value Property
+	 */	
+	boolean isShowValue() {*
+		return this.showValue;
+	*}
+
+	/**
+	 * Sets Showed Value Property
+	 */	
+	void setShowedValue( /**Showed Value*/ String showedValue){*
+		this.showedValue = showedValue;
+	*}
+
+	/**
+	 * Gets Showed Value Property
+	 */	
+	String getShowedValue() {*
+		return this.showedValue;
+	*}
+
+	/**
+	 * Sets Start Of Second Colour Property
+	 */	
+	void setStartSecondColor( /**Start Of Second Colour*/ int startSecondColor){*
+		this.startSecondColor = startSecondColor;
+	*}
+
+	/**
+	 * Gets Start Of Second Colour Property
+	 */	
+	int getStartSecondColor() {*
+		return this.startSecondColor;
+	*}
+
+	/**
+	 * Sets Start Of Third Colour Property
+	 */	
+	void setStartThirdColor( /**Start Of Third Colour*/ int startThirdColor){*
+		this.startThirdColor = startThirdColor;
+	*}
+
+	/**
+	 * Gets Start Of Third Colour Property
+	 */	
+	int getStartThirdColor() {*
+		return this.startThirdColor;
+	*}
+
+	/**
+	 * Sets Start Value Property
+	 */	
+	void setStartValue( /**Start Value*/ int startValue){*
+		this.startValue = startValue;
+	*}
+
+	/**
+	 * Gets Start Value Property
+	 */	
+	int getStartValue() {*
+		return this.startValue;
+	*}
+
+	/**
+	 * Sets Third Colour Property
+	 */	
+	void setThirdColor( /**Third Colour*/ String thirdColor){*
+		this.thirdColor = thirdColor;
+	*}
+
+	/**
+	 * Gets Third Colour Property
+	 */	
+	String getThirdColor() {*
+		return this.thirdColor;
+	*}
+
+	/**
+	 * Sets Title Property
+	 */	
+	void setTitle( /**Title*/ String title){*
+		this.title = title;
+	*}
+
+	/**
+	 * Gets Title Property
+	 */	
+	String getTitle() {*
+		return this.title;
+	*}
+
+	/**
+	 * Sets Text And Ticks Colour Property
+	 */	
+	void setTtColor( /**Text And Ticks Colour*/ String ttColor){*
+		this.ttColor = ttColor;
+	*}
+
+	/**
+	 * Gets Text And Ticks Colour Property
+	 */	
+	String getTtColor() {*
+		return this.ttColor;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}

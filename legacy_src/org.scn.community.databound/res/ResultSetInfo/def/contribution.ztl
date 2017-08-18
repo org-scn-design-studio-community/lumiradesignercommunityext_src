@@ -1,0 +1,95 @@
+
+/**
+ * Generated ZTL Class for ResultSetInfo
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.databound.ResultSetInfo extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Central Data Provisioning Property
+	 */	
+	void setCentralProvisioning( /**Central Data Provisioning*/ boolean centralProvisioning){*
+		this.DCentralProvisioning = centralProvisioning;
+	*}
+
+	/**
+	 * Gets Central Data Provisioning Property
+	 */	
+	boolean isCentralProvisioning() {*
+		return this.DCentralProvisioning;
+	*}
+
+	/**
+	 * Gets Technical Component For Data Information Property
+	 */	
+	String getDataInformation() {*
+		return this.DDataInformation;
+	*}
+
+	/**
+	 * Sets Ignore Results Rows And Columns Property
+	 */	
+	void setIgnoreResults( /**Ignore Results Rows And Columns*/ boolean ignoreResults){*
+		this.DIgnoreResults = ignoreResults;
+	*}
+
+	/**
+	 * Gets Ignore Results Rows And Columns Property
+	 */	
+	boolean isIgnoreResults() {*
+		return this.DIgnoreResults;
+	*}
+
+	/**
+	 * Sets Information Event Active Property
+	 */	
+	void setInformationEventActive( /**Information Event Active*/ boolean informationEventActive){*
+		this.DInformationEventActive = informationEventActive;
+	*}
+
+	/**
+	 * Gets Information Event Active Property
+	 */	
+	boolean isInformationEventActive() {*
+		return this.DInformationEventActive;
+	*}
+
+	/**
+	 * Sets Result Set Property
+	 */	
+	void setData( /**Result Set*/ ResultSet data){*
+		this.data = data;
+	*}
+
+	/**
+	 * Gets Result Set Property
+	 */	
+	ResultSet getData() {*
+		return this.data;
+	*}
+
+
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+	/** Returns the information about number of cells */
+	int getDataInfoNumberOfCells () {*
+		return JSON.parse(this.DDataInformation).dataCells;
+	*}
+
+	/** Returns the information about number of data columns */
+	int getDataInfoNumberOfDataColumns () {*
+		return JSON.parse(this.DDataInformation).dataColumns;
+	*}
+	
+	/** Returns the information about number of header columns */
+	int getDataInfoNumberOfHeaderColumns () {*
+		return JSON.parse(this.DDataInformation).headerColumns;
+	*}
+	
+	/** Returns the information about number of rows */
+	int getDataInfoNumberOfRows () {*
+		return JSON.parse(this.DDataInformation).rows;
+	*}
+}

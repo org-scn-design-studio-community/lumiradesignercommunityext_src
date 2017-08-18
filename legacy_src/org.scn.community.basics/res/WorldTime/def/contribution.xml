@@ -1,0 +1,102 @@
+
+<component
+	id="WorldTime"
+	title="World Time 2.0"
+	tooltip="World Time"
+	icon="res/WorldTime/WorldTime.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/WorldTime/WorldTime</requireJs>
+
+	<cssInclude>res/WorldTime/WorldTime.css</cssInclude>
+	
+	
+	<property
+		id="dateformat"
+		type="String"
+		title="Date Format"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="daylightsaving"
+		type="boolean"
+		title="Consider Daylight Saving"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="interval"
+		type="int"
+		title="Update Interval (in Ms)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="locale"
+		type="String"
+		title="Locale"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="showtimezonename"
+		type="boolean"
+		title="Show Timezone Name"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="timeformat"
+		type="String"
+		title="Time Format"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="utcoffset"
+		type="String"
+		title="UTC Offset"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">150</defaultValue>
+		<defaultValue property="HEIGHT">40</defaultValue>
+		
+		<defaultValue property="dateformat"><![CDATA[ddmmyy]]></defaultValue>
+		<defaultValue property="daylightsaving"><![CDATA[true]]></defaultValue>
+		<defaultValue property="interval"><![CDATA[5000]]></defaultValue>
+		<defaultValue property="locale"><![CDATA[deDE]]></defaultValue>
+		<defaultValue property="showtimezonename"><![CDATA[true]]></defaultValue>
+		<defaultValue property="timeformat"><![CDATA[hhmmss]]></defaultValue>
+		<defaultValue property="utcoffset"><![CDATA[0]]></defaultValue>
+
+	</initialization>
+
+</component>

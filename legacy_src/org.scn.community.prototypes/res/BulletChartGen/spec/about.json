@@ -1,0 +1,12 @@
+{
+	"title": "Bullet Chart (Gen)",
+	"description": "Bullet Chart",
+	"icon": "BulletChartGen.png",
+	"topics": 
+	[
+		{
+			"title" : "Bullet Chart",
+			"content" : "Allows you to compare realization with target, other periods and multiple thresholds"
+		}
+	]
+}

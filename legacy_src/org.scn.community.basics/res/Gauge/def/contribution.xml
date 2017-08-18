@@ -1,0 +1,212 @@
+
+<component
+	id="Gauge"
+	title="Gauge (Speedometer) 2.0"
+	tooltip="Displays a Gauge (Speedometer)"
+	icon="res/Gauge/Gauge.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityVisualizations"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/Gauge/Gauge</requireJs>
+
+	<cssInclude>res/Gauge/Gauge.css</cssInclude>
+	
+	
+	<property
+		id="endValue"
+		type="int"
+		title="End Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="firstColor"
+		type="String"
+		title="First Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="gradientColor"
+		type="boolean"
+		title="Gradient Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="haveNumbers"
+		type="boolean"
+		title="Show Number"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="indicatorValue"
+		type="float"
+		title="Indicator Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="mainColor"
+		type="String"
+		title="Main Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="needleColor"
+		type="String"
+		title="Needle Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="numOfBigTicks"
+		type="int"
+		title="Number Of Big Ticks"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="numOfSmallTicks"
+		type="int"
+		title="Number Of Small Ticks"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="secondColor"
+		type="String"
+		title="Second Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="showValue"
+		type="boolean"
+		title="Show Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="showedValue"
+		type="String"
+		title="Showed Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="startSecondColor"
+		type="int"
+		title="Start Of Second Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="startThirdColor"
+		type="int"
+		title="Start Of Third Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="startValue"
+		type="int"
+		title="Start Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="thirdColor"
+		type="String"
+		title="Third Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="title"
+		type="String"
+		title="Title"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="ttColor"
+		type="String"
+		title="Text And Ticks Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">300</defaultValue>
+		
+		<defaultValue property="endValue"><![CDATA[100]]></defaultValue>
+		<defaultValue property="firstColor"><![CDATA[#FA1E1E]]></defaultValue>
+		<defaultValue property="gradientColor"><![CDATA[]]></defaultValue>
+		<defaultValue property="haveNumbers"><![CDATA[true]]></defaultValue>
+		<defaultValue property="indicatorValue"><![CDATA[25]]></defaultValue>
+		<defaultValue property="mainColor"><![CDATA[#EDEDED]]></defaultValue>
+		<defaultValue property="needleColor"><![CDATA[#D80000]]></defaultValue>
+		<defaultValue property="numOfBigTicks"><![CDATA[5]]></defaultValue>
+		<defaultValue property="numOfSmallTicks"><![CDATA[2]]></defaultValue>
+		<defaultValue property="secondColor"><![CDATA[#FCFA4E]]></defaultValue>
+		<defaultValue property="showValue"><![CDATA[true]]></defaultValue>
+		<defaultValue property="showedValue"><![CDATA[25 %]]></defaultValue>
+		<defaultValue property="startSecondColor"><![CDATA[20]]></defaultValue>
+		<defaultValue property="startThirdColor"><![CDATA[80]]></defaultValue>
+		<defaultValue property="startValue"><![CDATA[0]]></defaultValue>
+		<defaultValue property="thirdColor"><![CDATA[#2BFC23]]></defaultValue>
+		<defaultValue property="title"><![CDATA[Insert Title Here]]></defaultValue>
+		<defaultValue property="ttColor"><![CDATA[#000000]]></defaultValue>
+
+	</initialization>
+
+</component>

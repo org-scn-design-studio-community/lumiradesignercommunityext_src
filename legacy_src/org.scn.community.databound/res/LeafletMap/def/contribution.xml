@@ -1,0 +1,304 @@
+
+<component
+		id="LeafletMap"
+		title="Leaflet Map"
+		icon="res/LeafletMap/LeafletMap.png"
+		handlerType="div"
+		modes="commons m"
+		propertySheetPath="aps/PropertyPage.html"
+		group="ScnCommunityVisualizations"
+		databound="true"
+>
+	<requireJs modes="commons m">res/LeafletMap/LeafletMap</requireJs>
+	<!-- Base Databound Properties -->
+	<property
+		id="data"
+		title="Data Selection"
+		type="ResultSet"
+		group="DataBinding"
+		bindable="true">
+			<option name="includeTuples" value="true"/>
+			<option name="includeAxesTuples" value="true"/>
+			<option name="includeMetadata" value="true"/>
+			<option name="includeData" value="true"/>
+			<option name="includeFormattedData" value="true"/>
+			<option name="fillMetadataProperty" value="true"/>
+	</property>
+	<property
+		id="data2"
+		title="Data Selection 2 (Not working yet in 1.6 SP0)"
+		type="ResultSet"
+		visible="false"
+		bindable="true">
+			<option name="includeTuples" value="true"/>
+			<option name="includeAxesTuples" value="true"/>
+			<option name="includeMetadata" value="true"/>
+			<option name="includeData" value="true"/>
+			<option name="includeFormattedData" value="true"/>
+			<option name="fillMetadataProperty" value="true"/>
+	</property>
+	<property
+		id="data3"
+		title="Data Selection 3 (Not working yet in 1.6 SP0)"
+		type="ResultSet"
+		visible="false"
+		bindable="true">
+			<option name="includeTuples" value="true"/>
+			<option name="includeAxesTuples" value="true"/>
+			<option name="includeMetadata" value="true"/>
+			<option name="includeData" value="true"/>
+			<option name="includeFormattedData" value="true"/>
+			<option name="fillMetadataProperty" value="true"/>
+	</property>
+	<property
+		id="data4"
+		title="Data Selection 4 (Not working yet in 1.6 SP0)"
+		type="ResultSet"
+		visible="false"
+		bindable="true">
+			<option name="includeTuples" value="true"/>
+			<option name="includeAxesTuples" value="true"/>
+			<option name="includeMetadata" value="true"/>
+			<option name="includeData" value="true"/>
+			<option name="includeFormattedData" value="true"/>
+			<option name="fillMetadataProperty" value="true"/>
+	</property>
+	<property
+		id="data5"
+		title="Data Selection 3 (Not working yet in 1.6 SP0)"
+		type="ResultSet"
+		visible="false"
+		bindable="true">
+			<option name="includeTuples" value="true"/>
+			<option name="includeAxesTuples" value="true"/>
+			<option name="includeMetadata" value="true"/>
+			<option name="includeData" value="true"/>
+			<option name="includeFormattedData" value="true"/>
+			<option name="fillMetadataProperty" value="true"/>
+	</property>
+	<property type="String" title="Dataset 2 Config" id="data2config" visible="false"/>
+	<property type="String" title="Dataset 3 Config" id="data3config" visible="false"/>
+	<property type="String" title="Dataset 4 Config" id="data4config" visible="false"/>
+	<property type="String" title="Dataset 5 Config" id="data5config" visible="false"/>
+	<property id="ignoreTotals" type="boolean" title = "Ignore Totals" visible="false" group="DataBinding"/>
+	<property id="ignoreExpandedNodes" type="boolean" title = "Ignore Expanded Nodes" visible="false" group="DataBinding"/>
+	<property id="swapAxes" type="boolean" title = "Swap Axes" visible="false" group="DataBinding"/>
+	<property id="useMockData" type="boolean" title = "Use Mock Data" visible="false" group="DataBinding"/>
+	<!-- End of Base Databound Properties -->
+	<property type="String" title="Tile Options" id="tileOptions" visible="false"/>
+	<property type="String" title="Active Base Layer" id="currentBaseLayer" visible="false"/>
+	<property type="String" title="Overlays" id="overlays" visible="false"/>
+	<property type="String" title="Map Center" id="mapCenter" visible="false"/>
+	<property type="String" title="CRS" id="crs" visible="false"/>
+	<property type="int" title="Zoom" id="zoom" visible="false"/>
+	<property id="repositoryPath" type="Url" title="Path to BIAPP Repository" tooltip="Property for auto calculation of the root folder" visible="false" />
+	<property id="TResourceUrl"	type="Url" title="Temporary property for Resource" visible="false" />
+	<property id="TGeoJSONUrl"	type="Url" title="Temporary property for Resource" visible="false">
+		<option name="kind" value="GeoJSON"/>
+	</property>
+	<initialization>
+		<!-- Databound Defaults -->
+		<defaultValue property="data2config">{&quot;ignoreResults&quot;:true,&quot;ignoreExpandedNodes&quot;:true,&quot;useMockData&quot;:true}</defaultValue>
+		<defaultValue property="data3config">{&quot;ignoreResults&quot;:true,&quot;ignoreExpandedNodes&quot;:true,&quot;useMockData&quot;:true}</defaultValue>
+		<defaultValue property="data4config">{&quot;ignoreResults&quot;:true,&quot;ignoreExpandedNodes&quot;:true,&quot;useMockData&quot;:true}</defaultValue>
+		<defaultValue property="data5config">{&quot;ignoreResults&quot;:true,&quot;ignoreExpandedNodes&quot;:true,&quot;useMockData&quot;:true}</defaultValue>
+		<defaultValue property="crs">EPSG3857</defaultValue>
+		<defaultValue property="ignoreTotals">true</defaultValue>
+		<defaultValue property="ignoreExpandedNodes">true</defaultValue>
+		<defaultValue property="swapAxes">false</defaultValue>
+		<defaultValue property="useMockData">true</defaultValue>
+		<!-- End of Databound Defaults -->
+		<defaultValue property="tileOptions">[{&quot;key&quot;:&quot;Standard&quot;,&quot;tileConfig&quot;:{&quot;baseUrl&quot;:&quot;http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,&quot;attribution&quot;:&quot;&amp;copy; OpenStreetMap Contributors&quot;,&quot;subdomains&quot;:&quot;abc&quot;,&quot;minZoom&quot;:0,&quot;maxZoom&quot;:18,&quot;tileSize&quot;:256}}]</defaultValue>
+		<defaultValue property="currentBaseLayer">Standard</defaultValue>
+		<defaultValue property="overlays">
+		<![CDATA[
+		[{
+			"key" : "Sample Layer - World Countries",
+			"visible" : true,
+			"layer" : {
+				"layerType" : "feature",
+				"featureConfig" : {
+					"fillColor" : "#DFDFDF",
+					"color" : "#B0B0B0",
+					"weight" : 1,
+					"colorScaleConfig" : {
+						"colors" : "#EDF8E9,#BAE4B3,#74C476,#31A354,#006D2C",
+						"scaleType" : "quantile",
+						"rangeType" : "mean",
+						"clamp" : true,
+						"interpolation" : "interpolateRgb",
+						"min" : 0,
+						"max" : 10000
+					},
+					"colorScaleMeasure" : {
+						"fieldType" : "position",
+						"fieldPosition" : 0
+					},
+					"opacity" : 0.8,
+					"fillOpacity" : 0.8,
+					"tooltipTemplate" : "<strong><span>{featurekey}</span></strong><br/>\n<ul>\n\t<li>{colormeasure-label}:{colormeasure-formattedvalue}\n</ul>",
+					"map" : {
+						"mapType" : "url",
+						"featureKey" : "admin",
+						"url" : "{ds-maps}/countries_medium.json",
+						"geoJSON" : {
+							"type" : "FeatureCollection",
+							"features" : []
+						}
+					}
+				},
+				"markerConfig" : {
+					"markerType" : "heat",
+					"color" : "#009966",
+					"longitude" : {
+						"columnType" : "dimension",
+						"measure" : {
+							"fieldType" : "position",
+							"fieldPosition" : 1
+						},
+						"dimension" : {
+							"fieldType" : "position",
+							"fieldPosition" : 0
+						}
+					},
+					"latitude" : {
+						"columnType" : "dimension",
+						"measure" : {
+							"fieldType" : "position",
+							"fieldPosition" : 0
+						},
+						"dimension" : {
+							"fieldType" : "position",
+							"fieldPosition" : 0
+						}
+					},
+					"maxClusterRadius" : "80",
+					"zoomToBoundsOnClick" : true,
+					"disableClusteringAtZoom" : "18",
+					"heatMinOpacity" : "0.1",
+					"heatMax" : "1.0",
+					"heatBlur" : "15",
+					"heatRadius" : "25",
+					"heatMaxZoom" : "18"
+				}
+			}
+		}, {
+			"key" : "Sample Layer - Colored Markers",
+			"visible" : true,
+			"layer" : {
+				"layerType" : "marker",
+				"featureConfig" : {
+					"fillColor" : "#DFDFDF",
+					"color" : "#B0B0B0",
+					"weight" : 1,
+					"colorScaleConfig" : {
+						"colors" : "#EDF8E9,#BAE4B3,#74C476,#31A354,#006D2C",
+						"scaleType" : "quantile",
+						"rangeType" : "mean",
+						"clamp" : true,
+						"interpolation" : "interpolateRgb",
+						"min" : 0,
+						"max" : 10000
+					},
+					"colorScaleMeasure" : {
+						"fieldType" : "position",
+						"fieldPosition" : 0
+					},
+					"opacity" : 0.8,
+					"fillOpacity" : 0.8,
+					"tooltipTemplate" : "<strong><span>{featurekey}</span></strong><br/>\n<ul>\n\t<li>{colormeasure-label}:{colormeasure-formattedvalue}\n</ul>",
+					"map" : {
+						"mapType" : "url",
+						"featureKey" : "admin",
+						"url" : "{ds-maps}/countries_medium.json",
+						"geoJSON" : {
+							"type" : "FeatureCollection",
+							"features" : []
+						}
+					}
+				},
+				"markerConfig" : {
+					"markerType" : "simple",
+					"color" : "#009966",
+					"latitude" : {
+						"columnType" : "dimension",
+						"measure" : {
+							"fieldType" : "name",
+							"fieldPosition" : 0,
+							"fieldName" : "Students"
+						},
+						"dimension" : {
+							"fieldType" : "name",
+							"fieldPosition" : 0,
+							"fieldName" : "Latitude"
+						}
+					},
+					"longitude" : {
+						"columnType" : "dimension",
+						"measure" : {
+							"fieldType" : "position",
+							"fieldPosition" : 0
+						},
+						"dimension" : {
+							"fieldType" : "name",
+							"fieldPosition" : 0,
+							"fieldName" : "Longitude"
+						}
+					},
+					"colorScaleConfig" : {
+						"colors" : "#F03B20,#FFEDA0,#8BCC8A",
+						"scaleType" : "linear",
+						"rangeType" : "minmax",
+						"clamp" : true,
+						"interpolation" : "interpolateRgb",
+						"min" : 0,
+						"max" : 10000
+					},
+					"colorScaleMeasure" : {
+						"fieldType" : "position",
+						"fieldPosition" : "0",
+						"fieldName" : ""
+					},
+					"markerSizeConfig" : {
+						"rangeType" : "minmax",
+						"min" : "0",
+						"max" : "100",
+						"clamp" : true
+					},
+					"markerSizeMeasure" : {
+						"fieldType" : "unassigned",
+						"fieldPosition" : "0",
+						"fieldName" : ""
+					},
+					"icon" : "circle",
+					"markerSize" : "32",
+					"maxClusterRadius" : "80",
+					"showCoverageOnHover" : false,
+					"zoomToBoundsOnClick" : true,
+					"disableClusteringAtZoom" : "18",
+					"heatMinOpacity" : ".2",
+					"heatMax" : "1",
+					"heatBlur" : "15",
+					"heatRadius" : "25",
+					"heatMaxZoom" : "18",
+					"heatIntensityMeasure" : {
+						"fieldType" : "position",
+						"fieldPosition" : 0,
+						"fieldName" : ""
+					},
+					"tooltipTemplate" : "<span style=\"font-weight:bold;color:{markercolor}\">\n  {dimension-key-text-Location}\n</span>\n<ul>\n  <li>{colormeasure-label} : {colormeasure-formattedvalue}</li>\n</ul>"
+				}
+			}
+		}]
+		]]>
+		</defaultValue>
+		<defaultValue property="fitBounds">true</defaultValue>
+		<defaultValue property="zoom">1</defaultValue>
+		<defaultValue property="mapCenter">[51.505, -0.09]</defaultValue>
+		<defaultValue property="WIDTH">500</defaultValue>
+		<defaultValue property="HEIGHT">350</defaultValue>
+		<defaultValue property="repositoryPath">
+			<![CDATA[REPOSITORY_ROOT.GIF]]>
+		</defaultValue>
+	</initialization>
+</component>

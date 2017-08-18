@@ -1,0 +1,56 @@
+
+/**
+ * Generated ZTL Class for BasicBusinessCard
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.BasicBusinessCard extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Image Url Property
+	 */	
+	void setImage( /**Image Url*/ String image){*
+		this.image = image;
+	*}
+
+	/**
+	 * Gets Image Url Property
+	 */	
+	String getImage() {*
+		return this.image;
+	*}
+
+	/**
+	 * Sets Name Property
+	 */	
+	void setName( /**Name*/ String name){*
+		this.name = name;
+	*}
+
+	/**
+	 * Gets Name Property
+	 */	
+	String getName() {*
+		return this.name;
+	*}
+
+
+
+	/**
+	 * Sets Title Property
+	 */	
+	void setTitle( /**Title*/ String title){*
+		this.title = title;
+	*}
+
+	/**
+	 * Gets Title Property
+	 */	
+	String getTitle() {*
+		return this.title;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}

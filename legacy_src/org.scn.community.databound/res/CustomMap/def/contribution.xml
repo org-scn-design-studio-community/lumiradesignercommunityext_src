@@ -1,0 +1,474 @@
+
+<component
+	id="CustomMap"
+	title="Custom Map"
+	tooltip="Custom Map"
+	icon="res/CustomMap/CustomMap.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityVisualizations"
+	databound="true"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/CustomMap/CustomMap</requireJs>
+
+	<cssInclude>res/CustomMap/CustomMap.css</cssInclude>
+	
+	
+	<property
+		id="activateOnMouseOverOut"
+		type="boolean"
+		title="Activate onMouseOver/Out"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="areaDeselectable"
+		type="boolean"
+		title="Area are deselectable"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="areaFillColor"
+		type="String"
+		title="Fill Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="areaFillOpacity"
+		type="float"
+		title="Fill Opacity"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="areaProperties"
+		type="String"
+		title="Area Specific Properties"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="areaSelectable"
+		type="boolean"
+		title="Area are selectable"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="areaStrokeColor"
+		type="String"
+		title="Stroke Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="areaStrokeOpacity"
+		type="float"
+		title="Stroke Opacity"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="areaStrokeWidth"
+		type="int"
+		title="Stroke Width"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="autoResize"
+		type="boolean"
+		title="Auto resize"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="contentTooltip"
+		type="String"
+		title="Tooltip template (html + Mustache)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="data"
+		type="ResultSet"
+		title="Data List"
+		group="DataBinding"
+		visible="true">
+
+		<option name="maxCells" value="100000" />
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+		<option name="presentationDelimiter" value=" | " />
+	</property>
+	<property
+		id="dataCellList"
+		type="ResultCellList"
+		title="Reference Measure Selection"
+		group="DataBinding"
+		visible="true"
+		bindable="true">
+
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+		<option name="includeMetadata" value="true"/>
+	</property>
+	<property
+		id="dataExemple"
+		type="String"
+		title="Exemple of data"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="displayStroke"
+		type="boolean"
+		title="Activate Strokes"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="displayTooltip"
+		type="boolean"
+		title="Display Tooltip"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dynamicColorPalette"
+		type="String"
+		title="Color Palette"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="enableAreaFill"
+		type="boolean"
+		title="enable Fill Properties"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="enableDynamicColors"
+		type="boolean"
+		title="Enable Dynamic Colors"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="enableSpecificPropHighlight"
+		type="boolean"
+		title="Activate special properties on Highlight"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="enableSpecificPropSelected"
+		type="boolean"
+		title="Activate special properties when Selected"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="highlightFillColor"
+		type="String"
+		title="Fill Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="highlightFillOpacity"
+		type="float"
+		title="Fill Opacity"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="highlightStrokeColor"
+		type="String"
+		title="Stroke Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="highlightStrokeOpacity"
+		type="float"
+		title="Stroke Opacity"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="highlightStrokeWidth"
+		type="int"
+		title="Stroke Width"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="highlightedArea"
+		type="String"
+		title=""
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="image"
+		type="Url"
+		title="Image url of Base 64"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="map"
+		type="String"
+		title="Associated map, same scaling as base image"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="mapDataKey"
+		type="String"
+		title="Map key attribute"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="onClick"
+		type="ScriptText"
+		title="On Click"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onMouseOut"
+		type="ScriptText"
+		title="onMouseOut"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onMouseOver"
+		type="ScriptText"
+		title="onMouseOver"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onUpdate"
+		type="ScriptText"
+		title="On Update"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onlySingleSelect"
+		type="boolean"
+		title="Single Select"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="resizeDuration"
+		type="int"
+		title="Resize Duration (ms)"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedAreas"
+		type="String"
+		title=""
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedFillColor"
+		type="String"
+		title="Fill Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedFillOpacity"
+		type="float"
+		title="Fill Opacity"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedStrokeColor"
+		type="String"
+		title="Stroke Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedStrokeOpacity"
+		type="float"
+		title="Stroke Opacity"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedStrokeWidth"
+		type="int"
+		title="Stroke Width"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="staticDisplay"
+		type="boolean"
+		title="Display all areas by default"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="tooltipMode"
+		type="String"
+		title="Tooltip override mode"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">400</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="activateOnMouseOverOut"><![CDATA[false]]></defaultValue>
+		<defaultValue property="areaDeselectable"><![CDATA[true]]></defaultValue>
+		<defaultValue property="areaFillColor"><![CDATA[#FF0000]]></defaultValue>
+		<defaultValue property="areaFillOpacity"><![CDATA[0.5]]></defaultValue>
+		<defaultValue property="areaProperties"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="areaSelectable"><![CDATA[true]]></defaultValue>
+		<defaultValue property="areaStrokeColor"><![CDATA[#000000]]></defaultValue>
+		<defaultValue property="areaStrokeOpacity"><![CDATA[0.5]]></defaultValue>
+		<defaultValue property="areaStrokeWidth"><![CDATA[1]]></defaultValue>
+		<defaultValue property="autoResize"><![CDATA[true]]></defaultValue>
+		<defaultValue property="contentTooltip"><![CDATA[]]></defaultValue>
+		<defaultValue property="data"><![CDATA[]]></defaultValue>
+		<defaultValue property="dataCellList"><![CDATA[null]]></defaultValue>
+		<defaultValue property="dataExemple"><![CDATA[]]></defaultValue>
+		<defaultValue property="displayStroke"><![CDATA[true]]></defaultValue>
+		<defaultValue property="displayTooltip"><![CDATA[true]]></defaultValue>
+		<defaultValue property="dynamicColorPalette"><![CDATA[]]></defaultValue>
+		<defaultValue property="enableAreaFill"><![CDATA[true]]></defaultValue>
+		<defaultValue property="enableDynamicColors"><![CDATA[false]]></defaultValue>
+		<defaultValue property="enableSpecificPropHighlight"><![CDATA[true]]></defaultValue>
+		<defaultValue property="enableSpecificPropSelected"><![CDATA[true]]></defaultValue>
+		<defaultValue property="highlightFillColor"><![CDATA[#FF0000]]></defaultValue>
+		<defaultValue property="highlightFillOpacity"><![CDATA[0.5]]></defaultValue>
+		<defaultValue property="highlightStrokeColor"><![CDATA[#000000]]></defaultValue>
+		<defaultValue property="highlightStrokeOpacity"><![CDATA[0.5]]></defaultValue>
+		<defaultValue property="highlightStrokeWidth"><![CDATA[1]]></defaultValue>
+		<defaultValue property="highlightedArea"><![CDATA[]]></defaultValue>
+		<defaultValue property="image"><![CDATA[]]></defaultValue>
+		<defaultValue property="map"><![CDATA[]]></defaultValue>
+		<defaultValue property="mapDataKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="onClick"><![CDATA[]]></defaultValue>
+		<defaultValue property="onMouseOut"><![CDATA[]]></defaultValue>
+		<defaultValue property="onMouseOver"><![CDATA[]]></defaultValue>
+		<defaultValue property="onUpdate"><![CDATA[]]></defaultValue>
+		<defaultValue property="onlySingleSelect"><![CDATA[false]]></defaultValue>
+		<defaultValue property="resizeDuration"><![CDATA[500]]></defaultValue>
+		<defaultValue property="selectedAreas"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedFillColor"><![CDATA[#FF0000]]></defaultValue>
+		<defaultValue property="selectedFillOpacity"><![CDATA[0.5]]></defaultValue>
+		<defaultValue property="selectedStrokeColor"><![CDATA[#000000]]></defaultValue>
+		<defaultValue property="selectedStrokeOpacity"><![CDATA[0.5]]></defaultValue>
+		<defaultValue property="selectedStrokeWidth"><![CDATA[1]]></defaultValue>
+		<defaultValue property="staticDisplay"><![CDATA[true]]></defaultValue>
+		<defaultValue property="tooltipMode"><![CDATA[Default]]></defaultValue>
+
+	</initialization>
+
+</component>

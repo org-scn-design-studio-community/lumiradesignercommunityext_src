@@ -1,0 +1,81 @@
+
+<component
+	id="ImageCarousel"
+	title="Image Carousel 2.0"
+	tooltip="Image Carousel"
+	icon="res/ImageCarousel/ImageCarousel.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ImageCarousel/ImageCarousel</requireJs>
+
+	<cssInclude>res/ImageCarousel/ImageCarousel.css</cssInclude>
+	
+	
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Elements"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="defaultImage"
+		type="Url"
+		title="Default Image Url"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="elements"
+		type="String"
+		title="Elements"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Technical Proprty For Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">100</defaultValue>
+		
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="defaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="elements"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

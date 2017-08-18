@@ -1,0 +1,84 @@
+
+/**
+ * Generated ZTL Class for ApplicationHeader
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.ApplicationHeader extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Display Logoff Property
+	 */	
+	void setDisplayLogoff( /**Display Logoff*/ boolean displayLogoff){*
+		this.displayLogoff = displayLogoff;
+	*}
+
+	/**
+	 * Gets Display Logoff Property
+	 */	
+	boolean isDisplayLogoff() {*
+		return this.displayLogoff;
+	*}
+
+	/**
+	 * Sets Display Welcome Property
+	 */	
+	void setDisplayWelcome( /**Display Welcome*/ boolean displayWelcome){*
+		this.displayWelcome = displayWelcome;
+	*}
+
+	/**
+	 * Gets Display Welcome Property
+	 */	
+	boolean isDisplayWelcome() {*
+		return this.displayWelcome;
+	*}
+
+	/**
+	 * Sets Logo Source Property
+	 */	
+	void setLogoSrc( /**Logo Source*/ String logoSrc){*
+		this.logoSrc = logoSrc;
+	*}
+
+	/**
+	 * Gets Logo Source Property
+	 */	
+	String getLogoSrc() {*
+		return this.logoSrc;
+	*}
+
+	/**
+	 * Sets Logo Text Property
+	 */	
+	void setLogoText( /**Logo Text*/ String logoText){*
+		this.logoText = logoText;
+	*}
+
+	/**
+	 * Gets Logo Text Property
+	 */	
+	String getLogoText() {*
+		return this.logoText;
+	*}
+
+
+
+	/**
+	 * Sets User Name Property
+	 */	
+	void setUserName( /**User Name*/ String userName){*
+		this.userName = userName;
+	*}
+
+	/**
+	 * Gets User Name Property
+	 */	
+	String getUserName() {*
+		return this.userName;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}

@@ -1,0 +1,71 @@
+
+<component
+	id="BasicBusinessCard"
+	title="Basic Business Card 2.0"
+	tooltip="Basic Business Card"
+	icon="res/BasicBusinessCard/BasicBusinessCard.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/BasicBusinessCard/BasicBusinessCard</requireJs>
+
+	<cssInclude>res/BasicBusinessCard/BasicBusinessCard.css</cssInclude>
+	
+	
+	<property
+		id="image"
+		type="String"
+		title="Image Url"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="name"
+		type="String"
+		title="Name"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onPress"
+		type="ScriptText"
+		title="On Press"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="title"
+		type="String"
+		title="Title"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">100</defaultValue>
+		
+		<defaultValue property="image"><![CDATA[]]></defaultValue>
+		<defaultValue property="name"><![CDATA[Last, First]]></defaultValue>
+		<defaultValue property="onPress"><![CDATA[]]></defaultValue>
+		<defaultValue property="title"><![CDATA[Expert for All Issues]]></defaultValue>
+
+	</initialization>
+
+</component>

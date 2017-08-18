@@ -1,0 +1,9 @@
+.scn-pack-NavigationBar {
+	
+}
+
+.scn-pack-NavigationBarItemDisabled {
+	color: #666666!important;
+}
+
+div[class~=scn-pack-FullSizeChildren] div[class=sapUiLayoutAbsPos] {width: 100% !important;height: 100% !important;}

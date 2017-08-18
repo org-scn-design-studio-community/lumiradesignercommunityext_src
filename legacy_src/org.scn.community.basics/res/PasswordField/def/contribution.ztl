@@ -1,0 +1,70 @@
+
+/**
+ * Generated ZTL Class for PasswordField
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.PasswordField extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Editable Property
+	 */	
+	void setEditable( /**Editable*/ boolean editable){*
+		this.editable = editable;
+	*}
+
+	/**
+	 * Gets Editable Property
+	 */	
+	boolean isEditable() {*
+		return this.editable;
+	*}
+
+	/**
+	 * Sets Enabled Property
+	 */	
+	void setEnabled( /**Enabled*/ boolean enabled){*
+		this.enabled = enabled;
+	*}
+
+	/**
+	 * Gets Enabled Property
+	 */	
+	boolean isEnabled() {*
+		return this.enabled;
+	*}
+
+
+
+	/**
+	 * Sets Tooltip Property
+	 */	
+	void setTooltip( /**Tooltip*/ String tooltip){*
+		this.tooltip = tooltip;
+	*}
+
+	/**
+	 * Gets Tooltip Property
+	 */	
+	String getTooltip() {*
+		return this.tooltip;
+	*}
+
+	/**
+	 * Sets Value Property
+	 */	
+	void setValue( /**Value*/ String value){*
+		this.value = value;
+	*}
+
+	/**
+	 * Gets Value Property
+	 */	
+	String getValue() {*
+		return this.value;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}

@@ -1,0 +1,47 @@
+/**
+ * Copyright 2014 Scn Community Contributors
+ * 
+ * Original Source Code Location:
+ *  https://github.com/org-scn-design-studio-community/sdkpackage/
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *  
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *  
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License. 
+ */
+var scn_pkg="org.scn.community.";if(sap.firefly!=undefined){scn_pkg=scn_pkg.replace(".","_");}
+define([],
+function() {
+
+	var spec = {
+		id: "%COMP-id%",
+		name: "%COMP-package%.%COMP-id%",
+		requireName: "%COMP-package%%COMP-id(lower)%",
+		fullComponentName: "org.scn.community.%COMP-package%.%COMP-id%",
+		fullComponentPackage: "org.scn.community.%COMP-package%/res/%COMP-id%",
+		script: "org.scn.community.%COMP-package%/res/%COMP-id%/%COMP-id%",
+		scriptSpec: "org.scn.community.%COMP-package%/res/%COMP-id%/%COMP-id%Spec",
+		min: false
+	};
+
+	spec.spec = 
+%FULL_SPEC_DEFINITION%
+
+	spec.specInclude = 
+%FULL_SPEC_INCLUDE_DEFINITION%
+
+	spec.specAbout = 
+%FULL_ABOUT_SPEC_DEFINITION%
+
+	spec.specComp = 
+%FULL_COMP_SPEC_DEFINITION%
+
+	return spec;
+});// End of closure

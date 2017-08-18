@@ -1,0 +1,128 @@
+
+/**
+ * Generated ZTL Class for EmbeddedFrame
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.EmbeddedFrame extends org.scn.community.shared.Component {
+
+	/**
+	 * Gets Domain Relax Level Property
+	 */	
+	int getDomainrelaxlevel() {*
+		return this.domainrelaxlevel;
+	*}
+
+	/**
+	 * Gets Explicitly set document domain Property
+	 */	
+	boolean isExplicitlySetDomain() {*
+		return this.explicitlySetDomain;
+	*}
+
+
+
+	/**
+	 * Gets Sandbox Attribute Values Property
+	 */	
+	String getSandbox() {*
+		return this.sandbox;
+	*}
+
+	/**
+	 * Gets Skip port in domain Property
+	 */	
+	boolean isSkipport() {*
+		return this.skipport;
+	*}
+
+	/**
+	 * Gets Url Property
+	 */	
+	String getUrl() {*
+		return this.url;
+	*}
+
+	/**
+	 * Gets Use Sandbox Attribute Property
+	 */	
+	boolean isUsesandbox() {*
+		return this.usesandbox;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+	// here is the place for other custom functions	
+
+	// manual SETTERS
+	/**
+	 * Sets Domain Relax Level Property
+	 */	
+	void setDomainrelaxlevel( /**Domain Relax Level*/ int domainrelaxlevel){*
+		this.domainrelaxlevel = domainrelaxlevel;
+		this.reload = calcTimestamp();
+	*}
+
+	/**
+	 * Sets Explicitly set document domain Property
+	 */	
+	void setExplicitlySetDomain( /**Explicitly set document domain*/ boolean explicitlySetDomain){*
+		this.explicitlySetDomain = explicitlySetDomain;
+		this.reload = calcTimestamp();
+	*}
+
+	/**
+	 * Sets Sandbox Attribute Values Property
+	 */	
+	void setSandbox( /**Sandbox Attribute Values*/ String sandbox){*
+		this.sandbox = sandbox;
+		this.reload = calcTimestamp();
+	*}
+
+	/**
+	 * Sets Skip port in domain Property
+	 */	
+	void setSkipport( /**Skip port in domain*/ boolean skipport){*
+		this.skipport = skipport;
+		this.reload = calcTimestamp();	
+	*}
+
+	/**
+	 * Sets Url Property
+	 */	
+	void setUrl( /**Url*/ String url){*
+		this.url = url;
+		this.reload = calcTimestamp();
+	*}
+
+	/**
+	 * Sets Use Sandbox Attribute Property
+	 */	
+	void setUsesandbox( /**Use Sandbox Attribute*/ boolean usesandbox){*
+		this.usesandbox = usesandbox;
+		this.reload = calcTimestamp();
+	*}
+
+	// Special get for BOOLEAN (copy of isSkipPort())
+	/**
+	 * Gets Skip Port Property
+	 */	
+	boolean getSkipPort(){*
+		return this.skipport;
+	*}
+
+	/**
+	 * Trigger reload of IFrame
+	 */
+	void triggerReload(){*
+		this.reload = calcTimestamp();
+	*}	
+	
+	@Visibility(private)
+	/**
+	 *	Workaround for strange DesignStudio lifecycle handling when calling functions via scriptting triggers
+	 */
+	String calcTimestamp() {*
+		return ""+new Date().getTime();
+	*}
+}

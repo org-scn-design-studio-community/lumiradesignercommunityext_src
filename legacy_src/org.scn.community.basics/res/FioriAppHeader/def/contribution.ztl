@@ -1,0 +1,171 @@
+class org.scn.community.basics.FioriAppHeader extends org.scn.community.shared.Component {
+	/** Add a header button
+ 	<example>
+	Add a header button called 'Menu' with no label show and a menu icon.
+	<code>
+	FIORIAPPHEADER_1.addHeaderButton("MENU","Menu",false,"sap-icon://menu2","Emphasized");<br>
+	</code>
+	</example>
+	 */
+	void addHeaderButton (/*Button Key*/String buttonKey, /*Button Title*/String buttonTitle, /* Show Title */ optional boolean showTitle, /*Icon*/ optional String icon, /*Button Type*/ optional String buttonType) {*	
+		var o = eval(this.itemConfig);
+		var matchIndex = -1;
+		var sTitle = true;
+		if(showTitle != undefined) sTitle = showTitle;
+		var h;
+		for(var i=0;i<o.length;i++){
+			if(o[i].key == buttonKey) matchIndex = i;
+		}
+		if(matchIndex==-1) {
+			o.push({
+				key : buttonKey,
+				text : buttonTitle,
+				showTitle : sTitle,
+				icon : icon,
+				items : [],
+				type : buttonType || "Default"
+			});
+		}else{	// Don't overwrite items
+			o[matchIndex].text = buttonTitle;
+			o[matchIndex].showTitle = sTitle;
+			o[matchIndex].icon = icon;
+			o[matchIndex].type = buttonType || "Default";
+		}		
+		itemConfig = JSON.stringify(o);
+	*}
+	/** Remove All Buttons
+ 	<example>
+	Remove all button
+	<code>
+	FIORIAPPHEADER_1.removeAllButtons();<br>
+	</code>
+	</example>
+	 */
+	void removeAllButtons () {*		
+		itemConfig = JSON.stringify([]);
+	*}
+	/** Remove All Items in a header button by key
+ 	<example>
+	Remove all items in header button key 'MENU'
+	<code>
+	FIORIAPPHEADER_1.removeAllItems("MENU");<br>
+	</code>
+	</example>
+	 */
+	void removeAllItems (/*Button Key*/String buttonKey) {*		
+		var o = eval(this.itemConfig);
+		var matchIndex = -1;
+		for(var i=0;i<o.length;i++){
+			if(o[i].key == buttonKey) matchIndex = i;
+		}
+		if(matchIndex>-1) o[matchIndex].items = [];
+		itemConfig = JSON.stringify(o);
+	*}
+	/** Remove a button by key
+ 	<example>
+	Remove a header button called 'MENU'
+	<code>
+	FIORIAPPHEADER_1.removeHeaderButton("MENU");<br>
+	</code>
+	</example>
+	 */
+	void removeHeaderButton (/*Button Key*/String buttonKey) {*		
+		var o = eval(this.itemConfig);
+		var matchIndex = -1;
+		for(var i=0;i<o.length;i++){
+			if(o[i].key == buttonKey) matchIndex = i;
+		}
+		if(matchIndex>-1) o.splice(matchIndex,1);
+		itemConfig = JSON.stringify(o);
+	*}
+	/** Add an item to a header button.  Will also add the header button if it does not yet exist.
+ 	<example>
+	Add an item called 'Help' to header button with key 'MENU' with an icon sys-help-2
+	<code>
+	FIORIBAR_1.addItem("MENU", "help", "Help", "sap-icon://sys-help-2");<br>
+	</code>
+	</example>
+	 */
+	void addItem (/*Button Key*/String buttonKey, /*Item Key*/String itemKey, /*Item Text*/String itemText, /*Item Icon*/optional String itemIcon) {*		
+		var o = eval(this.itemConfig);
+		var matchIndex = -1;
+		for(var i=0;i<o.length;i++){
+			if(o[i].key == buttonKey) matchIndex = i;
+		}
+		if(matchIndex == -1 ){	// Add section for the lazy
+			this.addHeaderButton(buttonKey, buttonKey);
+			o = eval(this.itemConfig);
+			matchIndex = o.length-1;
+		}
+		o[matchIndex].items.push({
+			key : itemKey,
+			text : itemText,
+			icon : itemIcon || ""
+		});
+		itemConfig = JSON.stringify(o);
+	*}
+	/** Removes an item from a header button.
+ 	<example>
+	Remove an item with key 'HELP' from header button with key 'MENU'
+	<code>
+	FIORIBAR_1.removeItem("MENU", "HELP");<br>
+	</code>
+	</example>
+	 */
+	void removeItem (/*Button Key*/String buttonKey, /*Item Key*/ String itemKey) {*		
+		var o = eval(this.itemConfig);
+		var matchIndex = -1;
+		for(var i=0;i<o.length;i++){
+			if(o[i].key == buttonKey) matchIndex = i;
+		}
+		if(matchIndex != -1 ){
+			var items = o[matchIndex].items;
+			var itemIndex = -1;
+			for(var i=0;i<items.length;i++){
+				if(items[i].key == itemKey) itemIndex = i;
+			}
+			if(itemIndex>-1) items.splice(itemIndex,1);
+			itemConfig = JSON.stringify(o);
+		}		
+	*}
+	/**
+	Get item key clicked.
+	*/
+	String getItemClicked() {*
+		return this.selectedItem;
+	*}
+	/**
+	Get header key of and item clicked.
+	*/
+	String getHeaderClicked() {*
+		return this.selectedHeader;
+	*}
+	/**
+	Get item text clicked.
+	*/
+	String getItemTextClicked() {*
+		return this.selectedItemText;
+	*}
+	/**
+	Get header text of and item clicked.
+	*/
+	String getHeaderTextClicked() {*
+		return this.selectedHeaderText;
+	*}
+	/* Shows or hides the back button. */
+	void setShowNavButton(/* If true, then the back button is shown, else it is hidden */ boolean visible) {*
+		this.showNavButton = visible;
+	*}
+	/* Returns true if the back button is shown, else false. */
+	boolean getShowNavButton() {*
+		return this.showNavButton;
+	*}
+	/* Sets the title. */
+	void setTitle(/* Title */ String title) {*
+		this.title = title;
+	*}	
+	/* Returns the title. */
+	String getTitle() {*
+		return this.title;
+	*}
+}

@@ -1,0 +1,28 @@
+
+/**
+ * enum filed definition
+ */
+class org_scn_community_shared_SortTypeEnumfield extends Enumfield {
+       
+}
+
+/**
+ * a set of constants to specify sort type 
+ */
+class org_scn_community_shared_SortType extends Enum {
+
+	/** Default */
+	org_scn_community_shared_SortTypeEnumfield Default;
+       
+	/** Alphabetical */
+	org_scn_community_shared_SortTypeEnumfield Alphabetical;
+
+	/** Count */
+	org_scn_community_shared_SortTypeEnumfield Count;
+	
+	/** Selected */
+	org_scn_community_shared_SortTypeEnumfield Selected;
+
+	/** Value */
+	org_scn_community_shared_SortTypeEnumfield Value;
+}

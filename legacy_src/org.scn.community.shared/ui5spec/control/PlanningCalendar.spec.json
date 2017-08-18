@@ -1,0 +1,399 @@
+{
+
+	"startDate" : {
+		"template" : "String",
+		"type" : "String",
+		"value" : "",
+		"visible": true,
+		"opts" : {
+			"ztlType": "String",
+			"ztlFunction": "",
+			"desc" : "Start Date",
+			"cat" : "Display",
+			"tooltip" : "Start date of the row, as JavaScript date object. As a default the current date is used.",
+			"apsControl" : "text",
+			"noAps" : false,
+			"noZtl" : false
+		}
+	},
+	"viewKey" : {
+		"template" : "Choice",
+		"type" : "String",
+		"value" : "Day",
+		"visible": true,
+		"opts" : {
+			"ztlType": "Choice",
+			"choiceType": "-",
+			"ztlFunction": "",
+			"desc" : "View Type",
+			"cat" : "Display",
+			"tooltip" : "View Type",
+			"apsControl" : "combobox",
+			"options":[
+				{
+					"key" : "Hour",
+					"text" : "Hour"
+				},
+				{
+					"key" : "Day",
+					"text" : "Day"
+				},
+				{
+					"key" : "Month",
+					"text" : "Month"
+				}
+				
+            ],
+			"noAps" : false,
+			"noZtl" : false
+		}
+	},
+	"contentWidth" : {
+		"template" : "int",
+		"type" : "int",
+		"value" : 0,
+		"visible": false,
+		"opts" : {
+			"ztlType": "int",
+			"ztlFunction": "",
+			"desc" : "Content Width",
+			"cat" : "Display",
+			"tooltip" : "Width of the ",
+			"apsControl" : "spinner",
+			"noAps" : true,
+			"noZtl" : true
+		}
+	},
+	"contentHeight" : {
+		"template" : "int",
+		"type" : "int",
+		"value" : 0,
+		"visible": false,
+		"opts" : {
+			"ztlType": "int",
+			"ztlFunction": "",
+			"desc" : "Content Height",
+			"cat" : "Display",
+			"tooltip" : "Height of the ",
+			"apsControl" : "spinner",
+			"noAps" : true,
+			"noZtl" : true
+		}
+	},
+	"showIntervalHeaders" : {
+		"template" : "boolean",
+		"type" : "boolean",
+		"value" : true,
+		"visible": true,
+		"opts" : {
+			"ztlType": "boolean",
+			"ztlFunction": "",
+			"desc" : "Show Interval Headers",
+			"cat" : "Display",
+			"tooltip" : "If set, interval headers are shown even if no ",
+			"apsControl" : "checkbox",
+			"noAps" : false,
+			"noZtl" : false
+		}
+	},
+	"showRowHeaders" : {
+		"template" : "boolean",
+		"type" : "boolean",
+		"value" : true,
+		"visible": true,
+		"opts" : {
+			"ztlType": "boolean",
+			"ztlFunction": "",
+			"desc" : "Show Row Headers",
+			"cat" : "Display",
+			"tooltip" : "If set, headers of the ",
+			"apsControl" : "checkbox",
+			"noAps" : false,
+			"noZtl" : false
+		}
+	},
+	"noDataText" : {
+		"template" : "String",
+		"type" : "String",
+		"value" : "No Data",
+		"visible": true,
+		"opts" : {
+			"ztlType": "String",
+			"ztlFunction": "",
+			"desc" : "No Data Text",
+			"cat" : "Display",
+			"tooltip" : "This text is displayed when no rows are assigned.",
+			"apsControl" : "text",
+			"noAps" : false,
+			"noZtl" : false
+		}
+	},
+	"rows" : {
+		"template" : "ObjectArray",
+		"type" : "String",
+		"origType": "PlanningCalendarRow",
+		"value" : "[{\"parentKey\":\"ROOT\",\"key\":\"PLANNING_EVENTS\",\"leaf\":false,\"text\":\"Events Example in Planning\",\"title\":\"Main Events\",\"icon\":\"sap-icon://accept\",\"selected\":false},{\"parentKey\":\"ROOT\",\"key\":\"PAST_EVENTS\",\"leaf\":false,\"text\":\"Events in the past\",\"title\":\"Past Events\",\"icon\":\"sap-icon://error\"}]",
+		"visible": true,
+
+		"opts" : {
+			"ztlType": "SingleArray",
+			"ztlFunction": "",
+
+			"desc" : "Rows",
+			"cat" : "Content-Rows",
+			"tooltip" : "Rows to be displayed",
+
+			"apsControl" : "array",
+			"arrayMode": "OneLevelArray",
+			
+			"arrayDefinition": {
+				"rows": {
+					"type": "Array",
+			        "sequence": "key,text,title,icon,selected",
+			        
+			        "key": {
+			          "desc": "Unique Property Key",
+			          "type": "String"
+					},
+					"icon": {
+					  "desc": "Icon",
+					  "type": "String,optional"
+					},
+					"selected": {
+					  "apsControl": "checkbox",
+					  "desc": "Selected",
+					  "type": "boolean,optional"
+					},
+					"text": {
+					  "desc": "Text",
+					  "type": "String"
+					},
+					"title": {
+					  "desc": "Title",
+					  "type": "String"
+					}
+		      	}
+	      	},
+			"noAps" : false,
+			"noZtl" : false
+		}
+	},
+	"appointments" : {
+		"template" : "ObjectArray",
+		"type" : "String",
+		"origType": "CalendarAppointment",
+		"value" : "[{\"parentKey\":\"ROOT\",\"key\":\"ELEMENT\",\"leaf\":false,\"text\":\"Short Event\",\"rowKey\":\"PLANNING_EVENTS\",\"start\":\"201604091234\",\"end\":\"201604091634\",\"title\":\"This event is only for 4 hours\"},{\"parentKey\":\"ROOT\",\"key\":\"ELEMENT1\",\"leaf\":false,\"title\":\"Long Running Event\",\"text\":\"this events runs over 2 months\",\"tentative\":true,\"start\":\"20160409\",\"end\":\"20160611\",\"rowKey\":\"PLANNING_EVENTS\",\"ntype\":\"Type02\"},{\"parentKey\":\"ROOT\",\"key\":\"PAST_EVENT1\",\"leaf\":false,\"rowKey\":\"PAST_EVENTS\",\"start\":\"20100101\",\"text\":\"First Event in the past\",\"title\":\"Past Event 1 / Tentative\",\"icon\":\"sap-icon://accept\",\"tentative\":true,\"ntype\":\"Type06\",\"selected\":false}]",
+		"visible": true,
+
+		"opts" : {
+			"ztlType": "SingleArray",
+			"ztlFunction": "",
+
+			"desc" : "Appointments",
+			"cat" : "Content-Appointments",
+			"tooltip" : "Appointments to be displayed in the top of the intervals. The ",
+
+			"apsControl" : "array",
+			"arrayMode": "OneLevelArray",
+			
+			"arrayDefinition": {
+				"appointments": {
+					"type": "Array",
+			        "sequence": "key,rowKey,start,end,text,title,ntype,icon,selected,tentative",
+			        "key": {
+			          "desc": "Unique Appointment Key",
+			          "type": "String"
+					},
+					"rowKey": {
+			          "desc": "Unique Row Key",
+			          "type": "String"
+					},
+					"start": {
+					  "desc": "Start Date/Time",
+					  "type": "String"
+					},
+					"end": {
+					  "desc": "End Date/Time",
+					  "type": "String"
+					},
+					"text": {
+					  "desc": "Text",
+					  "type": "String"
+					},
+					"title": {
+					  "desc": "Title",
+					  "type": "String"
+					},
+					"ntype": {
+			          "apsControl": "combobox",
+			          "desc": "Type",
+			          "options": [
+			            {
+			              "key": "Type01",
+			              "text": "Type01"
+			            },
+			            {
+			              "key": "Type02",
+			              "text": "Type02"
+			            },
+			            {
+			              "key": "Type03",
+			              "text": "Type03"
+			            },
+			            {
+			              "key": "Type04",
+			              "text": "Type04"
+			            },
+			            {
+			              "key": "Type05",
+			              "text": "Type05"
+			            },
+			            {
+			              "key": "Type06",
+			              "text": "Type06"
+			            },
+			            {
+			              "key": "Type07",
+			              "text": "Type07"
+			            },
+			            {
+			              "key": "Type08",
+			              "text": "Type08"
+			            },
+			            {
+			              "key": "Type09",
+			              "text": "Type09"
+			            }
+			          ],
+			          "type": "String,optional"
+			        },
+					"icon": {
+					  "desc": "Icon",
+					  "type": "String,optional"
+					},
+					"tentative": {
+					  "apsControl": "checkbox",
+					  "desc": "Tentative",
+					  "type": "boolean,optional"
+					},
+					"selected": {
+					  "apsControl": "checkbox",
+					  "desc": "Selected",
+					  "type": "boolean,optional"
+					}
+		      	}
+	      	},
+			"noAps" : false,
+			"noZtl" : false
+		}
+	},
+	"intervalHeaders" : {
+		"template" : "ObjectArray",
+		"type" : "String",
+		"origType": "CalendarAppointment",
+		"value" : "[{\"parentKey\":\"ROOT\",\"key\":\"PAST_EVENTS\",\"leaf\":false,\"rowKey\":\"PAST_EVENTS\",\"text\":\"Interval Header\",\"title\":\"Header\",\"start\":\"20160401\",\"end\":\"20161010\",\"icon\":\"sap-con://warning\",\"selected\":false,\"tentative\":false}]",
+		"visible": true,
+
+		"opts" : {
+			"ztlType": "SingleArray",
+			"ztlFunction": "",
+
+			"desc" : "Interval Headers",
+			"cat" : "Content-Interval Headers",
+			"tooltip" : "Interval Headers to be displayed in the top of the intervals. The ",
+
+			"apsControl" : "array",
+			"arrayMode": "OneLevelArray",
+			
+			"arrayDefinition": {
+				"intervalHeaders": {
+					"type": "Array",
+			        "sequence": "key,rowKey,start,end,text,title,ntype,icon,selected,tentative",
+			        "key": {
+			          "desc": "Unique Header Key",
+			          "type": "String"
+					},
+					"rowKey": {
+			          "desc": "Unique Row Key",
+			          "type": "String"
+					},
+					"start": {
+					  "desc": "Start Date/Time",
+					  "type": "String"
+					},
+					"end": {
+					  "desc": "End Date/Time",
+					  "type": "String"
+					},
+					"text": {
+					  "desc": "Text",
+					  "type": "String"
+					},
+					"title": {
+					  "desc": "Title",
+					  "type": "String"
+					},
+					"ntype": {
+			          "apsControl": "combobox",
+			          "desc": "Type",
+			          "options": [
+			            {
+			              "key": "Type01",
+			              "text": "Type01"
+			            },
+			            {
+			              "key": "Type02",
+			              "text": "Type02"
+			            },
+			            {
+			              "key": "Type03",
+			              "text": "Type03"
+			            },
+			            {
+			              "key": "Type04",
+			              "text": "Type04"
+			            },
+			            {
+			              "key": "Type05",
+			              "text": "Type05"
+			            },
+			            {
+			              "key": "Type06",
+			              "text": "Type06"
+			            },
+			            {
+			              "key": "Type07",
+			              "text": "Type07"
+			            },
+			            {
+			              "key": "Type08",
+			              "text": "Type08"
+			            },
+			            {
+			              "key": "Type09",
+			              "text": "Type09"
+			            }
+			          ],
+			          "type": "String,optional"
+			        },
+					"icon": {
+					  "desc": "Icon",
+					  "type": "String,optional"
+					},
+					"tentative": {
+					  "apsControl": "checkbox",
+					  "desc": "Tentative",
+					  "type": "boolean,optional"
+					},
+					"selected": {
+					  "apsControl": "checkbox",
+					  "desc": "Selected",
+					  "type": "boolean,optional"
+					}
+		      	}
+	      	},
+			"noAps" : false,
+			"noZtl" : false
+		}
+	}
+}

@@ -1,0 +1,238 @@
+
+/**
+ * Generated ZTL Class for DateRangeSlider
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.DateRangeSlider extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Granularity Property by String
+	 */	
+	void setGranularityByString( /**Granularity*/ String granularity){*
+		this.DGranularity = granularity;
+	*}
+
+	/**
+	 * Gets Granularity Property as String
+	 */	
+	String getGranularityAsString() {*
+		return this.DGranularity;
+	*}
+	
+	/**
+	 * Sets Granularity Property by Choice Option
+	 */	
+	void setGranularity( /**Granularity*/ org_scn_community_shared_DateViewTypeEnumfield granularity){*
+		this.DGranularity = granularity;
+	*}
+	
+	/**
+	 * Gets Granularity Property as Choice Option
+	 */	
+	org_scn_community_shared_DateViewTypeEnumfield getGranularity() {*
+		return this.DGranularity;
+	*}
+
+	/**
+	 * Sets Language Dependent Format Property
+	 */	
+	void setLangFormat( /**Language Dependent Format*/ boolean langFormat){*
+		this.DLangFormat = langFormat;
+	*}
+
+	/**
+	 * Gets Language Dependent Format Property
+	 */	
+	boolean isLangFormat() {*
+		return this.DLangFormat;
+	*}
+
+	/**
+	 * Sets Custom Format Pattern Property
+	 */	
+	void setLangPattern( /**Custom Format Pattern*/ String langPattern){*
+		this.DLangPattern = langPattern;
+	*}
+
+	/**
+	 * Gets Custom Format Pattern Property
+	 */	
+	String getLangPattern() {*
+		return this.DLangPattern;
+	*}
+
+	/**
+	 * Sets Custom Format Relative Property
+	 */	
+	void setLangRelative( /**Custom Format Relative*/ boolean langRelative){*
+		this.DLangRelative = langRelative;
+	*}
+
+	/**
+	 * Gets Custom Format Relative Property
+	 */	
+	boolean isLangRelative() {*
+		return this.DLangRelative;
+	*}
+
+	/**
+	 * Sets Custom Format Style Property by String
+	 */	
+	void setLangStyleByString( /**Custom Format Style*/ String langStyle){*
+		this.DLangStyle = langStyle;
+	*}
+
+	/**
+	 * Gets Custom Format Style Property as String
+	 */	
+	String getLangStyleAsString() {*
+		return this.DLangStyle;
+	*}
+	
+	/**
+	 * Sets Custom Format Style Property by Choice Option
+	 */	
+	void setLangStyle( /**Custom Format Style*/ org_scn_community_shared_FormatStyleEnumfield langStyle){*
+		this.DLangStyle = langStyle;
+	*}
+	
+	/**
+	 * Gets Custom Format Style Property as Choice Option
+	 */	
+	org_scn_community_shared_FormatStyleEnumfield getLangStyle() {*
+		return this.DLangStyle;
+	*}
+
+	/**
+	 * Sets Maximum Date Property
+	 */	
+	void setMaximumDate( /**Maximum Date*/ String maximumDate){*
+		this.DMax = maximumDate;
+	*}
+
+	/**
+	 * Gets Maximum Date Property
+	 */	
+	String getMaximumDate() {*
+		return this.DMax;
+	*}
+
+	/**
+	 * Sets Minimum Date Property
+	 */	
+	void setMinimumDate( /**Minimum Date*/ String minimumDate){*
+		this.DMin = minimumDate;
+	*}
+
+	/**
+	 * Gets Minimum Date Property
+	 */	
+	String getMinimumDate() {*
+		return this.DMin;
+	*}
+
+	/**
+	 * Sets First Date Property
+	 */	
+	void setFirstDate( /**First Date*/ String firstDate){*
+		this.DValue = firstDate;
+	*}
+
+	/**
+	 * Gets First Date Property
+	 */	
+	String getFirstDate() {*
+		return this.DValue;
+	*}
+
+	/**
+	 * Sets Second Date Property
+	 */	
+	void setSecondDate( /**Second Date*/ String secondDate){*
+		this.DValue2 = secondDate;
+	*}
+
+	/**
+	 * Gets Second Date Property
+	 */	
+	String getSecondDate() {*
+		return this.DValue2;
+	*}
+
+
+
+	/**
+	 * Sets Show Bubbles Property
+	 */	
+	void setShowBubbles( /**Show Bubbles*/ boolean showBubbles){*
+		this.showBubbles = showBubbles;
+	*}
+
+	/**
+	 * Gets Show Bubbles Property
+	 */	
+	boolean isShowBubbles() {*
+		return this.showBubbles;
+	*}
+
+	/**
+	 * Sets Small Step Width Property
+	 */	
+	void setSmallStepWidth( /**Small Step Width*/ String smallStepWidth){*
+		this.smallStepWidth = smallStepWidth;
+	*}
+
+	/**
+	 * Gets Small Step Width Property
+	 */	
+	String getSmallStepWidth() {*
+		return this.smallStepWidth;
+	*}
+
+	/**
+	 * Sets Step Labels Property
+	 */	
+	void setStepLabels( /**Step Labels*/ boolean stepLabels){*
+		this.stepLabels = stepLabels;
+	*}
+
+	/**
+	 * Gets Step Labels Property
+	 */	
+	boolean isStepLabels() {*
+		return this.stepLabels;
+	*}
+
+	/**
+	 * Sets Total Units Property
+	 */	
+	void setTotalUnits( /**Total Units*/ int totalUnits){*
+		this.totalUnits = totalUnits;
+	*}
+
+	/**
+	 * Gets Total Units Property
+	 */	
+	int getTotalUnits() {*
+		return this.totalUnits;
+	*}
+
+	/**
+	 * Sets Change To Vertical Orientation Property
+	 */	
+	void setVertical( /**Change To Vertical Orientation*/ boolean vertical){*
+		this.vertical = vertical;
+	*}
+
+	/**
+	 * Gets Change To Vertical Orientation Property
+	 */	
+	boolean isVertical() {*
+		return this.vertical;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}

@@ -1,0 +1,163 @@
+
+<component
+	id="RangeSlider"
+	title="Data Range Slider 2.0"
+	tooltip="Data Range Slider"
+	icon="res/RangeSlider/RangeSlider.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="true"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/RangeSlider/RangeSlider</requireJs>
+
+	<cssInclude>res/RangeSlider/RangeSlider.css</cssInclude>
+	
+	
+	<property
+		id="data"
+		type="ResultCellList"
+		title="Data List"
+		group="DataBinding"
+		visible="true"
+		bindable="true">
+
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+		<option name="includeMetadata" value="true"/>
+	</property>
+	<property
+		id="doRefresh"
+		type="boolean"
+		title="Technical Proprty For Pause Refresh"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="maxNumber"
+		type="int"
+		title="Maximum Number"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onDataChanged"
+		type="ScriptText"
+		title="Event For On Data Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Technical Proprty For Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedKey2"
+		type="String"
+		title="Technical Proprty For Selected Key 2"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedKeys"
+		type="String"
+		title="Technical Proprty For Selected Keys"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedText"
+		type="String"
+		title="Technical Proprty For Selected Text"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedText2"
+		type="String"
+		title="Technical Proprty For Selected Text 2"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="sorting"
+		type="String"
+		title="Sorting By Value | Defalut"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="topBottom"
+		type="String"
+		title="Top X, Bottom X Or Both"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="vertical"
+		type="boolean"
+		title="Change To Vertical Orientation"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">60</defaultValue>
+		<defaultValue property="HEIGHT">600</defaultValue>
+		
+		<defaultValue property="data"><![CDATA[]]></defaultValue>
+		<defaultValue property="doRefresh"><![CDATA[true]]></defaultValue>
+		<defaultValue property="maxNumber"><![CDATA[10]]></defaultValue>
+		<defaultValue property="onDataChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey2"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKeys"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedText"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedText2"><![CDATA[]]></defaultValue>
+		<defaultValue property="sorting"><![CDATA[Default]]></defaultValue>
+		<defaultValue property="topBottom"><![CDATA[Both]]></defaultValue>
+		<defaultValue property="vertical"><![CDATA[false]]></defaultValue>
+
+	</initialization>
+
+</component>

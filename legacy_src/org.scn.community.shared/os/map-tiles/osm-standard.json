@@ -1,0 +1,8 @@
+{
+	"baseUrl" : "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+	"attribution" : "&copy; OpenStreetMap Contributors",
+	"subdomains" : "abc",
+	"minZoom" : 0,
+	"maxZoom" : 18,
+	"tileSize" : 256
+}

@@ -1,0 +1,223 @@
+
+<component
+	id="TopFlop"
+	title="Data Top Flop"
+	tooltip="Data Top Flop"
+	icon="res/TopFlop/TopFlop.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityVisualizations"
+	databound="true"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/TopFlop/TopFlop</requireJs>
+
+	<cssInclude>res/TopFlop/TopFlop.css</cssInclude>
+	
+	
+	<property
+		id="addCounter"
+		type="boolean"
+		title="Add Counter"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="allowInteraction"
+		type="boolean"
+		title="Allow Any Interaction"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="averagePrefix"
+		type="String"
+		title="Prefix For Average Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="averageSuffix"
+		type="String"
+		title="Suffix For Average Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dataCellList"
+		type="ResultCellList"
+		title="Data List"
+		group="DataBinding"
+		visible="true"
+		bindable="true">
+
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+		<option name="includeMetadata" value="true"/>
+	</property>
+	<property
+		id="deltaValueSuffix"
+		type="String"
+		title="Delta Value Suffix Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="fallbackPicture"
+		type="Url"
+		title="Url For The Fallback Picture"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="fixedAverage"
+		type="float"
+		title="Fixed Average Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="ignoreAverage"
+		type="boolean"
+		title="Ignore Average"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="maxNumber"
+		type="int"
+		title="Maximum Number"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onPress"
+		type="ScriptText"
+		title="Event For On Press"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="pressedKey"
+		type="String"
+		title="Technical Property For Pressed Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Technical Property For Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="topBottom"
+		type="String"
+		title="Top X, Bottom X Or Both"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="usePictures"
+		type="boolean"
+		title="Use Pictures"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="valueDecimalPlaces"
+		type="String"
+		title="Value Decimal Places"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="valuePrefix"
+		type="String"
+		title="Value Prefix Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="valueSuffix"
+		type="String"
+		title="Value Suffix Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">225</defaultValue>
+		<defaultValue property="HEIGHT">190</defaultValue>
+		
+		<defaultValue property="addCounter"><![CDATA[true]]></defaultValue>
+		<defaultValue property="allowInteraction"><![CDATA[true]]></defaultValue>
+		<defaultValue property="averagePrefix"><![CDATA[Average: ]]></defaultValue>
+		<defaultValue property="averageSuffix"><![CDATA[]]></defaultValue>
+		<defaultValue property="dataCellList"><![CDATA[null]]></defaultValue>
+		<defaultValue property="deltaValueSuffix"><![CDATA[]]></defaultValue>
+		<defaultValue property="fallbackPicture"><![CDATA[]]></defaultValue>
+		<defaultValue property="fixedAverage"><![CDATA[-1]]></defaultValue>
+		<defaultValue property="ignoreAverage"><![CDATA[true]]></defaultValue>
+		<defaultValue property="maxNumber"><![CDATA[3]]></defaultValue>
+		<defaultValue property="onPress"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="pressedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="topBottom"><![CDATA[Both]]></defaultValue>
+		<defaultValue property="usePictures"><![CDATA[true]]></defaultValue>
+		<defaultValue property="valueDecimalPlaces"><![CDATA[D2]]></defaultValue>
+		<defaultValue property="valuePrefix"><![CDATA[]]></defaultValue>
+		<defaultValue property="valueSuffix"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

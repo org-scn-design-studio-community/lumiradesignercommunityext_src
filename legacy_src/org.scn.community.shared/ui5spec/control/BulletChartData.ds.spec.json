@@ -1,0 +1,39 @@
+{
+
+	"useValue":{
+		"template" : "ds-boolean",
+		"type" : "boolean",
+		"value" : true,
+		"visible": true,
+		"opts" : {
+			"ztlType": "boolean",
+			"ztlFunction": "",
+			"desc" : "Use Manual 'Value'",
+			"cat" : "Data-Values",
+			"tooltip" : "If checked, the property 'Value' will be used.",
+			"apsControl" : "checkbox",
+			"noAps" : false,
+			"noZtl" : false
+		}
+	},
+	"dataCellListValue":{
+      "template": "ds-DataCellList",
+      "type":"ResultCellList",
+      "value":"null",
+      "visible":true,
+      "options":{
+      	"includeFormattedData":"true",
+      	"includeData":"true"
+      },
+      "opts":{
+         "type":"data",
+         "ztlFunction":"",
+         "desc":"Value Data List",
+         "cat":"Data",
+         "tooltip":"Value Data List",
+         "value":"null",
+         "noAps":true,
+         "noZtl":true
+      }
+    }
+}

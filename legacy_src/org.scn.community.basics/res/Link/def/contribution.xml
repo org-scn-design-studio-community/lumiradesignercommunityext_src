@@ -1,0 +1,51 @@
+
+<component
+	id="Link"
+	title="Link 2.0"
+	tooltip="Link"
+	icon="res/Link/Link.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/Link/Link</requireJs>
+
+	<cssInclude>res/Link/Link.css</cssInclude>
+	
+	
+	<property
+		id="onPress"
+		type="ScriptText"
+		title="On Press"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="text"
+		type="String"
+		title="Link Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">100</defaultValue>
+		<defaultValue property="HEIGHT">20</defaultValue>
+		
+		<defaultValue property="onPress"><![CDATA[]]></defaultValue>
+		<defaultValue property="text"><![CDATA[Go Sap...]]></defaultValue>
+
+	</initialization>
+
+</component>

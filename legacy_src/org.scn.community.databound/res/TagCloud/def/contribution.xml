@@ -1,0 +1,113 @@
+
+<component
+		id="tagCloud"
+		title="Tag Cloud 2.0"
+		icon="res/TagCloud/TagCloud.png"
+		handlerType="div"
+		modes="commons m"
+		propertySheetPath="aps/PropertyPage.html"
+		group="ScnCommunityVisualizations"
+		databound="true"> <!-- This is set so that a data source can be assigned -->
+
+		<requireJs modes="commons m">res/TagCloud/TagCloud</requireJs>
+		
+		<!-- This implicitly sets a metadata property -->
+		<property
+			id="savedData"
+			title="Complete Data Source Result Set"
+			type="ResultSet"
+			tooltip="Holds a reference to a result set"
+			visible="false"
+			group="DataBinding"/>
+		<property
+			id="dimTag"
+			title="Tag Cloud Dimension"
+			type="String"
+			tooltip="Dimension containing text tokens for tag cloud"
+			visible="true"
+			group="Display"/>
+		<property
+			id="tagRotation"
+			title="Tag Rotation"
+			type="String"
+			tooltip="Set the rotation of text tags over 5 characters in length"
+			visible="true"
+			group="Display"/>
+		<property
+			id="tagDuration"
+			title="Tag Duration"
+			type="String"
+			tooltip="Time in ms for transitioning tags to move. Set higher for slower transitions."
+			visible="true"
+			group="Display"/>
+		<property
+			id="tagFont"
+			title="Tag Font"
+			type="String"
+			tooltip="Set the font of text tags"
+			visible="true"
+			group="Display"
+			>
+			<possibleValue>Impact</possibleValue>
+			<possibleValue>Lato Bold</possibleValue>
+			<possibleValue>Lucida Console</possibleValue>
+		</property>
+		<property
+			id="measureSize"
+			title="Tag Size"
+			type="ResultCellList"
+			tooltip="Measure to specify size of tags"
+			visible="true"
+			group="DataBinding"/>
+		<property 
+			id="measureColorScale"
+			title="Measure Color Scale Palette"
+			type="String"
+			tooltip="Measure Color Scale Palette"
+			visible="true"
+		/>
+		<property 
+			id="measureScaleMinimum"
+			title="Measure Color Scale Minimum"
+			type="float"
+			tooltip="Measure Color Scale Minimum"
+			visible="true"
+		/>
+		<property 
+			id="measureScaleMaximum"
+			title="Measure Color Scale Maximum"
+			type="float"
+			tooltip="Measure Color Scale Maximum"
+			visible="true"
+		/>
+		<property
+			id="measureColor"
+			title="Tag Color"
+			type="ResultCellList"
+			tooltip="Measure to specify color of tags"
+			visible="true"
+			group="DataBinding"/>
+		<property
+			id="selectedNode"
+			title="selectedNode"
+			type="String"
+			tooltip="Returns a JSON object of the selected node"
+			visible="false"/>
+		<property 
+			id="onclick" 
+			type="ScriptText" 
+			title="On Click" 
+			group="Events" />
+		<initialization>
+			<defaultValue property="measureColorScale">#FF0000,#5D6770,#00FF00</defaultValue>
+			<defaultValue property="measureScaleMinimum">-2</defaultValue>
+			<defaultValue property="measureScaleMaximum">2</defaultValue>
+			<defaultValue property="WIDTH">400</defaultValue>
+			<defaultValue property="HEIGHT">400</defaultValue>
+			<defaultValue property="selectedNode">InitialNode</defaultValue>
+			<defaultValue property="tagRotation">None</defaultValue>
+			<defaultValue property="tagDuration">1000</defaultValue>
+			<defaultValue property="tagFont">Impact</defaultValue>
+		</initialization>
+	</component>
+	

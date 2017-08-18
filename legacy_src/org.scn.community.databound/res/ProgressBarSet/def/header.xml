@@ -1,0 +1,12 @@
+
+<component
+		id="ProgressBarSet"
+		title="Progress Bar Set 2.0"
+		icon="res/ProgressBarSet/ProgressBarSet.png"
+		handlerType="div"
+		modes="commons m"
+		propertySheetPath="aps/PropertyPage.html"
+		group="ScnCommunityVisualizations"
+		databound="true"
+>
+<requireJs modes="commons m">res/ProgressBarSet/ProgressBarSet</requireJs>

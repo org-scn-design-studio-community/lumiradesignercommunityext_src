@@ -1,0 +1,13 @@
+
+<component
+		id="AdvancedDataTable"
+		title="Advanced Data Table 2.0"
+		icon="res/AdvancedDataTable/AdvancedDataTable.png"
+		handlerType="div"
+		modes="commons m"
+		propertySheetPath="aps/PropertyPage.html"
+		group="ScnCommunityVisualizations"
+		databound="true"
+>
+
+	<requireJs modes="commons m">res/AdvancedDataTable/AdvancedDataTable</requireJs>

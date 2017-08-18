@@ -1,0 +1,122 @@
+
+<component
+	id="PdfPrint"
+	title="PDF Print 2.0"
+	tooltip="PDF Print"
+	icon="res/PdfPrint/PdfPrint.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityUtils"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/PdfPrint/PdfPrint</requireJs>
+
+	<cssInclude>res/PdfPrint/PdfPrint.css</cssInclude>
+	
+	
+	<property
+		id="fileName"
+		type="String"
+		title="File Name"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="format"
+		type="String"
+		title="Page Format"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="orientation"
+		type="String"
+		title="Page Orientation"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="pageSplit"
+		type="boolean"
+		title="Split on More Pages"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="pdfMethod"
+		type="String"
+		title="PDF Export Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="rootPanel"
+		type="String"
+		title="Root Panel Name"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="svgMode"
+		type="String"
+		title="SVG Conversion Mode"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="trigger"
+		type="String"
+		title="Just As Simple Triger"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="unit"
+		type="String"
+		title="Unit"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">100</defaultValue>
+		<defaultValue property="HEIGHT">20</defaultValue>
+		
+		<defaultValue property="fileName"><![CDATA[PDF_$TIME]]></defaultValue>
+		<defaultValue property="format"><![CDATA[a4]]></defaultValue>
+		<defaultValue property="orientation"><![CDATA[portrait]]></defaultValue>
+		<defaultValue property="pageSplit"><![CDATA[true]]></defaultValue>
+		<defaultValue property="pdfMethod"><![CDATA[Save]]></defaultValue>
+		<defaultValue property="rootPanel"><![CDATA[]]></defaultValue>
+		<defaultValue property="svgMode"><![CDATA[DataUri]]></defaultValue>
+		<defaultValue property="trigger"><![CDATA[]]></defaultValue>
+		<defaultValue property="unit"><![CDATA[pt]]></defaultValue>
+
+	</initialization>
+
+</component>

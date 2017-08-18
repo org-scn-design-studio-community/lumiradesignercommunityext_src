@@ -1,0 +1,16 @@
+{
+	"title": "Time Out 2.0",
+	"description": "Time Out",
+	"icon": "TimeOut.png",
+	"topics": 
+	[
+		{
+			"title" : "TimeOut",
+			"content" : "TimeOut"
+		},
+		{
+			"title" : "Visualization",
+			"content" : "This component is an optional visualization component. It requires no space in the application canvas if the counter is deactivated."
+		},
+	]
+}

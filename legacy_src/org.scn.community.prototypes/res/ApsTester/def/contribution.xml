@@ -1,0 +1,145 @@
+
+<component
+	id="ApsTester"
+	title="Aps Tester"
+	tooltip="Application Property Sheet Tester"
+	icon="res/ApsTester/ApsTester.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityPrototypes"
+	databound="true"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ApsTester/ApsTester</requireJs>
+
+	<cssInclude>res/ApsTester/ApsTester.css</cssInclude>
+	
+	
+	<property
+		id="checkboxExample"
+		type="boolean"
+		title="Ignore Totals"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="checkboxOnlyGetterExample"
+		type="boolean"
+		title="Ignore Totals"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="colorExample"
+		type="Color"
+		title="Simple Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="comboboxExample"
+		type="String"
+		title="Simple Choice"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="data"
+		type="ResultSet"
+		title="Data"
+		group="DataBinding"
+		visible="true">
+
+		<option name="maxCells" value="100000" />
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+		<option name="presentationDelimiter" value=" | " />
+	</property>
+	<property
+		id="doublearray"
+		type="String"
+		title="Complex Array"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="paletteExample"
+		type="String"
+		title="Color Palette"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="singlearray"
+		type="String"
+		title="Single Array"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="spinnerExample"
+		type="int"
+		title="Some numbers"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="stringarray"
+		type="String"
+		title="Simple String Array"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="textExample"
+		type="String"
+		title="A saple text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">200</defaultValue>
+		<defaultValue property="HEIGHT">200</defaultValue>
+		
+		<defaultValue property="checkboxExample"><![CDATA[true]]></defaultValue>
+		<defaultValue property="checkboxOnlyGetterExample"><![CDATA[true]]></defaultValue>
+		<defaultValue property="colorExample"><![CDATA[]]></defaultValue>
+		<defaultValue property="comboboxExample"><![CDATA[quantile]]></defaultValue>
+		<defaultValue property="data"><![CDATA[null]]></defaultValue>
+		<defaultValue property="doublearray"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="paletteExample"><![CDATA[]]></defaultValue>
+		<defaultValue property="singlearray"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="spinnerExample"><![CDATA[0]]></defaultValue>
+		<defaultValue property="stringarray"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="textExample"><![CDATA[initial]]></defaultValue>
+
+	</initialization>
+
+</component>

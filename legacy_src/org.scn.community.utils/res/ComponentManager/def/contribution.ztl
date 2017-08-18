@@ -1,0 +1,1105 @@
+
+/**
+ * Class for ComponentManager
+ */
+class org.scn.community.utils.ComponentManager extends org.scn.community.shared.Component {
+
+	/**
+	 * Adds a data source to group by name
+	 * Allows grouping of data sources
+	 * <example>
+	 * You want to group 2 data sources for dynamic access, so first add both to a common group
+	 * <code>
+	 * COMPONENTMANAGER_1.addDataSourceToGroup("SALES", "DS_SALE_1");
+	 * COMPONENTMANAGER_1.addDataSourceToGroup("SALES", "DS_SALE_PRE");
+	 * </code>
+	 * </example>
+	 * Now, you can process with the method "getDataSourcesFromGroup"
+	 */
+	void addDataSourceToGroup (String group, String dataSourceName) {*
+		this.addComponentToGroup(group, dataSourceName);
+	*}
+
+	/**
+	 * Adds a component to group by name
+	 * Allows grouping of components
+	 * <example>
+	 * You want to group 3 components for dynamic access, so first add both to a common group
+	 * <code>
+	 * COMPONENTMANAGER_1.addComponentToGroup("ACCEPT_BUTTONS", "SALES_BUTTON_ACCEPT");
+	 * COMPONENTMANAGER_1.addComponentToGroup("ACCEPT_BUTTONS", "REVENUE_BUTTON_ACCEPT");
+	 * COMPONENTMANAGER_1.addComponentToGroup("ACCEPT_BUTTONS", "ANOTHER_BUTTON_ACCEPT");
+	 * </code>
+	 * </example>
+	 * Now, you can process with the method "getComponentsFromGroup"
+	 */
+	void addComponentToGroup (String group, String componentName) {*
+		var componentsJson = JSON.parse(this.components);
+		
+		if(componentsJson[group] == undefined) {
+			componentsJson[group] = [];
+		}
+		
+		componentsJson[group].push(componentName);
+		
+		this.components = JSON.stringify(componentsJson);
+	*}
+
+	/**
+	 * Removes a data source from group by name
+	 * Allows grouping of data sources
+	 * <example>
+	 * You want to remove data source from dynamic access
+	 * <code>
+	 * COMPONENTMANAGER_1.removeDataSourceFromGroup("SALES", "DS_SALE_1");
+	 * </code>
+	 * </example>
+	 * Now, you can process with the method "getDataSourcesFromGroup"
+	 */
+	void removeDataSourceFormGroup (String group, String dataSourceName) {*
+		this.removeComponentFromGroup(group, dataSourceName);
+	*}
+
+	/**
+	 * Removes a component to group by name
+	 * Allows grouping of components
+	 * <example>
+	 * You want to remove component from dynamic access
+	 * <code>
+	 * COMPONENTMANAGER_1.removeComponentFromGroup("ACCEPT_BUTTONS", "SALES_BUTTON_ACCEPT");
+	 * </code>
+	 * </example>
+	 * Now, you can process with the method "getComponentsFromGroup"
+	 */
+	void removeComponentFromGroup (String group, String componentName) {*
+		var componentsJson = JSON.parse(this.components);
+		
+		if(componentsJson[group] == undefined) {
+			componentsJson[group] = [];
+			return;
+		}
+		
+		for (var i = 0; i < componentsJson[group].length ; i++){
+			var componentHolder = {};
+			componentHolder.name = componentsJson[group][i];
+			
+			if(componentHolder.name == componentName) {
+				componentsJson[group].splice(i, 1);
+			}
+		}		
+		
+		this.components = JSON.stringify(componentsJson);
+	*}
+
+	/**
+	 * Adds a data source to group by object reference
+	 * Allows grouping of data sources
+	 * <example>
+	 * You want to group 2 data sources for dynamic access, so first add both to a common group
+	 * <code>
+	 * COMPONENTMANAGER_1.addDataSourceToGroup("SALES", DS_SALE_1);
+	 * COMPONENTMANAGER_1.addDataSourceToGroup("SALES", DS_SALE_PRE);
+	 * </code>
+	 * </example>
+	 * Now, you can process with the method "getDataSourcesFromGroup"
+	 */
+	void addDataSourceReferenceToGroup (String group, DataSourceAlias dataSource) {*
+		this.addComponentToGroup(group, dataSource.getOwner().getName());
+	*}
+
+	/**
+	 * Adds a component to group by object reference
+	 * Allows grouping of components
+	 * <example>
+	 * You want to group 3 components for dynamic access, so first add both to a common group
+	 * <code>
+	 * COMPONENTMANAGER_1.addComponentToGroup("ACCEPT_BUTTONS", SALES_BUTTON_ACCEPT);
+	 * COMPONENTMANAGER_1.addComponentToGroup("ACCEPT_BUTTONS", REVENUE_BUTTON_ACCEPT);
+	 * COMPONENTMANAGER_1.addComponentToGroup("ACCEPT_BUTTONS", ANOTHER_BUTTON_ACCEPT);
+	 * </code>
+	 * </example>
+	 * Now, you can process with the method "getComponentsFromGroup"
+	 */
+	void addComponentReferenceToGroup (String group, Component component) {*
+		this.addComponentToGroup(group, component.getOwner().getName());
+	*}
+	
+	/**
+	 * Removes a data source to group by object reference
+	 * Allows grouping of data sources
+	 * <example>
+	 * You want to remove data sources from dynamic access
+	 * <code>
+	 * COMPONENTMANAGER_1.removeDataSourceReferenceFromGroup("SALES", DS_SALE_1);
+	 * </code>
+	 * </example>
+	 * Now, you can process with the method "getDataSourcesFromGroup"
+	 */
+	void removeDataSourceReferenceFromGroup (String group, DataSourceAlias dataSource) {*
+		this.removeComponentFromGroup(group, dataSource.getOwner().getName());
+	*}
+
+	/**
+	 * Removes a component to group by object reference
+	 * Allows grouping of components
+	 * <example>
+	 * You want to remove component from dynamic access
+	 * <code>
+	 * COMPONENTMANAGER_1.removeComponentReferenceFromGroup("ACCEPT_BUTTONS", SALES_BUTTON_ACCEPT);
+	 * </code>
+	 * </example>
+	 * Now, you can process with the method "getComponentsFromGroup"
+	 */
+	void removeComponentReferenceFromGroup (String group, Component component) {*
+		this.removeComponentFromGroup(group, component.getOwner().getName());
+	*}
+
+	/**
+	 * Returns array of data sources from the group
+	 * Allows work on grouped data sources in dynamic way
+	 * <example>
+	 * You want to group copy filters from DS_1 to all data sources in the group
+	 * <code>
+	 *  var components = COMPONENTMANAGER_1.getDataSourcesFromGroup("SALES");
+	 *	
+	 *	components.forEach(function(element, index) {
+	 *	  var name = element.name;
+	 *	  
+	 *	  var ds = COMPONENTMANAGER_1.getDataSourceByName(name);
+	 *	  
+	 *	  ds.copyFilters(DS_1);
+	 *	});
+	 * </code>
+	 * </example>
+	 * Now, you have replicated the filters in dynamic way
+	 */
+	org.scn.community.shared.DataSourceArray getDataSourcesFromGroup (String group) {*
+		return getComponentsFromGroup(group);
+	*}
+	
+	/**
+	 * Returns array of components from the group
+	 * Allows work on grouped components in dynamic way
+	 * <example>
+	 * You want to change the text of all components in group
+	 * <code>
+	 *  var components = COMPONENTMANAGER_1.getComponentsFromGroup("ACCEPT_BUTTONS");
+	 *	
+	 *	components.forEach(function(element, index) {
+	 *	  var name = element.name;
+	 *	  
+	 *	  var comp = COMPONENTMANAGER_1.getComponentByName(name);
+	 *	  // you need to know the type...
+	 *	  var button = COMPONENTMANAGER_1.returnAsButton(comp);
+	 *
+	 *	  button.setText("Accept Now");
+	 *	});
+	 * </code>
+	 * </example>
+	 * Now, you have changed the text of all components in this group in dynamic way
+	 */
+	org.scn.community.shared.ComponentArray getComponentsFromGroup (String group) {*
+		var allComponents = [];
+		var componentsJson = JSON.parse(this.components);
+	
+		var l = {};
+		l.group = group;
+		
+		if(componentsJson[group] == undefined) {
+			return allComponents;
+		}
+		
+		for (var i = 0; i < componentsJson[group].length ; i++){
+			var componentHolder = {};
+			componentHolder.name = componentsJson[group][i];
+		
+			l.name = componentHolder.name;
+			
+			var component = this.getComponentByName(componentHolder.name);
+			componentHolder.type = this.identifyType(component);
+			componentHolder.component = component;
+			componentHolder.datasource = component;
+			
+			l.componentExists = (component != undefined);
+			l.type = componentHolder.type;
+			if(this.isDebug()) DEBUG.inspectZtl(this, l, undefined, true);
+			
+			allComponents.push(componentHolder);	
+		}
+		
+		return allComponents;
+	*}
+	
+	/**
+	 * If you know the name of the component, you can request the object
+	 * <example>
+	 * You want to pick up a component with name "BUTTON_43"
+	 * <code>
+	 *  var component = COMPONENTMANAGER_1.getComponentByName("BUTTON_43");
+	 *	
+	 *  // you need to know the type...
+	 *	var button = COMPONENTMANAGER_1.returnAsButton(component);
+	 *	
+	 *	// now you can change some properties
+	 *	button.setText("Accept Now");
+	 * </code>
+	 * </example>
+	 */
+	Component getComponentByName (String name) {*
+		var component = eval(name);
+		return component;
+	*}
+	
+	/**
+	 * If you want to check if the component with name exists
+	 * <example>
+	 * You want to check existance of a component with name "BUTTON_43"
+	 * <code>
+	 *  var exists = COMPONENTMANAGER_1.existsComponentByName("BUTTON_43");
+	 *	
+	 *  if (exists) {
+	 *    ...
+	 *  }
+	 * </code>
+	 * </example>
+	 */
+	boolean existsComponentByName (String name) {*
+		
+		this.internal_assureGlobalAccess();
+		
+		for (var key in this.getGlobal()) {
+			if( key == name ) {
+				return true;
+			}
+		}
+		return false;
+	*}
+	
+	/**
+	 * If you know the name of the data source, you can request the object
+	 * <example>
+	 * You want to pick up a component with name "DS_53"
+	 * <code>
+	 *  var ds = COMPONENTMANAGER_1.getDataSourceByName("DS_53");
+	 * 
+	 *	// now you can change some properties
+	 *	ds.setFilter(...);
+	 * </code>
+	 * </example>
+	 */
+	DataSourceAlias getDataSourceByName (String name) {*
+		var component = eval(name);
+		return component;
+	*}
+
+	/**
+	 * If you want to check if the data source with name exists
+	 * <example>
+	 * You want to check existence of a data source with name "DS_1"
+	 * <code>
+	 *  var exists = COMPONENTMANAGER_1.existsDataSourceByName("DS_1");
+	 *	
+	 *  if (exists) {
+	 *    ...
+	 *  }
+	 * </code>
+	 * </example>
+	 */
+	boolean existsDataSourceByName (String name) {*
+		
+		this.internal_assureGlobalAccess();
+
+		for (var key in this.getGlobal()) {
+			if( key == name ) {
+				return true;
+			}
+		}
+		return false;
+	*}
+	
+	/**
+	 * can list all components in the application by optional prefix and suffix
+	 * <example>
+	 * You want to list all components which are starting with "SALES"
+	 * <code>
+	 *  var components = COMPONENTMANAGER_1.listAllComponents("SALES");
+	 * 
+	 *	components.forEach(function(element, index) {
+	 *	  var name = element.name;
+	 *	  var component = element.component;
+	 *
+	 *	  // you need to know the type...
+	 *    if(name.indexOf("BUTTON") > -1) {
+	 *      var button = COMPONENTMANAGER_1.returnAsButton(component);
+	 *
+	 *	    button.setText("Accept Now");
+	 *    }
+	 *    if(name.indexOf("CROSSTAB") > -1) {
+	 *      var crosstab = COMPONENTMANAGER_1.returnAsCrosstab(component);
+	 *
+	 *	    crosstab.setWidth(600);
+	 *    }
+	 *	});
+	 * </code>
+	 * </example>
+	 */
+	org.scn.community.shared.ComponentArray listAllComponents (optional String prefix, optional String suffix) {*
+		var allComponents = [];
+	
+		this.internal_assureGlobalAccess();
+	
+		for (var key in this.getGlobal()) {
+			var something = undefined;try{something = eval(key);} catch(e) {continue;}
+			
+			if(something == undefined) {
+				continue;
+			}
+			
+			if( typeof something == "object" ) {
+				var fitsIntoName = true;
+				if(prefix != undefined && prefix.length > 0) {
+					if( key.indexOf(prefix) != 0) {
+						fitsIntoName = false;
+					}
+				}
+					
+				if(suffix != undefined && suffix.length > 0) {
+					if(key.indexOf(suffix) != (key.length - suffix.length)) {
+						fitsIntoName = false;
+					}
+				}
+				
+				if(!fitsIntoName) {
+					continue;
+				}
+				
+				try {
+					if(something.getWidth != undefined) {
+						var componentHolder = {};
+
+						componentHolder.name = key;
+						componentHolder.type = this.identifyType(something);
+						componentHolder.component = something;
+						
+						allComponents.push(componentHolder);	
+					}
+				} catch (e) {}
+			}
+		}
+		
+		return allComponents;
+	*}
+	
+	/**
+	 * can list all data sources in the application by optional prefix and suffix
+	 * <example>
+	 * You want to list all data sources which are starting with "SALES"
+	 * <code>
+	 *  var components = COMPONENTMANAGER_1.listAllDataSources("SALES");
+	 * 
+	 *	components.forEach(function(element, index) {
+	 *	  var name = element.name;
+	 *	  var datasource = element.datasource;
+	 *
+	 *	  datasource.setFilter(...);
+	 *	});
+	 * </code>
+	 * </example>
+	 */
+	org.scn.community.shared.DataSourceArray listAllDataSources (optional String prefix, optional String suffix) {*
+		var allComponents = [];
+	
+		this.internal_assureGlobalAccess();
+	
+		for (var key in this.getGlobal()) {
+			var something = undefined;try{something = eval(key);} catch(e) {continue;}
+			
+			if(something == undefined) {
+				continue;
+			}
+			
+			if( typeof something == "object" ) {
+				var fitsIntoName = true;
+				if(prefix != undefined && prefix.length > 0) {
+					if( key.indexOf(prefix) != 0) {
+						fitsIntoName = false;
+					}
+				}
+					
+				if(suffix != undefined && suffix.length > 0) {
+					if(key.indexOf(suffix) != (key.length - suffix.length)) {
+						fitsIntoName = false;
+					}
+				}
+				
+				if(!fitsIntoName) {
+					continue;
+				}
+				
+				try {
+					if(something.assignDataSource != undefined) {
+						var componentHolder = {};
+						
+						componentHolder.name = key;
+						componentHolder.type = "DATA_SOURCE";
+						componentHolder.component = something;
+					
+						allComponents.push(componentHolder);	
+					}
+				} catch (e) {}
+			}
+		}
+		
+		return allComponents;
+	*}
+	
+	/**
+	 * can list all components in the application by type (given as component object) and optional prefix and suffix
+	 * <example>
+	 * You want to list all buttons which are starting with "SALES", BUTTON_1 is a button component.
+	 * <code>
+	 *  var components = COMPONENTMANAGER_1.listAllComponentsWithSameType(BUTTON_1, "SALES");
+	 * 
+	 *	components.forEach(function(element, index) {
+	 *	  var name = element.name;
+	 *	  var component = element.component;
+	 *
+	 *	  var button = COMPONENTMANAGER_1.returnAsButton(component);
+	 *
+	 *	  button.setText("Accept Now");
+	 *	});
+	 * </code>
+	 * </example>
+	 */
+	org.scn.community.shared.ComponentArray listAllComponentsWithSameType (Component componentAsType, optional String prefix, optional String suffix) {*
+		var componentType = this.identifyType(componentAsType, true);
+
+		return this.internal_listAllComponentsWithType(componentType, prefix, suffix, true);
+	*}
+	
+	/**
+	 * can list all components in the application by type and optional prefix and suffix
+	 * Type is a primitive string which must be contained in the component name , eg. for button you have to name the buttons "BLABLA_BUTTON_SOMETHING"
+	 * <example>
+	 * You want to list all buttons which are starting with "SALES"
+	 * <code>
+	 *  var components = COMPONENTMANAGER_1.listAllComponentsWithType("BUTTON", "SALES");
+	 * 
+	 *	components.forEach(function(element, index) {
+	 *	  var name = element.name;
+	 *	  var component = element.component;
+	 *
+	 *	  var button = COMPONENTMANAGER_1.returnAsButton(component);
+	 *
+	 *	  button.setText("Accept Now");
+	 *	});
+	 * </code>
+	 * </example>
+	 */
+	org.scn.community.shared.ComponentArray listAllComponentsWithType (String componentType, optional String prefix, optional String suffix) {*
+		return this.internal_listAllComponentsWithType(componentType, prefix, suffix, false);
+	*}
+	
+	org.scn.community.shared.ComponentArray internal_listAllComponentsWithType (String componentType, optional String prefix, optional String suffix, optional boolean typeIsExact) {*
+		var allComponents = [];
+	
+		this.internal_assureGlobalAccess();
+
+		for (var key in this.getGlobal()) {
+			var something = undefined;try{something = eval(key);} catch(e) {continue;}
+
+			if(something == undefined) {
+				continue;
+			}
+			
+			if( typeof something == "object" ) {
+				var fitsIntoName = true;
+				if(prefix != undefined && prefix.length > 0) {
+					if( key.indexOf(prefix) != 0) {
+						fitsIntoName = false;
+					}
+				}
+					
+				if(suffix != undefined && suffix.length > 0) {
+					if(key.indexOf(suffix) != (key.length - suffix.length)) {
+						fitsIntoName = false;
+					}
+				}
+				
+				if(!fitsIntoName) {
+					continue;
+				}
+				
+				try {
+					// currently only type in the name can be supported, eg. KAR_BUTTON_32 as BUTTON (logical assignment)
+					if (!typeIsExact && key.indexOf(componentType) > -1) {
+						var componentHolder = {};
+						componentHolder.name = key;
+						componentHolder.type = this.identifyType(something);
+						componentHolder.component = something;
+						
+						// check if the object contains getWidth method -> seems to be component
+						if(something.getWidth != undefined) {
+							allComponents.push(componentHolder);	
+						}
+					} else if (typeIsExact) {
+						var currentType = this.identifyType(something, true);
+						
+						if (currentType == componentType) {
+							var componentHolder = {};
+							componentHolder.name = key;
+							componentHolder.type = currentType;
+							componentHolder.component = something;
+							
+							// check if the object contains getWidth method -> seems to be component
+							if(something.getWidth != undefined) {
+								allComponents.push(componentHolder);	
+							}
+						}
+					}
+				} catch (e) {}	
+			}
+		}
+		
+		return allComponents;
+	*}
+
+	/**
+	 * Identify Component Type. Returns the type for this component.
+	 * 
+	 */
+	String identifyType (Component inputComponent, optional boolean keepFullType) {*
+		
+		this.internal_assureGlobalAccess();
+	  	
+		var type = "UNKNOWN";
+		
+		if(this.isDebug()) DEBUG.inspectZtl(this, inputComponent, undefined, true);
+		
+		if(inputComponent.getOwner){
+			
+			var owner = inputComponent.getOwner();
+			
+			if(owner.getItemType) {
+				type = owner.getItemType();
+			}
+		}
+		
+		if(!keepFullType) {
+			if(type.indexOf("_COMPONENT") > -1) {
+				type = type.substring(0, type.indexOf("_COMPONENT"));
+			}
+		}
+		
+		return type;
+	  *}
+
+	/* STANDARD COMPONENT CASTS - MANUAL UPDATE REQUIRED */
+	
+	/*DATA BOUND*/
+	/**Cast to specific component*/
+	Chart returnAsChart (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Crosstab returnAsCrosstab (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Dimensionfilter returnAsDimensionfilter (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Filterline returnAsFilterline (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Filterpanel returnAsFilterpanel (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	GeoMap returnAsGeoMap (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Navigationpanel returnAsNavigationpanel (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	GeoMap returnAsGeoMap (Component inputComponent) {* return inputComponent; *}
+	
+	/*BASIC*/
+	/**Cast to specific component*/
+	Button returnAsButton (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	ChartTypePicker returnAsChartTypePicker (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Checkbox returnAsCheckbox (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Checkboxgroup returnAsCheckboxgroup (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Datefield returnAsDatefield (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Dropdown returnAsCheckboxgroup (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	com.sap.ip.bi.FormattedTextView returnAsFormattedTextView (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	com.sap.ip.bi.FragmentGallery returnAsFragmentGallery (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Image returnAsImage (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Inputfield returnAsInputfield (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Listbox returnAsInputfield (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Radiobuttongroup returnAsRadiobuttongroup (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Text returnAsText (Component inputComponent) {* return inputComponent; *}
+	
+	/*CONTAINERS*/
+	/**Cast to specific component*/
+	Filterbar returnAsFilterbar (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	GridLayout returnAsGridLayout (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Pagebook returnAsPagebook (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Panel returnAsPanel (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Popup returnAsPopup (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Splitcellcontainer returnAsSplitcellcontainer (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Tabstrip returnAsTabstrip (Component inputComponent) {* return inputComponent; *}
+
+	/*M COMPONENTS*/
+	/**Cast to specific component*/
+	ListBox returnAsListBox (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	DropdownBox returnAsDropdownBox (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	SegmentedButton returnAsSegmentedButton (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Switch returnAsSwitch (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Icon returnAsIcon (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	Link returnAsLink (Component inputComponent) {* return inputComponent; *}
+	/**Cast to specific component*/
+	ProgressIndicator returnAsProgressIndicator (Component inputComponent) {* return inputComponent; *}
+
+	/* GENERATION PLACE BELOW - DO NOT DELETE THIS LINE ! */
+	/**Cast to Accordion 2.0 component*/
+	org.scn.community.basics.Accordion returnAsScnAccordion (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Action Sheet Button 2.0 component*/
+	org.scn.community.basics.ActionSheetButton returnAsScnActionSheetButton (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Activity Viewer 2.0 component*/
+	org.scn.community.basics.ActivityViewer returnAsScnActivityViewer (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Application Header 2.0 component*/
+	org.scn.community.basics.ApplicationHeader returnAsScnApplicationHeader (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Arrowed Line 2.0 component*/
+	org.scn.community.basics.ArrowedLine returnAsScnArrowedLine (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Base64 Image Encoder 2.0 component*/
+	org.scn.community.basics.Base64Image returnAsScnBase64Image (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Basic Business Card 2.0 component*/
+	org.scn.community.basics.BasicBusinessCard returnAsScnBasicBusinessCard (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Calendar 2.0 component*/
+	org.scn.community.basics.Calendar returnAsScnCalendar (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Check Box Group component*/
+	org.scn.community.basics.CheckBoxGroup returnAsScnCheckBoxGroup (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Color Picker 2.0 component*/
+	org.scn.community.basics.ColorPicker returnAsScnColorPicker (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Date Range Scroller 2.0 component*/
+	org.scn.community.basics.DateRangeScroller returnAsScnDateRangeScroller (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Date Range Slider 2.0 component*/
+	org.scn.community.basics.DateRangeSlider returnAsScnDateRangeSlider (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Donut component*/
+	org.scn.community.basics.Donut returnAsScnDonut (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Drag Drop Area 2.0 component*/
+	org.scn.community.basics.DragDropArea returnAsScnDragDropArea (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Embedded Frame 2.0 component*/
+	org.scn.community.basics.EmbeddedFrame returnAsScnEmbeddedFrame (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Embedded Media 2.0 component*/
+	org.scn.community.basics.EmbeddedMedia returnAsScnEmbeddedMedia (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Fallback Picture 2.0 component*/
+	org.scn.community.basics.FallbackPicture returnAsScnFallbackPicture (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Fiori App Header 2.0 component*/
+	org.scn.community.basics.FioriAppHeader returnAsScnFioriAppHeader (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Fiori Bar 2.0 component*/
+	org.scn.community.basics.FioriBar returnAsScnFioriBar (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Fiori Button 2.0 component*/
+	org.scn.community.basics.FioriButtonM returnAsScnFioriButtonM (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Fiori Button 2.0 component*/
+	org.scn.community.basics.FioriButton returnAsScnFioriButton (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Fiori Input Field component*/
+	org.scn.community.basics.FioriInput returnAsScnFioriInput (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Fiori Segmented Button component*/
+	org.scn.community.basics.FioriSegmentedButton returnAsScnFioriSegmentedButton (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Fiori Slider component*/
+	org.scn.community.basics.FioriSlider returnAsScnFioriSlider (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Fiori Switch component*/
+	org.scn.community.basics.FioriSwitch returnAsScnFioriSwitch (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Fiori Toolbar 2.0 component*/
+	org.scn.community.basics.FioriToolbar returnAsScnFioriToolbar (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Fish Eye 2.0 component*/
+	org.scn.community.basics.FishEye returnAsScnFishEye (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Float Button component*/
+	org.scn.community.basics.FloatButton returnAsScnFloatButton (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Gauge (Speedometer) 2.0 component*/
+	org.scn.community.basics.Gauge returnAsScnGauge (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Image Carousel 2.0 component*/
+	org.scn.community.basics.ImageCarousel returnAsScnImageCarousel (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Kpi Tile 2.0 component*/
+	org.scn.community.basics.KpiTile returnAsScnKpiTile (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Kpi View 2.0 component*/
+	org.scn.community.basics.KpiView returnAsScnKpiView (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Launch Pad 2.0 component*/
+	org.scn.community.basics.LaunchPad returnAsScnLaunchPad (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Leader Board 2.0 component*/
+	org.scn.community.basics.LeaderBoard returnAsScnLeaderBoard (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Link 2.0 component*/
+	org.scn.community.basics.Link returnAsScnLink (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to List Selector 2.0 component*/
+	org.scn.community.basics.ListSelector returnAsScnListSelector (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Open Street Map (Basic) 2.0 component*/
+	org.scn.community.basics.Map returnAsScnMap (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Menu Bar 2.0 component*/
+	org.scn.community.basics.MenuBar returnAsScnMenuBar (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Menu Button 2.0 component*/
+	org.scn.community.basics.MenuButton returnAsScnMenuButton (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Rapid MockUp component*/
+	org.scn.community.basics.MockUp returnAsScnMockUp (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Modal Browser 0.X component*/
+	org.scn.community.basics.ModalBrowser returnAsScnModalBrowser (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Navigation Bar 2.0 component*/
+	org.scn.community.basics.NavigationBar returnAsScnNavigationBar (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Notification Bar 2.0 component*/
+	org.scn.community.basics.NotificationBar returnAsScnNotificationBar (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Notify 2.0 component*/
+	org.scn.community.basics.Notify returnAsScnNotify (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Object 2.0 component*/
+	org.scn.community.basics.Object returnAsScnObject (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Paginator 2.0 component*/
+	org.scn.community.basics.Paginator returnAsScnPaginator (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Password Field 2.0 component*/
+	org.scn.community.basics.PasswordField returnAsScnPasswordField (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Progress Indicator 2.0 component*/
+	org.scn.community.basics.ProgressIndicator returnAsScnProgressIndicator (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to QRCode Generator 2.0 component*/
+	org.scn.community.basics.QRCode returnAsScnQRCode (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to RSSFeedReader 2.0 component*/
+	org.scn.community.basics.RSSFeedReader returnAsScnRSSFeedReader (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Range Slider 2.0 component*/
+	org.scn.community.basics.RangeSlider returnAsScnRangeSlider (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Rating Indicator 2.0 component*/
+	org.scn.community.basics.RatingIndicator returnAsScnRatingIndicator (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Road Map 2.0 component*/
+	org.scn.community.basics.RoadMap returnAsScnRoadMap (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Segmented Button 2.0 component*/
+	org.scn.community.basics.SegmentedButton returnAsScnSegmentedButton (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Slider 2.0 component*/
+	org.scn.community.basics.Slider returnAsScnSlider (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Text Area 2.0 component*/
+	org.scn.community.basics.TextArea returnAsScnTextArea (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to TimeOut (Timer) 2.0 component*/
+	org.scn.community.basics.TimeOut returnAsScnTimeOut (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Toggle Button 2.0 component*/
+	org.scn.community.basics.ToggleButton returnAsScnToggleButton (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Tree 2.0 component*/
+	org.scn.community.basics.Tree returnAsScnTree (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Tri State CheckBox 2.0 component*/
+	org.scn.community.basics.TriStateCheckBox returnAsScnTriStateCheckBox (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Validated Input Field 2.0 component*/
+	org.scn.community.basics.ValiInput returnAsScnValiInput (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Value Help Field 2.0 component*/
+	org.scn.community.basics.ValueHelpField returnAsScnValueHelpField (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to World Time 2.0 component*/
+	org.scn.community.basics.WorldTime returnAsScnWorldTime (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Advanced Data Table 2.0 component*/
+	org.scn.community.databound.AdvancedDataTable returnAsScnAdvancedDataTable (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Area Micro Chart 2.0 component*/
+	org.scn.community.databound.AreaMicroChart returnAsScnAreaMicroChart (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Bread Crumbs component*/
+	org.scn.community.databound.Breadcrumbs returnAsScnBreadcrumbs (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Bullet Chart 2.0 component*/
+	org.scn.community.databound.BulletChart returnAsScnBulletChart (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Bullet Micro Chart 2.0 component*/
+	org.scn.community.databound.BulletMicroChart returnAsScnBulletMicroChart (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Calendar Visualization component*/
+	org.scn.community.databound.CalendarViz returnAsScnCalendarViz (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Choropleth Map 2.0 component*/
+	org.scn.community.databound.Choropleth returnAsScnChoropleth (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Clipboard component*/
+	org.scn.community.databound.Clipboard returnAsScnClipboard (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Custom Map component*/
+	org.scn.community.databound.CustomMap returnAsScnCustomMap (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Data Drop Down 2.0 component*/
+	org.scn.community.databound.DropDown returnAsScnDropDown (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Facet Filter 2.0 component*/
+	org.scn.community.databound.FacetFilter returnAsScnFacetFilter (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Facet Selector 2.0 component*/
+	org.scn.community.databound.FacetSelector returnAsScnFacetSelector (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Busy Dialog 2.0 component*/
+	org.scn.community.databound.FioriBusyDialog returnAsScnFioriBusyDialog (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Fiori Link 2.0 component*/
+	org.scn.community.databound.FioriLink returnAsScnFioriLink (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Harvey Ball Micro Chart 2.0 component*/
+	org.scn.community.databound.HarveyBallMicroChart returnAsScnHarveyBallMicroChart (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Hexbin Chart 2.0 component*/
+	org.scn.community.databound.HexBin returnAsScnHexBin (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to D3 Hierarchy 2.0 component*/
+	org.scn.community.databound.jpd3hier returnAsScnjpd3hier (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Repeatable Kpi Tile 2.0 component*/
+	org.scn.community.databound.KpiTile returnAsScnKpiTile (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Data Leader Board component*/
+	org.scn.community.databound.LeaderBoard returnAsScnLeaderBoard (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Leaflet Map component*/
+	org.scn.community.databound.LeafletMap returnAsScnLeafletMap (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Location Intelligence 2.0 component*/
+	org.scn.community.databound.LocationIntel returnAsScnLocationIntel (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Marimekko Chart 2.0 component*/
+	org.scn.community.databound.MarimekkoChart returnAsScnMarimekkoChart (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Multi ComboBox 0.0 component*/
+	org.scn.community.databound.MultiComboBox returnAsScnMultiComboBox (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Hierarchical Menu 1.0 component*/
+	org.scn.community.databound.MultiLevelDropDown returnAsScnMultiLevelDropDown (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Nice Chart 2.0 component*/
+	org.scn.community.databound.NiceChart returnAsScnNiceChart (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Pictogram component*/
+	org.scn.community.databound.Pictogram returnAsScnPictogram (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Planning Calendar component*/
+	org.scn.community.databound.PlanningCalendar returnAsScnPlanningCalendar (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Process Flow 2.0 component*/
+	org.scn.community.databound.ProcessFlow returnAsScnProcessFlow (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Progress Bar Set 2.0 component*/
+	org.scn.community.databound.ProgressBarSet returnAsScnProgressBarSet (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Radio Button Group 2.0 component*/
+	org.scn.community.databound.RadioButtonGroup returnAsScnRadioButtonGroup (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Data Range Slider 2.0 component*/
+	org.scn.community.databound.RangeSlider returnAsScnRangeSlider (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Result Set Information 2.0 component*/
+	org.scn.community.databound.ResultSetInfo returnAsScnResultSetInfo (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Result Set Mixer 2.0 component*/
+	org.scn.community.databound.ResultSetMixer returnAsScnResultSetMixer (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Scatter Plot Heat Map 2.0 component*/
+	org.scn.community.databound.ScatterHeatMap returnAsScnScatterHeatMap (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Scatter Plot Chart 2.0 component*/
+	org.scn.community.databound.ScatterPlot returnAsScnScatterPlot (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Side Navigation component*/
+	org.scn.community.databound.SideNavigation returnAsScnSideNavigation (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Data Slider 2.0 component*/
+	org.scn.community.databound.Slider returnAsScnSlider (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to 2D Crosstab 2.0 component*/
+	org.scn.community.databound.Table2D returnAsScnTable2D (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Data Table 2.0 component*/
+	org.scn.community.databound.Table returnAsScnTable (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Tag Cloud 2.0 component*/
+	org.scn.community.databound.tagCloud returnAsScntagCloud (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to TileContainer 1.0 component*/
+	org.scn.community.databound.TileContainer returnAsScnTileContainer (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Data Top Flop Chart component*/
+	org.scn.community.databound.TopFlopChart returnAsScnTopFlopChart (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Data Top Flop component*/
+	org.scn.community.databound.TopFlop returnAsScnTopFlop (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to UI5 Table 2.0 component*/
+	org.scn.community.databound.UI5Table returnAsScnUI5Table (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Bring Your Own Data component*/
+	org.scn.community.datasource.BYOData returnAsScnBYOData (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Dynamic Csv Data Source component*/
+	org.scn.community.datasource.DynCsvDataSource returnAsScnDynCsvDataSource (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Scaling Data Source 2.0 component*/
+	org.scn.community.datasource.ScalingDataSource returnAsScnScalingDataSource (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Maps [Obsolete - Do not use] component*/
+	org.scn.community.geovis.Maps returnAsScnMaps (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to (PROTOTYPE!) Application Header (with Event) component*/
+	org.scn.community.prototypes.ApplicationHeaderE returnAsScnApplicationHeaderE (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to (PROTOTYPE!) Application Header (OnBeforeRender) component*/
+	org.scn.community.prototypes.ApplicationHeaderO returnAsScnApplicationHeaderO (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Aps Tester UI5 component*/
+	org.scn.community.prototypes.ApsTesterUI5 returnAsScnApsTesterUI5 (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Aps Tester component*/
+	org.scn.community.prototypes.ApsTester returnAsScnApsTester (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Bullet Chart (Gen Prototype) component*/
+	org.scn.community.prototypes.BulletChartGen returnAsScnBulletChartGen (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Google Candle Chart (Prototype) component*/
+	org.scn.community.prototypes.GoogleCandle returnAsScnGoogleCandle (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Horizon Chart component*/
+	org.scn.community.prototypes.horizonChart returnAsScnhorizonChart (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Progress Bar Set component*/
+	org.scn.community.prototypes.ProgressSet returnAsScnProgressSet (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Rapid Prototyping component*/
+	org.scn.community.prototypes.RapidPrototype returnAsScnRapidPrototype (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to (PROTOTYPE!) Sap M List component*/
+	org.scn.community.prototypes.SapMList returnAsScnSapMList (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Array Utility component*/
+	org.scn.community.utils.Array returnAsScnArray (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Audio Utility component*/
+	org.scn.community.utils.Audio returnAsScnAudio (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Client Information component*/
+	org.scn.community.utils.ClientInformation returnAsScnClientInformation (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Collection Utility component*/
+	org.scn.community.utils.Collection returnAsScnCollection (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Component Layouter component*/
+	org.scn.community.utils.ComponentLayouter returnAsScnComponentLayouter (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Component Manager component*/
+	org.scn.community.utils.ComponentManager returnAsScnComponentManager (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Custom Css Collector component*/
+	org.scn.community.utils.CustomCssCollector returnAsScnCustomCssCollector (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Data Iterator component*/
+	org.scn.community.utils.DataIterator returnAsScnDataIterator (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Data Source Helper 2.0 component*/
+	org.scn.community.utils.DataSourceHelper returnAsScnDataSourceHelper (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Debugger Code Inspector 0.X component*/
+	org.scn.community.utils.Debugger returnAsScnDebugger (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Flow Layouter 0.X component*/
+	org.scn.community.utils.FlowLayouter returnAsScnFlowLayouter (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Json Object component*/
+	org.scn.community.utils.JsonObject returnAsScnJsonObject (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Math Utility component*/
+	org.scn.community.utils.Math returnAsScnMath (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Open Url Inplace 0.X component*/
+	org.scn.community.utils.OpenUrlInplace returnAsScnOpenUrlInplace (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Open Window by Post 0.X component*/
+	org.scn.community.utils.OpenWindowPost returnAsScnOpenWindowPost (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to PDF Print 2.0 component*/
+	org.scn.community.utils.PdfPrint returnAsScnPdfPrint (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Post Response Parser 2.0 component*/
+	org.scn.community.utils.PostResponseParser returnAsScnPostResponseParser (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Real Date component*/
+	org.scn.community.utils.RealDate returnAsScnRealDate (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Replacer component*/
+	org.scn.community.utils.Replacer returnAsScnReplacer (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to Simple Date component*/
+	org.scn.community.utils.SimpleDate returnAsScnSimpleDate (Component inputComponent) {* return inputComponent; *}
+
+	/**Cast to WebSocket Implementation component*/
+	org.scn.community.utils.WSPusher returnAsScnWSPusher (Component inputComponent) {* return inputComponent; *}
+
+
+}

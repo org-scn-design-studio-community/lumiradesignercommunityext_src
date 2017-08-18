@@ -1,0 +1,151 @@
+
+<component
+	id="DateRangeScroller"
+	title="Date Range Scroller 2.0"
+	tooltip="Date Range Scroller"
+	icon="res/DateRangeScroller/DateRangeScroller.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/DateRangeScroller/DateRangeScroller</requireJs>
+
+	<cssInclude>res/DateRangeScroller/DateRangeScroller.css</cssInclude>
+	
+	
+	<property
+		id="DDate"
+		type="String"
+		title="Date"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DEndDate"
+		type="String"
+		title="End Date"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DLangFormat"
+		type="boolean"
+		title="Language Dependent Format"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangPattern"
+		type="String"
+		title="Custom Pattern"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangRelative"
+		type="boolean"
+		title="Custom Relative"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangStyle"
+		type="String"
+		title="Custom Style"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSpecialDay"
+		type="int"
+		title="Day Of Week To Start"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSpecialDuration"
+		type="int"
+		title="Duration Of Custom Range"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DStartDate"
+		type="String"
+		title="Start Date"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DViewType"
+		type="String"
+		title="Range View Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="editable"
+		type="boolean"
+		title="Editable"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="onChange"
+		type="ScriptText"
+		title="On Change"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">30</defaultValue>
+		
+		<defaultValue property="DDate"><![CDATA[]]></defaultValue>
+		<defaultValue property="DEndDate"><![CDATA[]]></defaultValue>
+		<defaultValue property="DLangFormat"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DLangPattern"><![CDATA[]]></defaultValue>
+		<defaultValue property="DLangRelative"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DLangStyle"><![CDATA[Short]]></defaultValue>
+		<defaultValue property="DSpecialDay"><![CDATA[0]]></defaultValue>
+		<defaultValue property="DSpecialDuration"><![CDATA[14]]></defaultValue>
+		<defaultValue property="DStartDate"><![CDATA[]]></defaultValue>
+		<defaultValue property="DViewType"><![CDATA[Week]]></defaultValue>
+		<defaultValue property="editable"><![CDATA[true]]></defaultValue>
+		<defaultValue property="onChange"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

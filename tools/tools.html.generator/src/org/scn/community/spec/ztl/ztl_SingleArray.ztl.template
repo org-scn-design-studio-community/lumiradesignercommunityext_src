@@ -1,0 +1,185 @@
+	/** Adds a root element containing %ROOT_ALL_PROPERTIES%.
+
+ 	<example>
+	You want to add 2 root elements
+	<code>
+	%COMPONENT_NAME%.add%ROOT_CONTENT_NAME%(%ROOT_ALL_PROPERTIES%);<br>
+	%COMPONENT_NAME%.add%ROOT_CONTENT_NAME%(%ROOT_ALL_PROPERTIES%);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void add%ROOT_CONTENT_NAME% (
+			%ROOT_PROPERTY_DEFINITION_FULL%
+			) {*
+
+		%ASSURE_OPTIONAL_ROOT_INITIALIZED%
+		var itemDef = {
+			leaf:true,
+			%ROOT_PROPERTY_DEFINITION_JSON%
+			};
+
+		if (this.%PROPERTY_NAME% === undefined || this.%PROPERTY_NAME% === "" || this.%PROPERTY_NAME% === "<delete>"){
+			this.%PROPERTY_NAME% = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.%PROPERTY_NAME%);
+
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				alreadyFound = true;
+				break;
+			}
+		}
+
+		if(!alreadyFound) {
+			elementsJson.push(itemDef);
+		}
+
+		this.%PROPERTY_NAME% = JSON.stringify(elementsJson);
+	*}
+	
+	/** Removes a root element by key.
+
+ 	<example>
+	You want to remove root element
+	<code>
+	%COMPONENT_NAME%.remove%ROOT_CONTENT_NAME%(%ROOT_PROPERTY_DEFINITION_KEY%);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void remove%ROOT_CONTENT_NAME% (
+			%ROOT_PROPERTY_DEFINITION_KEY%
+			) {*
+
+		if (this.%PROPERTY_NAME% === undefined || this.%PROPERTY_NAME% === "" || this.%PROPERTY_NAME% === "<delete>"){
+			this.%PROPERTY_NAME% = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.%PROPERTY_NAME%);
+
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson.splice(i,1);
+				break;
+			}
+		}
+
+		// remove all items with this parent
+		for (var i = elementsJson.length - 1; i >= 0; i--){
+			if (elementsJson[i].parentKey == key) {
+				elementsJson.splice(i,1);
+			}
+		}
+
+		this.%PROPERTY_NAME% = JSON.stringify(elementsJson);
+	*}
+
+	/** Insert a root element by index.
+
+ 	<example>
+	You want to insert a root element
+	<code>
+	%COMPONENT_NAME%.insert%ROOT_CONTENT_NAME%(index [int], %ROOT_ALL_PROPERTIES%);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void insert%ROOT_CONTENT_NAME% (
+			/**Index to Insert (0-based)*/int insertionIndex0based,
+			%ROOT_PROPERTY_DEFINITION_FULL%
+			) {*
+
+		if (this.%PROPERTY_NAME% === undefined || this.%PROPERTY_NAME% === "" || this.%PROPERTY_NAME% === "<delete>"){
+			this.%PROPERTY_NAME% = "[]";
+		}
+		
+		var elementsJson = JSON.parse(this.%PROPERTY_NAME%);
+		var newElementsJson = [];
+
+		var itemDef = {
+			leaf:true,
+			%ROOT_PROPERTY_DEFINITION_JSON%
+		};
+
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (i == insertionIndex0based) {
+				newElementsJson.push(itemDef);
+			}
+
+			newElementsJson.push(elementsJson[i]);
+		}
+
+		this.%PROPERTY_NAME% = JSON.stringify(newElementsJson);
+	*}
+
+	/**
+	 * Updates given %ROOT_CONTENT_NAME%<br/>
+	 */
+	void update%ROOT_CONTENT_NAME% (
+			%ROOT_PROPERTY_DEFINITION_FULL%
+			) 
+	{*
+		if (this.%PROPERTY_NAME% === undefined || this.%PROPERTY_NAME% === "" || this.%PROPERTY_NAME% === "<delete>"){
+			this.%PROPERTY_NAME% = "[]";
+		}
+
+		var itemDef = {
+			leaf:true,
+			%ROOT_PROPERTY_DEFINITION_JSON%
+		};
+
+		var elementsJson = JSON.parse(this.%PROPERTY_NAME%);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == elementKey) {
+				elementsJson[i] = itemDef;
+				break;
+			}
+		}
+
+		this.%PROPERTY_NAME% = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Returns Key at given Index<br/>
+	 */
+	String get%ROOT_CONTENT_NAME%AtIndex (
+			/**Index to pick the key*/ int index0based
+			) 
+	{*
+		if (this.%PROPERTY_NAME% === undefined || this.%PROPERTY_NAME% === "" || this.%PROPERTY_NAME% === "<delete>"){
+			this.%PROPERTY_NAME% = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.%PROPERTY_NAME%);
+
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (index0based == i) {
+				return elementsJson[i].key;
+			}
+		}
+
+		return "";
+	*}
+
+	/**
+	 * Gets %ROOT_CONTENT_NAME%s As JSON String
+	 */	
+	String get%ROOT_CONTENT_NAME%sAsJSON() {*
+		var jsonObject = JSON.parse(this.%PROPERTY_NAME%);
+		return JSON.stringify(jsonObject, null, 4);
+	*}
+
+	/**
+	 * Cleans All %ROOT_CONTENT_NAME%s
+	 */	
+	String cleanAll%ROOT_CONTENT_NAME%s() {*
+		this.%PROPERTY_NAME% = "[]";
+	*}
+	
+%CUSTOM_EXTENSION_PROPERTY%

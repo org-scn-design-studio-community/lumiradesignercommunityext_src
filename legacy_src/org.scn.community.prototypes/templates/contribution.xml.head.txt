@@ -1,0 +1,2 @@
+	id="org.scn.community.prototypes"
+	title="Lumira Designer SCN Community Prototypes [Legacy]"

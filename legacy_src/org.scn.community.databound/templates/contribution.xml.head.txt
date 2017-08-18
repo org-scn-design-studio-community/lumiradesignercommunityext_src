@@ -1,0 +1,2 @@
+	id="org.scn.community.databound"
+	title="Lumira Designer SCN Community Data Bound [Legacy]"

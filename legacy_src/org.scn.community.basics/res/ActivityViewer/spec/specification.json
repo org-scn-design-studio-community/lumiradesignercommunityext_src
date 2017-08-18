@@ -1,0 +1,285 @@
+{
+   "cleanAllActivities" : {
+		"type" : "boolean", 
+		"value" : false,
+		"visible": false,
+
+		"opts" : {
+			"ztlType": "boolean",
+			"ztlFunction": "-clean",
+			"desc" : "Clean All Activities",
+			"cat" : "Internal",
+			"tooltip" : "Clean All Activities",
+			"apsControl" : "checkbox",
+			"noAps":true,
+			"noZtl":false,
+	     	"refProperty":"activities",
+		   	"refDesc":"Activities",
+		   	"refValue":"[]",
+		}
+   },
+   "cleanAllCategories" : {
+		"type" : "boolean", 
+		"value" : false,
+		"visible": false,
+
+		"opts" : {
+			"ztlType": "boolean",
+			"ztlFunction": "-clean",
+			"desc" : "Clean All Categories",
+			"cat" : "Internal",
+			"tooltip" : "Clean All Categories",
+			"apsControl" : "checkbox",
+			"noAps":true,
+			"noZtl":false,
+	     	"refProperty":"categories",
+		   	"refDesc":"Categories",
+		   	"refValue":"[]",
+		}
+   },
+   "timeFormat":{
+        "type":"String",
+        "value":"Days",
+        "visible":true,
+        "opts":{
+           "ztlType":"Choice",
+           "choiceType":"-",
+           "ztlFunction":"",
+           "desc":"Time Format in Time Axis",
+           "cat":"Display-Time Axis",
+           "tooltip":"Time Format in Time Axis",
+           "apsControl":"combobox",
+           "options":[
+              {
+                 "key":"Days",
+                 "text":"Days"
+              },
+              {
+                 "key":"Hours",
+                 "text":"Hours"
+              },
+              {
+                 "key":"Seconds",
+                 "text":"Seconds"
+              }
+           ]
+        }
+   },
+   "XLegendAngle":{
+	    "type":"int",
+	    "value":-40,
+	    "visible":true,
+	    "opts":{
+	         "ztlType":"int",
+	         "ztlFunction":"",
+	         "desc":"Text Angle for X Legend",
+	         "cat":"Display-Texts",
+	         "tooltip":"Text Angle for X Legend",
+	         "apsControl":"spinner"
+		}
+   },
+   "YLegendAngle":{
+	    "type":"int",
+	    "value":-30,
+	    "visible":true,
+	    "opts":{
+	         "ztlType":"int",
+	         "ztlFunction":"",
+	         "desc":"Text Angle for Y Legend",
+	         "cat":"Display-Texts",
+	         "tooltip":"Text Angle for Y Legend",
+	         "apsControl":"spinner"
+		}
+   },
+   "elementTextAngle":{
+	    "type":"int",
+	    "value":0,
+	    "visible":true,
+	    "opts":{
+	         "ztlType":"int",
+	         "ztlFunction":"",
+	         "desc":"Text Angle for Element",
+	         "cat":"Display-Texts",
+	         "tooltip":"Text Angle for Element",
+	         "apsControl":"spinner"
+		}
+   },
+   "elementTextXPos":{
+	    "type":"int",
+	    "value":10,
+	    "visible":true,
+	    "opts":{
+	         "ztlType":"int",
+	         "ztlFunction":"",
+	         "desc":"Text Y Position for Element",
+	         "cat":"Display-Texts",
+	         "tooltip":"Text Y Position for Element",
+	         "apsControl":"spinner"
+		}
+   },
+   "elementTextYPos":{
+	    "type":"int",
+	    "value":10,
+	    "visible":true,
+	    "opts":{
+	         "ztlType":"int",
+	         "ztlFunction":"",
+	         "desc":"Text X Position for Element",
+	         "cat":"Display-Texts",
+	         "tooltip":"Text X Position for Element",
+	         "apsControl":"spinner"
+		}
+   },
+   "activities":{
+      "type":"String",
+      "value":"[{\"parentKey\":\"ROOT\",\"key\":\"ELEMENT\",\"leaf\":false,\"text\":\"Distribution\",\"category\":\"CAT1\",\"state\":\"FAILED\",\"startDate\":\"20130101\",\"endDate\":\"20130205\"},{\"parentKey\":\"ROOT\",\"key\":\"ELEMENT1\",\"leaf\":false,\"text\":\"Process\",\"category\":\"CAT1\",\"state\":\"RUNNING\",\"startDate\":\"20140102\",\"endDate\":\"20140605\"},{\"parentKey\":\"ROOT\",\"key\":\"ELEMENT2\",\"leaf\":false,\"text\":\"Buying\",\"category\":\"CAT2\",\"state\":\"STANDARD\",\"startDate\":\"20140905\",\"endDate\":\"20141216\"},{\"parentKey\":\"ROOT\",\"key\":\"ELEMENT3\",\"leaf\":false,\"text\":\"Work On\",\"state\":\"KILLED\",\"category\":\"CAT2\",\"startDate\":\"20141228\",\"endDate\":\"20150206\"}]",
+      "visible":true,
+      
+      "opts":{
+         "ztlType":"SingleArray",
+         "ztlFunction":"",
+         
+         "arrayDefinition":{
+            "activity":{
+               "type":"Array",
+               "sequence":"key,text,category,state,startDate,endDate",
+               
+               "key":{
+                  "desc":"Unique Activity Key",
+                  "type":"String"
+               },
+               "text":{
+                  "desc":"Activity Description",
+                  "type":"String"
+               },
+               "category":{
+                  "desc":"Assigned Category Key",
+                  "type":"String"
+               },
+               "state":{
+                   "desc":"Assigned State Key",
+                   "type":"String"
+               },
+               "startDate":{
+                  "desc":"Start Date YYYYMMDD",
+                  "type":"String"
+               },
+               "endDate":{
+                   "desc":"End Date YYYYMMDD",
+                   "type":"String"
+                }
+            }
+         },
+         
+         "desc":"Activities",
+         "cat":"Content-Activities",
+         "tooltip":"List of Activities",
+         
+         "apsControl":"array",
+         "arrayMode":"OneLevelArray"
+      }
+   },
+   "categories":{
+      "type":"String",
+      "value":"[{\"parentKey\":\"ROOT\",\"key\":\"CAT1\",\"leaf\":false,\"text\":\"Good Products\"},{\"parentKey\":\"ROOT\",\"key\":\"CAT2\",\"leaf\":false,\"text\":\"Better Products\"}]",
+      "visible":true,
+      
+      "opts":{
+         "ztlType":"SingleArray",
+         "ztlFunction":"",
+         
+         "arrayDefinition":{
+            "category":{
+               "type":"Array",
+               "sequence":"key,text,visible",
+               
+               "key":{
+                  "desc":"Unique Category Key",
+                  "type":"String",
+                  "apsControl" : "text"
+               },
+               "text":{
+                  "desc":"Category Description",
+                  "type":"String",
+                  "apsControl" : "text"
+               },
+               "visible":{
+                   "desc":"Visibility",
+                   "type":"boolean",
+                   "value": true,
+                   "apsControl" : "checkbox"
+                },
+            }
+         },
+         
+         "desc":"Categories",
+         "cat":"Content-Categories",
+         "tooltip":"List of Categories",
+         
+         "apsControl":"array",
+         "arrayMode":"OneLevelArray"
+      }
+   },
+   "states":{
+      "type":"String",
+      "value":"[{\"parentKey\":\"ROOT\",\"key\":\"STANDARD\",\"leaf\":false,\"style\":\"bar\"},{\"parentKey\":\"ROOT\",\"key\":\"FAILED\",\"leaf\":false,\"style\":\"bar-failed\"},{\"parentKey\":\"ROOT\",\"key\":\"RUNNING\",\"leaf\":false,\"style\":\"bar-running\"},{\"parentKey\":\"ROOT\",\"key\":\"SUCCEEDED\",\"leaf\":false,\"style\":\"bar-succeeded\"},{\"parentKey\":\"ROOT\",\"key\":\"KILLED\",\"leaf\":false,\"style\":\"killed\"}]",
+      "visible":true,
+      
+      "opts":{
+         "ztlType":"SingleArray",
+         "ztlFunction":"",
+         
+         "arrayDefinition":{
+            "state":{
+               "type":"Array",
+               "sequence":"key,style",
+               
+               "key":{
+                  "desc":"Unique State Key",
+                  "type":"String",
+                  "apsControl" : "text"
+               },
+               "style":{
+                  "desc":"State CSS Style",
+                  "type":"String",
+                  "apsControl" : "text"
+               },
+            }
+         },
+         
+         "desc":"States",
+         "cat":"Content-States",
+         "tooltip":"List of States",
+         
+         "apsControl":"array",
+         "arrayMode":"OneLevelArray"
+      }
+   },
+   "selectedKey" : {
+		"type" : "String",
+		"value" : "",
+		"visible": false,
+		"opts" : {
+			"ztlType": "String",
+			"ztlFunction": "-get",
+			"desc" : "Selected Key",
+			"cat" : "Internal",
+			"tooltip" : "Selected Key",
+			"apsControl" : "text",
+			"noAps":true,	
+			"noZtl":false
+		}
+	},
+	"onSelectionChanged": {
+        "type": "ScriptText",
+        "value": "",
+        "visible": true,
+        "opts": {
+            "desc": "On Selection Changed",
+            "cat": "Events",
+            "tooltip": "Event triggered on Selection Changed",
+            "noAps":true,
+            "noZtl":true
+        }
+    },
+}

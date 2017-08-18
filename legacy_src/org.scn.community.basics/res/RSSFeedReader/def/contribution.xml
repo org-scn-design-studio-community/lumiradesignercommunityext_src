@@ -1,0 +1,72 @@
+
+<component
+	id="RSSFeedReader"
+	title="RSSFeedReader 2.0"
+	tooltip="RSSFeedReader"
+	icon="res/RSSFeedReader/RSSFeedReader.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/RSSFeedReader/RSSFeedReader</requireJs>
+
+	<cssInclude>res/RSSFeedReader/RSSFeedReader.css</cssInclude>
+	
+	
+	<property
+		id="cssUrl"
+		type="Url"
+		title="CSS URL"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="feedUrl"
+		type="Url"
+		title="RSS Feed URL"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="useBuildInXsl"
+		type="boolean"
+		title="Use Build-In Xsl File"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="xslUrl"
+		type="Url"
+		title="XSL URL"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">200</defaultValue>
+		
+		<defaultValue property="cssUrl"><![CDATA[]]></defaultValue>
+		<defaultValue property="feedUrl"><![CDATA[http://cdn.eex.com/rss/de/market.rss]]></defaultValue>
+		<defaultValue property="useBuildInXsl"><![CDATA[true]]></defaultValue>
+		<defaultValue property="xslUrl"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

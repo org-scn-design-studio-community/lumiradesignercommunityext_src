@@ -1,0 +1,61 @@
+
+<component
+	id="ColorPicker"
+	title="Color Picker 2.0"
+	tooltip="Color Picker"
+	icon="res/ColorPicker/ColorPicker.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ColorPicker/ColorPicker</requireJs>
+
+	<cssInclude>res/ColorPicker/ColorPicker.css</cssInclude>
+	
+	
+	<property
+		id="colorString"
+		type="String"
+		title="Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="colorStringHex"
+		type="String"
+		title="Hex Color"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="onColorChange"
+		type="ScriptText"
+		title="On Color Change"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">270</defaultValue>
+		<defaultValue property="HEIGHT">134</defaultValue>
+		
+		<defaultValue property="colorString"><![CDATA[red]]></defaultValue>
+		<defaultValue property="colorStringHex"><![CDATA[]]></defaultValue>
+		<defaultValue property="onColorChange"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

@@ -1,0 +1,17 @@
+{
+	"title": "Custom Map",
+	"description": "Custom Map",
+	"icon": "custom_map.png",
+	"supportsFlatData": true,
+	"topics": 
+	[
+		{
+			"title" : "Custom Map",
+			"content" : "Build you own non geographical visualization with this component using an image and HTML maps. Tutorial: https://blogs.sap.com/2016/07/25/sdk-community-package-custom-map/"
+		},
+		{
+			"title" : "Visualization",
+			"content" : "This component is a visualization component. It requires specific space in the application canvas."
+		},
+	]
+}

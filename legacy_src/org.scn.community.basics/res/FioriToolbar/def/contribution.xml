@@ -1,0 +1,36 @@
+
+<component id="FioriToolbar" 
+	title="Fiori Toolbar 2.0"
+	icon="res/FioriToolbar/FioriToolbar.png"
+	handlerType="sapui5" 
+	modes="commons m"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics">
+
+	<requireJs modes="commons">res/FioriToolbar/FioriToolbar_commons</requireJs>
+	<requireJs modes="m">res/FioriToolbar/FioriToolbar</requireJs>
+	
+  	<property id="itemConfig" type="String" title="Item Config" visible="false" group="Display"/>
+  	<property id="enabled" type="boolean" title="Enabled"/>
+  	<property type="String" title="Design" id="design" visible="true" group="Display">
+  		<possibleValue>Auto</possibleValue>
+  		<possibleValue>Info</possibleValue>
+  		<possibleValue>Solid</possibleValue>
+  		<possibleValue>Transparent</possibleValue>
+  	</property>
+  	<property type="String" title="Selected Item" id="selectedItem" visible="false" group="Display"/>
+  	<property type="String" title="Selected Header of Item" id="selectedHeader" visible="false" group="Display"/>
+  	<property type="String" title="Selected Item Key" id="selectedItemKey" visible="false" group="Display"/>
+  	<property type="String" title="Selected Header Key of Item" id="selectedHeaderKey" visible="false" group="Display"/>
+  	<property type="ScriptText" title="On Item Select" id="onitemselect" group="Events"/> 
+ 	<initialization>
+ 		<defaultValue property="design">Auto</defaultValue>
+ 		<defaultValue property="enabled">true</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+ 		<defaultValue property="WIDTH">400</defaultValue>
+ 		<defaultValue property="HEIGHT">48</defaultValue>
+ 	</initialization>
+ </component>

@@ -1,0 +1,702 @@
+
+/**
+ * Generated ZTL Class for Accordion
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.Accordion extends org.scn.community.shared.Component {
+
+	/**
+	 * Clean All Nodes from the Array.
+	 */	
+	void cleanAllElements (){*
+		this.cleanAll = true;
+
+		var elementsArray = [];
+		this.elementsContent = JSON.stringify(elementsArray);
+	*}
+
+	/**
+	 * Remove All Nodes from the Array.
+	 * You can use also <code>cleanAllElements()</code>
+	 */	
+	@Visibility(deprecated)
+	void removeAllElements (){*
+		this.cleanAll = true;
+
+		var elementsArray = [];
+		this.elementsContent = JSON.stringify(elementsArray);
+	*}
+
+	/**
+	 * Sets Default Image Property
+	 */	
+	void setDefaultImage( /**Default Image*/ String defaultImage){*
+		this.defaultImage = defaultImage;
+	*}
+
+	/**
+	 * Gets Default Image Property
+	 */	
+	String getDefaultImage() {*
+		return this.defaultImage;
+	*}
+
+	/** Adds an element containing parentKey [String], key [String], text [String], url [String] properties.
+	 * You need to specify a unique and existing parent element.
+
+ 	<example>
+	You want to add 2 elements
+	<code>
+	ACCORDION.addElement(parentKey [String], key [String], text [String], url [String]);<br>
+	ACCORDION.addElement(parentKey [String], key [String], text [String], url [String]);
+	</code>
+	</example>
+	 */
+	void addElement (
+			/**Parent Key*/String parentKey, 
+			/**Unique Key*/String key, 
+			/**Given Text*/String text, 
+			/**Given Url*/String url
+			) {*		
+		
+		var leaf = (parentKey != "ROOT");
+		
+		
+		var itemDef = {
+			leaf:leaf,
+			parentKey:parentKey, 
+			key:key, 
+			text:text, 
+			url:url 
+			};
+	
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			this.elementsContent = "[]";
+		}
+		
+		var elementsJson = JSON.parse(this.elementsContent);
+		
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				alreadyFound = true;
+				break;
+			}
+		}
+		
+		if(!alreadyFound) {
+			elementsJson.push(itemDef);
+		}
+	
+		this.elementsContent = JSON.stringify(elementsJson);
+	*}
+
+	/** Adds a root element containing key [String], text [String], url [String], height [int].
+
+ 	<example>
+	You want to add 2 root elements
+	<code>
+	ACCORDION.addSection(key [String], text [String], url [String], height [int]);<br>
+	ACCORDION.addSection(key [String], text [String], url [String], height [int]);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void addSection (
+			/**Unique Key*/String key, 
+			/**Given Text*/String text, 
+			/**Given Url*/String url, 
+			/**Section Height px (overwrites max)*/optional int height
+			) {*		
+		
+		this.addElement("ROOT", key, 
+			text, 
+			url, 
+			height);
+	*}
+	
+	/** removes an element by String key properties.
+	 * You need to specify a unique and existing key.
+
+ 	<example>
+	You want to remove element
+	<code>
+	ACCORDION.removeElement(String key);<br>
+	</code>
+	</example>
+	 */
+	void removeElement (
+			String key
+			) {*		
+		
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			this.elementsContent = "[]";
+		}
+		
+		var elementsJson = JSON.parse(this.elementsContent);
+		
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson.splice(i,1);
+				break;
+			}
+		}
+
+		// remove all items with this parent
+		for (var i = elementsJson.length - 1; i >= 0; i--){
+			if (elementsJson[i].parentKey == key) {
+				elementsJson.splice(i,1);
+			}
+		}
+
+		this.elementsContent = JSON.stringify(elementsJson);
+	*}
+
+	/** Removes a root element by key.
+
+ 	<example>
+	You want to remove root element
+	<code>
+	ACCORDION.removeSection(String key);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void removeSection (
+			String key
+			) {*		
+		
+		this.removeElement(key);
+	*}
+
+	/**
+	 * Gets Sections As JSON String
+	 */	
+	String getSectionsAsJSON() {*
+		var jsonObject = JSON.parse(this.elementsContent);
+		return JSON.stringify(jsonObject, null, 4);
+	*}
+
+	/**
+	 * Cleans All Sections
+	 */	
+	String cleanAllSections() {*
+		this.elementsContent = "[]";
+	*}
+	/**
+	 * Sets the Text for Section keys<br/>
+	 */
+	void setSectionTexts (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Text */ String text
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].text = text;
+					break;
+				}
+			}
+		}
+		
+		this.elementsContent = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Text for Section Key<br/>
+	 */
+	void setSectionText (
+			/**/ String key,
+			/**/ String text
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].text = text;
+				break;
+			}
+		}
+
+		this.elementsContent = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Text for Section Key<br/>
+	 */
+	String getSectionText (
+			/**/ String key
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].text;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Url for Section keys<br/>
+	 */
+	void setSectionUrls (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Url */ String url
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].url = url;
+					break;
+				}
+			}
+		}
+		
+		this.elementsContent = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Url for Section Key<br/>
+	 */
+	void setSectionUrl (
+			/**/ String key,
+			/**/ String url
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].url = url;
+				break;
+			}
+		}
+
+		this.elementsContent = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Url for Section Key<br/>
+	 */
+	String getSectionUrl (
+			/**/ String key
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].url;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Height for Section keys<br/>
+	 */
+	void setSectionHeights (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Height */ int height
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].height = height;
+					break;
+				}
+			}
+		}
+		
+		this.elementsContent = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Height for Section Key<br/>
+	 */
+	void setSectionHeight (
+			/**/ String key,
+			/**/ int height
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].height = height;
+				break;
+			}
+		}
+
+		this.elementsContent = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Height for Section Key<br/>
+	 */
+	int getSectionHeight (
+			/**/ String key
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		var value = undefined;
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].height;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Text for Element keys<br/>
+	 */
+	void setElementTexts (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Text */ String text
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].text = text;
+					break;
+				}
+			}
+		}
+		
+		this.elementsContent = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Text for Element Key<br/>
+	 */
+	void setElementText (
+			/**/ String key,
+			/**/ String text
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].text = text;
+				break;
+			}
+		}
+
+		this.elementsContent = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Text for Element Key<br/>
+	 */
+	String getElementText (
+			/**/ String key
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].text;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Url for Element keys<br/>
+	 */
+	void setElementUrls (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Url */ String url
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].url = url;
+					break;
+				}
+			}
+		}
+		
+		this.elementsContent = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Url for Element Key<br/>
+	 */
+	void setElementUrl (
+			/**/ String key,
+			/**/ String url
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].url = url;
+				break;
+			}
+		}
+
+		this.elementsContent = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Url for Element Key<br/>
+	 */
+	String getElementUrl (
+			/**/ String key
+			) 
+	{*
+		if (this.elementsContent === undefined || this.elementsContent === "" || this.elementsContent === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.elementsContent);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].url;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+
+
+	/**
+	 * Gets Expaned Key Property
+	 */	
+	String getExpandedKey() {*
+		return this.expandedKey;
+	*}
+
+	/**
+	 * Sets Size of the Image Property by String
+	 */	
+	void setImageSizeByString( /**Size of the Image*/ String imageSize){*
+		this.imageSize = imageSize;
+	*}
+
+	/**
+	 * Gets Size of the Image Property as String
+	 */	
+	String getImageSizeAsString() {*
+		return this.imageSize;
+	*}
+	
+	/**
+	 * Sets Size of the Image Property by Choice Option
+	 */	
+	void setImageSize( /**Size of the Image*/ org_scn_community_shared_ImageSizeEnumfield imageSize){*
+		this.imageSize = imageSize;
+	*}
+	
+	/**
+	 * Gets Size of the Image Property as Choice Option
+	 */	
+	org_scn_community_shared_ImageSizeEnumfield getImageSize() {*
+		return this.imageSize;
+	*}
+
+	/**
+	 * Sets Max Height for Section Property
+	 */	
+	void setMaxSectionHeight( /**Max Height for Section*/ int maxSectionHeight){*
+		this.maxSectionHeight = maxSectionHeight;
+	*}
+
+	/**
+	 * Gets Max Height for Section Property
+	 */	
+	int getMaxSectionHeight() {*
+		return this.maxSectionHeight;
+	*}
+
+	/**
+	 * Sets Member Display Property by String
+	 */	
+	void setMemberDisplayByString( /**Member Display*/ String memberDisplay){*
+		this.memberDisplay = memberDisplay;
+	*}
+
+	/**
+	 * Gets Member Display Property as String
+	 */	
+	String getMemberDisplayAsString() {*
+		return this.memberDisplay;
+	*}
+	
+	/**
+	 * Sets Member Display Property by Choice Option
+	 */	
+	void setMemberDisplay( /**Member Display*/ org_scn_community_shared_MemberDisplayEnumfield memberDisplay){*
+		this.memberDisplay = memberDisplay;
+	*}
+	
+	/**
+	 * Gets Member Display Property as Choice Option
+	 */	
+	org_scn_community_shared_MemberDisplayEnumfield getMemberDisplay() {*
+		return this.memberDisplay;
+	*}
+
+
+
+	/**
+	 * Sets Selected Key Property.
+	 */	
+	void setSelectedKey(String key) {*
+		this.selectedKey = key;
+	*}
+
+	/**
+	 * Gets Selected Key Property
+	 */	
+	String getSelectedKey() {*
+		return this.selectedKey;
+	*}
+
+	/**
+	Returns the content of property supportedContentNotation as constant
+	*/
+	org_scn_community_shared_ContentNotationEnumfield getSupportedContentNotation () {*
+		return this.supportedContentNotation;
+	*}
+
+	/**
+	 * Sets Use Images Property
+	 */	
+	void setWithImage( /**Use Images*/ boolean withImage){*
+		this.withImage = withImage;
+	*}
+
+	/**
+	 * Gets Use Images Property
+	 */	
+	boolean isWithImage() {*
+		return this.withImage;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+	// here is the place for other custom functions
+}

@@ -1,0 +1,12 @@
+
+<component
+		id="ScatterPlot"
+		title="Scatter Plot Chart 2.0"
+		icon="res/ScatterPlot/ScatterPlot.png"
+		handlerType="div"
+		modes="commons m"
+		propertySheetPath="aps/PropertyPage.html"
+		group="ScnCommunityVisualizations"
+		databound="true"
+>
+<requireJs modes="commons m">res/ScatterPlot/ScatterPlot</requireJs>

@@ -1,0 +1,170 @@
+
+/**
+ * Generated ZTL Class for RangeSlider
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.RangeSlider extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Activate Live Change Event (prototype) Property
+	 */	
+	void setLiveChangeActive( /**Activate Live Change Event (prototype)*/ boolean liveChangeActive){*
+		this.DLiveChangeActive = liveChangeActive;
+	*}
+
+	/**
+	 * Gets Activate Live Change Event (prototype) Property
+	 */	
+	boolean isLiveChangeActive() {*
+		return this.DLiveChangeActive;
+	*}
+
+	/**
+	 * Sets First Value (Live) Property
+	 */	
+	void setLiveValue( /**First Value (Live)*/ float liveValue){*
+		this.liveValue = liveValue;
+	*}
+
+	/**
+	 * Gets First Value (Live) Property
+	 */	
+	float getLiveValue() {*
+		return this.liveValue;
+	*}
+
+	/**
+	 * Sets Second Value (Live) Property
+	 */	
+	void setLiveValue2( /**Second Value (Live)*/ float liveValue2){*
+		this.liveValue2 = liveValue2;
+	*}
+
+	/**
+	 * Gets Second Value (Live) Property
+	 */	
+	float getLiveValue2() {*
+		return this.liveValue2;
+	*}
+
+	/**
+	 * Sets Maximum Value Property
+	 */	
+	void setMax( /**Maximum Value*/ float max){*
+		this.max = max;
+	*}
+
+	/**
+	 * Gets Maximum Value Property
+	 */	
+	float getMax() {*
+		return this.max;
+	*}
+
+	/**
+	 * Sets Minimum Value Property
+	 */	
+	void setMin( /**Minimum Value*/ float min){*
+		this.min = min;
+	*}
+
+	/**
+	 * Gets Minimum Value Property
+	 */	
+	float getMin() {*
+		return this.min;
+	*}
+
+
+
+
+
+	/**
+	 * Sets Small Step Width Property
+	 */	
+	void setSmallStepWidth( /**Small Step Width*/ float smallStepWidth){*
+		this.smallStepWidth = smallStepWidth;
+	*}
+
+	/**
+	 * Gets Small Step Width Property
+	 */	
+	float getSmallStepWidth() {*
+		return this.smallStepWidth;
+	*}
+
+	/**
+	 * Sets Step Labels Property
+	 */	
+	void setStepLabels( /**Step Labels*/ boolean stepLabels){*
+		this.stepLabels = stepLabels;
+	*}
+
+	/**
+	 * Gets Step Labels Property
+	 */	
+	boolean isStepLabels() {*
+		return this.stepLabels;
+	*}
+
+	/**
+	 * Sets Total Units Property
+	 */	
+	void setTotalUnits( /**Total Units*/ int totalUnits){*
+		this.totalUnits = totalUnits;
+	*}
+
+	/**
+	 * Gets Total Units Property
+	 */	
+	int getTotalUnits() {*
+		return this.totalUnits;
+	*}
+
+	/**
+	 * Sets First Value Property
+	 */	
+	void setValue( /**First Value*/ float value){*
+		this.value = value;
+	*}
+
+	/**
+	 * Gets First Value Property
+	 */	
+	float getValue() {*
+		return this.value;
+	*}
+
+	/**
+	 * Sets Second Value Property
+	 */	
+	void setValue2( /**Second Value*/ float value2){*
+		this.value2 = value2;
+	*}
+
+	/**
+	 * Gets Second Value Property
+	 */	
+	float getValue2() {*
+		return this.value2;
+	*}
+
+	/**
+	 * Sets Change To Vertical Orientation Property
+	 */	
+	void setVertical( /**Change To Vertical Orientation*/ boolean vertical){*
+		this.vertical = vertical;
+	*}
+
+	/**
+	 * Gets Change To Vertical Orientation Property
+	 */	
+	boolean isVertical() {*
+		return this.vertical;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}

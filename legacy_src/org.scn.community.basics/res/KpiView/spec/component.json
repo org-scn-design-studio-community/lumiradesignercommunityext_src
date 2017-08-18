@@ -1,0 +1,31 @@
+{
+	"id": "KpiView",
+	"title": "Kpi View 2.0",
+	"tooltip": "Kpi View",
+	"handlerType": "sapui5",
+	"parentControl": "sap.zen.commons.layout.AbsoluteLayout",
+	"group": "ScnCommunityVisualizations",
+	"package": "basics",
+	"extension": "Component",
+	"databound": true,
+	"dataType": "ResultCell",
+
+	"require": 
+	[
+		{
+			"space" : "known",
+			"id" : "common_basics",
+		},
+		{
+			"space" : "known",
+			"id" : "jshashtable",
+		},
+		{
+			"space" : "known",
+			"id" : "numberformatter",
+		}		
+	],
+	
+	"width": "220",
+	"height": "190"
+}

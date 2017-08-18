@@ -1,0 +1,32 @@
+
+<component
+	id="%COMP-id%"
+	title="%COMP-title%"
+	tooltip="%COMP-tooltip%"
+	icon="res/%COMP-id%/%COMP-id%.png"
+	handlerType="%COMP-handlerType%"
+	propertySheetPath="%PROPERTY_PAGE_LINK%"
+	group="%COMP-group%"
+	databound="%COMP-databound%"
+	modes="%COMP-modes%"
+>
+	%COMPONENT_STD_INCLUDES_SPEC%
+	<requireJs modes="%COMP-modes%">res/%COMP-id%/%COMP-id%</requireJs>
+
+	<cssInclude>res/%COMP-id%/%COMP-id%.css</cssInclude>
+	%COMPONENT_CSS_INCLUDES_SPEC%
+	
+%XML_PROPERTY_TEMPLATE%
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">%XML_DEAFULT_BOTTOM%</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">%XML_DEAFULT_RIGHT%</defaultValue>
+		<defaultValue property="WIDTH">%XML_DEAFULT_WIDTH%</defaultValue>
+		<defaultValue property="HEIGHT">%XML_DEAFULT_HEIGHT%</defaultValue>
+		
+%XML_DEAFULT_TEMPLATE%
+	</initialization>
+
+</component>

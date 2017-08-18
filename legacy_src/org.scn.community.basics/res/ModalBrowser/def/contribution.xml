@@ -1,0 +1,54 @@
+
+<component id="ModalBrowser"
+	tooltip="In-App Modal Browser Pop-Up"
+	title="Modal Browser 0.X"
+	icon="res/ModalBrowser/ModalBrowser.png"
+	handlerType="sapui5"
+	group="ScnCommunityBasics"
+	modes="commons m">
+	
+	<jsInclude>res/ModalBrowser/ModalBrowser.js</jsInclude>
+  	<cssInclude>res/ModalBrowser/ModalBrowser.css</cssInclude>
+  	
+  	<property group="Display" type="String" title="URL" id="url"/>
+  	<property group="Display" type="String" title="Open Method" id="openMethod">
+  		<possibleValue>New Window</possibleValue>
+  		<possibleValue>Modal Browser Dialog</possibleValue>
+  	</property>
+  	
+  	<property group="Display" type="boolean" title="Show Button" id="showButton"/>
+  	<property group="Display" type="String" title="Button Icon" id="icon"/>
+  	<property group="Display" type="String" title="Button Text" id="text"/>
+  	<!-- <property type="boolean" title="Button Visible" id="visible"/> -->
+  	<property group="Display" id="buttonType" type="String" title="Button Type">
+  		<possibleValue>Default</possibleValue>
+  		<possibleValue>Transparent</possibleValue>
+  		<possibleValue>Accept</possibleValue>
+  		<possibleValue>Back</possibleValue>
+  		<possibleValue>Emphasized</possibleValue>
+  		<possibleValue>Reject</possibleValue>
+  		<possibleValue>Up</possibleValue>
+  	</property>
+  	<property group="Display" type="String" title="Modal Browser Title" id="title"/>
+  	<property group="Display" type="String" title="Modal Browser Icon" id="browserIcon"/>
+  	<property group="Display" type="boolean" title="Show Modal Browser Title" id="showHeader"/>
+  	<property group="Display" type="boolean" title="Show Modal Browser Close Button" id="showCloseButton"/>
+  	<property group="Display" type="String" title="Modal Browser Height" id="browserHeight"/>
+  	<property group="Display" type="String" title="Modal Browser Width" id="browserWidth"/>
+  	<property group="Display" type="float" title="Click Trigger for BIAL" id="clickTrigger" visible="false"/>
+  	<initialization>
+  		<defaultValue property="icon">sap-icon://action</defaultValue>
+  		<defaultValue property="title">Browser Dialog Title</defaultValue>
+  		<defaultValue property="browserIcon">sap-icon://business-objects-explorer</defaultValue>
+  		<defaultValue property="text">Details...</defaultValue>
+  		<defaultValue property="showButton">true</defaultValue>
+  		<defaultValue property="showHeader">false</defaultValue>
+  		<defaultValue property="showCloseButton">true</defaultValue>
+  		<defaultValue property="openMethod">Modal Browser Dialog</defaultValue>
+  		<defaultValue property="buttonType">Default</defaultValue>
+  		<defaultValue property="browserWidth">80%</defaultValue>
+  		<defaultValue property="browserHeight">80%</defaultValue>
+  		<defaultValue property="WIDTH">200</defaultValue>
+	  	<defaultValue property="HEIGHT">200</defaultValue>
+  	</initialization>
+</component>

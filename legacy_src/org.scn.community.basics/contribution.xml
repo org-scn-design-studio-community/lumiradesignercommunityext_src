@@ -1,0 +1,6495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GENERATED - DO NOT EDIT -->
+<sdkExtension
+	id="org.scn.community.basics"
+	title="Lumira Designer SCN Community Basics [Legacy]"
+
+	xmlns="http://www.sap.com/bi/zen/sdk"
+	version="3.0"
+	vendor="SCN Lumira Designer Community"
+	eula="Content is free for use and distribution under Apache License Version 2.0. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License. For details refer to https://github.com/org-scn-design-studio-community/sdkpackage//blob/master/LICENSE">
+
+  <license>
+   Apache License
+   Version 2.0, January 2004
+   http://www.apache.org/licenses/
+   https://github.com/org-scn-design-studio-community/sdkpackage//blob/master/LICENSE
+	 
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      &quot;License&quot; shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      &quot;Licensor&quot; shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      &quot;Legal Entity&quot; shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      &quot;control&quot; means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      &quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      &quot;Source&quot; form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      &quot;Object&quot; form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      &quot;Work&quot; shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      &quot;Derivative Works&quot; shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      &quot;Contribution&quot; shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, &quot;submitted&quot;
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as &quot;Not a Contribution.&quot;
+
+      &quot;Contributor&quot; shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a &quot;NOTICE&quot; text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+  </license>
+
+	<group
+		id="ScnCommunityBasics"
+		title="Scn Community Basics [Legacy]"/>
+	<group
+		id="ScnCommunityVisualizations"
+		title="Scn Community Visualizations [Legacy]"/>
+<component
+	id="Accordion"
+	title="Accordion 2.0"
+	tooltip="Accordion - Dynamic List of Entries"
+	icon="res/Accordion/Accordion.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/Accordion/Accordion</requireJs>
+
+	<cssInclude>res/Accordion/Accordion.css</cssInclude>
+	
+	
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Nodes"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="defaultImage"
+		type="Url"
+		title="Default Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="elementsContent"
+		type="String"
+		title="Elements"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="expandedKey"
+		type="String"
+		title="Expaned Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="imageSize"
+		type="String"
+		title="Size of the Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="maxSectionHeight"
+		type="int"
+		title="Max Height for Section"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="memberDisplay"
+		type="String"
+		title="Member Display"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onFirstExpand"
+		type="ScriptText"
+		title="On First Expand"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="supportedContentNotation"
+		type="String"
+		title="Supported Content Notation"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="withImage"
+		type="boolean"
+		title="Use Images"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">260</defaultValue>
+		<defaultValue property="HEIGHT">600</defaultValue>
+		
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="defaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="elementsContent"><![CDATA[[{"parentKey":"ROOT","key":"SECTION1","leaf":false,"text":"First Section"},{"parentKey":"ROOT","key":"SECTION2","leaf":false,"text":"Second Section"},{"parentKey":"ROOT","key":"SECTION3","leaf":false,"text":"Third Section"},{"parentKey":"SECTION1","key":"SECTION1_ITEM","leaf":true,"text":"Item 1"},{"parentKey":"SECTION1","key":"SECTION1_ITEM1","leaf":true,"text":"Item 2"},{"parentKey":"SECTION2","key":"SECTION2_ITEM","leaf":true,"text":"Item 2/1"},{"parentKey":"SECTION2","key":"SECTION2_ITEM1","leaf":true,"text":"Item 2/2"},{"parentKey":"SECTION2","key":"SECTION2_ITEM2","leaf":true,"text":"Item 2/3"},{"parentKey":"SECTION3","key":"SECTION3_ITEM","leaf":true,"text":"Item 3/1"}]]]></defaultValue>
+		<defaultValue property="expandedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="imageSize"><![CDATA[Size_16px]]></defaultValue>
+		<defaultValue property="maxSectionHeight"><![CDATA[200]]></defaultValue>
+		<defaultValue property="memberDisplay"><![CDATA[Text]]></defaultValue>
+		<defaultValue property="onFirstExpand"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="supportedContentNotation"><![CDATA[PARENT_CHILD_TEXT_URL]]></defaultValue>
+		<defaultValue property="withImage"><![CDATA[true]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ActivityViewer"
+	title="Activity Viewer 2.0"
+	tooltip="Viewer for Custom Activities"
+	icon="res/ActivityViewer/ActivityViewer.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityVisualizations"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/ActivityViewer/ActivityViewer</requireJs>
+
+	<cssInclude>res/ActivityViewer/ActivityViewer.css</cssInclude>
+	
+	
+	<property
+		id="XLegendAngle"
+		type="int"
+		title="Text Angle for X Legend"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="YLegendAngle"
+		type="int"
+		title="Text Angle for Y Legend"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="activities"
+		type="String"
+		title="Activities"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="categories"
+		type="String"
+		title="Categories"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="cleanAllActivities"
+		type="boolean"
+		title="Clean All Activities"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="cleanAllCategories"
+		type="boolean"
+		title="Clean All Categories"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="elementTextAngle"
+		type="int"
+		title="Text Angle for Element"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="elementTextXPos"
+		type="int"
+		title="Text Y Position for Element"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="elementTextYPos"
+		type="int"
+		title="Text X Position for Element"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="states"
+		type="String"
+		title="States"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="timeFormat"
+		type="String"
+		title="Time Format in Time Axis"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">600</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="XLegendAngle"><![CDATA[-40]]></defaultValue>
+		<defaultValue property="YLegendAngle"><![CDATA[-30]]></defaultValue>
+		<defaultValue property="activities"><![CDATA[[{"parentKey":"ROOT","key":"ELEMENT","leaf":false,"text":"Distribution","category":"CAT1","state":"FAILED","startDate":"20130101","endDate":"20130205"},{"parentKey":"ROOT","key":"ELEMENT1","leaf":false,"text":"Process","category":"CAT1","state":"RUNNING","startDate":"20140102","endDate":"20140605"},{"parentKey":"ROOT","key":"ELEMENT2","leaf":false,"text":"Buying","category":"CAT2","state":"STANDARD","startDate":"20140905","endDate":"20141216"},{"parentKey":"ROOT","key":"ELEMENT3","leaf":false,"text":"Work On","state":"KILLED","category":"CAT2","startDate":"20141228","endDate":"20150206"}]]]></defaultValue>
+		<defaultValue property="categories"><![CDATA[[{"parentKey":"ROOT","key":"CAT1","leaf":false,"text":"Good Products"},{"parentKey":"ROOT","key":"CAT2","leaf":false,"text":"Better Products"}]]]></defaultValue>
+		<defaultValue property="cleanAllActivities"><![CDATA[false]]></defaultValue>
+		<defaultValue property="cleanAllCategories"><![CDATA[false]]></defaultValue>
+		<defaultValue property="elementTextAngle"><![CDATA[0]]></defaultValue>
+		<defaultValue property="elementTextXPos"><![CDATA[10]]></defaultValue>
+		<defaultValue property="elementTextYPos"><![CDATA[10]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="states"><![CDATA[[{"parentKey":"ROOT","key":"STANDARD","leaf":false,"style":"bar"},{"parentKey":"ROOT","key":"FAILED","leaf":false,"style":"bar-failed"},{"parentKey":"ROOT","key":"RUNNING","leaf":false,"style":"bar-running"},{"parentKey":"ROOT","key":"SUCCEEDED","leaf":false,"style":"bar-succeeded"},{"parentKey":"ROOT","key":"KILLED","leaf":false,"style":"killed"}]]]></defaultValue>
+		<defaultValue property="timeFormat"><![CDATA[Days]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ActionSheetButton"
+	title="Action Sheet Button 2.0"
+	tooltip="Fiori-Inspired Action Sheet Button menu"
+	icon="res/ActionSheetButton/ActionSheetButton.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/ActionSheetButton/ActionSheetButton</requireJs>
+
+	<cssInclude>res/ActionSheetButton/ActionSheetButton.css</cssInclude>
+	
+	
+	<property
+		id="buttonType"
+		type="String"
+		title="Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="icon"
+		type="String"
+		title="Icon"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="items"
+		type="String"
+		title="Items"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onPopoverSelect"
+		type="ScriptText"
+		title="On Select"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="placement"
+		type="String"
+		title="Placement"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedItem"
+		type="String"
+		title="Selected Item"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="text"
+		type="String"
+		title="Title"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">32</defaultValue>
+		<defaultValue property="HEIGHT">32</defaultValue>
+		
+		<defaultValue property="buttonType"><![CDATA[Default]]></defaultValue>
+		<defaultValue property="icon"><![CDATA[sap-icon://menu2]]></defaultValue>
+		<defaultValue property="items"><![CDATA[[{"parentKey":"ROOT","key":"ELEMENT","leaf":false,"text":"First Element","icon":"sap-icon://accept"},{"parentKey":"ROOT","key":"ELEMENT1","leaf":false,"icon":"sap-icon://notes","text":"Notes"}]]]></defaultValue>
+		<defaultValue property="onPopoverSelect"><![CDATA[]]></defaultValue>
+		<defaultValue property="placement"><![CDATA[Auto]]></defaultValue>
+		<defaultValue property="selectedItem"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="text"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ApplicationHeader"
+	title="Application Header 2.0"
+	tooltip="Application Header"
+	icon="res/ApplicationHeader/ApplicationHeader.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ApplicationHeader/ApplicationHeader</requireJs>
+
+	<cssInclude>res/ApplicationHeader/ApplicationHeader.css</cssInclude>
+	
+	
+	<property
+		id="displayLogoff"
+		type="boolean"
+		title="Display Logoff"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="displayWelcome"
+		type="boolean"
+		title="Display Welcome"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="logoSrc"
+		type="String"
+		title="Logo Source"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="logoText"
+		type="String"
+		title="Logo Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onLogoff"
+		type="ScriptText"
+		title="On Logoff"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="userName"
+		type="String"
+		title="User Name"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">0</defaultValue>
+		<defaultValue property="WIDTH">auto</defaultValue>
+		<defaultValue property="HEIGHT">38</defaultValue>
+		
+		<defaultValue property="displayLogoff"><![CDATA[]]></defaultValue>
+		<defaultValue property="displayWelcome"><![CDATA[true]]></defaultValue>
+		<defaultValue property="logoSrc"><![CDATA[]]></defaultValue>
+		<defaultValue property="logoText"><![CDATA[]]></defaultValue>
+		<defaultValue property="onLogoff"><![CDATA[]]></defaultValue>
+		<defaultValue property="userName"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ArrowedLine"
+    title="Arrowed Line 2.0"
+    group="ScnCommunityBasics"
+    tooltip="Displays an arrowed line"
+    modes="commons m"
+	propertySheetPath="aps/PropertyPage.html"
+    icon="res/ArrowedLine/ArrowedLine.png"
+    handlerType="div">
+
+    <requireJs modes="commons m">res/ArrowedLine/ArrowedLine</requireJs>
+
+    <property id="lineColor" type="Color" title="Line Color" group="Display" />
+    <property id="lineSize" type="int" title="Size" group="Display" />
+    <property id="lineType" type="String" title="Line Type" group="Display">      
+	    <possibleValue>1</possibleValue>
+		<possibleValue>2</possibleValue>
+		<possibleValue>3</possibleValue>
+		<possibleValue>4</possibleValue>
+		<possibleValue>5</possibleValue>
+		<possibleValue>6</possibleValue>
+		<possibleValue>7</possibleValue>
+		<possibleValue>8</possibleValue>
+		<possibleValue>9</possibleValue>
+		<possibleValue>10</possibleValue>
+		<possibleValue>11</possibleValue>
+		<possibleValue>12</possibleValue>
+		<possibleValue>13</possibleValue>
+		<possibleValue>14</possibleValue>
+	</property>
+    <property id="arrowPos" type="String" title="Arrow Position" group="Display">      
+	    <possibleValue>None</possibleValue>
+	    <possibleValue>Start</possibleValue>
+	    <possibleValue>End</possibleValue>
+		<possibleValue>Both</possibleValue>
+	</property>
+	<property id="visible" type="boolean" title="Visibility" group="Display" />
+        
+    <initialization>
+    	<defaultValue property="WIDTH">100</defaultValue>
+        <defaultValue property="HEIGHT">100</defaultValue>
+        <defaultValue property="TopMargin">0</defaultValue>
+        <defaultValue property="LeftMargin">0</defaultValue>
+        <defaultValue property="lineColor">Black</defaultValue>
+        <defaultValue property="lineSize">5</defaultValue>
+        <defaultValue property="lineType">1</defaultValue>
+        <defaultValue property="arrowPos">None</defaultValue>
+		<defaultValue property="visible">true</defaultValue>
+	</initialization>
+</component>
+<component id="Base64Image"
+	title="Base64 Image Encoder 2.0"
+	icon="res/Base64Image/Base64Image.png"
+	tooltip="Handy Base-64 encoder property sheet (requires IE10+ for design-time)"
+	handlerType="sapui5"
+	modes="commons m"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics">
+	
+	<requireJs modes="commons">res/Base64Image/Base64Image_commons</requireJs>
+	<requireJs modes="m">res/Base64Image/Base64Image</requireJs>
+	
+	<property type="String" title="Image Source URI" id="src" group="Display"/>
+	<property type="ScriptText" title="On Click" group="Events" id="onclick"></property>			
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="HEIGHT">auto</defaultValue>
+		<defaultValue property="WIDTH">auto</defaultValue>
+		<defaultValue property="src">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAD6CAMAAAAss4rBAAAAOVBMVEUAAADMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMz////29vbS0tLr6+vPz8/8/PzY2Nje3t7x8fHk5OTyC+oUAAAACHRSTlMA8MDbbhc9lRRJIjQAAAacSURBVHja7NdLDsIwDEXRxPlCxf63i8gAUZRQvw6Y9J4lXNmpGz6V2sxSxxCt1bBSreOL5TBTSDWVJtOVOxZaCXutY8n2tVjBn1JhB0/Vqh0H7B2Ly+pYYwkFmcHyS4UXyy9zNvjF12jFDpfMFvolvoWCyl+hX+Z9d3s0riy/RCy/yOUgIBaxBmIJiCUgloBYAmIJiCUgloBYgr/G2u4XtJ2NdbsgYhFrIJaAWAJiCYglIJaAWAJiCYglIJaAWAJiCYglIJaAWAJiCYglINaTW3tZchSGoTC8PZJlyfb7P+xkprqo9ORi6ELhuL99Nn9AxpgDVo7laqP9ZV1lSZ+K5Ra4U0aX9XwmljY8KOaymIRY81RbLlnLB2INvFTWGl7psTTwzpCFZMfSgvearCM5llbMtHXmfG4srZiLZWqlxuoV+E21MmNpxT4hn6DUsQJ3Ll8Te3XiWAP7dcnmBY03luKA4pKsAVDaWIEjmuQy3ARrLMMxKnm2tcZIYxV8oVgRA/8Up4xlANGlNfBlUMYK3LBMrY6NEsZSHOeSxAs2QRhr4DiTJA13Ol+sghuSEW+4V+hiKUBzH2rFN4MtlmFz+Z4n8F11slgNPzEkwcD/GlmsApAMLcWjzhULP1LldF7wKIQplgIkE77hGfsNsVRO1vFUdaJYHaBYDr3iuUYUy0hiBV7R9WOZnMrwUqwfq8uZtOI1o4nFMbMCbxRniUWxGg68NVaP5XKejgkliUXwBO8FE8ES6/q9YcNUJ4l1+VsHw1whiWW49jFLK3YYHLGuflMa2KM6RayL38EP7NM4YmWe7kQ/7ZMUpYiVeG44UHX21LBXUMTKO5Hu071Kw35GEasn7XW0YlLLcEBxhlhSUi4sL7P7xyuOGBSxesqF1aZtA8coQyyJhH/Ypj8wHBQUsbRiv3L8ENBOWoU7Q6w/5N3bjtswDEXR12NKJCX9/8d2kAqFgzoXxxyJjPb7ANOF9pRx2smWrf8wSHr1q5SE0yUXWFsx/htccReTyS2M5gJLktW3eyyRxORxNosHrHe1yqePPlUOrobzFRdYGyWz75X45ZcqPqy6wHpHq524Rp9+ccanqQ+sTQqexvnaY+J88lQ5LvvA2rbMeJzS1cfEdespPo/FCdZGeuq31clbkzt3w5WKF6xtq4dc3MTgfa2uVXEtcoO1bVQY92m2eqSepHNeSR1h/UStJNxiLVkMH6lr3/9LZVdYnYzE/I14lIzLJfGHdT5iDKl9AZYoBkXxsQpGpeGxMsZVg2MRBpZiY0nCyFpoLMXQWAJjNQyuxMWqGF6NikWM4WlQLFFMKMfEKpgRS0SsjDm1gFiEWVE4LEmYlYbDUsyrBsNqmFiKhVUxtRYJixhTYwmEpZhciYNVML0aBStjfhoEixgOyiGwJMFDLBGwpo97rwTAanASk3usCjepdywf497LzrG8DNatJK6xHFyj+5pnLA/X6F00CYtarMG6pZOwFDnGNXpXnYKVAeRA495LM7CE8VMOcY3e1SZgFdzKIa7RfSzDsQi9Gmfce2U4lqLHNdBg/a0Oxsr4F1OEa3SfjsUSxl4rwjW6Lw/FKtjHFGew+sYPxCLclyjANbqvjME63u4kYQbrFo/DysD/Wv6v0SlYwjjScn+NTsEqLz5XVFyP+1gswnEq7q/R8ViKh1oxBmsgVsbD1P01Og7r9SAV79coeuzhpxwV79foUKyK58WwMsEK9i4gfGOFWG8nWAHOTT9Y3l8fe8Ly/5rPEdaXrLsR1hrrboS1xrr/xD4/8MNn7PTjr1xmgbXGuhthhftHHj6xvmndjbDWWHcjrDXW/bexgjymcoH1XetuhLXGuhthrbHuRlhrrLsR1hrrboS1xrobYa2x7kZYX/8C2hJrjXU3wlpj3Y2w1lh3IyxHP0vtrXxhfeW6G2Gtse5GWGusuxHWGutuhLXGuhthrbHuRlhrrLsRVqT/2PWnnXtLYRCIwSj8d+6Udv/b7cWHomhNwNLBOd8SDkn0QXzpJtZ5r/tBsca47gfFGuO6HxTrlB+u/SrWGNf96FjX28l1+f+s/hGLWG/EciCWA7EciOVALAdiOfQT6zqgnViYIRax9hDLgVgOxHIglgOxHIjlQCwHYv2TYoPRRaHBKKo2GFWlBqOk0mCUxYW3ChJ7aJUkZd60TKKeeB6aB4vR8gwWV8umaMJbvHEJWUSToI9Cra9iFrUcrahlE7IWMld+Q9WKxHCtiEWrciXXQkxZm0oNrOPkHkItmnkABXeOClysSuoAAAAASUVORK5CYII=</defaultValue>
+	</initialization>
+</component>
+<component
+	id="BasicBusinessCard"
+	title="Basic Business Card 2.0"
+	tooltip="Basic Business Card"
+	icon="res/BasicBusinessCard/BasicBusinessCard.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/BasicBusinessCard/BasicBusinessCard</requireJs>
+
+	<cssInclude>res/BasicBusinessCard/BasicBusinessCard.css</cssInclude>
+	
+	
+	<property
+		id="image"
+		type="String"
+		title="Image Url"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="name"
+		type="String"
+		title="Name"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onPress"
+		type="ScriptText"
+		title="On Press"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="title"
+		type="String"
+		title="Title"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">100</defaultValue>
+		
+		<defaultValue property="image"><![CDATA[]]></defaultValue>
+		<defaultValue property="name"><![CDATA[Last, First]]></defaultValue>
+		<defaultValue property="onPress"><![CDATA[]]></defaultValue>
+		<defaultValue property="title"><![CDATA[Expert for All Issues]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="Calendar"
+	title="Calendar 2.0"
+	tooltip="Calendar"
+	icon="res/Calendar/Calendar.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/Calendar/Calendar</requireJs>
+
+	<cssInclude>res/Calendar/Calendar.css</cssInclude>
+	
+	
+	<property
+		id="DCurrentValue"
+		type="String"
+		title="Current Date Value YYYYMMDD"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSelectionType"
+		type="String"
+		title="Selection Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DValue"
+		type="String"
+		title="Date Single Value YYYYMMDD"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DValueF"
+		type="String"
+		title="Date Value Range From YYYYMMDD"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DValueT"
+		type="String"
+		title="Date Value Range To YYYYMMDD"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Marked Dates"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="firstDayOffset"
+		type="int"
+		title="First Day Offset (0 == Sunday)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="markedDates"
+		type="String"
+		title="Marked Dates"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="monthsPerRow"
+		type="int"
+		title="Months Per Row"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="monthsToDisplay"
+		type="int"
+		title="Months To Display"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onCurrentChanged"
+		type="ScriptText"
+		title="Event For On Current Value Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onRangeChanged"
+		type="ScriptText"
+		title="Event For On Value Change With Date Range"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onSingleChanged"
+		type="ScriptText"
+		title="Event For On Value Change With Single Date"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="singleRow"
+		type="boolean"
+		title="Single Row"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="weeksPerRow"
+		type="int"
+		title="Weeks Per Row"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">300</defaultValue>
+		
+		<defaultValue property="DCurrentValue"><![CDATA[TODAY]]></defaultValue>
+		<defaultValue property="DSelectionType"><![CDATA[Single]]></defaultValue>
+		<defaultValue property="DValue"><![CDATA[TODAY]]></defaultValue>
+		<defaultValue property="DValueF"><![CDATA[TODAY]]></defaultValue>
+		<defaultValue property="DValueT"><![CDATA[TODAY]]></defaultValue>
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="firstDayOffset"><![CDATA[1]]></defaultValue>
+		<defaultValue property="markedDates"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="monthsPerRow"><![CDATA[1]]></defaultValue>
+		<defaultValue property="monthsToDisplay"><![CDATA[1]]></defaultValue>
+		<defaultValue property="onCurrentChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="onRangeChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSingleChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="singleRow"><![CDATA[false]]></defaultValue>
+		<defaultValue property="weeksPerRow"><![CDATA[1]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="CheckBoxGroup"
+	title="Check Box Group"
+	tooltip="Check Box Group"
+	icon="res/CheckBoxGroup/CheckBoxGroup.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/CheckBoxGroup/CheckBoxGroup</requireJs>
+
+	<cssInclude>res/CheckBoxGroup/CheckBoxGroup.css</cssInclude>
+	
+	
+	<property
+		id="checkboxWidth"
+		type="int"
+		title="Checkbox Width (Horizontal)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Elements"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="elements"
+		type="String"
+		title="Elements"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="fallbackPicture"
+		type="String"
+		title="Fallback Picture Url"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="pictureSize"
+		type="String"
+		title="Size Of The Picture"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="selLayout"
+		type="String"
+		title="Layout"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="withPicture"
+		type="boolean"
+		title="Use Pictures"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">230</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="checkboxWidth"><![CDATA[225]]></defaultValue>
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="elements"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="fallbackPicture"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="pictureSize"><![CDATA[Size_16px]]></defaultValue>
+		<defaultValue property="selLayout"><![CDATA[VerticalLayout]]></defaultValue>
+		<defaultValue property="withPicture"><![CDATA[true]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ColorPicker"
+	title="Color Picker 2.0"
+	tooltip="Color Picker"
+	icon="res/ColorPicker/ColorPicker.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ColorPicker/ColorPicker</requireJs>
+
+	<cssInclude>res/ColorPicker/ColorPicker.css</cssInclude>
+	
+	
+	<property
+		id="colorString"
+		type="String"
+		title="Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="colorStringHex"
+		type="String"
+		title="Hex Color"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="onColorChange"
+		type="ScriptText"
+		title="On Color Change"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">270</defaultValue>
+		<defaultValue property="HEIGHT">134</defaultValue>
+		
+		<defaultValue property="colorString"><![CDATA[red]]></defaultValue>
+		<defaultValue property="colorStringHex"><![CDATA[]]></defaultValue>
+		<defaultValue property="onColorChange"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="DateRangeScroller"
+	title="Date Range Scroller 2.0"
+	tooltip="Date Range Scroller"
+	icon="res/DateRangeScroller/DateRangeScroller.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/DateRangeScroller/DateRangeScroller</requireJs>
+
+	<cssInclude>res/DateRangeScroller/DateRangeScroller.css</cssInclude>
+	
+	
+	<property
+		id="DDate"
+		type="String"
+		title="Date"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DEndDate"
+		type="String"
+		title="End Date"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DLangFormat"
+		type="boolean"
+		title="Language Dependent Format"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangPattern"
+		type="String"
+		title="Custom Pattern"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangRelative"
+		type="boolean"
+		title="Custom Relative"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangStyle"
+		type="String"
+		title="Custom Style"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSpecialDay"
+		type="int"
+		title="Day Of Week To Start"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSpecialDuration"
+		type="int"
+		title="Duration Of Custom Range"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DStartDate"
+		type="String"
+		title="Start Date"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DViewType"
+		type="String"
+		title="Range View Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="editable"
+		type="boolean"
+		title="Editable"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="onChange"
+		type="ScriptText"
+		title="On Change"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">30</defaultValue>
+		
+		<defaultValue property="DDate"><![CDATA[]]></defaultValue>
+		<defaultValue property="DEndDate"><![CDATA[]]></defaultValue>
+		<defaultValue property="DLangFormat"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DLangPattern"><![CDATA[]]></defaultValue>
+		<defaultValue property="DLangRelative"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DLangStyle"><![CDATA[Short]]></defaultValue>
+		<defaultValue property="DSpecialDay"><![CDATA[0]]></defaultValue>
+		<defaultValue property="DSpecialDuration"><![CDATA[14]]></defaultValue>
+		<defaultValue property="DStartDate"><![CDATA[]]></defaultValue>
+		<defaultValue property="DViewType"><![CDATA[Week]]></defaultValue>
+		<defaultValue property="editable"><![CDATA[true]]></defaultValue>
+		<defaultValue property="onChange"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="DateRangeSlider"
+	title="Date Range Slider 2.0"
+	tooltip="Date Range Slider"
+	icon="res/DateRangeSlider/DateRangeSlider.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/DateRangeSlider/DateRangeSlider</requireJs>
+
+	<cssInclude>res/DateRangeSlider/DateRangeSlider.css</cssInclude>
+	
+	
+	<property
+		id="DGranularity"
+		type="String"
+		title="Granularity"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangFormat"
+		type="boolean"
+		title="Language Dependent Format"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangPattern"
+		type="String"
+		title="Custom Format Pattern"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangRelative"
+		type="boolean"
+		title="Custom Format Relative"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangStyle"
+		type="String"
+		title="Custom Format Style"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DMax"
+		type="String"
+		title="Maximum Date"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DMin"
+		type="String"
+		title="Minimum Date"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DValue"
+		type="String"
+		title="First Date"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DValue2"
+		type="String"
+		title="Second Date"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onChange"
+		type="ScriptText"
+		title="On Change"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="showBubbles"
+		type="boolean"
+		title="Show Bubbles"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="smallStepWidth"
+		type="String"
+		title="Small Step Width"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="stepLabels"
+		type="boolean"
+		title="Step Labels"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="totalUnits"
+		type="int"
+		title="Total Units"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="vertical"
+		type="boolean"
+		title="Change To Vertical Orientation"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">30</defaultValue>
+		
+		<defaultValue property="DGranularity"><![CDATA[Day]]></defaultValue>
+		<defaultValue property="DLangFormat"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DLangPattern"><![CDATA[]]></defaultValue>
+		<defaultValue property="DLangRelative"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DLangStyle"><![CDATA[Short]]></defaultValue>
+		<defaultValue property="DMax"><![CDATA[]]></defaultValue>
+		<defaultValue property="DMin"><![CDATA[]]></defaultValue>
+		<defaultValue property="DValue"><![CDATA[]]></defaultValue>
+		<defaultValue property="DValue2"><![CDATA[]]></defaultValue>
+		<defaultValue property="onChange"><![CDATA[]]></defaultValue>
+		<defaultValue property="showBubbles"><![CDATA[true]]></defaultValue>
+		<defaultValue property="smallStepWidth"><![CDATA[1]]></defaultValue>
+		<defaultValue property="stepLabels"><![CDATA[]]></defaultValue>
+		<defaultValue property="totalUnits"><![CDATA[0]]></defaultValue>
+		<defaultValue property="vertical"><![CDATA[false]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="DragDropArea"
+	title="Drag Drop Area 2.0"
+	tooltip="Drag Drop Area"
+	icon="res/DragDropArea/DragDropArea.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/DragDropArea/DragDropArea</requireJs>
+
+	<cssInclude>res/DragDropArea/DragDropArea.css</cssInclude>
+	
+	
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Elements"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="defaultImage"
+		type="Url"
+		title="Default Image Url"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dragContext"
+		type="String"
+		title="Drag Drop Context"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dragKey"
+		type="String"
+		title="Drag Drop Key"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dropAfterKey"
+		type="String"
+		title="Technical Proprty For Drop After Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="dropContext"
+		type="String"
+		title="Drop Context"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="dropId"
+		type="String"
+		title="Drop Id"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="dropIndex"
+		type="int"
+		title="Technical Proprty For Drop Index"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="dropKey"
+		type="String"
+		title="Drop Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="elements"
+		type="String"
+		title="Elements"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="itemWidth"
+		type="int"
+		title="Width Of The Item"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onDrop"
+		type="ScriptText"
+		title="Event For On Drop Event"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="orientation"
+		type="String"
+		title="Orientation"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">100</defaultValue>
+		
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="defaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="dragContext"><![CDATA[]]></defaultValue>
+		<defaultValue property="dragKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="dropAfterKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="dropContext"><![CDATA[]]></defaultValue>
+		<defaultValue property="dropId"><![CDATA[]]></defaultValue>
+		<defaultValue property="dropIndex"><![CDATA[0]]></defaultValue>
+		<defaultValue property="dropKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="elements"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="itemWidth"><![CDATA[120]]></defaultValue>
+		<defaultValue property="onDrop"><![CDATA[]]></defaultValue>
+		<defaultValue property="orientation"><![CDATA[Horizontal]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="Donut"
+	title="Donut"
+	tooltip="Donut"
+	icon="res/Donut/Donut.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/Donut/Donut</requireJs>
+
+	<cssInclude>res/Donut/Donut.css</cssInclude>
+	
+	
+	<property
+		id="activateOnOutEvent"
+		type="boolean"
+		title="Activate On Out Event"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="activateOnOverEvent"
+		type="boolean"
+		title="Activate On Over Event"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="arrowColor"
+		type="String"
+		title="Arrow Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="direction"
+		type="String"
+		title="Value Direction"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="donutColor"
+		type="String"
+		title="Donut Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="gapColor"
+		type="String"
+		title="Gap Color"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="numCurVal"
+		type="String"
+		title="Current Value As Float"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="numPrevVal"
+		type="String"
+		title="Previous Value As Float"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onClick"
+		type="ScriptText"
+		title="On Click"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onMouseOut"
+		type="ScriptText"
+		title="On Mouse Out"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onMouseOver"
+		type="ScriptText"
+		title="On Mouse Over"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">150</defaultValue>
+		<defaultValue property="HEIGHT">150</defaultValue>
+		
+		<defaultValue property="activateOnOutEvent"><![CDATA[false]]></defaultValue>
+		<defaultValue property="activateOnOverEvent"><![CDATA[false]]></defaultValue>
+		<defaultValue property="arrowColor"><![CDATA[red]]></defaultValue>
+		<defaultValue property="direction"><![CDATA[Left]]></defaultValue>
+		<defaultValue property="donutColor"><![CDATA[blue]]></defaultValue>
+		<defaultValue property="gapColor"><![CDATA[green]]></defaultValue>
+		<defaultValue property="numCurVal"><![CDATA[40]]></defaultValue>
+		<defaultValue property="numPrevVal"><![CDATA[30]]></defaultValue>
+		<defaultValue property="onClick"><![CDATA[]]></defaultValue>
+		<defaultValue property="onMouseOut"><![CDATA[]]></defaultValue>
+		<defaultValue property="onMouseOver"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="EmbeddedFrame"
+	title="Embedded Frame 2.0"
+	tooltip="Embedded Frame - Include external web pages directly in your application"
+	icon="res/EmbeddedFrame/EmbeddedFrame.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/EmbeddedFrame/EmbeddedFrame</requireJs>
+
+	<cssInclude>res/EmbeddedFrame/EmbeddedFrame.css</cssInclude>
+	
+	
+	<property
+		id="domainrelaxlevel"
+		type="int"
+		title="Domain Relax Level"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="explicitlySetDomain"
+		type="boolean"
+		title="Explicitly set document domain"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="reload"
+		type="String"
+		title="Trigger Reload"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="sandbox"
+		type="String"
+		title="Sandbox Attribute Values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="skipport"
+		type="boolean"
+		title="Skip port in domain"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="url"
+		type="String"
+		title="Url"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="usesandbox"
+		type="boolean"
+		title="Use Sandbox Attribute"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">600</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="domainrelaxlevel"><![CDATA[0]]></defaultValue>
+		<defaultValue property="explicitlySetDomain"><![CDATA[false]]></defaultValue>
+		<defaultValue property="reload"><![CDATA[init]]></defaultValue>
+		<defaultValue property="sandbox"><![CDATA[]]></defaultValue>
+		<defaultValue property="skipport"><![CDATA[true]]></defaultValue>
+		<defaultValue property="url"><![CDATA[]]></defaultValue>
+		<defaultValue property="usesandbox"><![CDATA[true]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="EmbeddedMedia"
+	title="Embedded Media 2.0"
+	tooltip="Embedded Media - Include external media directly in your application"
+	icon="res/EmbeddedMedia/EmbeddedMedia.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/EmbeddedMedia/EmbeddedMedia</requireJs>
+
+	<cssInclude>res/EmbeddedMedia/EmbeddedMedia.css</cssInclude>
+	
+	
+	<property
+		id="tag"
+		type="String"
+		title="Tag"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="url"
+		type="String"
+		title="Url"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">600</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="tag"><![CDATA[embed]]></defaultValue>
+		<defaultValue property="url"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="FloatButton"
+	title="Float Button"
+	tooltip="Float Button"
+	icon="res/FloatButton/FloatButton.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/FloatButton/FloatButton</requireJs>
+
+	<cssInclude>res/FloatButton/FloatButton.css</cssInclude>
+	
+	
+	<property
+		id="DCleanAll"
+		type="boolean"
+		title="Clean All Nodes"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DDefaultImage"
+		type="Url"
+		title="Url For Default Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DElementsContent"
+		type="String"
+		title="Buttons"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DImageSize"
+		type="String"
+		title="Size Of The Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DPressedButtonKey"
+		type="String"
+		title="Technical Property For Pressed Button Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DPressedItemKey"
+		type="String"
+		title="Technical Property For Pressed Item Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DSelectedKeys"
+		type="String"
+		title="Technical Property For Selected Keys"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DSelectionType"
+		type="String"
+		title="Selection Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DWithImages"
+		type="boolean"
+		title="Use Images"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onButtonPressed"
+		type="ScriptText"
+		title="Event For On Button Pressed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onItemPressed"
+		type="ScriptText"
+		title="Event For On Item Pressed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelected"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">80</defaultValue>
+		<defaultValue property="HEIGHT">66</defaultValue>
+		
+		<defaultValue property="DCleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DDefaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="DElementsContent"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="DImageSize"><![CDATA[Size_16px]]></defaultValue>
+		<defaultValue property="DPressedButtonKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="DPressedItemKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="DSelectedKeys"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="DSelectionType"><![CDATA[Single]]></defaultValue>
+		<defaultValue property="DWithImages"><![CDATA[]]></defaultValue>
+		<defaultValue property="onButtonPressed"><![CDATA[]]></defaultValue>
+		<defaultValue property="onItemPressed"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelected"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="FallbackPicture"
+	title="Fallback Picture 2.0"
+	tooltip="Fallback Picture"
+	icon="res/FallbackPicture/FallbackPicture.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/FallbackPicture/FallbackPicture</requireJs>
+
+	<cssInclude>res/FallbackPicture/FallbackPicture.css</cssInclude>
+	
+	
+	<property
+		id="fallbackPicture"
+		type="Url"
+		title="Url For Fallback Picture"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="picture"
+		type="Url"
+		title="Url For Picture"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">100</defaultValue>
+		<defaultValue property="HEIGHT">100</defaultValue>
+		
+		<defaultValue property="fallbackPicture"><![CDATA[]]></defaultValue>
+		<defaultValue property="picture"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component id="FioriAppHeader" 
+	title="Fiori App Header 2.0"
+	icon="res/FioriAppHeader/FioriAppHeader.png"
+	handlerType="sapui5" 
+	modes="commons m"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics">
+  	
+	<requireJs modes="commons">res/FioriAppHeader/FioriAppHeader_commons</requireJs>
+	<requireJs modes="m">res/FioriAppHeader/FioriAppHeader</requireJs>
+  	
+  	<property id="title" type="String" title="Title" group="Display"/>
+  	<property id="itemConfig" type="String" title="Item Config" visible="false" group="Display"/>
+  	<property id="showNavButton" type="boolean" title="Show Back Button" group="Display"/>
+  	<property type="String" title="Selected Item Key" id="selectedItem" visible="false" group="Display"/>
+  	<property type="String" title="Selected Item Text" id="selectedItemText" visible="false" group="Display"/>
+  	<property type="String" title="Selected Header Key of Item" id="selectedHeader" visible="false" group="Display"/>
+  	<property type="String" title="Selected Header Text of Item" id="selectedHeaderText" visible="false" group="Display"/>
+  	<property type="ScriptText" title="On Item Select" id="onitemselect" group="Events"/>  	
+  	<property type="ScriptText" title="On Back" id="onnav" group="Events"/>
+ 	<initialization>
+ 		<defaultValue property="title">Page Title</defaultValue>
+ 		<defaultValue property="WIDTH">400</defaultValue>
+ 	</initialization>
+ </component>
+<component id="FioriBar" 
+	title="Fiori Bar 2.0"
+	icon="res/FioriBar/FioriBar.png"
+	handlerType="sapui5" 
+	modes="commons m"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics">
+
+	<requireJs modes="commons">res/FioriBar/FioriBar_commons</requireJs>
+	<requireJs modes="m">res/FioriBar/FioriBar</requireJs>
+	
+  	<property id="itemConfigLeft" type="String" title="Left Item Config" visible="false" group="Display"/>
+  	<property id="itemConfigMiddle" type="String" title="Middle Item Config" visible="false" group="Display"/>
+  	<property id="itemConfigRight" type="String" title="Right Item Config" visible="false" group="Display"/>
+  	<property id="enabled" type="boolean" title="Enabled"/>
+  	<property id="enableFlexBox" type="boolean" title="Enable Flex Box"/>
+  	<property id="translucent" type="boolean" title="Translucent"/>
+  	<property type="String" title="Design" id="design" visible="true" group="Display">
+  		<possibleValue>Auto</possibleValue>
+  		<possibleValue>Footer</possibleValue>
+  		<possibleValue>Header</possibleValue>
+  		<possibleValue>SubHeader</possibleValue>
+  	</property>
+  	<property type="String" title="Selected Item" id="selectedItem" visible="false" group="Display"/>
+  	<property type="String" title="Selected Header of Item" id="selectedHeader" visible="false" group="Display"/>
+  	<property type="String" title="Selected Item Key" id="selectedItemKey" visible="false" group="Display"/>
+  	<property type="String" title="Selected Header Key of Item" id="selectedHeaderKey" visible="false" group="Display"/>
+  	<property type="ScriptText" title="On Item Select" id="onitemselect" group="Events"/> 
+ 	<initialization>
+ 		<defaultValue property="design">Auto</defaultValue>
+ 		<defaultValue property="enabled">true</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+ 		<defaultValue property="WIDTH">400</defaultValue>
+ 		<defaultValue property="HEIGHT">48</defaultValue>
+ 	</initialization>
+ </component>
+<component
+	id="FioriButton"
+	title="Fiori Button 2.0"
+	tooltip="Fiori Button 2.0"
+	icon="res/FioriButton/FioriButton.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/FioriButton/FioriButton</requireJs>
+
+	<cssInclude>res/FioriButton/FioriButton.css</cssInclude>
+	
+	
+	<property
+		id="dBackColor"
+		type="String"
+		title="Background Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dFontColor"
+		type="String"
+		title="Font Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dIcon"
+		type="String"
+		title="Icon"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dSize"
+		type="String"
+		title="Size M (16px) | L (22px)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dStyle"
+		type="String"
+		title="Button Style"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dText"
+		type="String"
+		title="Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dTooltip"
+		type="String"
+		title="Tooltip"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onClick"
+		type="ScriptText"
+		title="Event For On Click"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">42</defaultValue>
+		<defaultValue property="HEIGHT">42</defaultValue>
+		
+		<defaultValue property="dBackColor"><![CDATA[]]></defaultValue>
+		<defaultValue property="dFontColor"><![CDATA[]]></defaultValue>
+		<defaultValue property="dIcon"><![CDATA[e03e]]></defaultValue>
+		<defaultValue property="dSize"><![CDATA[L]]></defaultValue>
+		<defaultValue property="dStyle"><![CDATA[Default]]></defaultValue>
+		<defaultValue property="dText"><![CDATA[]]></defaultValue>
+		<defaultValue property="dTooltip"><![CDATA[]]></defaultValue>
+		<defaultValue property="onClick"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="FioriButtonM"
+	title="Fiori Button 2.0"
+	tooltip="Fiori Button 2.0"
+	icon="res/FioriButtonM/FioriButtonM.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="m"
+>
+	
+	<requireJs modes="m">res/FioriButtonM/FioriButtonM</requireJs>
+
+	<cssInclude>res/FioriButtonM/FioriButtonM.css</cssInclude>
+	
+	
+	<property
+		id="dBackColor"
+		type="String"
+		title="Background Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dFontColor"
+		type="String"
+		title="Font Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dIcon"
+		type="String"
+		title="Icon"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dSize"
+		type="String"
+		title="Size M (16px) | L (22px)"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="dStyle"
+		type="String"
+		title="Button Style"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dText"
+		type="String"
+		title="Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="dTooltip"
+		type="String"
+		title="Tooltip"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onClick"
+		type="ScriptText"
+		title="Event For On Click"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">100</defaultValue>
+		<defaultValue property="HEIGHT">42</defaultValue>
+		
+		<defaultValue property="dBackColor"><![CDATA[]]></defaultValue>
+		<defaultValue property="dFontColor"><![CDATA[]]></defaultValue>
+		<defaultValue property="dIcon"><![CDATA[sap-icon://home]]></defaultValue>
+		<defaultValue property="dSize"><![CDATA[L]]></defaultValue>
+		<defaultValue property="dStyle"><![CDATA[Default]]></defaultValue>
+		<defaultValue property="dText"><![CDATA[]]></defaultValue>
+		<defaultValue property="dTooltip"><![CDATA[]]></defaultValue>
+		<defaultValue property="onClick"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component id="FioriInput" 
+	title="Fiori Input Field"
+	tooltip="sap.m Input Field"
+	icon="res/FioriInput/FioriInput.png"
+	handlerType="sapui5" 
+	modes="m"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics">
+
+	<requireJs modes="m">res/FioriInput/FioriInput</requireJs>
+  	<property id="enabled" type="boolean" title="Enabled"/>
+  	<property id="inputType" type="String" title="Input Type"/>
+  	<property id="placeholder" type="String" title="Placeholder"/>
+  	<property id="value" type="String" title="Value"/>
+  	<property type="ScriptText" title="On Change" id="onchange" group="Events"/> 
+  	<property id="itemConfig" title = "Item Config" type="String" visible = "false"/>
+  	<property id="showSuggestion" type="boolean" title="Show Suggestions"/>
+  	<property id="showValueHelp" type="boolean" title="Show Value Help"/>
+ 	<initialization>
+ 		<defaultValue property="placeholder"></defaultValue>
+ 		<defaultValue property="value"></defaultValue>
+ 		<defaultValue property="itemConfig">[]</defaultValue>
+ 		<defaultValue property="showSuggestion">true</defaultValue>
+ 		<defaultValue property="showValueHelp">false</defaultValue>
+ 		<defaultValue property="inputType">Text</defaultValue>
+ 		<defaultValue property="enabled">true</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+ 		<defaultValue property="WIDTH">400</defaultValue>
+ 		<defaultValue property="HEIGHT">48</defaultValue>
+ 	</initialization>
+ </component>
+<component id="FioriSegmentedButton" 
+	title="Fiori Segmented Button"
+	tooltip="sap.m Segmented Button"
+	icon="res/FioriSegmentedButton/FioriSegmentedButton.png"
+	handlerType="sapui5" 
+	modes="m"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics">
+
+	<requireJs modes="m">res/FioriSegmentedButton/FioriSegmentedButton</requireJs>
+  	<property id="itemConfig" title = "Item Config" type="String" visible = "false"/>
+  	<property id="enabled" type="boolean" title="Enabled"/>
+  	<property type="String" title="Selected Key" id="selectedKey" group="Display"/>
+  	<property type="ScriptText" title="On Select" id="onselect" group="Events"/> 
+ 	<initialization>
+ 		<defaultValue property="itemConfig">[]</defaultValue>
+ 		<defaultValue property="enabled">true</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+ 		<defaultValue property="WIDTH">400</defaultValue>
+ 		<defaultValue property="HEIGHT">48</defaultValue>
+ 	</initialization>
+ </component>
+<component id="FioriSlider" 
+	title="Fiori Slider"
+	tooltip="sap.m Slider"
+	icon="res/FioriSlider/FioriSlider.png"
+	handlerType="sapui5" 
+	modes="m"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics">
+
+	<requireJs modes="m">res/FioriSlider/FioriSlider</requireJs>
+  	<property id="enabled" type="boolean" title="Enabled"/>
+	<property id="min" type="float" title="Minimum"/>
+	<property id="max" type="float" title="Maximum"/>
+  	<property id="step" type="float" title="Step"/>
+  	<property id="value" type="float" title="Value"/>
+  	<property id="progress" type="boolean" title="Progress"/>
+  	<property id="showHandleTooltip" type="boolean" title="Show Handle Tooltip"/>
+  	<property id="onchange" type="ScriptText" title="On Change" group="Events"/>
+ 	<initialization>
+ 		<defaultValue property="value">0</defaultValue>
+ 		<defaultValue property="min">0</defaultValue>
+ 		<defaultValue property="max">100</defaultValue>
+ 		<defaultValue property="step">1</defaultValue>
+ 		<defaultValue property="progress">true</defaultValue>
+ 		<defaultValue property="showHandleTooltip">true</defaultValue>
+ 		<defaultValue property="enabled">true</defaultValue>
+ 	</initialization>
+ </component>
+<component id="FioriSwitch" 
+	title="Fiori Switch"
+	tooltip="sap.m Switch"
+	icon="res/FioriSwitch/FioriSwitch.png"
+	handlerType="sapui5" 
+	modes="m"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics">
+
+	<requireJs modes="m">res/FioriSwitch/FioriSwitch</requireJs>
+	<property id="state" type="boolean" title="State"/>
+  	<property id="enabled" type="boolean" title="Enabled"/>
+  	<property id="switchType" type="String" title="Type"/>
+  	<property type="String" title="Custom Text On" id="customTextOn" group="Display"/>
+  	<property type="String" title="Custom Text Off" id="customTextOff" group="Display"/>
+  	<property type="ScriptText" title="On Change" id="onchange" group="Events"/> 
+ 	<initialization>
+ 		<defaultValue property="state">false</defaultValue>
+ 		<defaultValue property="switchType">Default</defaultValue>
+ 		<defaultValue property="enabled">true</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+ 		<defaultValue property="WIDTH">400</defaultValue>
+ 		<defaultValue property="HEIGHT">48</defaultValue>
+ 	</initialization>
+ </component>
+<component id="FioriToolbar" 
+	title="Fiori Toolbar 2.0"
+	icon="res/FioriToolbar/FioriToolbar.png"
+	handlerType="sapui5" 
+	modes="commons m"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics">
+
+	<requireJs modes="commons">res/FioriToolbar/FioriToolbar_commons</requireJs>
+	<requireJs modes="m">res/FioriToolbar/FioriToolbar</requireJs>
+	
+  	<property id="itemConfig" type="String" title="Item Config" visible="false" group="Display"/>
+  	<property id="enabled" type="boolean" title="Enabled"/>
+  	<property type="String" title="Design" id="design" visible="true" group="Display">
+  		<possibleValue>Auto</possibleValue>
+  		<possibleValue>Info</possibleValue>
+  		<possibleValue>Solid</possibleValue>
+  		<possibleValue>Transparent</possibleValue>
+  	</property>
+  	<property type="String" title="Selected Item" id="selectedItem" visible="false" group="Display"/>
+  	<property type="String" title="Selected Header of Item" id="selectedHeader" visible="false" group="Display"/>
+  	<property type="String" title="Selected Item Key" id="selectedItemKey" visible="false" group="Display"/>
+  	<property type="String" title="Selected Header Key of Item" id="selectedHeaderKey" visible="false" group="Display"/>
+  	<property type="ScriptText" title="On Item Select" id="onitemselect" group="Events"/> 
+ 	<initialization>
+ 		<defaultValue property="design">Auto</defaultValue>
+ 		<defaultValue property="enabled">true</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+ 		<defaultValue property="WIDTH">400</defaultValue>
+ 		<defaultValue property="HEIGHT">48</defaultValue>
+ 	</initialization>
+ </component>
+<component
+	id="FishEye"
+	title="Fish Eye 2.0"
+	tooltip="Fish Eye"
+	icon="res/FishEye/FishEye.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityVisualizations"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/FishEye/FishEye</requireJs>
+
+	<cssInclude>res/FishEye/FishEye.css</cssInclude>
+	
+	
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Elements"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="defaultImage"
+		type="Url"
+		title="Default Image Url"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="elements"
+		type="String"
+		title="Elements"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="orientation"
+		type="String"
+		title="Orientation"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Technical Property For Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">100</defaultValue>
+		
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="defaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="elements"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="orientation"><![CDATA[HorizontalBottom]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="Gauge"
+	title="Gauge (Speedometer) 2.0"
+	tooltip="Displays a Gauge (Speedometer)"
+	icon="res/Gauge/Gauge.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityVisualizations"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/Gauge/Gauge</requireJs>
+
+	<cssInclude>res/Gauge/Gauge.css</cssInclude>
+	
+	
+	<property
+		id="endValue"
+		type="int"
+		title="End Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="firstColor"
+		type="String"
+		title="First Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="gradientColor"
+		type="boolean"
+		title="Gradient Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="haveNumbers"
+		type="boolean"
+		title="Show Number"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="indicatorValue"
+		type="float"
+		title="Indicator Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="mainColor"
+		type="String"
+		title="Main Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="needleColor"
+		type="String"
+		title="Needle Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="numOfBigTicks"
+		type="int"
+		title="Number Of Big Ticks"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="numOfSmallTicks"
+		type="int"
+		title="Number Of Small Ticks"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="secondColor"
+		type="String"
+		title="Second Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="showValue"
+		type="boolean"
+		title="Show Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="showedValue"
+		type="String"
+		title="Showed Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="startSecondColor"
+		type="int"
+		title="Start Of Second Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="startThirdColor"
+		type="int"
+		title="Start Of Third Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="startValue"
+		type="int"
+		title="Start Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="thirdColor"
+		type="String"
+		title="Third Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="title"
+		type="String"
+		title="Title"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="ttColor"
+		type="String"
+		title="Text And Ticks Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">300</defaultValue>
+		
+		<defaultValue property="endValue"><![CDATA[100]]></defaultValue>
+		<defaultValue property="firstColor"><![CDATA[#FA1E1E]]></defaultValue>
+		<defaultValue property="gradientColor"><![CDATA[]]></defaultValue>
+		<defaultValue property="haveNumbers"><![CDATA[true]]></defaultValue>
+		<defaultValue property="indicatorValue"><![CDATA[25]]></defaultValue>
+		<defaultValue property="mainColor"><![CDATA[#EDEDED]]></defaultValue>
+		<defaultValue property="needleColor"><![CDATA[#D80000]]></defaultValue>
+		<defaultValue property="numOfBigTicks"><![CDATA[5]]></defaultValue>
+		<defaultValue property="numOfSmallTicks"><![CDATA[2]]></defaultValue>
+		<defaultValue property="secondColor"><![CDATA[#FCFA4E]]></defaultValue>
+		<defaultValue property="showValue"><![CDATA[true]]></defaultValue>
+		<defaultValue property="showedValue"><![CDATA[25 %]]></defaultValue>
+		<defaultValue property="startSecondColor"><![CDATA[20]]></defaultValue>
+		<defaultValue property="startThirdColor"><![CDATA[80]]></defaultValue>
+		<defaultValue property="startValue"><![CDATA[0]]></defaultValue>
+		<defaultValue property="thirdColor"><![CDATA[#2BFC23]]></defaultValue>
+		<defaultValue property="title"><![CDATA[Insert Title Here]]></defaultValue>
+		<defaultValue property="ttColor"><![CDATA[#000000]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ImageCarousel"
+	title="Image Carousel 2.0"
+	tooltip="Image Carousel"
+	icon="res/ImageCarousel/ImageCarousel.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ImageCarousel/ImageCarousel</requireJs>
+
+	<cssInclude>res/ImageCarousel/ImageCarousel.css</cssInclude>
+	
+	
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Elements"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="defaultImage"
+		type="Url"
+		title="Default Image Url"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="elements"
+		type="String"
+		title="Elements"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Technical Proprty For Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">100</defaultValue>
+		
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="defaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="elements"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="KpiTile"
+	title="Kpi Tile 2.0"
+	tooltip="Kpi Tile - Custom KPI Visualization"
+	icon="res/KpiTile/KpiTile.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityVisualizations"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/KpiTile/KpiTile</requireJs>
+
+	<cssInclude>res/KpiTile/KpiTile.css</cssInclude>
+	
+	
+	<property
+		id="clickedComponent"
+		type="String"
+		title="Clicked Component"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="componentsSpec"
+		type="String"
+		title="Components"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="layoutSpec"
+		type="String"
+		title="Layout Properties"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="onClick"
+		type="ScriptText"
+		title="On Click"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelect"
+		type="ScriptText"
+		title="On Select"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">260</defaultValue>
+		<defaultValue property="HEIGHT">240</defaultValue>
+		
+		<defaultValue property="clickedComponent"><![CDATA[]]></defaultValue>
+		<defaultValue property="componentsSpec"><![CDATA[[{"parentKey":"ROOT","key":"HEADER","leaf":false,"componentType":"Label","top":"10","left":"10","width":"200","height":"20"},{"parentKey":"ROOT","key":"TITLE","leaf":false,"componentType":"Label","top":"40","left":"10","width":"200","height":"20"},{"parentKey":"ROOT","key":"VALUE","leaf":false,"componentType":"Label","top":"60","left":"-1","right":"10","width":"200","height":"40"},{"parentKey":"ROOT","key":"CHART","leaf":false,"specification":"<MicroAreaChart minXValue='0' maxXValue='100' minYValue='0' maxYValue='100' class='marginTopLeft' press='press'>\n       <firstXLabel>\n         <MicroAreaChartLabel label='June 1' color='Good'/>\n       </firstXLabel>\n       <lastXLabel>\n         <MicroAreaChartLabel label='June 30' color='Critical'/>\n       </lastXLabel>\n       <firstYLabel>\n         <MicroAreaChartLabel label='0M' color='Good'/>\n       </firstYLabel>\n       <lastYLabel>\n         <MicroAreaChartLabel label='80M' color='Critical'/>\n       </lastYLabel>\n       <chart>\n         <MicroAreaChartItem>\n           <points>\n            <MicroAreaChartPoint x='0' y='0' />\n            <MicroAreaChartPoint x='30' y='20' />\n            <MicroAreaChartPoint x='60' y='20' />\n            <MicroAreaChartPoint x='100' y='80' />\n          </points>\n         </MicroAreaChartItem>\n       </chart>\n       <target>\n         <MicroAreaChartItem>\n           <points>\n            <MicroAreaChartPoint x='0' y='0' />\n            <MicroAreaChartPoint x='30' y='30' />\n            <MicroAreaChartPoint x='60' y='40' />\n            <MicroAreaChartPoint x='100' y='90' />\n          </points>\n         </MicroAreaChartItem>\n       </target>\n\n       <minThreshold>\n         <MicroAreaChartItem color='Error'>\n           <points>\n            <MicroAreaChartPoint x='0' y='0' />\n            <MicroAreaChartPoint x='30' y='20' />\n            <MicroAreaChartPoint x='60' y='30' />\n            <MicroAreaChartPoint x='100' y='70' />\n          </points>\n         </MicroAreaChartItem>\n       </minThreshold>\n       </MicroAreaChart>","componentType":"MicroAreaChart","bottom":"40","top":"-1","left":"10","right":"10","width":"auto","height":"80"},{"parentKey":"ROOT","key":"FOOTER","leaf":false,"componentType":"Label","top":"-1","bottom":"10"},{"parentKey":"HEADER","key":"HEADER/text","leaf":true,"value":"Header"},{"parentKey":"HEADER","key":"HEADER/styleClass","leaf":true,"value":"scn-pack-KpiTile-Header"},{"parentKey":"TITLE","key":"TITLE/text","leaf":true,"value":"Title"},{"parentKey":"TITLE","key":"TITLE/styleClass","leaf":true,"value":"scn-pack-KpiTile-Title"},{"parentKey":"VALUE","key":"VALUE/text","leaf":true,"value":"Value"},{"parentKey":"VALUE","key":"VALUE/styleClass","leaf":true,"value":"scn-pack-KpiTile-Value"},{"parentKey":"VALUE","key":"VALUE/textAlign","leaf":true,"value":"sap.ui.core.TextAlign.Right"},{"parentKey":"FOOTER","key":"FOOTER/text","leaf":true,"value":"Footer"}]]]></defaultValue>
+		<defaultValue property="layoutSpec"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="onClick"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelect"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="KpiView"
+	title="Kpi View 2.0"
+	tooltip="Kpi View"
+	icon="res/KpiView/KpiView.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityVisualizations"
+	databound="true"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/KpiView/KpiView</requireJs>
+
+	<cssInclude>res/KpiView/KpiView.css</cssInclude>
+	
+	
+	<property
+		id="data"
+		type="ResultCell"
+		title="Data Value"
+		group="DataBinding"
+		visible="true"
+		bindable="true">
+
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+		<option name="includeMetadata" value="true"/>
+	</property>
+	<property
+		id="footerCssClass"
+		type="String"
+		title="Footer CSS Class"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="footerHAlign"
+		type="String"
+		title="Footer Horizontal Alignment"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="footerText"
+		type="String"
+		title="Footer"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="headerCssClass"
+		type="String"
+		title="Header CSS Class"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="headerHAlign"
+		type="String"
+		title="Header Horizontal Alignment"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="headerText"
+		type="String"
+		title="Header"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="image"
+		type="Url"
+		title="Url For The Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="imageSize"
+		type="String"
+		title="Size Of The Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="linkText"
+		type="String"
+		title="Text For The Link"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="linkTooltip"
+		type="String"
+		title="Tooltip For The Link"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onClick"
+		type="ScriptText"
+		title="On Click"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onLinkClick"
+		type="ScriptText"
+		title="On Link Click"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="titleCssClass"
+		type="String"
+		title="Title CSS Class"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="titleText"
+		type="String"
+		title="Title"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="valueCssClass"
+		type="String"
+		title="Value CSS Class"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="valueDecimalPlaces"
+		type="String"
+		title="Value Decimal Places"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="valueFloat"
+		type="String"
+		title="Value As Float"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="valueHAlign"
+		type="String"
+		title="Value Horizontal Alignment"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="valuePrefixCssClass"
+		type="String"
+		title="Value Prefix CSS Class"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="valuePrefixText"
+		type="String"
+		title="Value Prefix"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="valueSuffixCssClass"
+		type="String"
+		title="Value Suffix CSS Class"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="valueSuffixText"
+		type="String"
+		title="Value Suffix"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="valueText"
+		type="String"
+		title="Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">220</defaultValue>
+		<defaultValue property="HEIGHT">190</defaultValue>
+		
+		<defaultValue property="data"><![CDATA[]]></defaultValue>
+		<defaultValue property="footerCssClass"><![CDATA[]]></defaultValue>
+		<defaultValue property="footerHAlign"><![CDATA[Left]]></defaultValue>
+		<defaultValue property="footerText"><![CDATA[Footer]]></defaultValue>
+		<defaultValue property="headerCssClass"><![CDATA[]]></defaultValue>
+		<defaultValue property="headerHAlign"><![CDATA[Left]]></defaultValue>
+		<defaultValue property="headerText"><![CDATA[Header]]></defaultValue>
+		<defaultValue property="image"><![CDATA[]]></defaultValue>
+		<defaultValue property="imageSize"><![CDATA[Size_16px]]></defaultValue>
+		<defaultValue property="linkText"><![CDATA[]]></defaultValue>
+		<defaultValue property="linkTooltip"><![CDATA[]]></defaultValue>
+		<defaultValue property="onClick"><![CDATA[]]></defaultValue>
+		<defaultValue property="onLinkClick"><![CDATA[]]></defaultValue>
+		<defaultValue property="titleCssClass"><![CDATA[]]></defaultValue>
+		<defaultValue property="titleText"><![CDATA[Title]]></defaultValue>
+		<defaultValue property="valueCssClass"><![CDATA[]]></defaultValue>
+		<defaultValue property="valueDecimalPlaces"><![CDATA[D0]]></defaultValue>
+		<defaultValue property="valueFloat"><![CDATA[]]></defaultValue>
+		<defaultValue property="valueHAlign"><![CDATA[Left]]></defaultValue>
+		<defaultValue property="valuePrefixCssClass"><![CDATA[]]></defaultValue>
+		<defaultValue property="valuePrefixText"><![CDATA[]]></defaultValue>
+		<defaultValue property="valueSuffixCssClass"><![CDATA[]]></defaultValue>
+		<defaultValue property="valueSuffixText"><![CDATA[ M$]]></defaultValue>
+		<defaultValue property="valueText"><![CDATA[Value]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<!-- Fiori LaunchPad Component -->
+<component id="LaunchPad"
+	title="Launch Pad 2.0"
+	tooltip="Fiori-Inspired LaunchPad/Tile Container"
+	icon="res/LaunchPad/LaunchPad.png"
+	handlerType="sapui5"
+	modes="commons m"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics">
+
+	<requireJs modes="commons">res/LaunchPad/LaunchPad_commons</requireJs>
+	<requireJs modes="m">res/LaunchPad/LaunchPad</requireJs>
+	
+  	<property group="Display" type="String" title="Tile Config" id="tileConfig" visible="false"/>
+  	<property group="Display" type="String" title="Selected Tile" id="selectedTile" visible="false"/>
+  	<property group="Events" type="ScriptText" title="On Tile Select" id="onTileSelect"/>
+  	<initialization>
+		<defaultValue property="tileConfig">[]</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+  		<defaultValue property="WIDTH">575</defaultValue>
+		<defaultValue property="HEIGHT">575</defaultValue>
+  	</initialization>
+</component>
+
+<component
+	id="LeaderBoard"
+	title="Leader Board 2.0"
+	tooltip="Leader Board"
+	icon="res/LeaderBoard/LeaderBoard.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityVisualizations"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/LeaderBoard/LeaderBoard</requireJs>
+
+	<cssInclude>res/LeaderBoard/LeaderBoard.css</cssInclude>
+	
+	
+	<property
+		id="addCounter"
+		type="boolean"
+		title="Add Counter"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Elements"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="elements"
+		type="String"
+		title="Elements"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="fallbackPicture"
+		type="Url"
+		title="Fallback Picture Url"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onPress"
+		type="ScriptText"
+		title="Event For On Press"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="pressedKey"
+		type="String"
+		title="Technical Proprty For Pressed Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Technical Proprty For Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="valuePrefix"
+		type="String"
+		title="Value Prefix Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="valueSuffix"
+		type="String"
+		title="Value Suffix Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">230</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="addCounter"><![CDATA[true]]></defaultValue>
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="elements"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="fallbackPicture"><![CDATA[]]></defaultValue>
+		<defaultValue property="onPress"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="pressedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="valuePrefix"><![CDATA[]]></defaultValue>
+		<defaultValue property="valueSuffix"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="Link"
+	title="Link 2.0"
+	tooltip="Link"
+	icon="res/Link/Link.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/Link/Link</requireJs>
+
+	<cssInclude>res/Link/Link.css</cssInclude>
+	
+	
+	<property
+		id="onPress"
+		type="ScriptText"
+		title="On Press"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="text"
+		type="String"
+		title="Link Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">100</defaultValue>
+		<defaultValue property="HEIGHT">20</defaultValue>
+		
+		<defaultValue property="onPress"><![CDATA[]]></defaultValue>
+		<defaultValue property="text"><![CDATA[Go Sap...]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ListSelector"
+	title="List Selector 2.0"
+	tooltip="List Selector"
+	icon="res/ListSelector/ListSelector.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ListSelector/ListSelector</requireJs>
+
+	<cssInclude>res/ListSelector/ListSelector.css</cssInclude>
+	
+	
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Elements"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="fixedWidth"
+		type="int"
+		title="Fixed Width (-1 For Auto)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="iconHeight"
+		type="int"
+		title="Icon Height (px)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="iconWidth"
+		type="int"
+		title="Icon Width (px)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="keyClicked"
+		type="String"
+		title="Selected Key"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="labelClicked"
+		type="String"
+		title="Selected Label"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="labelOrientation"
+		type="String"
+		title="Label Orientation"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="labelPlacement"
+		type="String"
+		title="Label Placement (Relative To Icon)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="labelUnselect"
+		type="boolean"
+		title="Unselect Label"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="onclick"
+		type="ScriptText"
+		title="On Click..."
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="spriteIDs"
+		type="String"
+		title="Sprite IDs (Optional)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="spriteSheet"
+		type="Url"
+		title="Icon Sprite Sheet (Optional)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="spriteSheetPerRow"
+		type="int"
+		title="Icons Sprites Per Row"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="textAlign"
+		type="String"
+		title="Text Alignment"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="titles"
+		type="String"
+		title="Titles"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="verticalAlign"
+		type="String"
+		title="Vertical Alignment"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="visibilities"
+		type="String"
+		title="Visibilities (Optional)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">200</defaultValue>
+		<defaultValue property="HEIGHT">200</defaultValue>
+		
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="fixedWidth"><![CDATA[-1]]></defaultValue>
+		<defaultValue property="iconHeight"><![CDATA[16]]></defaultValue>
+		<defaultValue property="iconWidth"><![CDATA[16]]></defaultValue>
+		<defaultValue property="keyClicked"><![CDATA[]]></defaultValue>
+		<defaultValue property="labelClicked"><![CDATA[]]></defaultValue>
+		<defaultValue property="labelOrientation"><![CDATA[Vertical]]></defaultValue>
+		<defaultValue property="labelPlacement"><![CDATA[After]]></defaultValue>
+		<defaultValue property="labelUnselect"><![CDATA[false]]></defaultValue>
+		<defaultValue property="onclick"><![CDATA[]]></defaultValue>
+		<defaultValue property="spriteIDs"><![CDATA[]]></defaultValue>
+		<defaultValue property="spriteSheet"><![CDATA[]]></defaultValue>
+		<defaultValue property="spriteSheetPerRow"><![CDATA[1]]></defaultValue>
+		<defaultValue property="textAlign"><![CDATA[Center]]></defaultValue>
+		<defaultValue property="titles"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="verticalAlign"><![CDATA[Top]]></defaultValue>
+		<defaultValue property="visibilities"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="MenuBar"
+	title="Menu Bar 2.0"
+	tooltip="Menu Bar"
+	icon="res/MenuBar/MenuBar.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/MenuBar/MenuBar</requireJs>
+
+	<cssInclude>res/MenuBar/MenuBar.css</cssInclude>
+	
+	
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Buttons"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="defaultImage"
+		type="Url"
+		title="Url For Default Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="elementsContent"
+		type="String"
+		title="Buttons"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Technical Proprty For Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedText"
+		type="String"
+		title="Technical Proprty For Selected Text"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">400</defaultValue>
+		<defaultValue property="HEIGHT">29</defaultValue>
+		
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="defaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="elementsContent"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedText"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="MenuButton"
+	title="Menu Button 2.0"
+	tooltip="Menu Button"
+	icon="res/MenuButton/MenuButton.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/MenuButton/MenuButton</requireJs>
+
+	<cssInclude>res/MenuButton/MenuButton.css</cssInclude>
+	
+	
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Buttons"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="defaultImage"
+		type="Url"
+		title="Url For Default Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="elementsContent"
+		type="String"
+		title="Buttons"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="enabled"
+		type="boolean"
+		title="Enabled"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="icon"
+		type="Url"
+		title="Icon"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Technical Proprty For Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedText"
+		type="String"
+		title="Technical Proprty For Selected Text"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="text"
+		type="String"
+		title="Text Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="tooltip"
+		type="String"
+		title="Tooltip Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">400</defaultValue>
+		<defaultValue property="HEIGHT">29</defaultValue>
+		
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="defaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="elementsContent"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="enabled"><![CDATA[true]]></defaultValue>
+		<defaultValue property="icon"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedText"><![CDATA[]]></defaultValue>
+		<defaultValue property="text"><![CDATA[]]></defaultValue>
+		<defaultValue property="tooltip"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component id="ModalBrowser"
+	tooltip="In-App Modal Browser Pop-Up"
+	title="Modal Browser 0.X"
+	icon="res/ModalBrowser/ModalBrowser.png"
+	handlerType="sapui5"
+	group="ScnCommunityBasics"
+	modes="commons m">
+	
+	<jsInclude>res/ModalBrowser/ModalBrowser.js</jsInclude>
+  	<cssInclude>res/ModalBrowser/ModalBrowser.css</cssInclude>
+  	
+  	<property group="Display" type="String" title="URL" id="url"/>
+  	<property group="Display" type="String" title="Open Method" id="openMethod">
+  		<possibleValue>New Window</possibleValue>
+  		<possibleValue>Modal Browser Dialog</possibleValue>
+  	</property>
+  	
+  	<property group="Display" type="boolean" title="Show Button" id="showButton"/>
+  	<property group="Display" type="String" title="Button Icon" id="icon"/>
+  	<property group="Display" type="String" title="Button Text" id="text"/>
+  	<!-- <property type="boolean" title="Button Visible" id="visible"/> -->
+  	<property group="Display" id="buttonType" type="String" title="Button Type">
+  		<possibleValue>Default</possibleValue>
+  		<possibleValue>Transparent</possibleValue>
+  		<possibleValue>Accept</possibleValue>
+  		<possibleValue>Back</possibleValue>
+  		<possibleValue>Emphasized</possibleValue>
+  		<possibleValue>Reject</possibleValue>
+  		<possibleValue>Up</possibleValue>
+  	</property>
+  	<property group="Display" type="String" title="Modal Browser Title" id="title"/>
+  	<property group="Display" type="String" title="Modal Browser Icon" id="browserIcon"/>
+  	<property group="Display" type="boolean" title="Show Modal Browser Title" id="showHeader"/>
+  	<property group="Display" type="boolean" title="Show Modal Browser Close Button" id="showCloseButton"/>
+  	<property group="Display" type="String" title="Modal Browser Height" id="browserHeight"/>
+  	<property group="Display" type="String" title="Modal Browser Width" id="browserWidth"/>
+  	<property group="Display" type="float" title="Click Trigger for BIAL" id="clickTrigger" visible="false"/>
+  	<initialization>
+  		<defaultValue property="icon">sap-icon://action</defaultValue>
+  		<defaultValue property="title">Browser Dialog Title</defaultValue>
+  		<defaultValue property="browserIcon">sap-icon://business-objects-explorer</defaultValue>
+  		<defaultValue property="text">Details...</defaultValue>
+  		<defaultValue property="showButton">true</defaultValue>
+  		<defaultValue property="showHeader">false</defaultValue>
+  		<defaultValue property="showCloseButton">true</defaultValue>
+  		<defaultValue property="openMethod">Modal Browser Dialog</defaultValue>
+  		<defaultValue property="buttonType">Default</defaultValue>
+  		<defaultValue property="browserWidth">80%</defaultValue>
+  		<defaultValue property="browserHeight">80%</defaultValue>
+  		<defaultValue property="WIDTH">200</defaultValue>
+	  	<defaultValue property="HEIGHT">200</defaultValue>
+  	</initialization>
+</component>
+
+<component
+	id="NavigationBar"
+	title="Navigation Bar 2.0"
+	tooltip="Navigation Bar"
+	icon="res/NavigationBar/NavigationBar.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/NavigationBar/NavigationBar</requireJs>
+
+	<cssInclude>res/NavigationBar/NavigationBar.css</cssInclude>
+	
+	
+	<property
+		id="DCleanAll"
+		type="boolean"
+		title="Clean All Elements"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DElementsContent"
+		type="String"
+		title="Steps"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSelectedKey"
+		type="String"
+		title="Selected Step Key"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSelectedText"
+		type="String"
+		title="Selected Text"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="numberOfVisibleSteps"
+		type="String"
+		title="Number Of Visible Steps"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">22</defaultValue>
+		
+		<defaultValue property="DCleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DElementsContent"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="DSelectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="DSelectedText"><![CDATA[]]></defaultValue>
+		<defaultValue property="numberOfVisibleSteps"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="NotificationBar"
+	title="Notification Bar 2.0"
+	tooltip="Notification Bar"
+	icon="res/NotificationBar/NotificationBar.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/NotificationBar/NotificationBar</requireJs>
+
+	<cssInclude>res/NotificationBar/NotificationBar.css</cssInclude>
+	
+	
+	<property
+		id="categories"
+		type="String"
+		title="Categories"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="connectToCommonMessages"
+		type="boolean"
+		title="Connect To Common Messages"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="defaultImage"
+		type="Url"
+		title="Url For Default Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="deleteNotificationOnClick"
+		type="boolean"
+		title="Delete Notification When Clicked"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="minimize"
+		type="String"
+		title="Minimize function trigger"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="notifications"
+		type="String"
+		title="Notifications"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="removeAllOnMinimize"
+		type="boolean"
+		title="Remove All Notifications When Minimized"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="showOnNewNotifications"
+		type="boolean"
+		title="Show Notification Bar When New Notifications Are Available"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="splitNotificationsByPriority"
+		type="boolean"
+		title="Split Notifications By Priority"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">0</defaultValue>
+		<defaultValue property="WIDTH">auto</defaultValue>
+		<defaultValue property="HEIGHT">40</defaultValue>
+		
+		<defaultValue property="categories"><![CDATA[]]></defaultValue>
+		<defaultValue property="connectToCommonMessages"><![CDATA[false]]></defaultValue>
+		<defaultValue property="defaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="deleteNotificationOnClick"><![CDATA[false]]></defaultValue>
+		<defaultValue property="minimize"><![CDATA[]]></defaultValue>
+		<defaultValue property="notifications"><![CDATA[]]></defaultValue>
+		<defaultValue property="removeAllOnMinimize"><![CDATA[false]]></defaultValue>
+		<defaultValue property="showOnNewNotifications"><![CDATA[true]]></defaultValue>
+		<defaultValue property="splitNotificationsByPriority"><![CDATA[true]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="Notify"
+	title="Notify 2.0"
+	tooltip="Notify - Leandro Cardoso"
+	icon="res/Notify/Notify.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/Notify/Notify</requireJs>
+
+	<cssInclude>res/Notify/Notify.css</cssInclude>
+	
+	
+	<property
+		id="delay"
+		type="int"
+		title="Delay(Seconds)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="layout"
+		type="String"
+		title="Layout"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="modal"
+		type="boolean"
+		title="Modal"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="msgtext"
+		type="String"
+		title="Msgtext"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="msgtype"
+		type="String"
+		title="Msgtype"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="shownote"
+		type="String"
+		title="Shownote"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">100</defaultValue>
+		<defaultValue property="HEIGHT">100</defaultValue>
+		
+		<defaultValue property="delay"><![CDATA[3]]></defaultValue>
+		<defaultValue property="layout"><![CDATA[center]]></defaultValue>
+		<defaultValue property="modal"><![CDATA[true]]></defaultValue>
+		<defaultValue property="msgtext"><![CDATA[]]></defaultValue>
+		<defaultValue property="msgtype"><![CDATA[]]></defaultValue>
+		<defaultValue property="shownote"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="Map"
+	title="Open Street Map (Basic) 2.0"
+	tooltip="Open Street Map (Basic)"
+	icon="res/Map/Map.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/Map/Map</requireJs>
+
+	<cssInclude>res/Map/Map.css</cssInclude>
+	
+	
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Locations"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="defaultImage"
+		type="Url"
+		title="Url For Default Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="elementsContent"
+		type="String"
+		title="Locations"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="mapUrl"
+		type="String"
+		title="Url to Use for the Map"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="moveAction"
+		type="int"
+		title="Technical Property For Move Action"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="moveTo"
+		type="String"
+		title="Technical Property For Move To"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="pan"
+		type="String"
+		title="Technical Property For Pan"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="panAction"
+		type="int"
+		title="Technical Property For Pan Action"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Technical Proprty For Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="zoom"
+		type="int"
+		title="Technical Property For Zoom"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">600</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="defaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="elementsContent"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="mapUrl"><![CDATA[http://tile.openstreetmap.org/{Z}/{X}/{Y}.png]]></defaultValue>
+		<defaultValue property="moveAction"><![CDATA[0]]></defaultValue>
+		<defaultValue property="moveTo"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="pan"><![CDATA[]]></defaultValue>
+		<defaultValue property="panAction"><![CDATA[0]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="zoom"><![CDATA[0]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="Paginator"
+	title="Paginator 2.0"
+	tooltip="Paginator"
+	icon="res/Paginator/Paginator.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/Paginator/Paginator</requireJs>
+
+	<cssInclude>res/Paginator/Paginator.css</cssInclude>
+	
+	
+	<property
+		id="currentPage"
+		type="int"
+		title="Current Page"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="numberOfPages"
+		type="int"
+		title="Number Of Pages"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onPageChange"
+		type="ScriptText"
+		title="On Page Change"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">270</defaultValue>
+		<defaultValue property="HEIGHT">20</defaultValue>
+		
+		<defaultValue property="currentPage"><![CDATA[0]]></defaultValue>
+		<defaultValue property="numberOfPages"><![CDATA[3]]></defaultValue>
+		<defaultValue property="onPageChange"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="PasswordField"
+	title="Password Field 2.0"
+	tooltip="Password Field"
+	icon="res/PasswordField/PasswordField.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/PasswordField/PasswordField</requireJs>
+
+	<cssInclude>res/PasswordField/PasswordField.css</cssInclude>
+	
+	
+	<property
+		id="editable"
+		type="boolean"
+		title="Editable"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="enabled"
+		type="boolean"
+		title="Enabled"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onChanged"
+		type="ScriptText"
+		title="Event For On Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="tooltip"
+		type="String"
+		title="Tooltip"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="value"
+		type="String"
+		title="Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">22</defaultValue>
+		
+		<defaultValue property="editable"><![CDATA[true]]></defaultValue>
+		<defaultValue property="enabled"><![CDATA[true]]></defaultValue>
+		<defaultValue property="onChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="tooltip"><![CDATA[]]></defaultValue>
+		<defaultValue property="value"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="QRCode"
+	title="QRCode Generator 2.0"
+	tooltip="QRCode Generation"
+	icon="res/QRCode/QRCode.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/QRCode/QRCode</requireJs>
+
+	<cssInclude>res/QRCode/QRCode.css</cssInclude>
+	
+	
+	<property
+		id="background"
+		type="String"
+		title="Background Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="ecLevel"
+		type="String"
+		title="Error Correction Level"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="fill"
+		type="String"
+		title="Fill Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="maxVersion"
+		type="int"
+		title="Max Version (1-40)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="minVersion"
+		type="int"
+		title="Min Version (1-40)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onclick"
+		type="ScriptText"
+		title="On Click"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="printOnly"
+		type="boolean"
+		title="Only Show On Printouts"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="quiet"
+		type="float"
+		title="Quiet Zone"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="radius"
+		type="float"
+		title="Corner Radius (0.0 - 0.5)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="render"
+		type="String"
+		title="Render Mode"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="text"
+		type="String"
+		title="QR Code Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">256</defaultValue>
+		<defaultValue property="HEIGHT">256</defaultValue>
+		
+		<defaultValue property="background"><![CDATA[]]></defaultValue>
+		<defaultValue property="ecLevel"><![CDATA[L]]></defaultValue>
+		<defaultValue property="fill"><![CDATA[]]></defaultValue>
+		<defaultValue property="maxVersion"><![CDATA[40]]></defaultValue>
+		<defaultValue property="minVersion"><![CDATA[1]]></defaultValue>
+		<defaultValue property="onclick"><![CDATA[]]></defaultValue>
+		<defaultValue property="printOnly"><![CDATA[false]]></defaultValue>
+		<defaultValue property="quiet"><![CDATA[0]]></defaultValue>
+		<defaultValue property="radius"><![CDATA[0]]></defaultValue>
+		<defaultValue property="render"><![CDATA[canvas]]></defaultValue>
+		<defaultValue property="text"><![CDATA[QRCode Text]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ProgressIndicator"
+	title="Progress Indicator 2.0"
+	tooltip="Progress Indicator"
+	icon="res/ProgressIndicator/ProgressIndicator.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ProgressIndicator/ProgressIndicator</requireJs>
+
+	<cssInclude>res/ProgressIndicator/ProgressIndicator.css</cssInclude>
+	
+	
+	<property
+		id="barColor"
+		type="String"
+		title="Bar Colour"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="displayValue"
+		type="String"
+		title="Display Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="enabled"
+		type="boolean"
+		title="Enabled"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="percentValue"
+		type="int"
+		title="Percent Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="showValue"
+		type="boolean"
+		title="Show Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">270</defaultValue>
+		<defaultValue property="HEIGHT">20</defaultValue>
+		
+		<defaultValue property="barColor"><![CDATA[Neutral]]></defaultValue>
+		<defaultValue property="displayValue"><![CDATA[]]></defaultValue>
+		<defaultValue property="enabled"><![CDATA[true]]></defaultValue>
+		<defaultValue property="percentValue"><![CDATA[50]]></defaultValue>
+		<defaultValue property="showValue"><![CDATA[true]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="RangeSlider"
+	title="Range Slider 2.0"
+	tooltip="Range Slider"
+	icon="res/RangeSlider/RangeSlider.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/RangeSlider/RangeSlider</requireJs>
+
+	<cssInclude>res/RangeSlider/RangeSlider.css</cssInclude>
+	
+	
+	<property
+		id="DLiveChangeActive"
+		type="boolean"
+		title="Activate Live Change Event (prototype)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="liveValue"
+		type="float"
+		title="First Value (Live)"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="liveValue2"
+		type="float"
+		title="Second Value (Live)"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="max"
+		type="float"
+		title="Maximum Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="min"
+		type="float"
+		title="Minimum Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onChange"
+		type="ScriptText"
+		title="On Change"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onLiveChange"
+		type="ScriptText"
+		title="On Live Change"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="smallStepWidth"
+		type="float"
+		title="Small Step Width"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="stepLabels"
+		type="boolean"
+		title="Step Labels"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="totalUnits"
+		type="int"
+		title="Total Units"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="value"
+		type="float"
+		title="First Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="value2"
+		type="float"
+		title="Second Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="vertical"
+		type="boolean"
+		title="Change To Vertical Orientation"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">30</defaultValue>
+		
+		<defaultValue property="DLiveChangeActive"><![CDATA[false]]></defaultValue>
+		<defaultValue property="liveValue"><![CDATA[0.0]]></defaultValue>
+		<defaultValue property="liveValue2"><![CDATA[0.0]]></defaultValue>
+		<defaultValue property="max"><![CDATA[100.0]]></defaultValue>
+		<defaultValue property="min"><![CDATA[0.0]]></defaultValue>
+		<defaultValue property="onChange"><![CDATA[]]></defaultValue>
+		<defaultValue property="onLiveChange"><![CDATA[]]></defaultValue>
+		<defaultValue property="smallStepWidth"><![CDATA[10]]></defaultValue>
+		<defaultValue property="stepLabels"><![CDATA[100]]></defaultValue>
+		<defaultValue property="totalUnits"><![CDATA[10]]></defaultValue>
+		<defaultValue property="value"><![CDATA[0.0]]></defaultValue>
+		<defaultValue property="value2"><![CDATA[100.0]]></defaultValue>
+		<defaultValue property="vertical"><![CDATA[false]]></defaultValue>
+
+	</initialization>
+
+</component>
+<component id="MockUp"
+		title="Rapid MockUp"
+		tooltip="Not recommended for production use!"
+		icon="res/MockUp/MockUp.png"
+		handlerType="div"
+		modes="commons m"
+		group="ScnCommunityBasics"
+		propertySheetPath="aps/PropertyPage.html"
+		databound="true">
+		
+		<requireJs modes="commons m">res/MockUp/MockUp</requireJs>
+
+		<property id="HTML" type="String" title="HTML" group="Display" />
+		<property id="afterInit" type="String" title="JavaScript" group="Display" />
+		<property type="String" title="Placeholder 1" id="term1"></property>
+		<property type="String" title="Manual Replacement 1" id="replacement1"></property>
+				
+		<property type="String" title="Placeholder 2" id="term2"></property>
+		<property type="String" title="Manual Replacement 2" id="replacement2"></property>
+		
+		<property type="String" title="Placeholder 3" id="term3"></property>
+		<property type="String" title="Manual Replacement 3" id="replacement3"></property>
+		
+		<property type="String" title="Placeholder 4" id="term4"></property>
+		<property type="String" title="Manual Replacement 4" id="replacement4"></property>
+		
+		<property type="String" title="Placeholder 5" id="term5"></property>
+		<property type="String" title="Manual Replacement 5" id="replacement5"></property>
+		
+		<property type="String" title="Placeholder 6" id="term6"></property>
+		<property type="String" title="Manual Replacement 6" id="replacement6"></property>
+
+		<property type="String" title="Placeholder 7" id="term7"></property>
+		<property type="String" title="Manual Replacement 7" id="replacement7"></property>
+
+		<property type="String" title="Placeholder 8" id="term8"></property>
+		<property type="String" title="Manual Replacement 8" id="replacement8"></property>
+
+		<property type="String" title="Placeholder 9" id="term9"></property>
+		<property type="String" title="Manual Replacement 9" id="replacement9"></property>
+		
+		<property type="String" title="Placeholder 10" id="term10"></property>
+		<property type="String" title="Manual Replacement 10" id="replacement10"></property>
+		
+		<property type="ResultCell" title="Databound Replacement 1" id="KPIreplacement1"></property>
+		<property type="ResultCell" title="Databound Replacement 2" id="KPIreplacement2"></property>
+		<property type="ResultCell" title="Databound Replacement 3" id="KPIreplacement3"></property>
+		<property type="ResultCell" title="Databound Replacement 4" id="KPIreplacement4"></property>
+		<property type="ResultCell" title="Databound Replacement 5" id="KPIreplacement5"></property>
+		<property type="ResultCell" title="Databound Replacement 6" id="KPIreplacement6"></property>
+		<property type="ResultCell" title="Databound Replacement 7" id="KPIreplacement7"></property>
+		<property type="ResultCell" title="Databound Replacement 8" id="KPIreplacement8"></property>
+		<property type="ResultCell" title="Databound Replacement 9" id="KPIreplacement9"></property>
+		<property type="ResultCell" title="Databound Replacement 10" id="KPIreplacement10"></property>
+		
+		<initialization>
+			<defaultValue property="term1">{kpi1}</defaultValue>
+			<defaultValue property="term2">{kpi2}</defaultValue>
+			<defaultValue property="term3">{kpi3}</defaultValue>
+			<defaultValue property="term4">{kpi4}</defaultValue>
+			<defaultValue property="term5">{kpi5}</defaultValue>
+			<defaultValue property="term6">{kpi6}</defaultValue>
+			<defaultValue property="term7">{kpi7}</defaultValue>
+			<defaultValue property="term8">{kpi8}</defaultValue>
+			<defaultValue property="term9">{kpi9}</defaultValue>
+			<defaultValue property="term10">{kpi10}</defaultValue>
+			<defaultValue property="TOP_MARGIN">0</defaultValue>
+			<defaultValue property="LEFT_MARGIN">0</defaultValue>
+			<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+			<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+			<defaultValue property="WIDTH">400</defaultValue>
+			<defaultValue property="HEIGHT">300</defaultValue>
+			<defaultValue property="HTML"><![CDATA[Type HTML Here.  <br/><b>Use place holders to replace, e.g. Sales:</b> {kpi1} $]]></defaultValue>
+		</initialization>
+	</component>
+<component
+	id="RatingIndicator"
+	title="Rating Indicator 2.0"
+	tooltip="Rating Indicator"
+	icon="res/RatingIndicator/RatingIndicator.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/RatingIndicator/RatingIndicator</requireJs>
+
+	<cssInclude>res/RatingIndicator/RatingIndicator.css</cssInclude>
+	
+	
+	<property
+		id="editable"
+		type="boolean"
+		title="Editable"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="iconHovered"
+		type="Url"
+		title="Icon Hovered"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="iconSelected"
+		type="Url"
+		title="Icon Selected"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="iconUnselected"
+		type="Url"
+		title="Icon Unselected"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="maxValue"
+		type="int"
+		title="Maximum Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onChange"
+		type="ScriptText"
+		title="On Change"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="value"
+		type="float"
+		title="Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">200</defaultValue>
+		<defaultValue property="HEIGHT">40</defaultValue>
+		
+		<defaultValue property="editable"><![CDATA[true]]></defaultValue>
+		<defaultValue property="iconHovered"><![CDATA[]]></defaultValue>
+		<defaultValue property="iconSelected"><![CDATA[]]></defaultValue>
+		<defaultValue property="iconUnselected"><![CDATA[]]></defaultValue>
+		<defaultValue property="maxValue"><![CDATA[5]]></defaultValue>
+		<defaultValue property="onChange"><![CDATA[]]></defaultValue>
+		<defaultValue property="value"><![CDATA[3.5]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="RoadMap"
+	title="Road Map 2.0"
+	tooltip="Road Map"
+	icon="res/RoadMap/RoadMap.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/RoadMap/RoadMap</requireJs>
+
+	<cssInclude>res/RoadMap/RoadMap.css</cssInclude>
+	
+	
+	<property
+		id="DCleanAll"
+		type="boolean"
+		title="Clean All Elements"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DElementsContent"
+		type="String"
+		title="Steps"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSelectedKey"
+		type="String"
+		title="Selected Step Key"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="numberOfVisibleSteps"
+		type="int"
+		title="Number Of Visible Steps"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">230</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="DCleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DElementsContent"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="DSelectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="numberOfVisibleSteps"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="RSSFeedReader"
+	title="RSSFeedReader 2.0"
+	tooltip="RSSFeedReader"
+	icon="res/RSSFeedReader/RSSFeedReader.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/RSSFeedReader/RSSFeedReader</requireJs>
+
+	<cssInclude>res/RSSFeedReader/RSSFeedReader.css</cssInclude>
+	
+	
+	<property
+		id="cssUrl"
+		type="Url"
+		title="CSS URL"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="feedUrl"
+		type="Url"
+		title="RSS Feed URL"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="useBuildInXsl"
+		type="boolean"
+		title="Use Build-In Xsl File"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="xslUrl"
+		type="Url"
+		title="XSL URL"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">200</defaultValue>
+		
+		<defaultValue property="cssUrl"><![CDATA[]]></defaultValue>
+		<defaultValue property="feedUrl"><![CDATA[http://cdn.eex.com/rss/de/market.rss]]></defaultValue>
+		<defaultValue property="useBuildInXsl"><![CDATA[true]]></defaultValue>
+		<defaultValue property="xslUrl"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="SegmentedButton"
+	title="Segmented Button 2.0"
+	tooltip="Segmented Button"
+	icon="res/SegmentedButton/SegmentedButton.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/SegmentedButton/SegmentedButton</requireJs>
+
+	<cssInclude>res/SegmentedButton/SegmentedButton.css</cssInclude>
+	
+	
+	<property
+		id="DCleanAll"
+		type="boolean"
+		title="Clean All Nodes"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DDefaultImage"
+		type="Url"
+		title="Url For Default Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DElementsContent"
+		type="String"
+		title="Buttons"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DImageSize"
+		type="String"
+		title="Size Of The Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DPressedButtonKey"
+		type="String"
+		title="Technical Property For Pressed Button Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DPressedItemKey"
+		type="String"
+		title="Technical Property For Pressed Item Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DSelectedKeys"
+		type="String"
+		title="Technical Property For Selected Keys"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DSelectionType"
+		type="String"
+		title="Selection Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DWithImages"
+		type="boolean"
+		title="Use Images"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onButtonPressed"
+		type="ScriptText"
+		title="Event For On Button Pressed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onItemPressed"
+		type="ScriptText"
+		title="Event For On Item Pressed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelected"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">22</defaultValue>
+		
+		<defaultValue property="DCleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DDefaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="DElementsContent"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="DImageSize"><![CDATA[Size_16px]]></defaultValue>
+		<defaultValue property="DPressedButtonKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="DPressedItemKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="DSelectedKeys"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="DSelectionType"><![CDATA[Single]]></defaultValue>
+		<defaultValue property="DWithImages"><![CDATA[]]></defaultValue>
+		<defaultValue property="onButtonPressed"><![CDATA[]]></defaultValue>
+		<defaultValue property="onItemPressed"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelected"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="Slider"
+	title="Slider 2.0"
+	tooltip="Slider"
+	icon="res/Slider/Slider.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/Slider/Slider</requireJs>
+
+	<cssInclude>res/Slider/Slider.css</cssInclude>
+	
+	
+	<property
+		id="DLiveChangeActive"
+		type="boolean"
+		title="Activate Live Change Event (prototype)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="liveValue"
+		type="float"
+		title="First Value (Live)"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="max"
+		type="float"
+		title="Maximum Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="min"
+		type="float"
+		title="Minimum Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onChange"
+		type="ScriptText"
+		title="On Change"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onLiveChange"
+		type="ScriptText"
+		title="On Live Change"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="smallStepWidth"
+		type="float"
+		title="Small Step Width"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="stepLabels"
+		type="boolean"
+		title="Step Labels"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="totalUnits"
+		type="int"
+		title="Total Units"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="value"
+		type="float"
+		title="Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="vertical"
+		type="boolean"
+		title="Change To Vertical Orientation"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">30</defaultValue>
+		
+		<defaultValue property="DLiveChangeActive"><![CDATA[false]]></defaultValue>
+		<defaultValue property="liveValue"><![CDATA[0.0]]></defaultValue>
+		<defaultValue property="max"><![CDATA[100.0]]></defaultValue>
+		<defaultValue property="min"><![CDATA[0.0]]></defaultValue>
+		<defaultValue property="onChange"><![CDATA[]]></defaultValue>
+		<defaultValue property="onLiveChange"><![CDATA[]]></defaultValue>
+		<defaultValue property="smallStepWidth"><![CDATA[10]]></defaultValue>
+		<defaultValue property="stepLabels"><![CDATA[100]]></defaultValue>
+		<defaultValue property="totalUnits"><![CDATA[10]]></defaultValue>
+		<defaultValue property="value"><![CDATA[20.0]]></defaultValue>
+		<defaultValue property="vertical"><![CDATA[false]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="TextArea"
+	title="Text Area 2.0"
+	tooltip="Text Area"
+	icon="res/TextArea/TextArea.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/TextArea/TextArea</requireJs>
+
+	<cssInclude>res/TextArea/TextArea.css</cssInclude>
+	
+	
+	<property
+		id="editable"
+		type="boolean"
+		title="Editable"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="enabled"
+		type="boolean"
+		title="Enabled"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="maxLength"
+		type="int"
+		title="Maximal Length"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onValueChanged"
+		type="ScriptText"
+		title="Event For On Value Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="rows"
+		type="int"
+		title="Rows"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="value"
+		type="String"
+		title="Text Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="wrapping"
+		type="String"
+		title="Wrapping"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">230</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="editable"><![CDATA[true]]></defaultValue>
+		<defaultValue property="enabled"><![CDATA[true]]></defaultValue>
+		<defaultValue property="maxLength"><![CDATA[0]]></defaultValue>
+		<defaultValue property="onValueChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="rows"><![CDATA[2]]></defaultValue>
+		<defaultValue property="value"><![CDATA[]]></defaultValue>
+		<defaultValue property="wrapping"><![CDATA[None]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="TimeOut"
+	title="TimeOut (Timer) 2.0"
+	tooltip="Time Out (Timer)"
+	icon="res/TimeOut/TimeOut.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/TimeOut/TimeOut</requireJs>
+
+	<cssInclude>res/TimeOut/TimeOut.css</cssInclude>
+	
+	
+	<property
+		id="counterVisible"
+		type="boolean"
+		title="Show Counter"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="logoff"
+		type="String"
+		title="Logoff trigger"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="logoffText"
+		type="String"
+		title="Logoff Popup Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onTimeout"
+		type="ScriptText"
+		title="Event For On Timeout"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="periodic"
+		type="boolean"
+		title="Is periodic?"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="start"
+		type="String"
+		title="Start trigger"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="stop"
+		type="String"
+		title="Stop trigger"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="timer"
+		type="int"
+		title="Timeout after (ms)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		
+		<defaultValue property="counterVisible"><![CDATA[false]]></defaultValue>
+		<defaultValue property="logoff"><![CDATA[]]></defaultValue>
+		<defaultValue property="logoffText"><![CDATA[Session timeout - refresh the browser page.]]></defaultValue>
+		<defaultValue property="onTimeout"><![CDATA[]]></defaultValue>
+		<defaultValue property="periodic"><![CDATA[false]]></defaultValue>
+		<defaultValue property="start"><![CDATA[]]></defaultValue>
+		<defaultValue property="stop"><![CDATA[]]></defaultValue>
+		<defaultValue property="timer"><![CDATA[5000]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ToggleButton"
+	title="Toggle Button 2.0"
+	tooltip="Toggle Button"
+	icon="res/ToggleButton/ToggleButton.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ToggleButton/ToggleButton</requireJs>
+
+	<cssInclude>res/ToggleButton/ToggleButton.css</cssInclude>
+	
+	
+	<property
+		id="enabled"
+		type="boolean"
+		title="Enabled"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="icon"
+		type="Url"
+		title="Icon"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="iconHovered"
+		type="Url"
+		title="Icon Hovered"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="iconSelected"
+		type="Url"
+		title="Icon Selected"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onPress"
+		type="ScriptText"
+		title="Event For On Press"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="pressed"
+		type="boolean"
+		title="Pressed"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="text"
+		type="String"
+		title="Text Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="tooltip"
+		type="String"
+		title="Tooltip Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">80</defaultValue>
+		<defaultValue property="HEIGHT">22</defaultValue>
+		
+		<defaultValue property="enabled"><![CDATA[true]]></defaultValue>
+		<defaultValue property="icon"><![CDATA[]]></defaultValue>
+		<defaultValue property="iconHovered"><![CDATA[]]></defaultValue>
+		<defaultValue property="iconSelected"><![CDATA[]]></defaultValue>
+		<defaultValue property="onPress"><![CDATA[]]></defaultValue>
+		<defaultValue property="pressed"><![CDATA[false]]></defaultValue>
+		<defaultValue property="text"><![CDATA[]]></defaultValue>
+		<defaultValue property="tooltip"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="Tree"
+	title="Tree 2.0"
+	tooltip="Tree"
+	icon="res/Tree/Tree.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/Tree/Tree</requireJs>
+
+	<cssInclude>res/Tree/Tree.css</cssInclude>
+	
+	
+	<property
+		id="allowExpanding"
+		type="boolean"
+		title="Allow Expanding Nodes"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Nodes"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="defaultImage"
+		type="Url"
+		title="Url For Default Picture"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="expandNodes"
+		type="boolean"
+		title="Expand Nodes"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="expandedKey"
+		type="String"
+		title="Technical Proprty For Expanded Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="nodesContent"
+		type="String"
+		title="Nodes"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onFirstExpand"
+		type="ScriptText"
+		title="Event For On First Expand"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="roundtrip"
+		type="int"
+		title="Technical Proprty For Roundtrip"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Technical Proprty For Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">230</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="allowExpanding"><![CDATA[true]]></defaultValue>
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="defaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="expandNodes"><![CDATA[false]]></defaultValue>
+		<defaultValue property="expandedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="nodesContent"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="onFirstExpand"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="roundtrip"><![CDATA[0]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="TriStateCheckBox"
+	title="Tri State CheckBox 2.0"
+	tooltip="Tri State CheckBox"
+	icon="res/TriStateCheckBox/TriStateCheckBox.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/TriStateCheckBox/TriStateCheckBox</requireJs>
+
+	<cssInclude>res/TriStateCheckBox/TriStateCheckBox.css</cssInclude>
+	
+	
+	<property
+		id="editable"
+		type="boolean"
+		title="Editable"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="enabled"
+		type="boolean"
+		title="Enabled"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="selectionState"
+		type="String"
+		title="Tooltip"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="text"
+		type="String"
+		title="Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="tooltip"
+		type="String"
+		title="Tooltip"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">22</defaultValue>
+		
+		<defaultValue property="editable"><![CDATA[true]]></defaultValue>
+		<defaultValue property="enabled"><![CDATA[true]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectionState"><![CDATA[Unchecked]]></defaultValue>
+		<defaultValue property="text"><![CDATA[tri state value]]></defaultValue>
+		<defaultValue property="tooltip"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ValiInput"
+	title="Validated Input Field 2.0"
+	tooltip="Validated Input Field"
+	icon="res/ValiInput/ValiInput.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ValiInput/ValiInput</requireJs>
+
+	<cssInclude>res/ValiInput/ValiInput.css</cssInclude>
+	
+	
+	<property
+		id="DDefault"
+		type="String"
+		title="Default Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLength"
+		type="int"
+		title="Length"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DNumber"
+		type="float"
+		title="Number"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DTooltip"
+		type="String"
+		title="Tooltip"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DValidState"
+		type="String"
+		title="Valid State (for Custom)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DValidation"
+		type="String"
+		title="Validation Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DValue"
+		type="String"
+		title="Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onChanged"
+		type="ScriptText"
+		title="Event For On Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">22</defaultValue>
+		
+		<defaultValue property="DDefault"><![CDATA[]]></defaultValue>
+		<defaultValue property="DLength"><![CDATA[10]]></defaultValue>
+		<defaultValue property="DNumber"><![CDATA[10]]></defaultValue>
+		<defaultValue property="DTooltip"><![CDATA[]]></defaultValue>
+		<defaultValue property="DValidState"><![CDATA[None]]></defaultValue>
+		<defaultValue property="DValidation"><![CDATA[none]]></defaultValue>
+		<defaultValue property="DValue"><![CDATA[]]></defaultValue>
+		<defaultValue property="onChanged"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ValueHelpField"
+	title="Value Help Field 2.0"
+	tooltip="Value Help Field"
+	icon="res/ValueHelpField/ValueHelpField.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ValueHelpField/ValueHelpField</requireJs>
+
+	<cssInclude>res/ValueHelpField/ValueHelpField.css</cssInclude>
+	
+	
+	<property
+		id="editable"
+		type="boolean"
+		title="Editable"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="enabled"
+		type="boolean"
+		title="Enabled"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onChanged"
+		type="ScriptText"
+		title="Event For On Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onValueHelpRequest"
+		type="ScriptText"
+		title="Event For On Value Help Request"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="tooltip"
+		type="String"
+		title="Tooltip"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="value"
+		type="String"
+		title="Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">22</defaultValue>
+		
+		<defaultValue property="editable"><![CDATA[true]]></defaultValue>
+		<defaultValue property="enabled"><![CDATA[true]]></defaultValue>
+		<defaultValue property="onChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="onValueHelpRequest"><![CDATA[]]></defaultValue>
+		<defaultValue property="tooltip"><![CDATA[]]></defaultValue>
+		<defaultValue property="value"><![CDATA[some value]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="WorldTime"
+	title="World Time 2.0"
+	tooltip="World Time"
+	icon="res/WorldTime/WorldTime.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/WorldTime/WorldTime</requireJs>
+
+	<cssInclude>res/WorldTime/WorldTime.css</cssInclude>
+	
+	
+	<property
+		id="dateformat"
+		type="String"
+		title="Date Format"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="daylightsaving"
+		type="boolean"
+		title="Consider Daylight Saving"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="interval"
+		type="int"
+		title="Update Interval (in Ms)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="locale"
+		type="String"
+		title="Locale"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="showtimezonename"
+		type="boolean"
+		title="Show Timezone Name"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="timeformat"
+		type="String"
+		title="Time Format"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="utcoffset"
+		type="String"
+		title="UTC Offset"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">150</defaultValue>
+		<defaultValue property="HEIGHT">40</defaultValue>
+		
+		<defaultValue property="dateformat"><![CDATA[ddmmyy]]></defaultValue>
+		<defaultValue property="daylightsaving"><![CDATA[true]]></defaultValue>
+		<defaultValue property="interval"><![CDATA[5000]]></defaultValue>
+		<defaultValue property="locale"><![CDATA[deDE]]></defaultValue>
+		<defaultValue property="showtimezonename"><![CDATA[true]]></defaultValue>
+		<defaultValue property="timeformat"><![CDATA[hhmmss]]></defaultValue>
+		<defaultValue property="utcoffset"><![CDATA[0]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+</sdkExtension>

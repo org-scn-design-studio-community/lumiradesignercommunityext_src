@@ -1,0 +1,31 @@
+
+<component
+	id="ComponentManager"
+	title="Component Manager"
+	tooltip="Allows managing and listing of components"
+	icon="res/ComponentManager/ComponentManager.png"
+	handlerType="div"
+	group="TECHNICAL_COMPONENTS"
+	modes="commons m"
+>
+	<requireJs modes="commons m">res/ComponentManager/ComponentManager</requireJs>
+
+	<property
+		id="components"
+		type="String"
+		title="Technical property for list of nodes"
+		group="Display"
+		visible="false" />
+
+	<initialization>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		
+		<defaultValue property="components">{}</defaultValue>
+	</initialization>
+
+</component>

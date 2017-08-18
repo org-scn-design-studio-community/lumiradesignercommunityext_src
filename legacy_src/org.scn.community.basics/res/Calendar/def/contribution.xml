@@ -1,0 +1,179 @@
+
+<component
+	id="Calendar"
+	title="Calendar 2.0"
+	tooltip="Calendar"
+	icon="res/Calendar/Calendar.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/Calendar/Calendar</requireJs>
+
+	<cssInclude>res/Calendar/Calendar.css</cssInclude>
+	
+	
+	<property
+		id="DCurrentValue"
+		type="String"
+		title="Current Date Value YYYYMMDD"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSelectionType"
+		type="String"
+		title="Selection Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DValue"
+		type="String"
+		title="Date Single Value YYYYMMDD"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DValueF"
+		type="String"
+		title="Date Value Range From YYYYMMDD"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DValueT"
+		type="String"
+		title="Date Value Range To YYYYMMDD"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Marked Dates"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="firstDayOffset"
+		type="int"
+		title="First Day Offset (0 == Sunday)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="markedDates"
+		type="String"
+		title="Marked Dates"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="monthsPerRow"
+		type="int"
+		title="Months Per Row"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="monthsToDisplay"
+		type="int"
+		title="Months To Display"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onCurrentChanged"
+		type="ScriptText"
+		title="Event For On Current Value Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onRangeChanged"
+		type="ScriptText"
+		title="Event For On Value Change With Date Range"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onSingleChanged"
+		type="ScriptText"
+		title="Event For On Value Change With Single Date"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="singleRow"
+		type="boolean"
+		title="Single Row"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="weeksPerRow"
+		type="int"
+		title="Weeks Per Row"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">300</defaultValue>
+		
+		<defaultValue property="DCurrentValue"><![CDATA[TODAY]]></defaultValue>
+		<defaultValue property="DSelectionType"><![CDATA[Single]]></defaultValue>
+		<defaultValue property="DValue"><![CDATA[TODAY]]></defaultValue>
+		<defaultValue property="DValueF"><![CDATA[TODAY]]></defaultValue>
+		<defaultValue property="DValueT"><![CDATA[TODAY]]></defaultValue>
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="firstDayOffset"><![CDATA[1]]></defaultValue>
+		<defaultValue property="markedDates"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="monthsPerRow"><![CDATA[1]]></defaultValue>
+		<defaultValue property="monthsToDisplay"><![CDATA[1]]></defaultValue>
+		<defaultValue property="onCurrentChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="onRangeChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSingleChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="singleRow"><![CDATA[false]]></defaultValue>
+		<defaultValue property="weeksPerRow"><![CDATA[1]]></defaultValue>
+
+	</initialization>
+
+</component>

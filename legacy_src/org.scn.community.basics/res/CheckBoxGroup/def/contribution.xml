@@ -1,0 +1,111 @@
+
+<component
+	id="CheckBoxGroup"
+	title="Check Box Group"
+	tooltip="Check Box Group"
+	icon="res/CheckBoxGroup/CheckBoxGroup.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/CheckBoxGroup/CheckBoxGroup</requireJs>
+
+	<cssInclude>res/CheckBoxGroup/CheckBoxGroup.css</cssInclude>
+	
+	
+	<property
+		id="checkboxWidth"
+		type="int"
+		title="Checkbox Width (Horizontal)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Elements"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="elements"
+		type="String"
+		title="Elements"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="fallbackPicture"
+		type="String"
+		title="Fallback Picture Url"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="pictureSize"
+		type="String"
+		title="Size Of The Picture"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="selLayout"
+		type="String"
+		title="Layout"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="withPicture"
+		type="boolean"
+		title="Use Pictures"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">230</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="checkboxWidth"><![CDATA[225]]></defaultValue>
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="elements"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="fallbackPicture"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="pictureSize"><![CDATA[Size_16px]]></defaultValue>
+		<defaultValue property="selLayout"><![CDATA[VerticalLayout]]></defaultValue>
+		<defaultValue property="withPicture"><![CDATA[true]]></defaultValue>
+
+	</initialization>
+
+</component>

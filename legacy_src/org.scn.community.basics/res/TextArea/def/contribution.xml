@@ -1,0 +1,101 @@
+
+<component
+	id="TextArea"
+	title="Text Area 2.0"
+	tooltip="Text Area"
+	icon="res/TextArea/TextArea.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/TextArea/TextArea</requireJs>
+
+	<cssInclude>res/TextArea/TextArea.css</cssInclude>
+	
+	
+	<property
+		id="editable"
+		type="boolean"
+		title="Editable"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="enabled"
+		type="boolean"
+		title="Enabled"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="maxLength"
+		type="int"
+		title="Maximal Length"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onValueChanged"
+		type="ScriptText"
+		title="Event For On Value Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="rows"
+		type="int"
+		title="Rows"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="value"
+		type="String"
+		title="Text Value"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="wrapping"
+		type="String"
+		title="Wrapping"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">230</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="editable"><![CDATA[true]]></defaultValue>
+		<defaultValue property="enabled"><![CDATA[true]]></defaultValue>
+		<defaultValue property="maxLength"><![CDATA[0]]></defaultValue>
+		<defaultValue property="onValueChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="rows"><![CDATA[2]]></defaultValue>
+		<defaultValue property="value"><![CDATA[]]></defaultValue>
+		<defaultValue property="wrapping"><![CDATA[None]]></defaultValue>
+
+	</initialization>
+
+</component>

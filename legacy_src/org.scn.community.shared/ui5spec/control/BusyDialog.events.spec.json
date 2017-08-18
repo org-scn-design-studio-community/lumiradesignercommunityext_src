@@ -1,0 +1,16 @@
+{
+
+	"onClosed": {
+		"template": "ScriptText",
+        "type": "ScriptText",
+        "value": "",
+        "visible": true,
+        "opts": {
+            "desc": "On Closed",
+            "cat": "Events",
+            "tooltip": "Event triggered on Indicates if the close events are triggered by a user, pressing a cancel button or because the operation was terminated.This parameter is set to true if the close event is fired by user interaction.",
+            "noAps":true,
+            "noZtl":true
+        }
+    }
+}

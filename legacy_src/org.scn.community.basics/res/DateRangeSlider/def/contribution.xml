@@ -1,0 +1,181 @@
+
+<component
+	id="DateRangeSlider"
+	title="Date Range Slider 2.0"
+	tooltip="Date Range Slider"
+	icon="res/DateRangeSlider/DateRangeSlider.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/DateRangeSlider/DateRangeSlider</requireJs>
+
+	<cssInclude>res/DateRangeSlider/DateRangeSlider.css</cssInclude>
+	
+	
+	<property
+		id="DGranularity"
+		type="String"
+		title="Granularity"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangFormat"
+		type="boolean"
+		title="Language Dependent Format"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangPattern"
+		type="String"
+		title="Custom Format Pattern"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangRelative"
+		type="boolean"
+		title="Custom Format Relative"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DLangStyle"
+		type="String"
+		title="Custom Format Style"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DMax"
+		type="String"
+		title="Maximum Date"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DMin"
+		type="String"
+		title="Minimum Date"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DValue"
+		type="String"
+		title="First Date"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DValue2"
+		type="String"
+		title="Second Date"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onChange"
+		type="ScriptText"
+		title="On Change"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="showBubbles"
+		type="boolean"
+		title="Show Bubbles"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="smallStepWidth"
+		type="String"
+		title="Small Step Width"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="stepLabels"
+		type="boolean"
+		title="Step Labels"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="totalUnits"
+		type="int"
+		title="Total Units"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="vertical"
+		type="boolean"
+		title="Change To Vertical Orientation"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">30</defaultValue>
+		
+		<defaultValue property="DGranularity"><![CDATA[Day]]></defaultValue>
+		<defaultValue property="DLangFormat"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DLangPattern"><![CDATA[]]></defaultValue>
+		<defaultValue property="DLangRelative"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DLangStyle"><![CDATA[Short]]></defaultValue>
+		<defaultValue property="DMax"><![CDATA[]]></defaultValue>
+		<defaultValue property="DMin"><![CDATA[]]></defaultValue>
+		<defaultValue property="DValue"><![CDATA[]]></defaultValue>
+		<defaultValue property="DValue2"><![CDATA[]]></defaultValue>
+		<defaultValue property="onChange"><![CDATA[]]></defaultValue>
+		<defaultValue property="showBubbles"><![CDATA[true]]></defaultValue>
+		<defaultValue property="smallStepWidth"><![CDATA[1]]></defaultValue>
+		<defaultValue property="stepLabels"><![CDATA[]]></defaultValue>
+		<defaultValue property="totalUnits"><![CDATA[0]]></defaultValue>
+		<defaultValue property="vertical"><![CDATA[false]]></defaultValue>
+
+	</initialization>
+
+</component>

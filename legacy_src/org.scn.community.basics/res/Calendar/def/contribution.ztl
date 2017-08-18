@@ -1,0 +1,597 @@
+
+/**
+ * Generated ZTL Class for Calendar
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.Calendar extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Current Date Value YYYYMMDD Property
+	 */	
+	void setCurrentValue( /**Current Date Value YYYYMMDD*/ String currentValue){*
+		this.DCurrentValue = currentValue;
+	*}
+
+	/**
+	 * Gets Current Date Value YYYYMMDD Property
+	 */	
+	String getCurrentValue() {*
+		return this.DCurrentValue;
+	*}
+
+	/**
+	 * Sets Selection Type Property by String
+	 */	
+	void setSelectionTypeByString( /**Selection Type*/ String selectionType){*
+		this.DSelectionType = selectionType;
+	*}
+
+	/**
+	 * Gets Selection Type Property as String
+	 */	
+	String getSelectionTypeAsString() {*
+		return this.DSelectionType;
+	*}
+	
+	/**
+	 * Sets Selection Type Property by Choice Option
+	 */	
+	void setSelectionType( /**Selection Type*/ org_scn_community_shared_SelectionTypeEnumfield selectionType){*
+		this.DSelectionType = selectionType;
+	*}
+	
+	/**
+	 * Gets Selection Type Property as Choice Option
+	 */	
+	org_scn_community_shared_SelectionTypeEnumfield getSelectionType() {*
+		return this.DSelectionType;
+	*}
+
+	/**
+	 * Sets Date Single Value YYYYMMDD Property
+	 */	
+	void setValue( /**Date Single Value YYYYMMDD*/ String value){*
+		this.DValue = value;
+	*}
+
+	/**
+	 * Gets Date Single Value YYYYMMDD Property
+	 */	
+	String getValue() {*
+		return this.DValue;
+	*}
+
+	/**
+	 * Sets Date Value Range From YYYYMMDD Property
+	 */	
+	void setValueF( /**Date Value Range From YYYYMMDD*/ String valueF){*
+		this.DValueF = valueF;
+	*}
+
+	/**
+	 * Gets Date Value Range From YYYYMMDD Property
+	 */	
+	String getValueF() {*
+		return this.DValueF;
+	*}
+
+	/**
+	 * Sets Date Value Range To YYYYMMDD Property
+	 */	
+	void setValueT( /**Date Value Range To YYYYMMDD*/ String valueT){*
+		this.DValueT = valueT;
+	*}
+
+	/**
+	 * Gets Date Value Range To YYYYMMDD Property
+	 */	
+	String getValueT() {*
+		return this.DValueT;
+	*}
+
+	/**
+	 * Clean All Marked Dates from the Array.
+	 */	
+	void cleanAllElements (){*
+		this.cleanAll = true;
+
+		var elementsArray = [];
+		this.markedDates = JSON.stringify(elementsArray);
+	*}
+
+	/**
+	 * Remove All Marked Dates from the Array.
+	 * You can use also <code>cleanAllElements()</code>
+	 */	
+	@Visibility(deprecated)
+	void removeAllElements (){*
+		this.cleanAll = true;
+
+		var elementsArray = [];
+		this.markedDates = JSON.stringify(elementsArray);
+	*}
+
+	/**
+	 * Sets First Day Offset (0 == Sunday) Property
+	 */	
+	void setFirstDayOffset( /**First Day Offset (0 == Sunday)*/ int firstDayOffset){*
+		this.firstDayOffset = firstDayOffset;
+	*}
+
+	/**
+	 * Gets First Day Offset (0 == Sunday) Property
+	 */	
+	int getFirstDayOffset() {*
+		return this.firstDayOffset;
+	*}
+
+	/** Adds a root element containing key [String], mark [String], inactive [boolean].
+
+ 	<example>
+	You want to add 2 root elements
+	<code>
+	CALENDAR.addElement(key [String], mark [String], inactive [boolean]);<br>
+	CALENDAR.addElement(key [String], mark [String], inactive [boolean]);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void addElement (
+			/**Unique Date [YYYYMMDD]*/String key, 
+			/**Mark*/String mark, 
+			/**Incative*/boolean inactive
+			) {*
+
+		
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			mark:mark, 
+			inactive:inactive
+			};
+
+		if (this.markedDates === undefined || this.markedDates === "" || this.markedDates === "<delete>"){
+			this.markedDates = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.markedDates);
+
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				alreadyFound = true;
+				break;
+			}
+		}
+
+		if(!alreadyFound) {
+			elementsJson.push(itemDef);
+		}
+
+		this.markedDates = JSON.stringify(elementsJson);
+	*}
+	
+	/** Removes a root element by key.
+
+ 	<example>
+	You want to remove root element
+	<code>
+	CALENDAR.removeElement(String key);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void removeElement (
+			String key
+			) {*
+
+		if (this.markedDates === undefined || this.markedDates === "" || this.markedDates === "<delete>"){
+			this.markedDates = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.markedDates);
+
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson.splice(i,1);
+				break;
+			}
+		}
+
+		// remove all items with this parent
+		for (var i = elementsJson.length - 1; i >= 0; i--){
+			if (elementsJson[i].parentKey == key) {
+				elementsJson.splice(i,1);
+			}
+		}
+
+		this.markedDates = JSON.stringify(elementsJson);
+	*}
+
+	/** Insert a root element by index.
+
+ 	<example>
+	You want to insert a root element
+	<code>
+	CALENDAR.insertElement(index [int], key [String], mark [String], inactive [boolean]);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void insertElement (
+			/**Index to Insert (0-based)*/int insertionIndex0based,
+			/**Unique Date [YYYYMMDD]*/String key, 
+			/**Mark*/String mark, 
+			/**Incative*/boolean inactive
+			) {*
+
+		if (this.markedDates === undefined || this.markedDates === "" || this.markedDates === "<delete>"){
+			this.markedDates = "[]";
+		}
+		
+		var elementsJson = JSON.parse(this.markedDates);
+		var newElementsJson = [];
+
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			mark:mark, 
+			inactive:inactive
+		};
+
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (i == insertionIndex0based) {
+				newElementsJson.push(itemDef);
+			}
+
+			newElementsJson.push(elementsJson[i]);
+		}
+
+		this.markedDates = JSON.stringify(newElementsJson);
+	*}
+
+	/**
+	 * Updates given Element<br/>
+	 */
+	void updateElement (
+			/**Unique Date [YYYYMMDD]*/String key, 
+			/**Mark*/String mark, 
+			/**Incative*/boolean inactive
+			) 
+	{*
+		if (this.markedDates === undefined || this.markedDates === "" || this.markedDates === "<delete>"){
+			this.markedDates = "[]";
+		}
+
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			mark:mark, 
+			inactive:inactive
+		};
+
+		var elementsJson = JSON.parse(this.markedDates);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == elementKey) {
+				elementsJson[i] = itemDef;
+				break;
+			}
+		}
+
+		this.markedDates = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Returns Key at given Index<br/>
+	 */
+	String getElementAtIndex (
+			/**Index to pick the key*/ int index0based
+			) 
+	{*
+		if (this.markedDates === undefined || this.markedDates === "" || this.markedDates === "<delete>"){
+			this.markedDates = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.markedDates);
+
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (index0based == i) {
+				return elementsJson[i].key;
+			}
+		}
+
+		return "";
+	*}
+
+	/**
+	 * Gets Elements As JSON String
+	 */	
+	String getElementsAsJSON() {*
+		var jsonObject = JSON.parse(this.markedDates);
+		return JSON.stringify(jsonObject, null, 4);
+	*}
+
+	/**
+	 * Cleans All Elements
+	 */	
+	String cleanAllElements() {*
+		this.markedDates = "[]";
+	*}
+	
+	/**
+	 * Sets the Mark for Element keys<br/>
+	 */
+	void setElementMarks (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Mark */ String mark
+			) 
+	{*
+		if (this.markedDates === undefined || this.markedDates === "" || this.markedDates === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.markedDates);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].mark = mark;
+					break;
+				}
+			}
+		}
+		
+		this.markedDates = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Mark for Element Key<br/>
+	 */
+	void setElementMark (
+			/**/ String key,
+			/**/ String mark
+			) 
+	{*
+		if (this.markedDates === undefined || this.markedDates === "" || this.markedDates === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.markedDates);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].mark = mark;
+				break;
+			}
+		}
+
+		this.markedDates = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Mark for Element Key<br/>
+	 */
+	String getElementMark (
+			/**/ String key
+			) 
+	{*
+		if (this.markedDates === undefined || this.markedDates === "" || this.markedDates === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.markedDates);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].mark;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Inactive for Element keys<br/>
+	 */
+	void setElementInactives (
+			/**/ String keys,
+			/**/ String separator
+			) 
+	{*
+		if (this.markedDates === undefined || this.markedDates === "" || this.markedDates === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.markedDates);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			// clean all
+			elementsJson[i].inactive = false;
+			
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].inactive = true;
+					break;
+				}
+			}
+		}
+		
+		this.markedDates = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Inactive for Element Key<br/>
+	 */
+	void setElementInactive (
+			/**/ String key,
+			/**/ boolean inactive
+			) 
+	{*
+		if (this.markedDates === undefined || this.markedDates === "" || this.markedDates === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.markedDates);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].inactive = inactive;
+				break;
+			}
+		}
+
+		this.markedDates = JSON.stringify(elementsJson);
+	*}
+
+		
+	/**
+	 * Clean all Inactive of Element keys<br/>
+	 */
+	void cleanAllElementInactives (
+			) 
+	{*
+		if (this.markedDates === undefined || this.markedDates === "" || this.markedDates === "<delete>"){
+			return;
+		}
+	
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			// clean all
+			elementsJson[i].inactive = false;
+		}
+		
+		this.markedDates = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Inactive for Element Key<br/>
+	 */
+	String getElementInactive (
+			/**/ String key
+			) 
+	{*
+		if (this.markedDates === undefined || this.markedDates === "" || this.markedDates === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.markedDates);
+
+		var value = undefined;
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].inactive;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+
+	/**
+	 * Returns the Inactive keys<br/>
+	 */
+	org.scn.community.shared.KeyArray getElementInactiveKeysArray (
+			) 
+	{*
+		if (this.markedDates === undefined || this.markedDates === "" || this.markedDates === "<delete>"){
+			return [];
+		}
+		
+		var elementsJson = JSON.parse(this.markedDates);
+		
+		var newElementsJson = [];
+		
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].inactive == true) {
+				newElementsJson.push({"key": elementsJson[i].key});
+			}
+		}
+		
+		return newElementsJson;
+	*}
+
+
+
+	/**
+	 * Sets Months Per Row Property
+	 */	
+	void setMonthsPerRow( /**Months Per Row*/ int monthsPerRow){*
+		this.monthsPerRow = monthsPerRow;
+	*}
+
+	/**
+	 * Gets Months Per Row Property
+	 */	
+	int getMonthsPerRow() {*
+		return this.monthsPerRow;
+	*}
+
+	/**
+	 * Sets Months To Display Property
+	 */	
+	void setMonthsToDisplay( /**Months To Display*/ int monthsToDisplay){*
+		this.monthsToDisplay = monthsToDisplay;
+	*}
+
+	/**
+	 * Gets Months To Display Property
+	 */	
+	int getMonthsToDisplay() {*
+		return this.monthsToDisplay;
+	*}
+
+
+
+
+
+
+
+	/**
+	 * Sets Single Row Property
+	 */	
+	void setSingleRow( /**Single Row*/ boolean singleRow){*
+		this.singleRow = singleRow;
+	*}
+
+	/**
+	 * Gets Single Row Property
+	 */	
+	boolean isSingleRow() {*
+		return this.singleRow;
+	*}
+
+	/**
+	 * Sets Weeks Per Row Property
+	 */	
+	void setWeeksPerRow( /**Weeks Per Row*/ int weeksPerRow){*
+		this.weeksPerRow = weeksPerRow;
+	*}
+
+	/**
+	 * Gets Weeks Per Row Property
+	 */	
+	int getWeeksPerRow() {*
+		return this.weeksPerRow;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}

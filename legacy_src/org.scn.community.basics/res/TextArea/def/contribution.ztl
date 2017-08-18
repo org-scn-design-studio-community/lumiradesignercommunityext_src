@@ -1,0 +1,117 @@
+
+/**
+ * Generated ZTL Class for TextArea
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.TextArea extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Editable Property
+	 */	
+	void setEditable( /**Editable*/ boolean editable){*
+		this.editable = editable;
+	*}
+
+	/**
+	 * Gets Editable Property
+	 */	
+	boolean isEditable() {*
+		return this.editable;
+	*}
+
+	/**
+	 * Sets Enabled Property
+	 */	
+	void setEnabled( /**Enabled*/ boolean enabled){*
+		this.enabled = enabled;
+	*}
+
+	/**
+	 * Gets Enabled Property
+	 */	
+	boolean isEnabled() {*
+		return this.enabled;
+	*}
+
+	/**
+	 * Sets Maximal Length Property
+	 */	
+	void setMaxLength( /**Maximal Length*/ int maxLength){*
+		this.maxLength = maxLength;
+	*}
+
+	/**
+	 * Gets Maximal Length Property
+	 */	
+	int getMaxLength() {*
+		return this.maxLength;
+	*}
+
+
+
+	/**
+	 * Sets Rows Property
+	 */	
+	void setRows( /**Rows*/ int rows){*
+		this.rows = rows;
+	*}
+
+	/**
+	 * Gets Rows Property
+	 */	
+	int getRows() {*
+		return this.rows;
+	*}
+
+	/**
+	 * Sets Text Value Property
+	 */	
+	void setValue( /**Text Value*/ String value){*
+		this.value = value;
+	*}
+
+	/**
+	 * Gets Text Value Property
+	 */	
+	String getValue() {*
+		return this.value;
+	*}
+
+	/**
+	 * Sets Wrapping Property by String
+	 */	
+	void setWrappingByString( /**Wrapping*/ String wrapping){*
+		this.wrapping = wrapping;
+	*}
+
+	/**
+	 * Gets Wrapping Property as String
+	 */	
+	String getWrappingAsString() {*
+		return this.wrapping;
+	*}
+	
+	/**
+	 * Sets Wrapping Property by Choice Option
+	 */	
+	void setWrapping( /**Wrapping*/ org_scn_community_shared_WrappingEnumfield wrapping){*
+		this.wrapping = wrapping;
+	*}
+	
+	/**
+	 * Gets Wrapping Property as Choice Option
+	 */	
+	org_scn_community_shared_WrappingEnumfield getWrapping() {*
+		return this.wrapping;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+	/**
+	 * Appends Text Value to the End
+	 */	
+	void appendValue( /**Text Value to Append*/ String value){*
+		this.value = this.value + value;
+	*}
+}

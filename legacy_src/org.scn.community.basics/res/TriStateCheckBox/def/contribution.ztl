@@ -1,0 +1,98 @@
+
+/**
+ * Generated ZTL Class for TriStateCheckBox
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.TriStateCheckBox extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Editable Property
+	 */	
+	void setEditable( /**Editable*/ boolean editable){*
+		this.editable = editable;
+	*}
+
+	/**
+	 * Gets Editable Property
+	 */	
+	boolean isEditable() {*
+		return this.editable;
+	*}
+
+	/**
+	 * Sets Enabled Property
+	 */	
+	void setEnabled( /**Enabled*/ boolean enabled){*
+		this.enabled = enabled;
+	*}
+
+	/**
+	 * Gets Enabled Property
+	 */	
+	boolean isEnabled() {*
+		return this.enabled;
+	*}
+
+
+
+	/**
+	 * Sets Tooltip Property by String
+	 */	
+	void setSelectionStateByString( /**Tooltip*/ String selectionState){*
+		this.selectionState = selectionState;
+	*}
+
+	/**
+	 * Gets Tooltip Property as String
+	 */	
+	String getSelectionStateAsString() {*
+		return this.selectionState;
+	*}
+	
+	/**
+	 * Sets Tooltip Property by Choice Option
+	 */	
+	void setSelectionState( /**Tooltip*/ org_scn_community_shared_SelectionsStateEnumfield selectionState){*
+		this.selectionState = selectionState;
+	*}
+	
+	/**
+	 * Gets Tooltip Property as Choice Option
+	 */	
+	org_scn_community_shared_SelectionsStateEnumfield getSelectionState() {*
+		return this.selectionState;
+	*}
+
+	/**
+	 * Sets Value Property
+	 */	
+	void setText( /**Value*/ String text){*
+		this.text = text;
+	*}
+
+	/**
+	 * Gets Value Property
+	 */	
+	String getText() {*
+		return this.text;
+	*}
+
+	/**
+	 * Sets Tooltip Property
+	 */	
+	void setTooltip( /**Tooltip*/ String tooltip){*
+		this.tooltip = tooltip;
+	*}
+
+	/**
+	 * Gets Tooltip Property
+	 */	
+	String getTooltip() {*
+		return this.tooltip;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}

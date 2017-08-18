@@ -1,0 +1,21 @@
+	/**
+	 * Clean All %PROPERTY_REF_DESC% from the Array.
+	 */	
+	void %PROPERTY_CAPITAL_CLEAN% (){*
+		this.%PROPERTY_CAPITAL% = true;
+
+		var elementsArray = %PROPERTY_REF_INIT%;
+		this.%PROPERTY_CAPITAL_REF% = JSON.stringify(elementsArray);
+	*}
+
+	/**
+	 * Remove All %PROPERTY_REF_DESC% from the Array.
+	 * You can use also <code>cleanAllElements()</code>
+	 */	
+	@Visibility(deprecated)
+	void %PROPERTY_CAPITAL_REMOVE% (){*
+		this.%PROPERTY_CAPITAL% = true;
+
+		var elementsArray = %PROPERTY_REF_INIT%;
+		this.%PROPERTY_CAPITAL_REF% = JSON.stringify(elementsArray);
+	*}

@@ -1,0 +1,13 @@
+
+<component
+		id="Pictogram"
+		title="Pictogram"
+		icon="res/Pictogram/Pictogram.png"
+		handlerType="div"
+		modes="commons m"
+		propertySheetPath="aps/PropertyPage.html"
+		group="ScnCommunityVisualizations"
+		databound="true"
+>
+	<requireJs modes="commons m">res/Pictogram/Pictogram</requireJs>
+	

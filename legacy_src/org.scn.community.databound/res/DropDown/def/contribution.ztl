@@ -1,0 +1,224 @@
+
+/**
+ * Generated ZTL Class for DropDown
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.databound.DropDown extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Binding Mode (metadata, Resultset) Property by String
+	 */	
+	void setBindingModeByString( /**Binding Mode (metadata, Resultset)*/ String bindingMode){*
+		this.DBindingMode = bindingMode;
+	*}
+
+	/**
+	 * Gets Binding Mode (metadata, Resultset) Property as String
+	 */	
+	String getBindingModeAsString() {*
+		return this.DBindingMode;
+	*}
+	
+	/**
+	 * Sets Binding Mode (metadata, Resultset) Property by Choice Option
+	 */	
+	void setBindingMode( /**Binding Mode (metadata, Resultset)*/ org_scn_community_shared_Enumfield bindingMode){*
+		this.DBindingMode = bindingMode;
+	*}
+	
+	/**
+	 * Gets Binding Mode (metadata, Resultset) Property as Choice Option
+	 */	
+	org_scn_community_shared_Enumfield getBindingMode() {*
+		return this.DBindingMode;
+	*}
+
+	/**
+	 * Sets Selected Dimension Property
+	 */	
+	void setDimension( /**Selected Dimension*/ String dimension){*
+		this.DDimension = dimension;
+	*}
+
+	/**
+	 * Gets Selected Dimension Property
+	 */	
+	String getDimension() {*
+		return this.DDimension;
+	*}
+
+	/**
+	 * Gets Technical Proprty For Pause Refresh Property
+	 */	
+	boolean isDoRefresh() {*
+		return this.DDoRefresh;
+	*}
+
+	/**
+	 * Gets Master Data Elements Property
+	 */	
+	String getElements() {*
+		return this.DElements;
+	*}
+
+	/**
+	 * Sets Maximum Numner Of Members Property
+	 */	
+	void setMaxMembers( /**Maximum Numner Of Members*/ int maxMembers){*
+		this.DMaxMembers = maxMembers;
+	*}
+
+	/**
+	 * Gets Maximum Numner Of Members Property
+	 */	
+	int getMaxMembers() {*
+		return this.DMaxMembers;
+	*}
+
+	/**
+	 * Gets Technical Proprty For Selected Key Property
+	 */	
+	String getSelectedKey() {*
+		return this.DSelectedKey;
+	*}
+
+	/**
+	 * Gets Technical Proprty For Selected Key Property
+	 */	
+	String getSelectedKeyExt() {*
+		return this.DSelectedKeyExt;
+	*}
+
+	/**
+	 * Gets Technical Proprty For Selected External String Full Property
+	 */	
+	String getSelectedKeyExtFull() {*
+		return this.DSelectedKeyExtFull;
+	*}
+
+	/**
+	 * Gets Technical Proprty For Selected Text Property
+	 */	
+	String getSelectedText() {*
+		return this.DSelectedText;
+	*}
+
+	/**
+	 * Sets Sorting By Value | Defalut Property by String
+	 */	
+	void setSortingByString( /**Sorting By Value | Defalut*/ String sorting){*
+		this.DSorting = sorting;
+	*}
+
+	/**
+	 * Gets Sorting By Value | Defalut Property as String
+	 */	
+	String getSortingAsString() {*
+		return this.DSorting;
+	*}
+	
+	/**
+	 * Sets Sorting By Value | Defalut Property by Choice Option
+	 */	
+	void setSorting( /**Sorting By Value | Defalut*/ org_scn_community_shared_Enumfield sorting){*
+		this.DSorting = sorting;
+	*}
+	
+	/**
+	 * Gets Sorting By Value | Defalut Property as Choice Option
+	 */	
+	org_scn_community_shared_Enumfield getSorting() {*
+		return this.DSorting;
+	*}
+
+	/**
+	 * Sets Top X, Bottom X Or Both Property by String
+	 */	
+	void setTopBottomByString( /**Top X, Bottom X Or Both*/ String topBottom){*
+		this.DTopBottom = topBottom;
+	*}
+
+	/**
+	 * Gets Top X, Bottom X Or Both Property as String
+	 */	
+	String getTopBottomAsString() {*
+		return this.DTopBottom;
+	*}
+	
+	/**
+	 * Sets Top X, Bottom X Or Both Property by Choice Option
+	 */	
+	void setTopBottom( /**Top X, Bottom X Or Both*/ org_scn_community_shared_MemberSelectionEnumfield topBottom){*
+		this.DTopBottom = topBottom;
+	*}
+	
+	/**
+	 * Gets Top X, Bottom X Or Both Property as Choice Option
+	 */	
+	org_scn_community_shared_MemberSelectionEnumfield getTopBottom() {*
+		return this.DTopBottom;
+	*}
+
+
+
+
+
+
+
+
+
+
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+	void private_onSelectionChanged () {*
+		var key = this.getSelectedKey();
+	
+		this.internalWriteLog("Internal Selection on Dimension: " + this.getDimension() + " | " + key);
+
+		if(key == "-CLEAR-") {
+			this.getDataSource().clearFilter(this.getDimension());
+		} else {
+			this.getDataSource().setFilter(this.getDimension(), key);	
+		}
+	*}
+	
+	void private_onBeforeRender() {*
+		
+	*}
+	
+	void reloadDataSource() {*
+		// unfortunately this does not work correctly as this method is too late included (as first method on rendering, instead on before rendering)
+		// this causes incorrect events in a phase where events are not allowed any more... (error: DS_1 cannot be changed in rendering phase)
+		// workaround is to call once explicitelly "getMembers" on this dimension
+		if(this.DBindingMode == "Master Data") {
+			this.internalWriteLog("Call Members on Dimension: " + this.getDimension() + " | " + this.DMaxMembers);
+			this.DElements = this.superReadMembers(this.getDimension(), this.DMaxMembers);	
+		}
+	
+		// check current selection from data source
+		var selectionExt = this.getDataSource().getFilterExt(this.getDimension());
+		this.internalWriteLog("Selection on Dimension: " + this.getDimension() + " | " + selectionExt);
+
+		this.DSelectedKeyExtFull = selectionExt;
+		
+		// only single member
+		if(selectionExt.indexOf(";") == -1 && selectionExt.indexOf(" - ") == -1) {
+			this.DSelectedKeyExt = selectionExt;	
+		} else {
+			this.DSelectedKeyExt = "";
+		}
+	*}
+
+	/** sets the pause refresh flag */
+	void pauseRefresh () {*
+		this.DDoRefresh = false;	
+	*}
+
+	/** sets the pause refresh flag */
+	void allowRefresh () {*
+		this.DDoRefresh = true;	
+	*}
+
+}

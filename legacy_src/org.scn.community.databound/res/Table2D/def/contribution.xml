@@ -1,0 +1,42 @@
+
+<component
+		id="Table2D"
+		title="2D Crosstab 2.0"
+		icon="res/Table2D/Table2D.png"
+		handlerType="div"
+		modes="commons m"
+		propertySheetPath="aps/PropertyPage.html"
+		group="ScnCommunityVisualizations"
+		databound="true"
+>
+	<requireJs modes="commons m">res/Table2D/Table2D</requireJs>
+	<!-- Base Databound Properties -->
+	<property
+			id="data"
+			title="Data Selection"
+			type="ResultSet"
+			group="DataBinding">
+			<option name="includeFormattedData" value="false"/>
+			<option name="includeData" value="true"/>
+	</property>
+	<property id="ignoreTotals" type="boolean" title = "Ignore Totals" visible="false" group="DataBinding"/>
+	<property id="ignoreExpandedNodes" type="boolean" title = "Ignore Expanded Nodes" visible="false" group="DataBinding"/>
+	<property id="swapAxes" type="boolean" title = "Swap Axes" visible="false" group="DataBinding"/>
+	<property id="useMockData" type="boolean" title = "Use Mock Data" visible="false" group="DataBinding"/>
+	<!-- End of Base Databound Properties -->
+	<!-- Begin of 2D Crosstab Properties -->
+	<property id="onSelect"	title="On Select" type="ScriptText"	group="Events"/>
+	<!-- <property id="concatenateDimensions" type="boolean" title = "Concatenate Dimensions"/> -->
+	<!-- End of 2D Crosstab Properties -->
+	<initialization>
+		<!-- Databound Defaults -->
+		<defaultValue property="ignoreTotals">true</defaultValue>
+		<defaultValue property="ignoreExpandedNodes">true</defaultValue>
+		<defaultValue property="swapAxes">false</defaultValue>
+		<defaultValue property="useMockData">true</defaultValue>
+		<!-- End of Databound Defaults -->
+		<!-- Begin of 2D Crosstab Defaults -->
+				
+		<!-- End of 2D Crosstab Defaults -->
+	</initialization>
+</component>

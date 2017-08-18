@@ -1,0 +1,81 @@
+
+<component
+	id="RoadMap"
+	title="Road Map 2.0"
+	tooltip="Road Map"
+	icon="res/RoadMap/RoadMap.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/RoadMap/RoadMap</requireJs>
+
+	<cssInclude>res/RoadMap/RoadMap.css</cssInclude>
+	
+	
+	<property
+		id="DCleanAll"
+		type="boolean"
+		title="Clean All Elements"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DElementsContent"
+		type="String"
+		title="Steps"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSelectedKey"
+		type="String"
+		title="Selected Step Key"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="numberOfVisibleSteps"
+		type="int"
+		title="Number Of Visible Steps"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">230</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="DCleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DElementsContent"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="DSelectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="numberOfVisibleSteps"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

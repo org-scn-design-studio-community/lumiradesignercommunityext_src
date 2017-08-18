@@ -1,0 +1,18 @@
+{
+	"id": "JsonObject",
+	"title": "Json Object",
+	"tooltip": "Utility for work with Json Object",
+	"handlerType": "div",
+	"group": "TECHNICAL_COMPONENTS",
+	"package": "utils",
+	"extension": "Component",
+	"databound": false,
+	"modes":"commons m",
+
+	"require": 
+	[
+	],
+	
+	"width": "10",
+	"height": "10"
+}

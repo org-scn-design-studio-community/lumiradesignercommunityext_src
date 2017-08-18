@@ -1,0 +1,68 @@
+
+/**
+ * Generated ZTL Class for RSSFeedReader
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.RSSFeedReader extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets CSS URL Property
+	 */	
+	void setCssUrl( /**CSS URL*/ String cssUrl){*
+		this.cssUrl = cssUrl;
+	*}
+
+	/**
+	 * Gets CSS URL Property
+	 */	
+	String getCssUrl() {*
+		return this.cssUrl;
+	*}
+
+	/**
+	 * Sets RSS Feed URL Property
+	 */	
+	void setFeedUrl( /**RSS Feed URL*/ String feedUrl){*
+		this.feedUrl = feedUrl;
+	*}
+
+	/**
+	 * Gets RSS Feed URL Property
+	 */	
+	String getFeedUrl() {*
+		return this.feedUrl;
+	*}
+
+	/**
+	 * Sets Use Build-In Xsl File Property
+	 */	
+	void setUseBuildInXsl( /**Use Build-In Xsl File*/ boolean useBuildInXsl){*
+		this.useBuildInXsl = useBuildInXsl;
+	*}
+
+	/**
+	 * Gets Use Build-In Xsl File Property
+	 */	
+	boolean isUseBuildInXsl() {*
+		return this.useBuildInXsl;
+	*}
+
+	/**
+	 * Sets XSL URL Property
+	 */	
+	void setXslUrl( /**XSL URL*/ String xslUrl){*
+		this.xslUrl = xslUrl;
+	*}
+
+	/**
+	 * Gets XSL URL Property
+	 */	
+	String getXslUrl() {*
+		return this.xslUrl;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}

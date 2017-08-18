@@ -1,0 +1,61 @@
+
+<component
+	id="Paginator"
+	title="Paginator 2.0"
+	tooltip="Paginator"
+	icon="res/Paginator/Paginator.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/Paginator/Paginator</requireJs>
+
+	<cssInclude>res/Paginator/Paginator.css</cssInclude>
+	
+	
+	<property
+		id="currentPage"
+		type="int"
+		title="Current Page"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="numberOfPages"
+		type="int"
+		title="Number Of Pages"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onPageChange"
+		type="ScriptText"
+		title="On Page Change"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">270</defaultValue>
+		<defaultValue property="HEIGHT">20</defaultValue>
+		
+		<defaultValue property="currentPage"><![CDATA[0]]></defaultValue>
+		<defaultValue property="numberOfPages"><![CDATA[3]]></defaultValue>
+		<defaultValue property="onPageChange"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

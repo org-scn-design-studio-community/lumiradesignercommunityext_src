@@ -1,0 +1,11 @@
+/**
+ * Class for Pictogram
+ */
+class org.scn.community.databound.LeafletMap extends org.scn.community.shared.Component {
+	/**
+	Debug
+	*/
+	String setBIAL(/* Debug */ String bial) {*
+		return JSON.stringify(eval(bial));
+	*}
+}

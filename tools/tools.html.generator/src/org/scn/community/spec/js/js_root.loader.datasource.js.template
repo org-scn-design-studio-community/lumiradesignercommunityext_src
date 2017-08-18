@@ -1,0 +1,1 @@
+sap.designstudio.sdk.DataBuffer.subclass(myComponentData.fullComponentName, myComponentData.instance);

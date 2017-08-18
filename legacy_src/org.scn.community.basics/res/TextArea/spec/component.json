@@ -1,0 +1,24 @@
+{
+	"id": "TextArea",
+	"title": "Text Area 2.0",
+	"tooltip": "Text Area",
+	"handlerType": "sapui5",
+	"parentControl": "contextO.TextArea",
+	"isUniControl": "TextArea",
+	"group": "ScnCommunityBasics",
+	"package": "basics",
+	"extension": "Component",
+	"databound": false,
+	"modes": "commons m",
+
+	"require": 
+	[
+		{
+			"space" : "known",
+			"id" : "common_basics",
+		}
+	],
+	
+	"width": "230",
+	"height": "400"
+}

@@ -1,0 +1,1161 @@
+class org.scn.community.utils.KeyText {
+	String key;
+	String text;
+}
+
+class org.scn.community.utils.DataRow {
+	String key;
+	org.scn.community.utils.KeyTextArray keys;
+	String getDimensionValueKey( /**Dimension Key**/ String dimensionKey){* *}
+	String getDimensionValueText( /**Dimension Key**/ String dimensionKey){* *}
+	float getMeasureValue( /**Measure Key**/ String measureKey){* *}
+	String getMeasureFormattedValue( /**Measure Key**/ String measureKey){* *}
+}
+class org.scn.community.utils.KeyTextArray extends Array {
+	org.scn.community.utils.KeyTextArray (org.scn.community.utils.KeyText b);
+	org.scn.community.utils.KeyText atIndex(int index) {* *}
+}
+class org.scn.community.utils.DataRowArray extends Array {
+	org.scn.community.utils.DataRowArray (org.scn.community.utils.DataRow b);
+	org.scn.community.utils.DataRow atIndex(int index) {* *}
+	org.scn.community.utils.DataRowArray containing(Object options) {* *}
+	org.scn.community.utils.KeyTextArray distinctMembers(String dimensionKey);
+}
+class org.scn.community.utils.DataIterator extends org.scn.community.shared.Component {
+	Object initializeOptions(){*
+		var options = {};
+		options.iMaxNumber = 100;
+		options.iTopBottom = "Both";
+		options.iSortBy = "Default";
+		options.iDuplicates = "Ignore";
+		options.iNumberOfDecimals = 2;
+		options.allKeys = false;
+		options.idPrefix = "";
+		options.iDisplayText = "Text";
+		options.iNullValues = "Use";
+		options.ignoreResults = false;
+		options.ignoreExpandedNodes = false;
+		options.useMockData = true;
+		options.dimensionSeparator = " | ";
+		options.createHaderRow = true;
+		options.swapAxes = false;
+		
+		options.conditionColumns = undefined; // JSON condition definition, work in progress, eg. {"operator": "and", "rules": [{"condition": "contains", "members": ["AUSC", "AUSA"]}]}
+		options.conditionRows = undefined; // JSON condition definition, work in progress
+		options.conditionContent = undefined; // JSON condition definition, work in progress
+		options.collectMultiple = true;
+		
+		options.emptyDataValue = "";
+		options.emptyHeaderValue = "";
+		
+		options.formattingCondition = {};
+		options.formattingCondition.operator = undefined;
+		options.formattingCondition.rules = [];
+		
+		options.keepDataArray = false;
+		options.iIgnoreAverage = false;
+		options.average = undefined;
+		
+		return options;
+	*}
+	/**
+	 * Flattens data from tuple format to 2D Array
+	 * @author Mike Howles & Karol Kalisz
+	 * @param data { 
+	 *	 	"selection" : [Array of dimension selections] 	
+	 *	 	"tuples" : *Design Studio Tuples*,
+	 *		"data" : *Design Studio Data*,
+	 *   	"formattedData" : *Design Studio Formatted Data*,
+	 * 		"dimensions" : *Design Studio Metadata Dimensions JSON*,
+	 *		"locale" : *Design Studio user locale (e.g. en_US)",
+	 *	  	"axis_columns : [Array of Column Axis Dimension Selection Members]
+	 *	  	"axis_rows" : [Array of Row Axis Dimension Selection Members]
+	 *	 }
+	 * @param options {
+	 * 		ignoreResults : Boolean (default = true)
+	 *		ignoreExpandedNodes : Boolean (default = false)
+	 * 		swapAxes : Boolean (default = false)
+	 * 		useMockData : Boolean (default = true)
+	 * }
+	 * 
+	 * @return {
+	 * 		"dimensionHeaders" : [2D Array of dimensions used in rows]
+	 * 		"dimensionheader" : [1D Array of dimensions used in rows]
+	 * 		"columnHeaders" : [1D Array of Header Labels]
+	 * 		"columnHeaders2D" : [2D Array of Header Labels]
+	 * 		"rowHeaders" : [1D Array of Row Headers]
+	 *  	"rowHeaders2D" : [2D Array of Row Headers]
+	 * 		"values" : [2D Array of Measures] 
+	 *
+	 * }
+	 */
+	Object flatten(String designStudioData, Object opts){*
+		// Important - Copy the JSON object so we do not accidently change original object
+		var compressed = designStudioData;
+		var	payload;
+		if(this.previousFlatten && this.previousFlatten.compressed == compressed){
+			return this.previousFlatten.retObj;
+		}
+		var start = Date.now();
+		payload = this.decompressFromEncodedURIComponent(compressed);
+		// payload = this.decompress(compressed);	// Can't use it this way
+			//APPLICATION.log(payload);
+			var data = JSON.parse(payload);
+			// Initialize with default options
+			var options = this.initializeOptions();
+			// Overwrite defaults with any passed options
+			if(opts) {
+				for(var option in opts) options[option] = opts[option];
+			}
+			if(!options.ignoreResults) options.ignoreResults = this.ignoreResults;
+			// Create shell return object
+			var retObj = {
+				dimensionHeaders : [],		// ["Calendar Day", "Location", ...]
+				dimensionHeadersKeys : [],	// ["0CALDAY", "0LOCATION", ...]
+				dimensionHeader : "",		// "0CALDAY | 0LOCATION"
+				dimensionColHeaders : [],	// ["0SALESREP", "0MEASURES", ...]		(TODO)
+				dimensionColHeader : "",	// "0SALESREP | 0MEASURES"				(TODO)
+				columnHeaders2D : [],		// Two Dimensions in Columns example:
+											// [["John Doe", "Sales"],["John Doe", "Discounts"], ...]
+											// Simple Example with just Measures Structure: 
+											// [["Sales"],["Discounts"], ...]
+				columnHeadersKeys2D : [],	// Two Dimensions in Columns example:
+											// [["01", "SAL"],["02", "DIS"], ...]
+											// Simple Example with just Measures Structure: 
+											// [["SAL"],["DIS"], ...]
+				columnHeaders : [],			// Two Dimension in Columns Example:
+											// ["John Doe | Sales", "John Does | Discounts", ...]
+											// Simple Example:
+											// ["Sales", "Discounts", ...]
+				columnHeadersKeys : [],		// Two Dimension in Columns Example:
+											// ["001 | SALES", "001 | DISC", ...]
+											// Simple Example:
+											// ["SALES", "DISC", ...]
+				rowLevels2D : [],			// [[-1,0],[-1,1]]	- For hierarchies
+				rowHeaders2D : [],			// [["01/2015", "Memphis"],["01/2015", "Nashville"], ...]]
+				rowHeadersKeys2D : [],		// [["01.2015", "MEMPHIS"],["01.2015", "NASHVILLE"], ...]]
+				rowHeaders : [],			// ["01/2015 | Memphis", "01/2015 | Nashville", ...]
+				rowHeadersKeys : [],		// ["01.2015 | MEMPHIS", "01.2015 | NASHVILLE", ...]
+				values : [],				// [[100, 50], [200, 250], ...]
+				formattedValues : [],		// [["100 USD", "50 USD"], ["200 USD", "250 USD"], ...]
+				hash : {},					// {"01/2015 | Memphis" : 0, "01/2015 | Nashville" : 1, ... }
+				geometry : {},				// {"rowLength" : "18", "colLength" : "2", "headersLength" : "2", "allColumnsLength" : "4" },
+				hierarchies : []			// Registry of Hierarchies
+											// [{ key : "0PROFIT_CTR" }, { key : "0ORG_UNIT"} ... ]
+		
+			};
+		
+			if(!data || !data.dimensions || (!data.data && !data.formattedData)) {
+				if(!options.useMockData){
+					throw("Incomplete data given.\n\n" + JSON.stringify(data));	
+				}else{
+					// Use Karol's mock data - Maybe dynamically load this?
+					data = {"selection":[-1,-1,-1],"tuples":[[0,0,0],[1,0,0],[0,0,1],[1,0,1],[0,0,2],[1,0,2],[0,0,3],[1,0,3],[0,1,4],[1,1,4],[0,1,3],[1,1,3],[0,2,1],[1,2,1],[0,2,2],[1,2,2],[0,2,4],[1,2,4],[0,2,3],[1,2,3],[0,3,1],[1,3,1],[0,3,2],[1,3,2],[0,3,4],[1,3,4],[0,3,3],[1,3,3],[0,4,1],[1,4,1],[0,4,4],[1,4,4],[0,4,3],[1,4,3],[0,5,3],[1,5,3]],"data":["52.72","1","30.27","1","43.41","1","126.40","3","71.08","1","71.08","1","89.23","2","16.64","1","58.19","1","164.06","4","29.93","1","73.72","1","95.55","2","199.20","4","60.91","2","144.17","3","205.08","5","765.82","17"],"formattedData":["52.72 EUR","1","30.27 EUR","1","43.41 EUR","1","126.40 EUR","3","71.08 EUR","1","71.08 EUR","1","89.23 EUR","2","16.64 EUR","1","58.19 EUR","1","164.06 EUR","4","29.93 EUR","1","73.72 EUR","1","95.55 EUR","2","199.20 EUR","4","60.91 EUR","2","144.17 EUR","3","205.08 EUR","5","765.82 EUR","17"],"dimensions":[{"key":"4FW8C4P934W533L5W4N3J5AON","text":"Key Figures","axis":"COLUMNS","axis_index":0,"containsMeasures":true,"members":[{"key":"4FW8C4WXM3HULQ4M1YPFT79EF","text":"0BC_TURN","scalingFactor":0,"unitOfMeasure":"EUR","formatString":"#,##0.00 EUR;'-'#,##0.00 EUR"},{"key":"4FW8RN37GL043NF22OTQFXYL3","text":"0BC_COUNT","scalingFactor":0,"formatString":"#,##0;'-'#,##0"}]},{"key":"0BC_PERS1","text":"0BC_PERS1","axis":"ROWS","axis_index":0,"members":[{"key":"00002","text":"2"},{"key":"00003","text":"3"},{"key":"00007","text":"7"},{"key":"00008","text":"8"},{"key":"00009","text":"9"},{"key":"SUMME","text":"Overall Result","type":"RESULT"}]},{"key":"0BC_PROD1","text":"0BC_PROD1","axis":"ROWS","axis_index":1,"members":[{"key":"00002","text":"2"},{"key":"00003","text":"3"},{"key":"00008","text":"8"},{"key":"SUMME","text":"Result","type":"RESULT"},{"key":"00012","text":"12"}]}],"locale":"en_US","axis_columns":[[0,-1,-1],[1,-1,-1]],"axis_rows":[[-1,0,0],[-1,0,1],[-1,0,2],[-1,0,3],[-1,1,4],[-1,1,3],[-1,2,1],[-1,2,2],[-1,2,4],[-1,2,3],[-1,3,1],[-1,3,2],[-1,3,4],[-1,3,3],[-1,4,1],[-1,4,4],[-1,4,3],[-1,5,3]],"columnCount":2,"rowCount":18}
+				}
+			}
+			/*
+			 * If Swap Axes is set, simply swap row and column-specific properties.
+			 */
+			if(options.swapAxes){
+				var tmp = data.axis_columns;
+				data.axis_columns = data.axis_rows;
+				data.axis_rows = tmp;
+				for(var dI=0;dI<data.dimensions.length;dI++){
+					var dim = data.dimensions[dI];
+					var axis = dim.axis;
+					if(axis=="ROWS") dim.axis="COLUMNS";
+					if(axis=="COLUMNS") dim.axis="ROWS";
+				}
+			}
+			retObj.dimensionCols = [];
+			retObj.dimensionColsKeys = [];
+			retObj.dimensionRows = [];
+			retObj.dimensionHeaders = [];
+			
+			// put on object for external access
+			retObj.geometry = retObj.geometry || {};
+			retObj.geometry.colLength = data.axis_columns ? data.axis_columns.length : data.columnCount;
+			retObj.geometry.rowLength = data.axis_rows ? data.axis_rows.length : data.rowCount;
+		
+			// save also the information of inital column and row length
+			retObj.geometry.initialColLength = retObj.geometry.colLength;
+			retObj.geometry.initialRowLength = retObj.geometry.rowLength;
+		
+			for(var dI=0;dI<data.dimensions.length;dI++){
+				var dim = data.dimensions[dI];
+		
+				if(dim.axis == "ROWS") {
+					retObj.dimensionRows.push({key: dim.key, text: dim.text, dimension: dim});
+					retObj.dimensionHeaders.push(dim.text);
+					retObj.dimensionHeadersKeys.push(dim.key);
+				}
+				if(dim.axis == "COLUMNS") {
+					retObj.dimensionCols.push({key: dim.key, text: dim.text, dimension: dim});
+					retObj.dimensionColsKeys.push({key: dim.key, text: dim.key});
+				}
+			}
+			
+			var tupleIndex = 0;
+			// Make Row Header Labels
+			
+			for(var row=0;row<retObj.geometry.initialRowLength;row++){
+				var newValueRow = [];
+				var newFormattedValueRow = [];
+				var rowHeader = "";
+				var rowHeaderKey = "";
+				var rowHeader2D = [];
+				var rowLevel2D = [];
+				var rowHeaderKey2D = [];
+				var rowAxisTuple = data.axis_rows ? data.axis_rows[row]: data.tuples[row];
+				var sep = "";
+				var isResult = false;
+				var isExpanded = false;
+				for(var j=0;j<rowAxisTuple.length;j++){
+					var currentDimension = data.dimensions[j];
+					if(rowAxisTuple[j] != -1){
+						if(options.ignoreResults || options.ignoreExpandedNodes) {
+							var member = currentDimension.members[rowAxisTuple[j]];
+							if(member.type == "RESULT") { isResult=true;}
+							if(member.nodeState){
+								var dimFound = -1;
+								for(var h=0;h<retObj.hierarchies.length;h++){
+									if(retObj.hierarchies[h].key == currentDimension.key) {
+										dimFound = h;
+									}
+								}
+								if(dimFound == -1) {	// New Hierarchy registered
+									retObj.hierarchies.push({
+										key : currentDimension.key,
+										text : currentDimension.text,
+										deepestLevel : 0
+									});
+								}else{
+									var hier = retObj.hierarchies[dimFound];
+									if(member.level) {
+										if(member.level > hier.deepestLevel) hier.deepestLevel = member.level;
+									}
+								}
+								if(member.nodeState == "EXPANDED") { isExpanded=true;}
+							}
+							// also hierarchy nodes should be ignored, but this need more work, some code snippet
+							// if(member.type == "HIERARCHY_NODE" && member.level == 1 && member.nodeState == "EXPANDED") { isResult=true; break;}
+						}
+		
+						rowHeader += sep + currentDimension.members[rowAxisTuple[j]].text;
+						rowHeaderKey += sep + currentDimension.members[rowAxisTuple[j]].key;
+						rowHeader2D.push(currentDimension.members[rowAxisTuple[j]].text);
+						rowLevel2D.push(currentDimension.members[rowAxisTuple[j]].level || 0);
+						rowHeaderKey2D.push(currentDimension.members[rowAxisTuple[j]].key);
+						
+						if(isResult || isExpanded) {
+							break;
+						}
+						
+						sep = options.dimensionSeparator;
+					}
+				}
+				
+				if((isResult && options.ignoreResults) || (isExpanded && options.ignoreExpandedNodes)) { // Added if clause - Mike
+					retObj.geometry.rowLength = retObj.geometry.rowLength - 1;
+					// move the tupleIndex by the skipped values
+					tupleIndex = tupleIndex + retObj.geometry.colLength;
+					continue; 
+				}else{
+					retObj.hash[rowHeader] = row;
+					retObj.rowHeaders.push(rowHeader);
+					retObj.rowHeadersKeys.push(rowHeaderKey);
+					retObj.rowHeaders2D.push(rowHeader2D);
+					retObj.rowHeadersKeys2D.push(rowHeaderKey2D);
+					retObj.rowLevels2D.push(rowLevel2D);
+				}
+				
+				for(var col=0;col<retObj.geometry.colLength;col++){
+					if(data.data && data.data.length > 0){
+						newValueRow.push(data.data[tupleIndex]);
+					}
+		
+					// there are cases that no formatedValues are given, using unformated values in this case.
+					if(data.formattedData && data.formattedData.length > 0){
+						newFormattedValueRow.push(data.formattedData[tupleIndex]);
+					} else {
+						newFormattedValueRow.push(""+data.data[tupleIndex]);
+					}
+					tupleIndex++;
+				}
+		
+				if(newValueRow.length>0) retObj.values.push(newValueRow);
+				if(newFormattedValueRow.length>0) retObj.formattedValues.push(newFormattedValueRow);	
+			}
+			
+			var spliceIndexCorrection = 0;
+			
+			// Make Column Header Labels and Strip out columns containing totals
+			for(var col=0;col<retObj.geometry.initialColLength;col++){
+				var colHeader = "";
+				var colHeaderKey = "";
+				var colHeader2D = [];
+				var colHeaderKey2D = [];
+				var colAxisTuple = data.axis_columns ? data.axis_columns[col] : undefined;
+				var sep = "";
+				var removeColumn = false;
+				if(colAxisTuple) {
+					for(var j=0;j<colAxisTuple.length;j++){
+						if(colAxisTuple[j] != -1){
+							if(
+								(options.ignoreResults && data.dimensions[j].members[colAxisTuple[j]].type == "RESULT") || 	// Ignore Results case
+								(options.ignoreExpandedNodes && data.dimensions[j].members[colAxisTuple[j]].nodeState=="EXPANDED")) // Ignore Expanded node case
+								{
+								removeColumn = true;
+							}
+							colHeader += sep + data.dimensions[j].members[colAxisTuple[j]].text;
+							colHeaderKey += sep + data.dimensions[j].members[colAxisTuple[j]].key;
+							colHeader2D.push(data.dimensions[j].members[colAxisTuple[j]].text);
+							colHeaderKey2D.push(data.dimensions[j].members[colAxisTuple[j]].key);
+							
+							if(removeColumn) {
+								break;
+							}
+							
+							sep = options.dimensionSeparator;			
+						}
+					}			
+				} else {
+					// find all colum dimensions
+					var dimensionCols = retObj.dimensionCols;
+					for(var j=0;j<dimensionCols.length;j++){
+						if(
+							(options.ignoreResults && dimensionCols[j].dimension.members[col].type == "RESULT") || 	// Ignore Results case
+							(options.ignoreExpandedNodes && dimensionCols[j].dimension.members[col].nodeState=="EXPANDED")) // Ignore Expanded node case
+							{
+								removeColumn = true;
+							}
+							
+							colHeader += sep + dimensionCols[j].dimension.members[col].text;
+							colHeaderKey += sep + dimensionCols[j].dimension.members[col].key;
+							colHeader2D.push(dimensionCols[j].dimension.members[col].text);
+							colHeaderKey2D.push(dimensionCols[j].dimension.members[col].key);
+							
+							if(removeColumn) {
+								break;
+							}
+							
+							sep = options.dimensionSeparator;
+					}
+				}
+		
+				if(removeColumn){
+					for(var row=0;row<retObj.geometry.initialRowLength;row++){
+						if(retObj.values[row]) {
+							retObj.values[row].splice(col - spliceIndexCorrection,1);
+						}
+						if(retObj.formattedValues[row]) {
+							retObj.formattedValues[row].splice(col - spliceIndexCorrection,1);
+						}
+					}
+					retObj.geometry.colLength = retObj.geometry.colLength - 1;
+					
+					spliceIndexCorrection++;
+				}else{
+					retObj.columnHeaders.push(colHeader);
+					retObj.columnHeadersKeys.push(colHeaderKey);
+					retObj.columnHeaders2D.push(colHeader2D);
+					retObj.columnHeadersKeys2D.push(colHeaderKey2D);
+				}		
+			}
+			
+			if(retObj.rowHeaders2D[0]) {
+				retObj.geometry.headersLength = retObj.rowHeaders2D[0].length;	
+			} else {
+				retObj.geometry.headersLength = 0;
+			}
+			
+			retObj.geometry.allColumnsLength = retObj.geometry.headersLength + retObj.geometry.colLength;
+		
+			if(options.keepDataArray){
+				retObj.data = data.data;
+			}
+			var finish = Date.now();
+			this.decompressionTime = finish - start;
+			// Cache, decompression is expensive
+			this.previousFlatten = {
+				compressed : compressed,
+				payload : payload,
+				retObj : retObj
+			};
+			return retObj;
+	*}
+	/**
+	 * Sets Ignore Totals
+	 */	
+	void setIgnoreTotals( /**Ignore Totals*/ boolean ignoreTotals){*
+		this.ignoreTotals = ignoreTotals;
+	*}
+
+	/**
+	 * Gets Ignore Totals
+	 */	
+	boolean getIgnoreTotals() {*
+		return this.ignoreTotals;
+	*}
+	/**
+	 * Determine if a value is not a number
+	 */
+	boolean isNaN(float value) {*
+		this.internal_assureGlobalAccess();
+		var global = this.getGlobal();
+		return global.isNaN(value);
+	*}
+	/**
+	 * Determine if a value is null
+	 */
+	boolean isNull(float value) {*
+		return (value == null);
+	*}
+	/**
+	 * Return a null
+	 */
+	float makeNull() {*
+		return null;
+	*}
+	/**
+	 * Get Key/Text of 'Measures' currently assigned in Rows
+	 */
+	org.scn.community.utils.KeyTextArray getMeasures(){*
+		var flat = this.flatten(this.flat);
+		var ret = [];
+		ret.atIndex = function(index){
+			return this[index];
+		}
+		if(!flat.values){
+			
+		}else{
+			for(var d = 0; d < flat.columnHeaders.length; d++){
+				ret.push({
+					key : flat.columnHeadersKeys[d],	// 0SALES
+					text : flat.columnHeaders[d] 		// Sales
+				});
+			}			
+		}
+		return ret;
+	*}
+	/**
+	 * Get Key/Text of 'Dimensions' currently assigned in Rows
+	 */
+	org.scn.community.utils.KeyTextArray getDimensions(){*
+		var flat = this.flatten(this.flat);
+		var ret = [];
+		ret.atIndex = function(index){
+			return this[index];
+		}
+		if(!flat.values){
+			
+		}else{
+			for(var d = 0; d < flat.dimensionHeadersKeys.length; d++){
+				ret.push({
+					key : flat.dimensionHeadersKeys[d],	// 0PRODUCT
+					text : flat.dimensionHeaders[d] 	// Product
+				});
+			}			
+		}
+		return ret;
+	*}
+	/**
+	 * Determine Dimension Column Index
+	 */
+	int determineDimension(Object filter) {*
+		var flat = this.flatten(this.flat);
+		var index = -1;
+		var key = null;
+		if(filter.key){
+			for(var d = 0; d < flat.dimensionHeadersKeys.length; d++){
+				var fkey = flat.dimensionHeadersKeys[d];
+				if(fkey == filter.key) {
+					index = d;
+					key = fkey;
+				}
+			}
+		}
+		if(filter.index){
+			if(filter.index < flat.fimensionHeadersKeys.length) {
+				index = filter.index;
+				key = flat.dimensionHeadersKeys[index]; 
+			}
+		}
+		return {
+			index : index,
+			key : key
+		};
+	*}
+	/**
+	 * Include formatted values or not
+	 */
+	void setIncludeFormattedValues(boolean b){*
+		this.includeFormattedValues = b;
+	*}
+	/**
+	 * Include formatted values or not
+	 */
+	boolean getIncludeFormattedValues(){*
+		return this.includeFormattedValues;
+	*}
+	/**
+	 * Get length of last data payload (after LZString decompression)
+	 */
+	int getPayloadLength(){*
+		if(this.flatLength == null) return -1;
+		return this.flatLength;
+	*}
+	/**
+	 * Get length of last data payload (compressed)
+	 */
+	int getCompressedPayloadLength(){*
+		if(this.compressedLength == null) return -1;
+		return this.compressedLength;
+	*}
+	/**
+	 * Get theoretical length of last data payload (compressed and encoded)
+	 */
+	int getEncodedPayloadLength(){*
+		if(this.encodedLength == null) return -1;
+		return this.encodedLength;
+	*}
+	/**
+	 * Get time it took for client to compress last string
+	 */
+	float getCompressionTime(){*
+		if(this.compressionTime == null) return -1;
+		return this.compressionTime;
+	*}
+	/**
+	 * Get time it took for server script VM to decompress last string
+	 */
+	float getDecompressionTime(){*
+		if(this.decompressionTime == null) return -1;
+		return this.decompressionTime;
+	*}
+	/**
+	 * Get payload (for debugging purposes)
+	 */
+	String getPayload(){*
+		return this.flat;
+	*}
+	/**
+	 * Create Empty Data Row Array Object
+	 */
+	org.scn.community.utils.DataRowArray createDataRowArray() {*
+		var that = this;
+		var ret = [];
+		ret.atIndex = function(index){
+			return this[index];
+		};
+		ret.distinctMembers = function(dimensionKey){
+			var distincts = [];
+			var keys = {};
+			for(var i=0;i<this.length;i++) {
+				var row = this[i];
+				if(row.dimensions[dimensionKey]){
+					var member = row.dimensions[dimensionKey];
+					keys[member.key] = member;
+				}
+			}
+			for(var field in keys) distincts.push(keys[field]);
+			return distincts;
+		},
+		ret.containing = function(options){
+			var newRet = createDataRowArray();
+			var passes = [];
+			for(var i=0;i<this.length;i++) passes.push(false);
+			if(options.dimensions){
+				for(var d=0; d<options.dimensions.length; d++){
+					var dim = that.determineDimension(options.dimensions[d]);
+					if(dim.index>-1) {
+						for(var r=0;r<this.length;r++){
+							var row = this[r];
+							var key = row.getDimensionValueKey(dim.key);
+							//APPLICATION.log("Comparing " + key + " to " + options.dimensions[d].value);
+							if(key == options.dimensions[d].value) passes[r] = true;
+						}
+					}
+				}
+			}
+			for(var r=0;r<this.length;r++){
+				if(passes[r]) newRet.push(this[r]);
+			}
+			if(options.measures){
+				
+			}
+			//APPLICATION.log(JSON.stringify(newRet));
+			return newRet;
+		}
+		return ret;
+	*}
+	/**
+	 * Get Flattened (Rows) representation of the Assigned Data Source's current state.
+	 */
+	org.scn.community.utils.DataRowArray getRows (optional int offset, optional int maxRows) {*
+		//var flat = JSON.parse(this.flat);
+		var flat = this.flatten(this.flat);
+		// APPLICATION.log(JSON.stringify(flat));
+		var ret = createDataRowArray();
+		var rowOffset = 0;
+		if(offset) rowOffset = offset;
+		var max = -1;
+		if(maxRows) max = maxRows;
+		if(!flat.values){
+			// No Data Source
+		}else{
+			var count = 0;
+			for(var i=rowOffset;i<flat.values.length;i++){
+				count++;
+				if(max > -1 && count > max) break;
+				var newRow = {
+					key : "",
+					keys : [],
+					measures : {},
+					dimensions : {},
+					getDimensionValueKey : function(key){ return this.dimensions[key].key; },
+					getDimensionValueText : function(key){ return this.dimensions[key].text; },
+					getMeasureValue : function(key){ return this.measures[key].value; },
+					getMeasureFormattedValue : function(key){ return this.measures[key].formattedValue; }
+				};
+				
+				// Assign Dimension Member Values
+				var members = [];
+				for(var d = 0; d < flat.dimensionHeadersKeys.length; d++){
+					var dimension = flat.dimensionHeadersKeys[d];	// 0PRODUCT
+					var member = {
+						key : flat.rowHeadersKeys2D[i][d],
+						text : flat.rowHeaders2D[i][d]
+					};
+					members.push(member);
+					newRow.dimensions[dimension] = member;
+				}			
+				// Assign Measure Values
+				for(var m = 0; m< flat.columnHeadersKeys.length; m++){
+					var measure = flat.columnHeadersKeys[m];	// 0BALANCE
+					var value = {
+						value : flat.values[i][m],
+						formattedValue : flat.formattedValues[i][m]
+					}
+					newRow.measures[measure] = value;
+				}
+				var key = "";
+				members.map(function(member){
+					key += member.key;
+				});
+				newRow.key = key;
+				newRow.keys = members;
+				ret.push(newRow);
+			}
+		}
+		return ret;
+	*}
+	String decompressFromEncodedURIComponent(String compressed){*
+		if(!this.LZ){
+			this.makeLZ();
+		}
+		return this.LZ.decompressFromEncodedURIComponent(compressed);
+	*}
+	String decompress(String compressed){*
+		if(!this.LZ){
+			this.makeLZ();
+		}
+		return this.LZ.decompress(compressed);
+	*}
+	void makeLZ(){*
+		// Copyright (c) 2013 Pieroxy <pieroxy@pieroxy.net>
+		// This work is free. You can redistribute it and/or modify it
+		// under the terms of the WTFPL, Version 2
+		// For more information see LICENSE.txt or http://www.wtfpl.net/
+		//
+		// For more information, the home page:
+		// http://pieroxy.net/blog/pages/lz-string/testing.html
+		//
+		// LZ-based compression algorithm, version 1.4.4
+		this.LZ = (function() {
+			// private property
+			var f = String.fromCharCode;
+			var keyStrBase64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+			var keyStrUriSafe = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-$";
+			var baseReverseDic = {};
+
+			function getBaseValue(alphabet, character) {
+			  if (!baseReverseDic[alphabet]) {
+			    baseReverseDic[alphabet] = {};
+			    for (var i=0 ; i<alphabet.length ; i++) {
+			      baseReverseDic[alphabet][alphabet.charAt(i)] = i;
+			    }
+			  }
+			  return baseReverseDic[alphabet][character];
+			}
+
+			var LZString = {
+			  compressToBase64 : function (input) {
+			    if (input == null) return "";
+			    var res = LZString._compress(input, 6, function(a){return keyStrBase64.charAt(a);});
+			    switch (res.length % 4) { // To produce valid Base64
+			    default: // When could this happen ?
+			    case 0 : return res;
+			    case 1 : return res+"===";
+			    case 2 : return res+"==";
+			    case 3 : return res+"=";
+			    }
+			  },
+
+			  decompressFromBase64 : function (input) {
+			    if (input == null) return "";
+			    if (input == "") return null;
+			    return LZString._decompress(input.length, 32, function(index) { return getBaseValue(keyStrBase64, input.charAt(index)); });
+			  },
+
+			  compressToUTF16 : function (input) {
+			    if (input == null) return "";
+			    return LZString._compress(input, 15, function(a){return f(a+32);}) + " ";
+			  },
+
+			  decompressFromUTF16: function (compressed) {
+			    if (compressed == null) return "";
+			    if (compressed == "") return null;
+			    return LZString._decompress(compressed.length, 16384, function(index) { return compressed.charCodeAt(index) - 32; });
+			  },
+
+			  //compress into uint8array (UCS-2 big endian format)
+			  compressToUint8Array: function (uncompressed) {
+			    var compressed = LZString.compress(uncompressed);
+			    var buf=new Uint8Array(compressed.length*2); // 2 bytes per character
+
+			    for (var i=0, TotalLen=compressed.length; i<TotalLen; i++) {
+			      var current_value = compressed.charCodeAt(i);
+			      buf[i*2] = current_value >>> 8;
+			      buf[i*2+1] = current_value % 256;
+			    }
+			    return buf;
+			  },
+
+			  //decompress from uint8array (UCS-2 big endian format)
+			  decompressFromUint8Array:function (compressed) {
+			    if (compressed===null || compressed===undefined){
+			        return LZString.decompress(compressed);
+			    } else {
+			        var buf=new Array(compressed.length/2); // 2 bytes per character
+			        for (var i=0, TotalLen=buf.length; i<TotalLen; i++) {
+			          buf[i]=compressed[i*2]*256+compressed[i*2+1];
+			        }
+
+			        var result = [];
+			        buf.forEach(function (c) {
+			          result.push(f(c));
+			        });
+			        return LZString.decompress(result.join(''));
+
+			    }
+
+			  },
+
+
+			  //compress into a string that is already URI encoded
+			  compressToEncodedURIComponent: function (input) {
+			    if (input == null) return "";
+			    return LZString._compress(input, 6, function(a){return keyStrUriSafe.charAt(a);});
+			  },
+
+			  //decompress from an output of compressToEncodedURIComponent
+			  decompressFromEncodedURIComponent:function (input) {
+			    if (input == null) return "";
+			    if (input == "") return null;
+			    input = input.replace(/ /g, "+");
+			    return LZString._decompress(input.length, 32, function(index) { return getBaseValue(keyStrUriSafe, input.charAt(index)); });
+			  },
+
+			  compress: function (uncompressed) {
+			    return LZString._compress(uncompressed, 16, function(a){return f(a);});
+			  },
+			  _compress: function (uncompressed, bitsPerChar, getCharFromInt) {
+			    if (uncompressed == null) return "";
+			    var i, value,
+			        context_dictionary= {},
+			        context_dictionaryToCreate= {},
+			        context_c="",
+			        context_wc="",
+			        context_w="",
+			        context_enlargeIn= 2, // Compensate for the first entry which should not count
+			        context_dictSize= 3,
+			        context_numBits= 2,
+			        context_data=[],
+			        context_data_val=0,
+			        context_data_position=0,
+			        ii;
+
+			    for (ii = 0; ii < uncompressed.length; ii += 1) {
+			      context_c = uncompressed.charAt(ii);
+			      if (!Object.prototype.hasOwnProperty.call(context_dictionary,context_c)) {
+			        context_dictionary[context_c] = context_dictSize++;
+			        context_dictionaryToCreate[context_c] = true;
+			      }
+
+			      context_wc = context_w + context_c;
+			      if (Object.prototype.hasOwnProperty.call(context_dictionary,context_wc)) {
+			        context_w = context_wc;
+			      } else {
+			        if (Object.prototype.hasOwnProperty.call(context_dictionaryToCreate,context_w)) {
+			          if (context_w.charCodeAt(0)<256) {
+			            for (i=0 ; i<context_numBits ; i++) {
+			              context_data_val = (context_data_val << 1);
+			              if (context_data_position == bitsPerChar-1) {
+			                context_data_position = 0;
+			                context_data.push(getCharFromInt(context_data_val));
+			                context_data_val = 0;
+			              } else {
+			                context_data_position++;
+			              }
+			            }
+			            value = context_w.charCodeAt(0);
+			            for (i=0 ; i<8 ; i++) {
+			              context_data_val = (context_data_val << 1) | (value&1);
+			              if (context_data_position == bitsPerChar-1) {
+			                context_data_position = 0;
+			                context_data.push(getCharFromInt(context_data_val));
+			                context_data_val = 0;
+			              } else {
+			                context_data_position++;
+			              }
+			              value = value >> 1;
+			            }
+			          } else {
+			            value = 1;
+			            for (i=0 ; i<context_numBits ; i++) {
+			              context_data_val = (context_data_val << 1) | value;
+			              if (context_data_position ==bitsPerChar-1) {
+			                context_data_position = 0;
+			                context_data.push(getCharFromInt(context_data_val));
+			                context_data_val = 0;
+			              } else {
+			                context_data_position++;
+			              }
+			              value = 0;
+			            }
+			            value = context_w.charCodeAt(0);
+			            for (i=0 ; i<16 ; i++) {
+			              context_data_val = (context_data_val << 1) | (value&1);
+			              if (context_data_position == bitsPerChar-1) {
+			                context_data_position = 0;
+			                context_data.push(getCharFromInt(context_data_val));
+			                context_data_val = 0;
+			              } else {
+			                context_data_position++;
+			              }
+			              value = value >> 1;
+			            }
+			          }
+			          context_enlargeIn--;
+			          if (context_enlargeIn == 0) {
+			            context_enlargeIn = Math.pow(2, context_numBits);
+			            context_numBits++;
+			          }
+			          delete context_dictionaryToCreate[context_w];
+			        } else {
+			          value = context_dictionary[context_w];
+			          for (i=0 ; i<context_numBits ; i++) {
+			            context_data_val = (context_data_val << 1) | (value&1);
+			            if (context_data_position == bitsPerChar-1) {
+			              context_data_position = 0;
+			              context_data.push(getCharFromInt(context_data_val));
+			              context_data_val = 0;
+			            } else {
+			              context_data_position++;
+			            }
+			            value = value >> 1;
+			          }
+
+
+			        }
+			        context_enlargeIn--;
+			        if (context_enlargeIn == 0) {
+			          context_enlargeIn = Math.pow(2, context_numBits);
+			          context_numBits++;
+			        }
+			        // Add wc to the dictionary.
+			        context_dictionary[context_wc] = context_dictSize++;
+			        context_w = String(context_c);
+			      }
+			    }
+
+			    // Output the code for w.
+			    if (context_w !== "") {
+			      if (Object.prototype.hasOwnProperty.call(context_dictionaryToCreate,context_w)) {
+			        if (context_w.charCodeAt(0)<256) {
+			          for (i=0 ; i<context_numBits ; i++) {
+			            context_data_val = (context_data_val << 1);
+			            if (context_data_position == bitsPerChar-1) {
+			              context_data_position = 0;
+			              context_data.push(getCharFromInt(context_data_val));
+			              context_data_val = 0;
+			            } else {
+			              context_data_position++;
+			            }
+			          }
+			          value = context_w.charCodeAt(0);
+			          for (i=0 ; i<8 ; i++) {
+			            context_data_val = (context_data_val << 1) | (value&1);
+			            if (context_data_position == bitsPerChar-1) {
+			              context_data_position = 0;
+			              context_data.push(getCharFromInt(context_data_val));
+			              context_data_val = 0;
+			            } else {
+			              context_data_position++;
+			            }
+			            value = value >> 1;
+			          }
+			        } else {
+			          value = 1;
+			          for (i=0 ; i<context_numBits ; i++) {
+			            context_data_val = (context_data_val << 1) | value;
+			            if (context_data_position == bitsPerChar-1) {
+			              context_data_position = 0;
+			              context_data.push(getCharFromInt(context_data_val));
+			              context_data_val = 0;
+			            } else {
+			              context_data_position++;
+			            }
+			            value = 0;
+			          }
+			          value = context_w.charCodeAt(0);
+			          for (i=0 ; i<16 ; i++) {
+			            context_data_val = (context_data_val << 1) | (value&1);
+			            if (context_data_position == bitsPerChar-1) {
+			              context_data_position = 0;
+			              context_data.push(getCharFromInt(context_data_val));
+			              context_data_val = 0;
+			            } else {
+			              context_data_position++;
+			            }
+			            value = value >> 1;
+			          }
+			        }
+			        context_enlargeIn--;
+			        if (context_enlargeIn == 0) {
+			          context_enlargeIn = Math.pow(2, context_numBits);
+			          context_numBits++;
+			        }
+			        delete context_dictionaryToCreate[context_w];
+			      } else {
+			        value = context_dictionary[context_w];
+			        for (i=0 ; i<context_numBits ; i++) {
+			          context_data_val = (context_data_val << 1) | (value&1);
+			          if (context_data_position == bitsPerChar-1) {
+			            context_data_position = 0;
+			            context_data.push(getCharFromInt(context_data_val));
+			            context_data_val = 0;
+			          } else {
+			            context_data_position++;
+			          }
+			          value = value >> 1;
+			        }
+
+
+			      }
+			      context_enlargeIn--;
+			      if (context_enlargeIn == 0) {
+			        context_enlargeIn = Math.pow(2, context_numBits);
+			        context_numBits++;
+			      }
+			    }
+
+			    // Mark the end of the stream
+			    value = 2;
+			    for (i=0 ; i<context_numBits ; i++) {
+			      context_data_val = (context_data_val << 1) | (value&1);
+			      if (context_data_position == bitsPerChar-1) {
+			        context_data_position = 0;
+			        context_data.push(getCharFromInt(context_data_val));
+			        context_data_val = 0;
+			      } else {
+			        context_data_position++;
+			      }
+			      value = value >> 1;
+			    }
+
+			    // Flush the last char
+			    while (true) {
+			      context_data_val = (context_data_val << 1);
+			      if (context_data_position == bitsPerChar-1) {
+			        context_data.push(getCharFromInt(context_data_val));
+			        break;
+			      }
+			      else context_data_position++;
+			    }
+			    return context_data.join('');
+			  },
+
+			  decompress: function (compressed) {
+			    if (compressed == null) return "";
+			    if (compressed == "") return null;
+			    return LZString._decompress(compressed.length, 32768, function(index) { return compressed.charCodeAt(index); });
+			  },
+
+			  _decompress: function (length, resetValue, getNextValue) {
+			    var dictionary = [],
+			        next,
+			        enlargeIn = 4,
+			        dictSize = 4,
+			        numBits = 3,
+			        entry = "",
+			        result = [],
+			        i,
+			        w,
+			        bits, resb, maxpower, power,
+			        c,
+			        data = {val:getNextValue(0), position:resetValue, index:1};
+
+			    for (i = 0; i < 3; i += 1) {
+			      dictionary[i] = i;
+			    }
+
+			    bits = 0;
+			    maxpower = Math.pow(2,2);
+			    power=1;
+			    while (power!=maxpower) {
+			      resb = data.val & data.position;
+			      data.position >>= 1;
+			      if (data.position == 0) {
+			        data.position = resetValue;
+			        data.val = getNextValue(data.index++);
+			      }
+			      bits |= (resb>0 ? 1 : 0) * power;
+			      power <<= 1;
+			    }
+
+			    switch (next = bits) {
+			      case 0:
+			          bits = 0;
+			          maxpower = Math.pow(2,8);
+			          power=1;
+			          while (power!=maxpower) {
+			            resb = data.val & data.position;
+			            data.position >>= 1;
+			            if (data.position == 0) {
+			              data.position = resetValue;
+			              data.val = getNextValue(data.index++);
+			            }
+			            bits |= (resb>0 ? 1 : 0) * power;
+			            power <<= 1;
+			          }
+			        c = f(bits);
+			        break;
+			      case 1:
+			          bits = 0;
+			          maxpower = Math.pow(2,16);
+			          power=1;
+			          while (power!=maxpower) {
+			            resb = data.val & data.position;
+			            data.position >>= 1;
+			            if (data.position == 0) {
+			              data.position = resetValue;
+			              data.val = getNextValue(data.index++);
+			            }
+			            bits |= (resb>0 ? 1 : 0) * power;
+			            power <<= 1;
+			          }
+			        c = f(bits);
+			        break;
+			      case 2:
+			        return "";
+			    }
+			    dictionary[3] = c;
+			    w = c;
+			    result.push(c);
+			    while (true) {
+			      if (data.index > length) {
+			        return "";
+			      }
+
+			      bits = 0;
+			      maxpower = Math.pow(2,numBits);
+			      power=1;
+			      while (power!=maxpower) {
+			        resb = data.val & data.position;
+			        data.position >>= 1;
+			        if (data.position == 0) {
+			          data.position = resetValue;
+			          data.val = getNextValue(data.index++);
+			        }
+			        bits |= (resb>0 ? 1 : 0) * power;
+			        power <<= 1;
+			      }
+
+			      switch (c = bits) {
+			        case 0:
+			          bits = 0;
+			          maxpower = Math.pow(2,8);
+			          power=1;
+			          while (power!=maxpower) {
+			            resb = data.val & data.position;
+			            data.position >>= 1;
+			            if (data.position == 0) {
+			              data.position = resetValue;
+			              data.val = getNextValue(data.index++);
+			            }
+			            bits |= (resb>0 ? 1 : 0) * power;
+			            power <<= 1;
+			          }
+
+			          dictionary[dictSize++] = f(bits);
+			          c = dictSize-1;
+			          enlargeIn--;
+			          break;
+			        case 1:
+			          bits = 0;
+			          maxpower = Math.pow(2,16);
+			          power=1;
+			          while (power!=maxpower) {
+			            resb = data.val & data.position;
+			            data.position >>= 1;
+			            if (data.position == 0) {
+			              data.position = resetValue;
+			              data.val = getNextValue(data.index++);
+			            }
+			            bits |= (resb>0 ? 1 : 0) * power;
+			            power <<= 1;
+			          }
+			          dictionary[dictSize++] = f(bits);
+			          c = dictSize-1;
+			          enlargeIn--;
+			          break;
+			        case 2:
+			          return result.join('');
+			      }
+
+			      if (enlargeIn == 0) {
+			        enlargeIn = Math.pow(2, numBits);
+			        numBits++;
+			      }
+
+			      if (dictionary[c]) {
+			        entry = dictionary[c];
+			      } else {
+			        if (c === dictSize) {
+			          entry = w + w.charAt(0);
+			        } else {
+			          return null;
+			        }
+			      }
+			      result.push(entry);
+
+			      // Add w+entry[0] to the dictionary.
+			      dictionary[dictSize++] = w + entry.charAt(0);
+			      enlargeIn--;
+
+			      w = entry;
+
+			      if (enlargeIn == 0) {
+			        enlargeIn = Math.pow(2, numBits);
+			        numBits++;
+			      }
+
+			    }
+			  }
+			};
+			  return LZString;
+			})();
+	*}
+}

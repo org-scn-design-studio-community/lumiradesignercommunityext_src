@@ -1,0 +1,27 @@
+{
+	"id": "ActionSheetButton",
+	"title": "Action Sheet Button 2.0",
+	"tooltip": "Fiori-Inspired Action Sheet Button menu",
+	"handlerType": "sapui5",
+	"parentControl": "sap.m.Button",
+	"group": "ScnCommunityBasics",
+	"package": "basics",
+	"extension": "Component",
+	"databound": false,
+	"modes":"commons m",
+
+	"require": 
+	[
+		{
+			"space" : "known",
+			"id" : "common_basics",
+		},
+		{
+			"space" : "known",
+			"id" : "sap_m_loader",
+		}
+	],
+	
+	"width": "32",
+	"height": "32"
+}

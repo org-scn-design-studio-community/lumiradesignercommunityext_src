@@ -1,0 +1,91 @@
+
+<component
+	id="NavigationBar"
+	title="Navigation Bar 2.0"
+	tooltip="Navigation Bar"
+	icon="res/NavigationBar/NavigationBar.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/NavigationBar/NavigationBar</requireJs>
+
+	<cssInclude>res/NavigationBar/NavigationBar.css</cssInclude>
+	
+	
+	<property
+		id="DCleanAll"
+		type="boolean"
+		title="Clean All Elements"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DElementsContent"
+		type="String"
+		title="Steps"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSelectedKey"
+		type="String"
+		title="Selected Step Key"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSelectedText"
+		type="String"
+		title="Selected Text"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="numberOfVisibleSteps"
+		type="String"
+		title="Number Of Visible Steps"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">300</defaultValue>
+		<defaultValue property="HEIGHT">22</defaultValue>
+		
+		<defaultValue property="DCleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DElementsContent"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="DSelectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="DSelectedText"><![CDATA[]]></defaultValue>
+		<defaultValue property="numberOfVisibleSteps"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

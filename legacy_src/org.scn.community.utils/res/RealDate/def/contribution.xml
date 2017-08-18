@@ -1,0 +1,36 @@
+
+	<component
+		id="RealDate"
+		title="Real Date"
+		icon="res/RealDate/RealDate.png"
+		handlerType="div"
+		group="TECHNICAL_COMPONENTS"
+		modes="commons m"
+	>
+	
+	<requireJs modes="commons m">res/RealDate/RealDate</requireJs>
+
+	<property
+			id="days"
+			title="Days"
+			tooltip=""
+			type="String"
+			visible="false"/>
+
+	<property
+			id="oneDay"
+			title="One Day"
+			tooltip=""
+			type="String"
+			visible="false"/>
+		
+	<initialization>
+			<defaultValue property="WIDTH">10</defaultValue>
+			<defaultValue property="HEIGHT">10</defaultValue>
+			<defaultValue property="TOP_MARGIN">-2000</defaultValue>
+			<defaultValue property="LEFT_MARGIN">-2000</defaultValue>
+			<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+			<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+	</initialization>
+
+	</component>

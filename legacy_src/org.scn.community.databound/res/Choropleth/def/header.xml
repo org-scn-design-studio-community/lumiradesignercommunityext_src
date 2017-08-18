@@ -1,0 +1,10 @@
+
+<component id="Choropleth" 
+	title="Choropleth Map 2.0"
+	icon="res/Choropleth/Choropleth.png"
+	handlerType="div"
+	modes="commons m"
+	propertySheetPath="aps/PropertyPage.html"
+	databound = "true"
+	group="ScnCommunityVisualizations">
+	<requireJs modes="commons m">res/Choropleth/Choropleth</requireJs>

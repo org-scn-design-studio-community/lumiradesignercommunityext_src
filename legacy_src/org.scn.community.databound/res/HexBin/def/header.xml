@@ -1,0 +1,12 @@
+
+<component
+		id="HexBin"
+		title="Hexbin Chart 2.0"
+		icon="res/HexBin/HexBin.png"
+		handlerType="div"
+		modes="commons m"
+		propertySheetPath="aps/PropertyPage.html"
+		group="ScnCommunityVisualizations"
+		databound="true"
+>
+<requireJs modes="commons m">res/HexBin/HexBin</requireJs>

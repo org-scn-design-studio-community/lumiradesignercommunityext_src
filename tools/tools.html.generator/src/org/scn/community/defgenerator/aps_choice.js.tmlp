@@ -1,0 +1,35 @@
+	that["fun_%PROPERTY_NAME%"] = {};
+	
+	that["fun_%PROPERTY_NAME%"].update = function(){
+		that["fun_%PROPERTY_NAME%"]._input.setSelectedKey(that["fun_%PROPERTY_NAME%"]._);
+	};
+	
+	that["fun_%PROPERTY_NAME%"].init = function(){
+		that["fun_%PROPERTY_NAME%"]._label = new sap.ui.commons.Label({text: " %PROPERTY_DESCRIPTION%"});
+		that["fun_%PROPERTY_NAME%"]._label.addStyleClass("org-scn-ApsLabel");
+		that._content.addContent(that["fun_%PROPERTY_NAME%"]._label);
+		
+		that["fun_%PROPERTY_NAME%"]._input = new sap.ui.commons.ComboBox({width: "300px"});
+		%COMBO_ADD_ITEMS%
+		that._content.addContent(that["fun_%PROPERTY_NAME%"]._input);
+		that["fun_%PROPERTY_NAME%"]._input.attachChange(that["fun_%PROPERTY_NAME%"].propertyChanged, that);
+		that["fun_%PROPERTY_NAME%"]._input.addStyleClass("org-scn-ApsBoolean");
+		
+		that["fun_%PROPERTY_NAME%"].update();
+	};
+
+	that["fun_%PROPERTY_NAME%"].propertyChanged = function(oControlEvent){
+		var newValue = oControlEvent.getParameter("newValue");
+		that["fun_%PROPERTY_NAME%"]._ = newValue;
+		that.firePropertiesChanged(["%PROPERTY_NAME%"]);
+	};
+	
+	that.%PROPERTY_NAME% = function(s){
+		if( s === undefined){
+			return that["fun_%PROPERTY_NAME%"]._;
+		}else{
+			that["fun_%PROPERTY_NAME%"]._ = s;
+			that["fun_%PROPERTY_NAME%"].update();
+			return that;
+		}
+	};

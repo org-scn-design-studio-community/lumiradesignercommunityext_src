@@ -1,0 +1,2648 @@
+/* GENERATED - DO NOT EDIT */
+/**
+ * Copyright 2015, Contributors
+ * 
+ * Original Source Code Location:
+ *  https://github.com/org-scn-design-studio-community/sdkpackage/
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *  
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *  
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License. 
+ */
+
+
+/**
+ * Generated ZTL Class for ApsTester
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.prototypes.ApsTester extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Ignore Totals Property
+	 */	
+	void setCheckboxExample( /**Ignore Totals*/ boolean checkboxExample){*
+		this.checkboxExample = checkboxExample;
+	*}
+
+	/**
+	 * Gets Ignore Totals Property
+	 */	
+	boolean isCheckboxExample() {*
+		return this.checkboxExample;
+	*}
+
+	/**
+	 * Gets Ignore Totals Property
+	 */	
+	boolean isCheckboxOnlyGetterExample() {*
+		return this.checkboxOnlyGetterExample;
+	*}
+
+	/**
+	 * Sets Simple Color Property
+	 */	
+	void setColorExample( /**Simple Color*/ String colorExample){*
+		this.colorExample = colorExample;
+	*}
+
+	/**
+	 * Gets Simple Color Property
+	 */	
+	String getColorExample() {*
+		return this.colorExample;
+	*}
+
+	/**
+	 * Sets Simple Choice Property by String
+	 */	
+	void setComboboxExampleByString( /**Simple Choice*/ String comboboxExample){*
+		this.comboboxExample = comboboxExample;
+	*}
+
+	/**
+	 * Gets Simple Choice Property as String
+	 */	
+	String getComboboxExampleAsString() {*
+		return this.comboboxExample;
+	*}
+	
+	/**
+	 * Sets Simple Choice Property by Choice Option
+	 */	
+	void setComboboxExample( /**Simple Choice*/ org_scn_community_shared_Enumfield comboboxExample){*
+		this.comboboxExample = comboboxExample;
+	*}
+	
+	/**
+	 * Gets Simple Choice Property as Choice Option
+	 */	
+	org_scn_community_shared_Enumfield getComboboxExample() {*
+		return this.comboboxExample;
+	*}
+
+
+
+	/** Adds an element containing parentKey [String], key [String], text [String], image [String], selected [boolean] properties.
+	 * You need to specify a unique and existing parent element.
+
+ 	<example>
+	You want to add 2 elements
+	<code>
+	APSTESTER.addItem(parentKey [String], key [String], text [String], image [String], selected [boolean]);<br>
+	APSTESTER.addItem(parentKey [String], key [String], text [String], image [String], selected [boolean]);
+	</code>
+	</example>
+	 */
+	void addItem (
+			/**The key of the parent button*/String parentKey, 
+			/**Unique key of this item*/String key, 
+			/**Text for the item*/String text, 
+			/**Given image for the item*/optional String image, 
+			/**Selection state of the item*/optional boolean selected
+			) {*		
+		
+		var leaf = (parentKey != "ROOT");
+		
+		if(image == undefined) { image = "";}
+		if(selected == undefined) { selected = false;}
+		
+		var itemDef = {
+			leaf:leaf,
+			parentKey:parentKey, 
+			key:key, 
+			text:text, 
+			image:image, 
+			selected:selected 
+			};
+	
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			this.doublearray = "[]";
+		}
+		
+		var elementsJson = JSON.parse(this.doublearray);
+		
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				alreadyFound = true;
+				break;
+			}
+		}
+		
+		if(!alreadyFound) {
+			elementsJson.push(itemDef);
+		}
+	
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+
+	/** Adds a root element containing key [String], text [String], image [String], selected [boolean].
+
+ 	<example>
+	You want to add 2 root elements
+	<code>
+	APSTESTER.addButton(key [String], text [String], image [String], selected [boolean]);<br>
+	APSTESTER.addButton(key [String], text [String], image [String], selected [boolean]);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void addButton (
+			/**Unique key of this button*/String key, 
+			/**Text for the button*/String text, 
+			/**Given image for the button*/optional String image, 
+			/**Selection state of the button*/optional boolean selected
+			) {*		
+		
+		this.addItem("ROOT", key, 
+			text, 
+			image, 
+			selected);
+	*}
+	
+	/** removes an element by String key properties.
+	 * You need to specify a unique and existing key.
+
+ 	<example>
+	You want to remove element
+	<code>
+	APSTESTER.removeItem(String key);<br>
+	</code>
+	</example>
+	 */
+	void removeItem (
+			String key
+			) {*		
+		
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			this.doublearray = "[]";
+		}
+		
+		var elementsJson = JSON.parse(this.doublearray);
+		
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson.splice(i,1);
+				break;
+			}
+		}
+
+		// remove all items with this parent
+		for (var i = elementsJson.length - 1; i >= 0; i--){
+			if (elementsJson[i].parentKey == key) {
+				elementsJson.splice(i,1);
+			}
+		}
+
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+
+	/** Removes a root element by key.
+
+ 	<example>
+	You want to remove root element
+	<code>
+	APSTESTER.removeButton(String key);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void removeButton (
+			String key
+			) {*		
+		
+		this.removeItem(key);
+	*}
+
+	/**
+	 * Gets Buttons As JSON String
+	 */	
+	String getButtonsAsJSON() {*
+		var jsonObject = JSON.parse(this.doublearray);
+		return JSON.stringify(jsonObject, null, 4);
+	*}
+
+	/**
+	 * Cleans All Buttons
+	 */	
+	String cleanAllButtons() {*
+		this.doublearray = "[]";
+	*}
+	/**
+	 * Sets the Text for Button keys<br/>
+	 */
+	void setButtonTexts (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Text */ String text
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].text = text;
+					break;
+				}
+			}
+		}
+		
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Text for Button Key<br/>
+	 */
+	void setButtonText (
+			/**/ String key,
+			/**/ String text
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].text = text;
+				break;
+			}
+		}
+
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Text for Button Key<br/>
+	 */
+	String getButtonText (
+			/**/ String key
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].text;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Image for Button keys<br/>
+	 */
+	void setButtonImages (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Image */ String image
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].image = image;
+					break;
+				}
+			}
+		}
+		
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Image for Button Key<br/>
+	 */
+	void setButtonImage (
+			/**/ String key,
+			/**/ String image
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].image = image;
+				break;
+			}
+		}
+
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Image for Button Key<br/>
+	 */
+	String getButtonImage (
+			/**/ String key
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].image;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Selected for Button keys<br/>
+	 */
+	void setButtonSelecteds (
+			/**/ String keys,
+			/**/ String separator
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			// clean all
+			elementsJson[i].selected = false;
+			
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].selected = true;
+					break;
+				}
+			}
+		}
+		
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Selected for Button Key<br/>
+	 */
+	void setButtonSelected (
+			/**/ String key,
+			/**/ boolean selected
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].selected = selected;
+				break;
+			}
+		}
+
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+
+		
+	/**
+	 * Clean all Selected of Button keys<br/>
+	 */
+	void cleanAllButtonSelecteds (
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+	
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			// clean all
+			elementsJson[i].selected = false;
+		}
+		
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Selected for Button Key<br/>
+	 */
+	String getButtonSelected (
+			/**/ String key
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		var value = undefined;
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].selected;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+
+	/**
+	 * Returns the Selected keys<br/>
+	 */
+	org.scn.community.shared.KeyArray getButtonSelectedKeysArray (
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return [];
+		}
+		
+		var elementsJson = JSON.parse(this.doublearray);
+		
+		var newElementsJson = [];
+		
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].selected == true) {
+				newElementsJson.push({"key": elementsJson[i].key});
+			}
+		}
+		
+		return newElementsJson;
+	*}
+	/**
+	 * Sets the Text for Item keys<br/>
+	 */
+	void setItemTexts (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Text */ String text
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].text = text;
+					break;
+				}
+			}
+		}
+		
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Text for Item Key<br/>
+	 */
+	void setItemText (
+			/**/ String key,
+			/**/ String text
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].text = text;
+				break;
+			}
+		}
+
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Text for Item Key<br/>
+	 */
+	String getItemText (
+			/**/ String key
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].text;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Image for Item keys<br/>
+	 */
+	void setItemImages (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Image */ String image
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].image = image;
+					break;
+				}
+			}
+		}
+		
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Image for Item Key<br/>
+	 */
+	void setItemImage (
+			/**/ String key,
+			/**/ String image
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].image = image;
+				break;
+			}
+		}
+
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Image for Item Key<br/>
+	 */
+	String getItemImage (
+			/**/ String key
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].image;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Selected for Item keys<br/>
+	 */
+	void setItemSelecteds (
+			/**/ String keys,
+			/**/ String separator
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			// clean all
+			elementsJson[i].selected = false;
+			
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].selected = true;
+					break;
+				}
+			}
+		}
+		
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Selected for Item Key<br/>
+	 */
+	void setItemSelected (
+			/**/ String key,
+			/**/ boolean selected
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].selected = selected;
+				break;
+			}
+		}
+
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+
+		
+	/**
+	 * Clean all Selected of Item keys<br/>
+	 */
+	void cleanAllItemSelecteds (
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+	
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			// clean all
+			elementsJson[i].selected = false;
+		}
+		
+		this.doublearray = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Selected for Item Key<br/>
+	 */
+	String getItemSelected (
+			/**/ String key
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.doublearray);
+
+		var value = undefined;
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].selected;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+
+	/**
+	 * Returns the Selected keys<br/>
+	 */
+	org.scn.community.shared.KeyArray getItemSelectedKeysArray (
+			) 
+	{*
+		if (this.doublearray === undefined || this.doublearray === "" || this.doublearray === "<delete>"){
+			return [];
+		}
+		
+		var elementsJson = JSON.parse(this.doublearray);
+		
+		var newElementsJson = [];
+		
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].selected == true) {
+				newElementsJson.push({"key": elementsJson[i].key});
+			}
+		}
+		
+		return newElementsJson;
+	*}
+
+
+	/**
+	 * Sets Color Palette Property
+	 */	
+	void setPaletteExample( /**Color Palette*/ String paletteExample){*
+		this.paletteExample = paletteExample;
+	*}
+
+	/**
+	 * Gets Color Palette Property
+	 */	
+	String getPaletteExample() {*
+		return this.paletteExample;
+	*}
+
+	/** Adds a root element containing key [String], text [String], image [String], selected [boolean].
+
+ 	<example>
+	You want to add 2 root elements
+	<code>
+	APSTESTER.addButton(key [String], text [String], image [String], selected [boolean]);<br>
+	APSTESTER.addButton(key [String], text [String], image [String], selected [boolean]);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void addButton (
+			/**Unique key of this button*/String key, 
+			/**Text for the button*/String text, 
+			/**Given image for the button*/optional String image, 
+			/**Selection state of the button*/optional boolean selected
+			) {*
+
+		if(image == undefined) { image = "";}
+		if(selected == undefined) { selected = false;}
+		
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			text:text, 
+			image:image, 
+			selected:selected
+			};
+
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			this.singlearray = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.singlearray);
+
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				alreadyFound = true;
+				break;
+			}
+		}
+
+		if(!alreadyFound) {
+			elementsJson.push(itemDef);
+		}
+
+		this.singlearray = JSON.stringify(elementsJson);
+	*}
+	
+	/** Removes a root element by key.
+
+ 	<example>
+	You want to remove root element
+	<code>
+	APSTESTER.removeButton(String key);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void removeButton (
+			String key
+			) {*
+
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			this.singlearray = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.singlearray);
+
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson.splice(i,1);
+				break;
+			}
+		}
+
+		// remove all items with this parent
+		for (var i = elementsJson.length - 1; i >= 0; i--){
+			if (elementsJson[i].parentKey == key) {
+				elementsJson.splice(i,1);
+			}
+		}
+
+		this.singlearray = JSON.stringify(elementsJson);
+	*}
+
+	/** Insert a root element by index.
+
+ 	<example>
+	You want to insert a root element
+	<code>
+	APSTESTER.insertButton(index [int], key [String], text [String], image [String], selected [boolean]);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void insertButton (
+			/**Index to Insert (0-based)*/int insertionIndex0based,
+			/**Unique key of this button*/String key, 
+			/**Text for the button*/String text, 
+			/**Given image for the button*/optional String image, 
+			/**Selection state of the button*/optional boolean selected
+			) {*
+
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			this.singlearray = "[]";
+		}
+		
+		var elementsJson = JSON.parse(this.singlearray);
+		var newElementsJson = [];
+
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			text:text, 
+			image:image, 
+			selected:selected
+		};
+
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (i == insertionIndex0based) {
+				newElementsJson.push(itemDef);
+			}
+
+			newElementsJson.push(elementsJson[i]);
+		}
+
+		this.singlearray = JSON.stringify(newElementsJson);
+	*}
+
+	/**
+	 * Updates given Button<br/>
+	 */
+	void updateButton (
+			/**Unique key of this button*/String key, 
+			/**Text for the button*/String text, 
+			/**Given image for the button*/optional String image, 
+			/**Selection state of the button*/optional boolean selected
+			) 
+	{*
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			this.singlearray = "[]";
+		}
+
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			text:text, 
+			image:image, 
+			selected:selected
+		};
+
+		var elementsJson = JSON.parse(this.singlearray);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == elementKey) {
+				elementsJson[i] = itemDef;
+				break;
+			}
+		}
+
+		this.singlearray = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Returns Key at given Index<br/>
+	 */
+	String getButtonAtIndex (
+			/**Index to pick the key*/ int index0based
+			) 
+	{*
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			this.singlearray = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.singlearray);
+
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (index0based == i) {
+				return elementsJson[i].key;
+			}
+		}
+
+		return "";
+	*}
+
+	/**
+	 * Gets Buttons As JSON String
+	 */	
+	String getButtonsAsJSON() {*
+		var jsonObject = JSON.parse(this.singlearray);
+		return JSON.stringify(jsonObject, null, 4);
+	*}
+
+	/**
+	 * Cleans All Buttons
+	 */	
+	String cleanAllButtons() {*
+		this.singlearray = "[]";
+	*}
+	
+	/**
+	 * Sets the Text for Button keys<br/>
+	 */
+	void setButtonTexts (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Text */ String text
+			) 
+	{*
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.singlearray);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].text = text;
+					break;
+				}
+			}
+		}
+		
+		this.singlearray = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Text for Button Key<br/>
+	 */
+	void setButtonText (
+			/**/ String key,
+			/**/ String text
+			) 
+	{*
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.singlearray);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].text = text;
+				break;
+			}
+		}
+
+		this.singlearray = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Text for Button Key<br/>
+	 */
+	String getButtonText (
+			/**/ String key
+			) 
+	{*
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.singlearray);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].text;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Image for Button keys<br/>
+	 */
+	void setButtonImages (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Image */ String image
+			) 
+	{*
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.singlearray);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].image = image;
+					break;
+				}
+			}
+		}
+		
+		this.singlearray = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Image for Button Key<br/>
+	 */
+	void setButtonImage (
+			/**/ String key,
+			/**/ String image
+			) 
+	{*
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.singlearray);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].image = image;
+				break;
+			}
+		}
+
+		this.singlearray = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Image for Button Key<br/>
+	 */
+	String getButtonImage (
+			/**/ String key
+			) 
+	{*
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.singlearray);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].image;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Selected for Button keys<br/>
+	 */
+	void setButtonSelecteds (
+			/**/ String keys,
+			/**/ String separator
+			) 
+	{*
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.singlearray);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			// clean all
+			elementsJson[i].selected = false;
+			
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].selected = true;
+					break;
+				}
+			}
+		}
+		
+		this.singlearray = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Selected for Button Key<br/>
+	 */
+	void setButtonSelected (
+			/**/ String key,
+			/**/ boolean selected
+			) 
+	{*
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.singlearray);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].selected = selected;
+				break;
+			}
+		}
+
+		this.singlearray = JSON.stringify(elementsJson);
+	*}
+
+		
+	/**
+	 * Clean all Selected of Button keys<br/>
+	 */
+	void cleanAllButtonSelecteds (
+			) 
+	{*
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			return;
+		}
+	
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			// clean all
+			elementsJson[i].selected = false;
+		}
+		
+		this.singlearray = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Selected for Button Key<br/>
+	 */
+	String getButtonSelected (
+			/**/ String key
+			) 
+	{*
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.singlearray);
+
+		var value = undefined;
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].selected;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+
+	/**
+	 * Returns the Selected keys<br/>
+	 */
+	org.scn.community.shared.KeyArray getButtonSelectedKeysArray (
+			) 
+	{*
+		if (this.singlearray === undefined || this.singlearray === "" || this.singlearray === "<delete>"){
+			return [];
+		}
+		
+		var elementsJson = JSON.parse(this.singlearray);
+		
+		var newElementsJson = [];
+		
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].selected == true) {
+				newElementsJson.push({"key": elementsJson[i].key});
+			}
+		}
+		
+		return newElementsJson;
+	*}
+
+
+
+	/**
+	 * Sets Some numbers Property
+	 */	
+	void setSpinnerExample( /**Some numbers*/ int spinnerExample){*
+		this.spinnerExample = spinnerExample;
+	*}
+
+	/**
+	 * Gets Some numbers Property
+	 */	
+	int getSpinnerExample() {*
+		return this.spinnerExample;
+	*}
+
+	/**
+	 * Sets Simple String Array Property as StringArray
+	 */	
+	void setStringarray( /**Simple String Array*/ StringArray stringarray){*
+		this.stringarray = stringarray;
+	*}
+	
+	/** Gets Simple String Array Property as StringArray
+
+ 	<example>
+	You want to ask for the current property value
+	<code>
+	APSTESTER.getStringarray();<br>
+	</code>
+	</example>
+	 */
+	StringArray getStringarray () {*		
+		var elementsJson = JSON.parse(this.stringarray);
+		return elementsJson;
+	*}
+
+	/**
+	 * Sets A saple text Property
+	 */	
+	void setTextExample( /**A saple text*/ String textExample){*
+		this.textExample = textExample;
+	*}
+
+	/**
+	 * Gets A saple text Property
+	 */	
+	String getTextExample() {*
+		return this.textExample;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+	// here is the place for other custom functions
+}
+
+/**
+ * Generated ZTL Class for ApsTesterUI5
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.prototypes.ApsTesterUI5 extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Ignore Totals Property
+	 */	
+	void setCheckboxExample( /**Ignore Totals*/ boolean checkboxExample){*
+		this.checkboxExample = checkboxExample;
+	*}
+
+	/**
+	 * Gets Ignore Totals Property
+	 */	
+	boolean isCheckboxExample() {*
+		return this.checkboxExample;
+	*}
+
+	/**
+	 * Gets Ignore Totals Property
+	 */	
+	boolean isCheckboxOnlyGetterExample() {*
+		return this.checkboxOnlyGetterExample;
+	*}
+
+	/**
+	 * Sets Simple Color Property
+	 */	
+	void setColorExample( /**Simple Color*/ String colorExample){*
+		this.colorExample = colorExample;
+	*}
+
+	/**
+	 * Gets Simple Color Property
+	 */	
+	String getColorExample() {*
+		return this.colorExample;
+	*}
+
+	/**
+	 * Sets Simple Choice Property by String
+	 */	
+	void setComboboxExampleByString( /**Simple Choice*/ String comboboxExample){*
+		this.comboboxExample = comboboxExample;
+	*}
+
+	/**
+	 * Gets Simple Choice Property as String
+	 */	
+	String getComboboxExampleAsString() {*
+		return this.comboboxExample;
+	*}
+	
+	/**
+	 * Sets Simple Choice Property by Choice Option
+	 */	
+	void setComboboxExample( /**Simple Choice*/ org_scn_community_shared_Enumfield comboboxExample){*
+		this.comboboxExample = comboboxExample;
+	*}
+	
+	/**
+	 * Gets Simple Choice Property as Choice Option
+	 */	
+	org_scn_community_shared_Enumfield getComboboxExample() {*
+		return this.comboboxExample;
+	*}
+
+
+
+	/**
+	 * Sets Color Palette Property
+	 */	
+	void setPaletteExample( /**Color Palette*/ String paletteExample){*
+		this.paletteExample = paletteExample;
+	*}
+
+	/**
+	 * Gets Color Palette Property
+	 */	
+	String getPaletteExample() {*
+		return this.paletteExample;
+	*}
+
+	/**
+	 * Sets Some numbers Property
+	 */	
+	void setSpinnerExample( /**Some numbers*/ int spinnerExample){*
+		this.spinnerExample = spinnerExample;
+	*}
+
+	/**
+	 * Gets Some numbers Property
+	 */	
+	int getSpinnerExample() {*
+		return this.spinnerExample;
+	*}
+
+	/**
+	 * Sets A saple text Property
+	 */	
+	void setTextExample( /**A saple text*/ String textExample){*
+		this.textExample = textExample;
+	*}
+
+	/**
+	 * Gets A saple text Property
+	 */	
+	String getTextExample() {*
+		return this.textExample;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}
+
+/**
+ * Class for ApplicationHeader
+ */
+class org.scn.community.prototypes.ApplicationHeaderE extends org.scn.community.shared.Component {
+	
+	/** Sets the user name that is displayed beside the welcome text. */
+	void setUserName(
+		/** User name */ String userName) {*
+		this.userName = userName;	
+	*}
+	
+	/** Returns the user name that is displayed beside the welcome text. */
+	String getUserName() {*
+		return this.userName;	
+	*}
+
+	/** Sets the text that is displayed beside the logo in the application header. */
+	void setLogoText(
+		/** Logo text */ String logoText) {*
+		this.logoText = logoText;	
+	*}
+	
+	/** Returns the text that is displayed beside the logo in the application header. */
+	String getLogoText() {*
+		return this.logoText;	
+	*}
+	
+	/* Sets the value of the invisible property appName to the application name */  
+	// @Visibility(private)
+	void private_setAppInfoName() {*
+		// APPLICATION.createInfoMessage("Name: " + APPLICATION.getInfo().name);
+	    this.appName = "Event: " + APPLICATION.getInfo().name;
+	*}
+	
+	/**
+	 * Just a show case, but this will never work - 
+	 * ValueTextList is just a representation for Java object which needs implementation of some interface
+	 * and will be passed directly through ZTL - cannot be coded via JSON.
+	 */
+	void setValues(ValueTextList list) {*
+		var that = this;
+	
+		var l = {};
+		l.value = list;
+		
+		if(this.isDebug()) {	DEBUG.inspectZtl(that, l)};
+		
+		var string = list.toString();
+		l.string = string;
+		
+		if(this.isDebug()) {	DEBUG.inspectZtl(that, l)};
+	*}
+	
+	org.scn.community.shared.ValueTextArray getValueTextList() {*
+		var myArray = [];
+		
+		myArray.push({"value": "A", "text": "A-T"});
+		myArray.push({"value": "B", "text": "C-T"});
+		myArray.push({"value": "C", "text": "B-T"});
+	
+		return myArray;  
+	*}
+	
+	void fillIntoSelectionComponent(SelectionComponent selectionComponent, org.scn.community.shared.ValueTextArray list) {*
+		selectionComponent.removeAllItems();
+		
+		var that = this;
+		
+		var l = {};
+		l.value = list;
+		
+		if(this.isDebug()) {	DEBUG.inspectZtl(that, l)};
+		
+		for(var i=0;i<list.length;i++){
+			if(this.isDebug()) {	l[list[i].value] = list[i].value + ": " + list[i].text; }
+			selectionComponent.addItem(list[i].value, list[i].text);
+		}
+		
+		if(this.isDebug()) {	DEBUG.inspectZtl(that, l)};
+	*}
+}
+
+
+/**
+ * Class for ApplicationHeader
+ */
+class org.scn.community.prototypes.ApplicationHeaderO extends org.scn.community.shared.Component {
+	
+	/** Sets the user name that is displayed beside the welcome text. */
+	void setUserName(
+		/** User name */ String userName) {*
+		this.userName = userName;	
+	*}
+	
+	/** Returns the user name that is displayed beside the welcome text. */
+	String getUserName() {*
+		return this.userName;	
+	*}
+
+	/** Sets the text that is displayed beside the logo in the application header. */
+	void setLogoText(
+		/** Logo text */ String logoText) {*
+		this.logoText = logoText;	
+	*}
+	
+	/** Returns the text that is displayed beside the logo in the application header. */
+	String getLogoText() {*
+		return this.logoText;	
+	*}
+	
+	// @Visibility(private)
+	void private_beforeRender() {*
+		// APPLICATION.createInfoMessage("Name: " + APPLICATION.getInfo().name);
+	    this.appName = "OnBeforeRender: " + APPLICATION.getInfo().name;
+	*}
+}
+/**
+ * Class for ProgressBar Properties
+ */
+class org.scn.community.prototypes.BarProperty {
+  String title;
+  String fillColor;
+  String number;
+  String numberUnit;
+}
+
+/**
+ * Class for ProgressBar
+ */
+class org.scn.community.prototypes.ProgressSet extends org.scn.community.shared.Component {
+	/**
+	Sets bar thickness (-1 = auto)
+	*/
+	void setBarThickness(/* Thickness */ int thickness) {*
+		this.barHeight = thickness;
+	*}
+	/**
+	Gets bar thickness (-1 = auto)
+	*/
+	int getBarThickness() {*
+		return this.barHeight;
+	*}
+	/**
+	Sets inline labels to true/false
+	*/
+	void setInlineLabels(/* true/false */ boolean isInline) {*
+		this.inlineLabels = isInline;
+	*}
+	/**
+	Gets whether labels are inline are not
+	*/
+	boolean getInlineLabels() {*
+		return this.inlineLabels;
+	*}
+	/**
+	Gets Bar Selected
+	*/
+	String getBarClicked() {*
+		return this.selectedBar;
+	*}
+	/** Remove All Bars
+ 	<example>
+	Remove all bars
+	<code>
+	PROGRESSET_1.removeAllBars();<br>
+	</code>
+	</example>
+	 */
+	void removeAllBars () {*		
+		this.barConfig = JSON.stringify([]);
+	*}
+	/** Remove a bar
+ 	<example>
+	Remove a bar titled "Sales"
+	<code>
+	PROGRESSET_1.removeBar("Sales");<br>
+	</code>
+	</example>
+	 */
+	void removeBar (/*Tile Title*/String title) {*		
+		var o = eval(this.barConfig);
+		if(!o) o = [];
+		var matchIndex = -1;
+		for(var i=0;i<o.length;i++){
+			if(o[i].title == title) matchIndex = i;
+		}
+		if(matchIndex>-1) o.splice(matchIndex,1);
+		barConfig = JSON.stringify(o);
+	*}
+	com.sample.utilities.BarProperty getBarProperty(/*Title*/String title){*
+		var r = {
+			title : "",
+			fillColor : "",
+			number : "",
+			numberUnit : ""
+		}
+		var o = eval(this.barConfig);
+		var matchIndex = -1;
+		for(var i=0;i<o.length;i++){
+			if(o[i].title == title) matchIndex = i;
+		}
+		if(matchIndex>-1){
+			var barConf = o[matchIndex];
+			r.title = barConf.title;
+			r.fillColor = barConf.fillColor;
+			r.number = tileConf.number;
+			r.numberUnit = tileConf.numberUnit;
+		}
+		return r;
+	*}
+	/** Adds or Updates a Bar (if title already exists)
+ 	<example>
+	Add/Update a bar called "Sales"
+	<code>
+	PROGRESSET_1.addBar("Sales", "#FF0000", "1234", "USD");<br>
+	</code>
+	</example>
+	 */
+	void addBar (
+			/*Title*/String title, 
+			/*Number*/optional String number, 
+			/*Number Unit*/optional String numberUnit,
+			/*Fill Color*/optional String fillColor
+			) {*		
+		var o = eval(this.barConfig);
+		if(!o) o = [];
+		var bar = {
+			title: title,
+			fillColor: fillColor || "auto",
+			number: number,
+			numberUnit: numberUnit
+		};	
+		var matchIndex = -1;
+		for(var i=0;i<o.length;i++){
+			if(o[i].title == title) matchIndex = i;
+		}
+		if(matchIndex==-1){	// New Bar
+			o.push(bar);
+		}else{	// Update Bar
+			o[matchIndex] = bar;
+		}
+		barConfig = JSON.stringify(o);
+	*}
+}
+
+/**
+ * Generated ZTL Class for BulletChartGen
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.prototypes.BulletChartGen extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Clicked Key Property
+	 */	
+	void setClickedgraphkey( /**Clicked Key*/ String clickedgraphkey){*
+		this.clickedgraphkey = clickedgraphkey;
+	*}
+
+	/**
+	 * Gets Clicked Key Property
+	 */	
+	String getClickedgraphkey() {*
+		return this.clickedgraphkey;
+	*}
+
+	/**
+	 * Sets comparon values Property
+	 */	
+	void setComparison( /**comparon values*/ boolean comparison){*
+		this.comparison = comparison;
+	*}
+
+	/**
+	 * Gets comparon values Property
+	 */	
+	boolean getComparison() {*
+		return this.comparison;
+	*}
+
+
+
+	/**
+	 * Sets Extrapolation Values Property
+	 */	
+	void setExtrapolation( /**Extrapolation Values*/ String extrapolation){*
+		this.extrapolation = extrapolation;
+	*}
+
+	/**
+	 * Gets Extrapolation Values Property
+	 */	
+	String getExtrapolation() {*
+		return this.extrapolation;
+	*}
+
+	/**
+	 * Sets Graph Title Property
+	 */	
+	void setGraphTitle( /**Graph Title*/ String graphTitle){*
+		this.graphTitle = graphTitle;
+	*}
+
+	/**
+	 * Gets Graph Title Property
+	 */	
+	String getGraphTitle() {*
+		return this.graphTitle;
+	*}
+
+	/**
+	 * Sets Unique key values Property
+	 */	
+	void setKeydimension( /**Unique key values*/ String keydimension){*
+		this.keydimension = keydimension;
+	*}
+
+	/**
+	 * Gets Unique key values Property
+	 */	
+	String getKeydimension() {*
+		return this.keydimension;
+	*}
+
+	/**
+	 * Sets dimension holding label values Property
+	 */	
+	void setLabeldimension( /**dimension holding label values*/ String labeldimension){*
+		this.labeldimension = labeldimension;
+	*}
+
+	/**
+	 * Gets dimension holding label values Property
+	 */	
+	String getLabeldimension() {*
+		return this.labeldimension;
+	*}
+
+	/**
+	 * Sets max height  Property
+	 */	
+	void setMaxgraphheight( /**max height */ int maxgraphheight){*
+		this.maxgraphheight = maxgraphheight;
+	*}
+
+	/**
+	 * Gets max height  Property
+	 */	
+	int getMaxgraphheight() {*
+		return this.maxgraphheight;
+	*}
+
+	/**
+	 * Sets Minimum Height Property
+	 */	
+	void setMingraphheight( /**Minimum Height*/ int mingraphheight){*
+		this.mingraphheight = mingraphheight;
+	*}
+
+	/**
+	 * Gets Minimum Height Property
+	 */	
+	int getMingraphheight() {*
+		return this.mingraphheight;
+	*}
+
+	/**
+	 * Sets Realization Column Property
+	 */	
+	void setRealization( /**Realization Column*/ String realization){*
+		this.realization = realization;
+	*}
+
+	/**
+	 * Gets Realization Column Property
+	 */	
+	String getRealization() {*
+		return this.realization;
+	*}
+
+	/**
+	 * Sets When to show an alert Property by String
+	 */	
+	void setShowalertByString( /**When to show an alert*/ String showalert){*
+		this.showalert = showalert;
+	*}
+
+	/**
+	 * Gets When to show an alert Property as String
+	 */	
+	String getShowalertAsString() {*
+		return this.showalert;
+	*}
+	
+	/**
+	 * Sets When to show an alert Property by Choice Option
+	 */	
+	void setShowalert( /**When to show an alert*/ org_scn_community_shared_Enumfield showalert){*
+		this.showalert = showalert;
+	*}
+	
+	/**
+	 * Gets When to show an alert Property as Choice Option
+	 */	
+	org_scn_community_shared_Enumfield getShowalert() {*
+		return this.showalert;
+	*}
+
+	/**
+	 * Sets Show X axis Property
+	 */	
+	void setShowaxis( /**Show X axis*/ boolean showaxis){*
+		this.showaxis = showaxis;
+	*}
+
+	/**
+	 * Gets Show X axis Property
+	 */	
+	boolean isShowaxis() {*
+		return this.showaxis;
+	*}
+
+	/**
+	 * Sets Clicked Key Property
+	 */	
+	void setSublabeldimension( /**Clicked Key*/ String sublabeldimension){*
+		this.sublabeldimension = sublabeldimension;
+	*}
+
+	/**
+	 * Gets Clicked Key Property
+	 */	
+	String getSublabeldimension() {*
+		return this.sublabeldimension;
+	*}
+
+	/**
+	 * Sets threshold 1 values Property
+	 */	
+	void setThreshold1( /**threshold 1 values*/ String threshold1){*
+		this.threshold1 = threshold1;
+	*}
+
+	/**
+	 * Gets threshold 1 values Property
+	 */	
+	String getThreshold1() {*
+		return this.threshold1;
+	*}
+
+	/**
+	 * Sets threshold 2 values Property
+	 */	
+	void setThreshold2( /**threshold 2 values*/ String threshold2){*
+		this.threshold2 = threshold2;
+	*}
+
+	/**
+	 * Gets threshold 2 values Property
+	 */	
+	String getThreshold2() {*
+		return this.threshold2;
+	*}
+
+	/**
+	 * Sets threshold 3 values Property
+	 */	
+	void setThreshold3( /**threshold 3 values*/ String threshold3){*
+		this.threshold3 = threshold3;
+	*}
+
+	/**
+	 * Gets threshold 3 values Property
+	 */	
+	String getThreshold3() {*
+		return this.threshold3;
+	*}
+
+	/**
+	 * Sets threshold 4 values Property
+	 */	
+	void setThreshold4( /**threshold 4 values*/ String threshold4){*
+		this.threshold4 = threshold4;
+	*}
+
+	/**
+	 * Gets threshold 4 values Property
+	 */	
+	String getThreshold4() {*
+		return this.threshold4;
+	*}
+
+	/**
+	 * Sets threshold 5 values Property
+	 */	
+	void setThreshold5( /**threshold 5 values*/ String threshold5){*
+		this.threshold5 = threshold5;
+	*}
+
+	/**
+	 * Gets threshold 5 values Property
+	 */	
+	String getThreshold5() {*
+		return this.threshold5;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+	// here is the place for other custom functions
+}
+
+/**
+ * Class for SapMList
+ */
+class org.scn.community.prototypes.SapMList extends org.scn.community.shared.Component {
+	
+}
+/**
+ * Class for RapidPrototype 
+ */
+class org.scn.community.prototypes.RapidPrototype extends org.scn.community.shared.Component {
+	/* Returns the current value */
+	String getHTML() {*
+		return this.HTML;
+	*}
+
+	/* Sets the value */
+	void setHTML(/* HTML */ String html) {*
+		this.HTML = html;
+	*}
+	
+	void setTerm( /* Placeholder Text */ String term, /* Index */ int index){*
+		this["term"+index] = term;
+	*}
+	void setReplacement( /* Placeholder Text */ String replacement, /* Index */ int index){*
+		this["replacement"+index] = replacement;
+	*}
+}
+
+/**
+ * Generated ZTL Class for GoogleCandle
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.prototypes.GoogleCandle extends org.scn.community.shared.Component {
+
+	/** Adds a root element containing key [String], text [String], start1 [float], start2 [float], end1 [float], end2 [float].
+
+ 	<example>
+	You want to add 2 root elements
+	<code>
+	GOOGLECANDLE.addCandle(key [String], text [String], start1 [float], start2 [float], end1 [float], end2 [float]);<br>
+	GOOGLECANDLE.addCandle(key [String], text [String], start1 [float], start2 [float], end1 [float], end2 [float]);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void addCandle (
+			/**Unique key of the candle*/String key, 
+			/**Text of the candle*/String text, 
+			/**Start 1 value*/float start1, 
+			/**Start 2 value*/float start2, 
+			/**End 1 value*/float end1, 
+			/**End 2 value*/float end2
+			) {*
+
+		
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			text:text, 
+			start1:start1, 
+			start2:start2, 
+			end1:end1, 
+			end2:end2
+			};
+
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			this.candles = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.candles);
+
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				alreadyFound = true;
+				break;
+			}
+		}
+
+		if(!alreadyFound) {
+			elementsJson.push(itemDef);
+		}
+
+		this.candles = JSON.stringify(elementsJson);
+	*}
+	
+	/** Removes a root element by key.
+
+ 	<example>
+	You want to remove root element
+	<code>
+	GOOGLECANDLE.removeCandle(String key);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void removeCandle (
+			String key
+			) {*
+
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			this.candles = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.candles);
+
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson.splice(i,1);
+				break;
+			}
+		}
+
+		// remove all items with this parent
+		for (var i = elementsJson.length - 1; i >= 0; i--){
+			if (elementsJson[i].parentKey == key) {
+				elementsJson.splice(i,1);
+			}
+		}
+
+		this.candles = JSON.stringify(elementsJson);
+	*}
+
+	/** Insert a root element by index.
+
+ 	<example>
+	You want to insert a root element
+	<code>
+	GOOGLECANDLE.insertCandle(index [int], key [String], text [String], start1 [float], start2 [float], end1 [float], end2 [float]);<br>
+	<br>
+	</code>
+	</example>
+	 */
+	void insertCandle (
+			/**Index to Insert (0-based)*/int insertionIndex0based,
+			/**Unique key of the candle*/String key, 
+			/**Text of the candle*/String text, 
+			/**Start 1 value*/float start1, 
+			/**Start 2 value*/float start2, 
+			/**End 1 value*/float end1, 
+			/**End 2 value*/float end2
+			) {*
+
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			this.candles = "[]";
+		}
+		
+		var elementsJson = JSON.parse(this.candles);
+		var newElementsJson = [];
+
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			text:text, 
+			start1:start1, 
+			start2:start2, 
+			end1:end1, 
+			end2:end2
+		};
+
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (i == insertionIndex0based) {
+				newElementsJson.push(itemDef);
+			}
+
+			newElementsJson.push(elementsJson[i]);
+		}
+
+		this.candles = JSON.stringify(newElementsJson);
+	*}
+
+	/**
+	 * Updates given Candle<br/>
+	 */
+	void updateCandle (
+			/**Unique key of the candle*/String key, 
+			/**Text of the candle*/String text, 
+			/**Start 1 value*/float start1, 
+			/**Start 2 value*/float start2, 
+			/**End 1 value*/float end1, 
+			/**End 2 value*/float end2
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			this.candles = "[]";
+		}
+
+		var itemDef = {
+			leaf:true,
+			key:key, 
+			text:text, 
+			start1:start1, 
+			start2:start2, 
+			end1:end1, 
+			end2:end2
+		};
+
+		var elementsJson = JSON.parse(this.candles);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == elementKey) {
+				elementsJson[i] = itemDef;
+				break;
+			}
+		}
+
+		this.candles = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Returns Key at given Index<br/>
+	 */
+	String getCandleAtIndex (
+			/**Index to pick the key*/ int index0based
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			this.candles = "[]";
+		}
+
+		var elementsJson = JSON.parse(this.candles);
+
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (index0based == i) {
+				return elementsJson[i].key;
+			}
+		}
+
+		return "";
+	*}
+
+	/**
+	 * Gets Candles As JSON String
+	 */	
+	String getCandlesAsJSON() {*
+		var jsonObject = JSON.parse(this.candles);
+		return JSON.stringify(jsonObject, null, 4);
+	*}
+
+	/**
+	 * Cleans All Candles
+	 */	
+	String cleanAllCandles() {*
+		this.candles = "[]";
+	*}
+	
+	/**
+	 * Sets the Text for Candle keys<br/>
+	 */
+	void setCandleTexts (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Text */ String text
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.candles);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].text = text;
+					break;
+				}
+			}
+		}
+		
+		this.candles = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Text for Candle Key<br/>
+	 */
+	void setCandleText (
+			/**/ String key,
+			/**/ String text
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.candles);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].text = text;
+				break;
+			}
+		}
+
+		this.candles = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Text for Candle Key<br/>
+	 */
+	String getCandleText (
+			/**/ String key
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.candles);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].text;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Start1 for Candle keys<br/>
+	 */
+	void setCandleStart1s (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Start1 */ float start1
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.candles);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].start1 = start1;
+					break;
+				}
+			}
+		}
+		
+		this.candles = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Start1 for Candle Key<br/>
+	 */
+	void setCandleStart1 (
+			/**/ String key,
+			/**/ float start1
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.candles);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].start1 = start1;
+				break;
+			}
+		}
+
+		this.candles = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Start1 for Candle Key<br/>
+	 */
+	float getCandleStart1 (
+			/**/ String key
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.candles);
+
+		var value = undefined;
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].start1;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the Start2 for Candle keys<br/>
+	 */
+	void setCandleStart2s (
+			/**/ String keys,
+			/**/ String separator,
+	        /* Start2 */ float start2
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.candles);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].start2 = start2;
+					break;
+				}
+			}
+		}
+		
+		this.candles = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the Start2 for Candle Key<br/>
+	 */
+	void setCandleStart2 (
+			/**/ String key,
+			/**/ float start2
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.candles);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].start2 = start2;
+				break;
+			}
+		}
+
+		this.candles = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of Start2 for Candle Key<br/>
+	 */
+	float getCandleStart2 (
+			/**/ String key
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.candles);
+
+		var value = undefined;
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].start2;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the End1 for Candle keys<br/>
+	 */
+	void setCandleEnd1s (
+			/**/ String keys,
+			/**/ String separator,
+	        /* End1 */ float end1
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.candles);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].end1 = end1;
+					break;
+				}
+			}
+		}
+		
+		this.candles = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the End1 for Candle Key<br/>
+	 */
+	void setCandleEnd1 (
+			/**/ String key,
+			/**/ float end1
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.candles);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].end1 = end1;
+				break;
+			}
+		}
+
+		this.candles = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of End1 for Candle Key<br/>
+	 */
+	float getCandleEnd1 (
+			/**/ String key
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.candles);
+
+		var value = undefined;
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].end1;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	/**
+	 * Sets the End2 for Candle keys<br/>
+	 */
+	void setCandleEnd2s (
+			/**/ String keys,
+			/**/ String separator,
+	        /* End2 */ float end2
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+	
+		var changeKeys = keys.split(separator);	
+
+		var elementsJson = JSON.parse(this.candles);
+
+		// loop and find and change
+		for (var i = 0; i < elementsJson.length ; i++){
+			for (var j = 0; j < changeKeys.length ; j++){
+				if (elementsJson[i].key == changeKeys[j]) {
+					elementsJson[i].end2 = end2;
+					break;
+				}
+			}
+		}
+		
+		this.candles = JSON.stringify(elementsJson);
+	*}
+
+	/**
+	 * Sets the End2 for Candle Key<br/>
+	 */
+	void setCandleEnd2 (
+			/**/ String key,
+			/**/ float end2
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.candles);
+
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				elementsJson[i].end2 = end2;
+				break;
+			}
+		}
+
+		this.candles = JSON.stringify(elementsJson);
+	*}
+	
+	/**
+	 * Returns value of End2 for Candle Key<br/>
+	 */
+	float getCandleEnd2 (
+			/**/ String key
+			) 
+	{*
+		if (this.candles === undefined || this.candles === "" || this.candles === "<delete>"){
+			return;
+		}
+
+		var elementsJson = JSON.parse(this.candles);
+
+		var value = undefined;
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = elementsJson[i].end2;
+				break;
+			}
+		}
+		
+		return value;
+	*}
+
+
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+	// here is the place for other custom functions
+}
+/* ZTL END */

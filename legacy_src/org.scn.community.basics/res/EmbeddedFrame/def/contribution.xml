@@ -1,0 +1,102 @@
+
+<component
+	id="EmbeddedFrame"
+	title="Embedded Frame 2.0"
+	tooltip="Embedded Frame - Include external web pages directly in your application"
+	icon="res/EmbeddedFrame/EmbeddedFrame.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/EmbeddedFrame/EmbeddedFrame</requireJs>
+
+	<cssInclude>res/EmbeddedFrame/EmbeddedFrame.css</cssInclude>
+	
+	
+	<property
+		id="domainrelaxlevel"
+		type="int"
+		title="Domain Relax Level"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="explicitlySetDomain"
+		type="boolean"
+		title="Explicitly set document domain"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="reload"
+		type="String"
+		title="Trigger Reload"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="sandbox"
+		type="String"
+		title="Sandbox Attribute Values"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="skipport"
+		type="boolean"
+		title="Skip port in domain"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="url"
+		type="String"
+		title="Url"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="usesandbox"
+		type="boolean"
+		title="Use Sandbox Attribute"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">600</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="domainrelaxlevel"><![CDATA[0]]></defaultValue>
+		<defaultValue property="explicitlySetDomain"><![CDATA[false]]></defaultValue>
+		<defaultValue property="reload"><![CDATA[init]]></defaultValue>
+		<defaultValue property="sandbox"><![CDATA[]]></defaultValue>
+		<defaultValue property="skipport"><![CDATA[true]]></defaultValue>
+		<defaultValue property="url"><![CDATA[]]></defaultValue>
+		<defaultValue property="usesandbox"><![CDATA[true]]></defaultValue>
+
+	</initialization>
+
+</component>

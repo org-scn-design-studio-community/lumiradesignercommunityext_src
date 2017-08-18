@@ -1,0 +1,111 @@
+
+<component
+	id="TimeOut"
+	title="TimeOut (Timer) 2.0"
+	tooltip="Time Out (Timer)"
+	icon="res/TimeOut/TimeOut.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/TimeOut/TimeOut</requireJs>
+
+	<cssInclude>res/TimeOut/TimeOut.css</cssInclude>
+	
+	
+	<property
+		id="counterVisible"
+		type="boolean"
+		title="Show Counter"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="logoff"
+		type="String"
+		title="Logoff trigger"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="logoffText"
+		type="String"
+		title="Logoff Popup Text"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onTimeout"
+		type="ScriptText"
+		title="Event For On Timeout"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="periodic"
+		type="boolean"
+		title="Is periodic?"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="start"
+		type="String"
+		title="Start trigger"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="stop"
+		type="String"
+		title="Stop trigger"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="timer"
+		type="int"
+		title="Timeout after (ms)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		
+		<defaultValue property="counterVisible"><![CDATA[false]]></defaultValue>
+		<defaultValue property="logoff"><![CDATA[]]></defaultValue>
+		<defaultValue property="logoffText"><![CDATA[Session timeout - refresh the browser page.]]></defaultValue>
+		<defaultValue property="onTimeout"><![CDATA[]]></defaultValue>
+		<defaultValue property="periodic"><![CDATA[false]]></defaultValue>
+		<defaultValue property="start"><![CDATA[]]></defaultValue>
+		<defaultValue property="stop"><![CDATA[]]></defaultValue>
+		<defaultValue property="timer"><![CDATA[5000]]></defaultValue>
+
+	</initialization>
+
+</component>

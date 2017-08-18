@@ -1,0 +1,191 @@
+
+<component
+	id="DropDown"
+	title="Data Drop Down 2.0"
+	tooltip="Data Drop Down"
+	icon="res/DropDown/DropDown.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="true"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/DropDown/DropDown</requireJs>
+
+	<cssInclude>res/DropDown/DropDown.css</cssInclude>
+	
+	
+	<property
+		id="DBindingMode"
+		type="String"
+		title="Binding Mode (metadata, Resultset)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DDimension"
+		type="String"
+		title="Selected Dimension"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DDoRefresh"
+		type="boolean"
+		title="Technical Proprty For Pause Refresh"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DElements"
+		type="String"
+		title="Master Data Elements"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DMaxMembers"
+		type="int"
+		title="Maximum Numner Of Members"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DSelectedKey"
+		type="String"
+		title="Technical Proprty For Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DSelectedKeyExt"
+		type="String"
+		title="Technical Proprty For Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DSelectedKeyExtFull"
+		type="String"
+		title="Technical Proprty For Selected External String Full"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DSelectedText"
+		type="String"
+		title="Technical Proprty For Selected Text"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DSorting"
+		type="String"
+		title="Sorting By Value | Defalut"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DTopBottom"
+		type="String"
+		title="Top X, Bottom X Or Both"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="data"
+		type="ResultCellList"
+		title="Data List"
+		group="DataBinding"
+		visible="true"
+		bindable="true">
+
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+		<option name="includeMetadata" value="true"/>
+	</property>
+	<property
+		id="onClear"
+		type="ScriptText"
+		title="Event For On Clear"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onDataChanged"
+		type="ScriptText"
+		title="Event For On Data Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onInternalSelectionChanged"
+		type="ScriptText"
+		title="Internal Event For On Selection Changed"
+		group="Events"
+		visible="false">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="Event For On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">100</defaultValue>
+		<defaultValue property="HEIGHT">26</defaultValue>
+		
+		<defaultValue property="DBindingMode"><![CDATA[ResultSet]]></defaultValue>
+		<defaultValue property="DDimension"><![CDATA[]]></defaultValue>
+		<defaultValue property="DDoRefresh"><![CDATA[true]]></defaultValue>
+		<defaultValue property="DElements"><![CDATA[]]></defaultValue>
+		<defaultValue property="DMaxMembers"><![CDATA[3]]></defaultValue>
+		<defaultValue property="DSelectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="DSelectedKeyExt"><![CDATA[]]></defaultValue>
+		<defaultValue property="DSelectedKeyExtFull"><![CDATA[]]></defaultValue>
+		<defaultValue property="DSelectedText"><![CDATA[]]></defaultValue>
+		<defaultValue property="DSorting"><![CDATA[ByValue]]></defaultValue>
+		<defaultValue property="DTopBottom"><![CDATA[Both]]></defaultValue>
+		<defaultValue property="data"><![CDATA[]]></defaultValue>
+		<defaultValue property="onClear"><![CDATA[]]></defaultValue>
+		<defaultValue property="onDataChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="onInternalSelectionChanged"><![CDATA[this.private_onSelectionChanged();]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

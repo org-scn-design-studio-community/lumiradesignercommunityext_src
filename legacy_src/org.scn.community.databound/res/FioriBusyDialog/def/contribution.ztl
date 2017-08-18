@@ -1,0 +1,27 @@
+
+/**
+ * Generated ZTL Class for FioriBusyDialog
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.databound.FioriBusyDialog extends org.scn.community.shared.ui5.BusyDialog {
+
+
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+	/**
+	 * Opens The Dilaog
+	 */
+	void open() {*
+		this.interactionInt = this.interactionInt + 1;
+	*}
+	
+	/**
+	 * Closes The Dilaog
+	 */
+	void close() {*
+		this.interactionInt = this.interactionInt - 1;
+	*}
+
+}

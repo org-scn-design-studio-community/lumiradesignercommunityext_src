@@ -1,0 +1,240 @@
+{
+	"selectedKey" : {
+		"type" : "String",
+		"value" : "",
+		"visible": false,
+		"opts" : {
+			"ztlType": "String",
+			"ztlFunction": "-get",
+			"desc" : "Selected Key",
+			"cat" : "Internal",
+			"tooltip" : "Selected Key",
+			"apsControl" : "text",
+			"noAps":true,
+			"noZtl":false
+		}
+	},
+	"expandedKey" : {
+		"type" : "String",
+		"value" : "",
+		"visible": false,
+		"opts" : {
+			"ztlType": "String",
+			"ztlFunction": "-get",
+			"desc" : "Expaned Key",
+			"cat" : "Internal",
+			"tooltip" : "Expaned Key",
+			"apsControl" : "text",
+			"noAps":true,
+			"noZtl":false
+		}
+	},
+	"supportedContentNotation" : {
+		"type" : "String",
+		"value" : "PARENT_CHILD_TEXT_URL",
+		"visible": false,
+		"opts" : {
+			"ztlType": "shared.ContentNotation",
+			"ztlFunction": "-get",
+			"desc" : "Supported Content Notation",
+			"cat" : "Internal",
+			"tooltip" : "Supported Content Notation",
+			"apsControl" : "text",
+			"noAps":true,
+			"noZtl":false
+		}
+	},
+	"defaultImage" : {
+		"type" : "Url",
+		"value" : "",
+		"visible": true,
+		"opts" : {
+			"ztlType": "String",
+			"ztlFunction": "",
+			"desc" : "Default Image",
+			"cat" : "Display-Image",
+			"tooltip" : "Default Image",
+			"apsControl" : "text",
+			"noAps":true,
+			"noZtl":false
+		}
+	},
+    "withImage":{
+	    "type":"boolean",
+	    "value":true,
+	    "visible":true,
+	    "opts":{
+	         "ztlType":"boolean",
+	         "ztlFunction":"",
+	         "desc":"Use Images",
+	         "cat":"Display-Image",
+	         "tooltip":"Use Images",
+	         "apsControl":"checkbox"
+	    }
+	},
+    "memberDisplay":{
+        "type":"String",
+        "value":"Text",
+        "visible":true,
+        "opts":{
+           "ztlType":"Choice",
+           "choiceType":"MemberDisplay",
+           "ztlFunction":"",
+           "desc":"Member Display",
+           "cat":"Display-Members",
+           "tooltip":"Member Display",
+           "apsControl":"combobox",
+           "options":[
+              {
+                 "key":"Text",
+                 "text":"Text Only"
+              },
+              {
+                 "key":"Text_Key",
+                 "text":"Text (Key)"
+              }
+           ]
+        }
+     },
+	"maxSectionHeight":{
+	    "type":"int",
+	    "value":200,
+	    "visible":true,
+	    "opts":{
+	         "ztlType":"int",
+	         "ztlFunction":"",
+	         "desc":"Max Height for Section",
+	         "cat":"Display-Section",
+	         "tooltip":"Max Height for Section",
+	         "apsControl":"spinner"
+		}
+    },
+    "imageSize":{
+        "type":"String",
+        "value":"Size_16px",
+        "visible":true,
+        "opts":{
+           "ztlType":"Choice",
+           "choiceType":"ImageSize",
+           "ztlFunction":"",
+           "desc":"Size of the Image",
+           "cat":"Display-Image",
+           "tooltip":"Size of the Image",
+           "apsControl":"combobox",
+           "options":[
+              {
+                 "key":"Size_16px",
+                 "text":"16x16 pixels"
+              },
+              {
+                 "key":"Size_32px",
+                 "text":"32x32 pixels"
+              }
+           ]
+        }
+     },
+	"cleanAll" : {
+		"type" : "boolean", 
+		"value" : false,
+		"visible": false,
+
+		"opts" : {
+			"ztlType": "boolean",
+			"ztlFunction": "-clean",
+			"desc" : "Clean All Nodes",
+			"cat" : "Internal",
+			"tooltip" : "Clean All Nodes",
+			"apsControl" : "checkbox",
+			"noAps":true,
+			"noZtl":false,
+	     	"refProperty":"elementsContent",
+		   	"refDesc":"Nodes",
+		   	"refValue":"[]",
+		}
+	},
+	"elementsContent": {
+		"type":"String",
+		"value":"[{\"parentKey\":\"ROOT\",\"key\":\"SECTION1\",\"leaf\":false,\"text\":\"First Section\"},{\"parentKey\":\"ROOT\",\"key\":\"SECTION2\",\"leaf\":false,\"text\":\"Second Section\"},{\"parentKey\":\"ROOT\",\"key\":\"SECTION3\",\"leaf\":false,\"text\":\"Third Section\"},{\"parentKey\":\"SECTION1\",\"key\":\"SECTION1_ITEM\",\"leaf\":true,\"text\":\"Item 1\"},{\"parentKey\":\"SECTION1\",\"key\":\"SECTION1_ITEM1\",\"leaf\":true,\"text\":\"Item 2\"},{\"parentKey\":\"SECTION2\",\"key\":\"SECTION2_ITEM\",\"leaf\":true,\"text\":\"Item 2/1\"},{\"parentKey\":\"SECTION2\",\"key\":\"SECTION2_ITEM1\",\"leaf\":true,\"text\":\"Item 2/2\"},{\"parentKey\":\"SECTION2\",\"key\":\"SECTION2_ITEM2\",\"leaf\":true,\"text\":\"Item 2/3\"},{\"parentKey\":\"SECTION3\",\"key\":\"SECTION3_ITEM\",\"leaf\":true,\"text\":\"Item 3/1\"}]",
+		"visible":true,
+	  
+		"opts":{
+			"ztlType":"DoubleArray",
+	        "ztlFunction":"",
+	         
+	        "arrayDefinition":{
+	            "section":{
+	               "type":"Array",
+	               "sequence":"key,text,url,height,element",
+	               "key":{
+	                  "desc":"Unique Key",
+	                  "type":"String"
+	               },
+	               "text":{
+	                  "desc":"Given Text",
+	                  "type":"String"
+	               },
+	               "url":{
+	                  "desc":"Given Url",
+	                  "type":"Url"
+	               },
+	               "height":{
+	                  "desc":"Section Height px (overwrites max)",
+	                  "type":"int,optional"
+	               },
+	               "element":{
+	                  "type":"Array",
+	                  "sequence":"parentKey,key,text,url",
+	                  "parentKey":{
+		                "desc":"Parent Key",
+		                "type":"String",
+		              	"mode":"ztl"
+		              },
+	                  "key":{
+	                     "desc":"Unique Key",
+	                     "type":"String"
+	                  },
+	                  "text":{
+	                     "desc":"Given Text",
+	                     "type":"String"
+	                  },
+	                  "url":{
+	                     "desc":"Given Url",
+	                     "type":"Url"
+	                  }
+	               }
+	            }
+	        },
+ 
+			"desc":"Elements",
+			"cat":"Content",
+			"tooltip":"List of Elements",
+
+			"apsControl":"array",
+			"arrayMode":"TwoLevelArray"
+		}
+	},
+	"onSelectionChanged": {
+        "type": "ScriptText",
+        "value": "",
+        "visible": true,
+        "opts": {
+            "desc": "On Selection Changed",
+            "cat": "Events",
+            "tooltip": "Event triggered on Selection Changed",
+            "noAps":true,
+            "noZtl":true
+        }
+    },
+	"onFirstExpand": {
+        "type": "ScriptText",
+        "value": "",
+        "visible": true,
+        "opts": {
+            "desc": "On First Expand",
+            "cat": "Events",
+            "tooltip": "Event for On First Expand",
+            "noAps":true,
+            "noZtl":true
+        }
+    },
+}

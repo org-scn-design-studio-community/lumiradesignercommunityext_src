@@ -1,0 +1,40 @@
+
+/**
+ * Generated ZTL Class for FallbackPicture
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.basics.FallbackPicture extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Url For Fallback Picture Property
+	 */	
+	void setFallbackPicture( /**Url For Fallback Picture*/ String fallbackPicture){*
+		this.fallbackPicture = fallbackPicture;
+	*}
+
+	/**
+	 * Gets Url For Fallback Picture Property
+	 */	
+	String getFallbackPicture() {*
+		return this.fallbackPicture;
+	*}
+
+	/**
+	 * Sets Url For Picture Property
+	 */	
+	void setPicture( /**Url For Picture*/ String picture){*
+		this.picture = picture;
+	*}
+
+	/**
+	 * Gets Url For Picture Property
+	 */	
+	String getPicture() {*
+		return this.picture;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+
+}

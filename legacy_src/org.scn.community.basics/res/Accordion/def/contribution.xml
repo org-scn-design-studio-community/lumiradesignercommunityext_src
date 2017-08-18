@@ -1,0 +1,150 @@
+
+<component
+	id="Accordion"
+	title="Accordion 2.0"
+	tooltip="Accordion - Dynamic List of Entries"
+	icon="res/Accordion/Accordion.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/Accordion/Accordion</requireJs>
+
+	<cssInclude>res/Accordion/Accordion.css</cssInclude>
+	
+	
+	<property
+		id="cleanAll"
+		type="boolean"
+		title="Clean All Nodes"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="defaultImage"
+		type="Url"
+		title="Default Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="elementsContent"
+		type="String"
+		title="Elements"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="expandedKey"
+		type="String"
+		title="Expaned Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="imageSize"
+		type="String"
+		title="Size of the Image"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="maxSectionHeight"
+		type="int"
+		title="Max Height for Section"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="memberDisplay"
+		type="String"
+		title="Member Display"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onFirstExpand"
+		type="ScriptText"
+		title="On First Expand"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="onSelectionChanged"
+		type="ScriptText"
+		title="On Selection Changed"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="supportedContentNotation"
+		type="String"
+		title="Supported Content Notation"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="withImage"
+		type="boolean"
+		title="Use Images"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">260</defaultValue>
+		<defaultValue property="HEIGHT">600</defaultValue>
+		
+		<defaultValue property="cleanAll"><![CDATA[false]]></defaultValue>
+		<defaultValue property="defaultImage"><![CDATA[]]></defaultValue>
+		<defaultValue property="elementsContent"><![CDATA[[{"parentKey":"ROOT","key":"SECTION1","leaf":false,"text":"First Section"},{"parentKey":"ROOT","key":"SECTION2","leaf":false,"text":"Second Section"},{"parentKey":"ROOT","key":"SECTION3","leaf":false,"text":"Third Section"},{"parentKey":"SECTION1","key":"SECTION1_ITEM","leaf":true,"text":"Item 1"},{"parentKey":"SECTION1","key":"SECTION1_ITEM1","leaf":true,"text":"Item 2"},{"parentKey":"SECTION2","key":"SECTION2_ITEM","leaf":true,"text":"Item 2/1"},{"parentKey":"SECTION2","key":"SECTION2_ITEM1","leaf":true,"text":"Item 2/2"},{"parentKey":"SECTION2","key":"SECTION2_ITEM2","leaf":true,"text":"Item 2/3"},{"parentKey":"SECTION3","key":"SECTION3_ITEM","leaf":true,"text":"Item 3/1"}]]]></defaultValue>
+		<defaultValue property="expandedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="imageSize"><![CDATA[Size_16px]]></defaultValue>
+		<defaultValue property="maxSectionHeight"><![CDATA[200]]></defaultValue>
+		<defaultValue property="memberDisplay"><![CDATA[Text]]></defaultValue>
+		<defaultValue property="onFirstExpand"><![CDATA[]]></defaultValue>
+		<defaultValue property="onSelectionChanged"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="supportedContentNotation"><![CDATA[PARENT_CHILD_TEXT_URL]]></defaultValue>
+		<defaultValue property="withImage"><![CDATA[true]]></defaultValue>
+
+	</initialization>
+
+</component>

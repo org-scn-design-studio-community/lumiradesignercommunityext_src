@@ -1,0 +1,57 @@
+<core:View
+  xmlns="sap.suite.ui.commons"
+  xmlns:core="sap.ui.core"
+  xmlns:l="sap.ui.layout"
+  xmlns:m="sap.m"
+  >
+  <l:VerticalLayout
+    width="100%" content="{/}">
+    <l:content
+      width="{width}"
+      >
+      
+      <l:VerticalLayout
+	    width="100%">
+	    <l:content
+	      width="{width}"
+	      >
+	  	  <m:Label
+	      	text="{actual/label}"
+	      	visible="{withLabel}" 
+	      	>
+	      </m:Label>
+	       <HarveyBallMicroChart 
+	        	width="{width}"
+				height="{height}" 
+
+				total="{total}" 
+				totalLabel="{totalLabel}" 
+				totalScale="{totalScale}" 
+				formattedLabel="{formattedLabel}"
+
+				showTotal="{showTotal}"
+				showFractions="{showFractions}"
+				size="{size}"
+				
+				colorPalette="{colorPalette}"
+				 
+				press="{press}"
+				items="{items}"
+				>
+
+		       <items>
+		         <HarveyBallMicroChartItem 
+		         	color="{color}"
+		         	fraction="{fraction}"
+		         	fractionLabel="{fractionLabel}"
+		         	fractionScale="{fractionScale}"
+		         	formattedLabel="{formattedLabel}"
+		            >
+		         </HarveyBallMicroChartItem>
+		       </items>
+		    </HarveyBallMicroChart>
+	    </l:content>
+	  </l:VerticalLayout> 
+    </l:content>
+  </l:VerticalLayout> 
+</core:View>

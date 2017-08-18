@@ -1,0 +1,94 @@
+
+<component
+	id="ResultSetInfo"
+	title="Result Set Information 2.0"
+	tooltip="Result Set Information"
+	icon="res/ResultSetInfo/ResultSetInfo.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityVisualizations"
+	databound="true"
+	modes="commons"
+>
+	
+	<requireJs modes="commons">res/ResultSetInfo/ResultSetInfo</requireJs>
+
+	<cssInclude>res/ResultSetInfo/ResultSetInfo.css</cssInclude>
+	
+	
+	<property
+		id="DCentralProvisioning"
+		type="boolean"
+		title="Central Data Provisioning"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DDataInformation"
+		type="String"
+		title="Technical Component For Data Information"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DIgnoreResults"
+		type="boolean"
+		title="Ignore Results Rows And Columns"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DInformationEventActive"
+		type="boolean"
+		title="Information Event Active"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="data"
+		type="ResultSet"
+		title="Result Set"
+		group="DataBinding"
+		visible="false">
+
+		<option name="maxCells" value="100000" />
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+		<option name="presentationDelimiter" value=" | " />
+	</property>
+	<property
+		id="onDataAvailable"
+		type="ScriptText"
+		title="Event For On Data Available"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">600</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		
+		<defaultValue property="DCentralProvisioning"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DDataInformation"><![CDATA[]]></defaultValue>
+		<defaultValue property="DIgnoreResults"><![CDATA[true]]></defaultValue>
+		<defaultValue property="DInformationEventActive"><![CDATA[false]]></defaultValue>
+		<defaultValue property="data"><![CDATA[]]></defaultValue>
+		<defaultValue property="onDataAvailable"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

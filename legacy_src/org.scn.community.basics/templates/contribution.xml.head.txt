@@ -1,0 +1,2 @@
+	id="org.scn.community.basics"
+	title="Lumira Designer SCN Community Basics [Legacy]"

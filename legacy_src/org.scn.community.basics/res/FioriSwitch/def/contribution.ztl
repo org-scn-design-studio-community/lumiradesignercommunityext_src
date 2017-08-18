@@ -1,0 +1,16 @@
+class org.scn.community.basics.FioriSwitch extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets state Property
+	 */	
+	void setState( /**state*/ boolean state){*
+		this.state = state;
+	*}
+
+	/**
+	 * Gets state Property
+	 */	
+	boolean getState() {*
+		return this.state;
+	*}
+}

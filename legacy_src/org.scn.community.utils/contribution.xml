@@ -1,0 +1,1557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GENERATED - DO NOT EDIT -->
+<sdkExtension
+	id="org.scn.community.utils"
+	title="Lumira Designer SCN Community Utils [Legacy]"
+
+	xmlns="http://www.sap.com/bi/zen/sdk"
+	version="3.0"
+	vendor="SCN Lumira Designer Community"
+	eula="Content is free for use and distribution under Apache License Version 2.0. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License. For details refer to https://github.com/org-scn-design-studio-community/sdkpackage//blob/master/LICENSE">
+
+  <license>
+   Apache License
+   Version 2.0, January 2004
+   http://www.apache.org/licenses/
+   https://github.com/org-scn-design-studio-community/sdkpackage//blob/master/LICENSE
+	 
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      &quot;License&quot; shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      &quot;Licensor&quot; shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      &quot;Legal Entity&quot; shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      &quot;control&quot; means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      &quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      &quot;Source&quot; form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      &quot;Object&quot; form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      &quot;Work&quot; shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      &quot;Derivative Works&quot; shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      &quot;Contribution&quot; shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, &quot;submitted&quot;
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as &quot;Not a Contribution.&quot;
+
+      &quot;Contributor&quot; shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a &quot;NOTICE&quot; text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+  </license>
+
+	<group
+		id="ScnCommunityUtils"
+		title="Scn Community Utils [Legacy]"/>
+
+<component
+	id="Array"
+	title="Array Utility"
+	icon="res/Array/Array.png"
+	handlerType="div"
+	group="TECHNICAL_COMPONENTS"
+	modes="commons m"
+	>
+
+	<requireJs modes="commons m">res/Array/Array</requireJs>
+	<property
+		id="items"
+		type="String"
+		title="Technical proprty for list of items"
+		group="Display"
+		visible="false" />
+
+	<initialization>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		<defaultValue property="TOP_MARGIN">-2000</defaultValue>
+		<defaultValue property="LEFT_MARGIN">-2000</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+
+		<defaultValue property="items"></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="Audio"
+	title="Audio Utility"
+	icon="res/Audio/Audio.png"
+	handlerType="div"
+	group="TECHNICAL_COMPONENTS"
+	modes="commons m"
+	>
+
+	<requireJs modes="commons m">res/Audio/Audio</requireJs>
+	<property
+		id="sound"
+		type="Url"
+		title="URL of sound File"
+		group="Display"
+		visible="true"/>
+	
+	<property id="volume"
+		type="float"
+		title="Sound volume"
+		group="Display"
+		visible="true"/>
+		
+	<property id="play"
+		type="String"
+		title="Play volume"
+		group="Display"
+		visible="false"/>
+		
+	<property id="stop"
+		type="String"
+		title="Stop Sound"
+		group="Display"
+		visible="false"/>
+		
+	<property
+		id="onFinish"
+		type="ScriptText"
+		title="Event For On Sound Finish"
+		group="Events"
+		visible="true"/>
+	
+	<property
+		id="onStop"
+		type="ScriptText"
+		title="Event For On Sound Stopped"
+		group="Events"
+		visible="true"/>
+
+	<initialization>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		<defaultValue property="TOP_MARGIN">-2000</defaultValue>
+		<defaultValue property="LEFT_MARGIN">-2000</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="volume">0.5</defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="ClientInformation"
+	title="Client Information"
+	tooltip="Returns on first roundtrip some information from web client (browser)"
+	icon="res/ClientInformation/ClientInformation.png"
+	handlerType="sapui5"
+	group="ScnCommunityUtils"
+	modes="commons m"
+>
+
+	<requireJs modes="commons m">res/ClientInformation/ClientInformation</requireJs>
+
+	<property
+		id="reloadRequest"
+		type="String"
+		title="Reload Request Technical Flag"
+		group="Display"
+		visible="false" />
+
+	<property
+		id="readLocation"
+		type="boolean"
+		title="Read the Location from Browser"
+		group="Display"
+		visible="true" />
+
+	<property
+		id="windowHeight"
+		type="int"
+		title="Height of the Window"
+		group="Display"
+		visible="false" />
+
+	<property
+		id="windowWidth"
+		type="int"
+		title="Width of the Window"
+		group="Display"
+		visible="false" />
+
+	<property
+		id="ownHeight"
+		type="int"
+		title="Height of the Component"
+		group="Display"
+		visible="false" />
+
+	<property
+		id="ownWidth"
+		type="int"
+		title="Width of the Component"
+		group="Display"
+		visible="false" />
+		
+	<property
+		id="htmlVisible"
+		type="boolean"
+		title="Is The Component Visible"
+		group="Display"
+		visible="false" />
+
+	<property
+		id="information"
+		type="String"
+		title="Technical Component for Client Information"
+		group="Display"
+		visible="false" />
+
+	<property
+		id="geoLocation"
+		type="String"
+		title="Technical Component for Client Geo Location"
+		group="Display"
+		visible="false" />
+
+	<property
+		id="onSizeChanged"
+		type="ScriptText"
+		title="Event for On Size Changed"
+		group="Events" />
+		
+	<property
+		id="onInformationAvailable"
+		type="ScriptText"
+		title="Event for On Information Available"
+		group="Events" />
+		
+	<property
+		id="onGeoAvailable"
+		type="ScriptText"
+		title="Event for On Geo Available"
+		group="Events" />
+		
+	<initialization>
+		<defaultValue property="WIDTH">600</defaultValue>
+		<defaultValue property="HEIGHT">600</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+
+		<defaultValue property="ownHeight">-1</defaultValue>
+		<defaultValue property="ownWwidth">-1</defaultValue>
+		<defaultValue property="windowHeight">-1</defaultValue>
+		<defaultValue property="windowWidth">-1</defaultValue>
+		
+		<defaultValue property="reloadRequest">X</defaultValue>
+		<defaultValue property="information">{}</defaultValue>
+		<defaultValue property="geoLocation">{}</defaultValue>
+		<defaultValue property="htmlVisible">false</defaultValue>
+	</initialization>
+
+</component>
+<component
+	id="Collection"
+	title="Collection Utility"
+	icon="res/Collection/Collection.png"
+	handlerType="div"
+	group="TECHNICAL_COMPONENTS"
+	modes="commons m"
+>
+
+	<requireJs modes="commons m">res/Collection/Collection</requireJs>
+
+	<property
+		id="items"
+		type="String"
+		title="Technical proprty for list of items"
+		group="Display"
+		visible="false" />
+
+	<initialization>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		<defaultValue property="TOP_MARGIN">-2000</defaultValue>
+		<defaultValue property="LEFT_MARGIN">-2000</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+
+		<defaultValue property="items"></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="DataIterator"
+	title="Data Iterator"
+	tooltip="Data Iterator - Iterate over rows with ease"
+	icon="res/DataIterator/DataIterator.png"
+	handlerType="div"
+	group="TECHNICAL_COMPONENTS"
+	databound="true"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/DataIterator/DataIterator</requireJs>
+	<property
+		id="data"
+		title="Data Selection"
+		type="ResultSet"
+		group="DataBinding">
+		<option name="maxCells" value="1000000"/>
+		<option name="includeFormattedData" value="true"/>
+		<option name="includeData" value="true"/>
+	</property>
+	<property id="ignoreTotals" type="boolean" title = "Ignore Totals" visible="true" group="DataBinding"/>
+	<property id="ignoreExpandedNodes" type="boolean" title = "Ignore Expanded Nodes" visible="true" group="DataBinding"/>
+	<property id="swapAxes" type="boolean" title = "Swap Axes" visible="true" group="DataBinding"/>
+	<property id="useMockData" type="boolean" title = "Use Mock Data" visible="true" group="DataBinding"/>
+	<property id="flat" type="String" title = "Loopback data for ZTL" visible="false" group="DataBinding"/>
+	<property id="flatLength" type="int" title = "Length of Loopback data for ZTL" visible="false" group="DataBinding"/>
+	<property id="compressedLength" type="int" title = "Compressed Length of Loopback data for ZTL" visible="false" group="DataBinding"/>
+	<property id="compressionTime" type="float" title = "Compression Time (ms)" visible="false" group="DataBinding"/>
+	<property id="decompressionTime" type="float" title = "Decompression Time (ms)" visible="false" group="DataBinding"/>
+	<property id="encodedLength" type="int" title = "Encoded Length of Loopback data for ZTL" visible="false" group="DataBinding"/>
+	<property id="safetyBelt" type="int" title = "Maximum Size of Loopback data payload (Max = 200,000)" visible="true" group="DataBinding"/>
+	<property id="waitTime" type="int" title = "Wait time (ms) for loopback data change update" visible="true" group="DataBinding"/>
+	<property id="onDataChange" type="ScriptText" title="On Data Change" group="Events" />
+	<property id="onOverflow" type="ScriptText" title="On Overflow" group="Events" />
+	<property id="includeFormattedValues" type="boolean" title = "Include Formatted Values" visible="true" group="DataBinding"/>
+	
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">50</defaultValue>
+		<defaultValue property="HEIGHT">50</defaultValue>
+		<defaultValue property="safetyBelt">190000</defaultValue>
+		<defaultValue property="waitTime">200</defaultValue>
+		<defaultValue property="flat">{}</defaultValue>
+		<defaultValue property="ignoreTotals">true</defaultValue>
+		<defaultValue property="ignoreExpandedNodes">true</defaultValue>
+		<defaultValue property="includeFormattedValues">false</defaultValue>
+		<defaultValue property="swapAxes">false</defaultValue>
+		<defaultValue property="useMockData">true</defaultValue>
+	</initialization>
+
+</component>
+
+<component
+	id="DataSourceHelper"
+	title="Data Source Helper 2.0"
+	tooltip="DataSourceHelper - Utilities for Data Sources"
+	icon="res/DataSourceHelper/DataSourceHelper.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="TECHNICAL_COMPONENTS"
+	databound="true"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/DataSourceHelper/DataSourceHelper</requireJs>
+
+	<cssInclude>res/DataSourceHelper/DataSourceHelper.css</cssInclude>
+	
+	
+	<property
+		id="cache"
+		type="boolean"
+		title="Activate Cache"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">50</defaultValue>
+		<defaultValue property="HEIGHT">50</defaultValue>
+		
+		<defaultValue property="cache"><![CDATA[true]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="Debugger"
+	title="Debugger Code Inspector 0.X"
+	icon="res/Debugger/Debugger.png"
+	handlerType="sapui5"
+	group="ScnCommunityUtils"
+	modes="commons m"
+	>
+
+	<requireJs modes="commons m">res/Debugger/Debugger</requireJs>
+	<cssInclude>res/Debugger/Debugger.css</cssInclude>
+
+	<property
+		id="DConsole"
+		type="String"
+		title="Technical proprty for console"
+		group="Display"
+		visible="false" />
+
+	<property
+		id="DStack"
+		type="String"
+		title="Technical proprty for stack"
+		group="Display"
+		visible="false" />
+
+	<property
+		id="DVariables"
+		type="String"
+		title="Technical proprty for variables"
+		group="Display"
+		visible="false" />
+
+	<property
+		id="DActive"
+		type="boolean"
+		title="Active"
+		group="Display"
+		visible="true" />
+
+	<property
+		id="DLogActive"
+		type="boolean"
+		title="Log Active"
+		group="Display"
+		visible="true" />
+		
+	<property
+		id="DGlobals"
+		type="boolean"
+		title="Track Globals"
+		group="Display"
+		visible="true" />
+
+	<property
+		id="DOwner"
+		type="boolean"
+		title="Track Owner"
+		group="Display"
+		visible="true" />
+
+	<property
+		id="DLocals"
+		type="boolean"
+		title="Track Locals"
+		group="Display"
+		visible="true" />
+
+	<property  
+	  id="onInternalClear"  
+	  title="On Clear Content"  
+	  type="ScriptText"  
+    visible="false"
+  />
+
+	<initialization>
+		<defaultValue property="WIDTH">600</defaultValue>
+		<defaultValue property="HEIGHT">400</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+
+		<defaultValue property="DConsole"></defaultValue>
+		<defaultValue property="DStack">[]</defaultValue>
+		<defaultValue property="DVariables">[]</defaultValue>
+
+		<defaultValue property="DActive">true</defaultValue>
+		<defaultValue property="DLogActive">true</defaultValue>
+
+		<defaultValue property="DLocals">true</defaultValue>
+		<defaultValue property="DOwner">true</defaultValue>
+		<defaultValue property="DGlobals">true</defaultValue>
+		
+		<defaultValue property="onInternalClear">this.reset();</defaultValue>
+	</initialization>
+
+</component>
+
+<component
+	id="ComponentLayouter"
+	title="Component Layouter"
+	tooltip="Allows managing layout of components"
+	icon="res/ComponentLayouter/ComponentLayouter.png"
+	handlerType="div"
+	group="ScnCommunityUtils"
+	propertySheetPath="aps/PropertyPage.html"
+	modes="commons m"
+>
+	<requireJs modes="commons m">res/ComponentLayouter/ComponentLayouter</requireJs>
+
+	<property id="profiles" type="String" title="Profile List" visible="false" />
+	<property id="measurements" type="String" title="Container Measurements" visible="false" />
+	<property id="currentProfile" type="String" title="Currently Active Profile" visible="false" />
+	<property id="browserWidth"	type="int" title="Width of the Window" group="Display" visible="false" />
+	<property id="browserHeight" type="int" title="Height of the Window" group="Display" visible="false" />
+	<property id="device" type="String" title="Device" group="Display" visible="false" />
+	<property id="os" type="String" title="OS" group="Display" visible="false" />
+	<property id="monitorResizes" type="boolean" title="Monitor Resize Events" group="Display" visible="false" />
+	<property id="onResize" type="ScriptText" title="On Resize" group="Events" />
+	<property id="onProfileChange" type="ScriptText" title="On Profile Change" group="Events" />
+	<property id="tick" type="int" title="Tick" />
+	
+	<initialization>
+		<defaultValue property="monitorResizes">true</defaultValue>
+		<defaultValue property="WIDTH">256</defaultValue>
+		<defaultValue property="HEIGHT">48</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="measurements">[]</defaultValue>
+		<defaultValue property="profiles">{&quot;profiles&quot;:[],&quot;items&quot;:[]}</defaultValue>
+	</initialization>
+
+</component>
+<component
+	id="ComponentManager"
+	title="Component Manager"
+	tooltip="Allows managing and listing of components"
+	icon="res/ComponentManager/ComponentManager.png"
+	handlerType="div"
+	group="TECHNICAL_COMPONENTS"
+	modes="commons m"
+>
+	<requireJs modes="commons m">res/ComponentManager/ComponentManager</requireJs>
+
+	<property
+		id="components"
+		type="String"
+		title="Technical property for list of nodes"
+		group="Display"
+		visible="false" />
+
+	<initialization>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		
+		<defaultValue property="components">{}</defaultValue>
+	</initialization>
+
+</component>
+<component
+	id="CustomCssCollector"
+	title="Custom Css Collector"
+	tooltip="Allows to add Custom Css Files Dynamically"
+	icon="res/CustomCssCollector/CustomCssCollector.png"
+	handlerType="div"
+	group="TECHNICAL_COMPONENTS"
+	modes="commons m"
+>
+
+	<requireJs modes="commons m">res/CustomCssCollector/CustomCssCollector</requireJs>
+
+	<property
+		id="additionalCss"
+		type="Url"
+		title="Css File for Baseline Url"
+		group="Display"
+		visible="true" />
+
+	<property
+		id="elementsContent"
+		type="String"
+		title="Technical property for list of css"
+		group="Display"
+		visible="false" />
+
+	<initialization>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		<defaultValue property="TOP_MARGIN">-2000</defaultValue>
+		<defaultValue property="LEFT_MARGIN">-2000</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+
+		<defaultValue property="additionalCss"></defaultValue>
+		<defaultValue property="elementsContent"></defaultValue>
+	</initialization>
+
+</component>
+
+<component
+	id="FlowLayouter"
+	title="Flow Layouter 0.X"
+	icon="res/FlowLayouter/FlowLayouter.png"
+	handlerType="div"
+	group="ScnCommunityUtils"
+	modes="commons m"
+>
+
+	<requireJs modes="commons m">res/FlowLayouter/FlowLayouter</requireJs>
+
+	<property
+		id="splitSpace"
+		type="int"
+		title="Space between Elements in px"
+		group="Display"
+		visible="true" />
+
+	<property
+		id="hideOnOverlap"
+		type="boolean"
+		title="Hide components which are out of visible area"
+		group="Display"
+		visible="true" />
+
+	<initialization>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		
+		<defaultValue property="splitSpace">10</defaultValue>
+		<defaultValue property="hideOnOverlap">true</defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="JsonObject"
+	title="Json Object"
+	tooltip="Utility for work with Json Object"
+	icon="res/JsonObject/JsonObject.png"
+	handlerType="div"
+	propertySheetPath="aps/PropertyPage.html"
+	group="TECHNICAL_COMPONENTS"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/JsonObject/JsonObject</requireJs>
+
+	<cssInclude>res/JsonObject/JsonObject.css</cssInclude>
+	
+	
+	<property
+		id="contentJson"
+		type="String"
+		title="Properties"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		
+		<defaultValue property="contentJson"><![CDATA[{}]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="Math"
+	title="Math Utility"
+	icon="res/Math/Math.png"
+	handlerType="div"
+	group="TECHNICAL_COMPONENTS"
+	modes="commons m"
+	>
+	
+	<requireJs modes="commons m">res/Math/Math</requireJs>
+
+	<initialization>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		<defaultValue property="TOP_MARGIN">-2000</defaultValue>
+		<defaultValue property="LEFT_MARGIN">-2000</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+	</initialization>
+
+</component>
+
+<component
+	id="OpenUrlInplace"
+	title="Open Url Inplace 0.X"
+	tooltip="Open the URL in the same frame as Design Studio"
+	icon="res/OpenUrlInplace/OpenUrlInplace.png"
+	handlerType="sapui5"
+	group="ScnCommunityUtils"
+	modes="commons m"
+	>
+	
+	<requireJs modes="commons m">res/OpenUrlInplace/OpenUrlInplace</requireJs>
+
+	<property
+		id="url"
+		type="String"
+		title="Url To Open by Post"
+		group="Display"
+		visible="true" />
+
+	<property
+		id="trigger"
+		type="String"
+		title="Just as Simple Triger"
+		group="Display"
+		visible="false" />
+
+	<property
+		id="parameters"
+		type="String"
+		title="Technical proprty for list of parameters (name/value)"
+		group="Display"
+		visible="false" />
+
+	<initialization>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		<defaultValue property="TOP_MARGIN">-2000</defaultValue>
+		<defaultValue property="LEFT_MARGIN">-2000</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+
+		<defaultValue property="parameters"></defaultValue>
+		<defaultValue property="reloadCurrentFrame">false</defaultValue>
+	</initialization>
+
+</component>
+<component
+	id="OpenWindowPost"
+	title="Open Window by Post 0.X"
+	tooltip="Open new Window by Post Method (removes URL size restriction)"
+	icon="res/OpenWindowPost/OpenWindowPost.png"
+	handlerType="sapui5"
+	group="ScnCommunityUtils"
+	modes="commons m"
+	>
+	
+	<requireJs modes="commons m">res/OpenWindowPost/OpenWindowPost</requireJs>
+
+	<property
+		id="url"
+		type="String"
+		title="Url To Open by Post"
+		group="Display"
+		visible="true" />
+
+<!-- 	
+	<property
+		id="reloadInPlace"
+		type="boolean"
+		title="Reload In Place in the Same Frame"
+		group="Display"
+		visible="false" />
+-->
+
+	<property
+		id="formId"
+		type="String"
+		title="Form Id for the Open by Post Form and Window"
+		group="Display"
+		visible="true" />
+
+	<property
+		id="trigger"
+		type="String"
+		title="Just as Simple Triger"
+		group="Display"
+		visible="false" />
+
+	<property
+		id="fallbackSencario"
+		type="String"
+		title="Fallback if Window already Open"
+		group="Display"
+		visible="true"
+	>
+		<possibleValue>Close and Reopen</possibleValue>
+		<possibleValue>New Window</possibleValue>
+	</property>
+
+	<property
+		id="parameters"
+		type="String"
+		title="Technical proprty for list of parameters (name/value)"
+		group="Display"
+		visible="false" />
+
+	<initialization>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		<defaultValue property="TOP_MARGIN">-2000</defaultValue>
+		<defaultValue property="LEFT_MARGIN">-2000</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+
+		<defaultValue property="parameters"></defaultValue>
+		<defaultValue property="formId">OpenWindow</defaultValue>
+		<defaultValue property="fallbackSencario">Close and Reopen</defaultValue>
+		<defaultValue property="reloadInPlace">false</defaultValue>
+	</initialization>
+
+</component>
+<component
+	id="PdfPrint"
+	title="PDF Print 2.0"
+	tooltip="PDF Print"
+	icon="res/PdfPrint/PdfPrint.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityUtils"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/PdfPrint/PdfPrint</requireJs>
+
+	<cssInclude>res/PdfPrint/PdfPrint.css</cssInclude>
+	
+	
+	<property
+		id="fileName"
+		type="String"
+		title="File Name"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="format"
+		type="String"
+		title="Page Format"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="orientation"
+		type="String"
+		title="Page Orientation"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="pageSplit"
+		type="boolean"
+		title="Split on More Pages"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="pdfMethod"
+		type="String"
+		title="PDF Export Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="rootPanel"
+		type="String"
+		title="Root Panel Name"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="svgMode"
+		type="String"
+		title="SVG Conversion Mode"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="trigger"
+		type="String"
+		title="Just As Simple Triger"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="unit"
+		type="String"
+		title="Unit"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">100</defaultValue>
+		<defaultValue property="HEIGHT">20</defaultValue>
+		
+		<defaultValue property="fileName"><![CDATA[PDF_$TIME]]></defaultValue>
+		<defaultValue property="format"><![CDATA[a4]]></defaultValue>
+		<defaultValue property="orientation"><![CDATA[portrait]]></defaultValue>
+		<defaultValue property="pageSplit"><![CDATA[true]]></defaultValue>
+		<defaultValue property="pdfMethod"><![CDATA[Save]]></defaultValue>
+		<defaultValue property="rootPanel"><![CDATA[]]></defaultValue>
+		<defaultValue property="svgMode"><![CDATA[DataUri]]></defaultValue>
+		<defaultValue property="trigger"><![CDATA[]]></defaultValue>
+		<defaultValue property="unit"><![CDATA[pt]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+<component
+	id="PostResponseParser"
+	title="Post Response Parser 2.0"
+	tooltip="Creates a Request and Parses the Response (Json)"
+	icon="res/PostResponseParser/PostResponseParser.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityUtils"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/PostResponseParser/PostResponseParser</requireJs>
+
+	<cssInclude>res/PostResponseParser/PostResponseParser.css</cssInclude>
+	
+	
+	<property
+		id="DBasicAuthorisation"
+		type="String"
+		title="Basic Authorization Content [Basic: GUID]"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DContentType"
+		type="String"
+		title="Content Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DCrossDomain"
+		type="boolean"
+		title="Is This Request Cross-Domain"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DExpectedContentType"
+		type="String"
+		title="Expected Content Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DExpectedResponseStatus"
+		type="int"
+		title="Response Status For Good Response"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DHeaders"
+		type="String"
+		title="Headers"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DJsonp"
+		type="boolean"
+		title="Do You Want To Use JSONP"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DParameters"
+		type="String"
+		title="Parameters"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DPayload"
+		type="String"
+		title="HTTP Reuqest Payload"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DRawParameters"
+		type="String"
+		title="Raw Parameters As String Content"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DRequestMethod"
+		type="String"
+		title="Request Method (POST | GET | PUT)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DRequestType"
+		type="String"
+		title="Request Type (JQuery | HTTP)"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DReturnHeaders"
+		type="String"
+		title="Parameters"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DReturnParameters"
+		type="String"
+		title="Parameters"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DReturnResponse"
+		type="String"
+		title="Return Response As String"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DReturnStatus"
+		type="int"
+		title="Return Status"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DTrigger"
+		type="String"
+		title="Just As Simple Triger"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="DUrl"
+		type="String"
+		title="Url To Send The Request"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="DWithCredentials"
+		type="boolean"
+		title="Do You Need With Credentials"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onResponse"
+		type="ScriptText"
+		title="Event For On Response"
+		group="Events"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		
+		<defaultValue property="DBasicAuthorisation"><![CDATA[]]></defaultValue>
+		<defaultValue property="DContentType"><![CDATA[application/x-www-form-urlencoded]]></defaultValue>
+		<defaultValue property="DCrossDomain"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DExpectedContentType"><![CDATA[text]]></defaultValue>
+		<defaultValue property="DExpectedResponseStatus"><![CDATA[200]]></defaultValue>
+		<defaultValue property="DHeaders"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="DJsonp"><![CDATA[false]]></defaultValue>
+		<defaultValue property="DParameters"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="DPayload"><![CDATA[]]></defaultValue>
+		<defaultValue property="DRawParameters"><![CDATA[]]></defaultValue>
+		<defaultValue property="DRequestMethod"><![CDATA[POST]]></defaultValue>
+		<defaultValue property="DRequestType"><![CDATA[JQuery]]></defaultValue>
+		<defaultValue property="DReturnHeaders"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="DReturnParameters"><![CDATA[[]]]></defaultValue>
+		<defaultValue property="DReturnResponse"><![CDATA[]]></defaultValue>
+		<defaultValue property="DReturnStatus"><![CDATA[200]]></defaultValue>
+		<defaultValue property="DTrigger"><![CDATA[]]></defaultValue>
+		<defaultValue property="DUrl"><![CDATA[]]></defaultValue>
+		<defaultValue property="DWithCredentials"><![CDATA[false]]></defaultValue>
+		<defaultValue property="onResponse"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>
+
+	<component
+		id="RealDate"
+		title="Real Date"
+		icon="res/RealDate/RealDate.png"
+		handlerType="div"
+		group="TECHNICAL_COMPONENTS"
+		modes="commons m"
+	>
+	
+	<requireJs modes="commons m">res/RealDate/RealDate</requireJs>
+
+	<property
+			id="days"
+			title="Days"
+			tooltip=""
+			type="String"
+			visible="false"/>
+
+	<property
+			id="oneDay"
+			title="One Day"
+			tooltip=""
+			type="String"
+			visible="false"/>
+		
+	<initialization>
+			<defaultValue property="WIDTH">10</defaultValue>
+			<defaultValue property="HEIGHT">10</defaultValue>
+			<defaultValue property="TOP_MARGIN">-2000</defaultValue>
+			<defaultValue property="LEFT_MARGIN">-2000</defaultValue>
+			<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+			<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+	</initialization>
+
+	</component>
+
+<component
+	id="Replacer"
+	title="Replacer"
+	tooltip="Replacer tool"
+	icon="res/Replacer/Replacer.png"
+	handlerType="div"
+	group="TECHNICAL_COMPONENTS"
+	modes="commons m"
+	>
+	
+	<requireJs modes="commons m">res/Replacer/Replacer</requireJs>
+	
+	<property
+		id="component"
+		title="Root Component"
+		tooltip="Be as selective as possible!"
+		type="String"
+		visible="true"
+	/>
+	
+	<property
+		id="replace"
+		title="replace"
+		tooltip="replace"
+		type="String"
+		visible="false"
+	/>
+	
+	<property
+		id="manualTable"
+		title="Manual Mapping Table"
+		tooltip="Manual Mapping Table"
+		type="String"
+		visible="false"
+	/>
+	
+	<property
+		id="mappingTable"
+		type="Array"
+		title="Mapping Table">
+		<property
+			id="item"
+			type="Object"
+			title="Items">
+			<property id="selector" type="String" title="jQuery Selector"/>
+			<property id="item1" type="String" title="Match"/>
+			<property id="item2" type="String" title="Replace"/>
+			<property id="referenceSelector" type="String" title="Header Reference"/>
+			<property id="referenceItem" type="String" title="Reference Text"/>
+		</property>
+	</property>
+	
+	<initialization>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		<defaultValue property="TOP_MARGIN">-2000</defaultValue>
+		<defaultValue property="LEFT_MARGIN">-2000</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="component">CROSSTAB_1</defaultValue>
+	</initialization>
+
+</component>
+	<component
+		id="SimpleDate"
+		title="Simple Date"
+		icon="res/SimpleDate/SimpleDate.png"
+		handlerType="div"
+		group="TECHNICAL_COMPONENTS"
+		modes="commons m"
+		>
+	
+	<requireJs modes="commons m">res/SimpleDate/SimpleDate</requireJs>
+
+	<property
+			id="days"
+			title="Days"
+			tooltip=""
+			type="String"
+			visible="false"/>
+
+	<property
+			id="oneDay"
+			title="One Day"
+			tooltip=""
+			type="String"
+			visible="false"/>
+		
+	<initialization>
+			<defaultValue property="WIDTH">10</defaultValue>
+			<defaultValue property="HEIGHT">10</defaultValue>
+			<defaultValue property="TOP_MARGIN">-2000</defaultValue>
+			<defaultValue property="LEFT_MARGIN">-2000</defaultValue>
+			<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+			<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+	</initialization>
+
+	</component>
+
+<component
+	id="WSPusher"
+	title="WebSocket Implementation"
+	tooltip="Opens a WebSocket connection to a specified web server"
+	icon="res/WSPusher/WSPusher.png"
+	handlerType="sapui5"
+	group="ScnCommunityUtils"
+	modes="commons m"
+	>
+	
+	<requireJs modes="commons m">res/WSPusher/WSPusher</requireJs>
+	
+	<property
+		id="sappcp"
+		title="Use SAP PCP"
+		tooltip="Use SAP PCP websocket implementation"
+		type="boolean"
+		visible="true"/>
+	<property
+		id="server"
+		title="Server URL"
+		tooltip=""
+		type="String"
+		visible="true"/>
+	<property id="protocol" type="Array" title="WebSocket Protocol" group="Display" visible="true">
+		<property id="entries" type="String" title="Protocol entries"/>
+	</property>
+	<property
+		id="msg"
+		title="Message for server"
+		tooltip=""
+		type="String"
+		visible="false"/>
+	<property
+		id="push"
+		title="Push answer from server"
+		tooltip=""
+		type="String"
+		visible="false"/>
+	<property
+		id="pcpFields"
+		title="PCP Fields from server"
+		tooltip=""
+		type="String"
+		visible="false"/>
+	<property
+		id="send"
+		title="Message send trigger"
+		tooltip=""
+		type="String"
+		visible="false"/>
+	<property
+		id="sendPcpFields"
+		title="PCP Fields from client"
+		tooltip=""
+		type="Array"
+		visible="false">
+		<property id="fields" type="String" title="PCP fields"/>
+	</property>
+	<property
+		id="close"
+		title="Message close trigger"
+		tooltip=""
+		type="String"
+		visible="false"/>
+	<property
+		id="open"
+		title="Open WebSocket"
+		tooltip=""
+		type="String"
+		visible="false"/>
+	<property
+		id="onChannelOpen"
+		type="ScriptText"
+		title="On Push Channel Open"
+		group="Events"
+		visible="true"/>
+	<property
+		id="onChannelClosed"
+		type="ScriptText"
+		title="On Push Channel Closed"
+		group="Events"
+		visible="true"/>
+	<property
+		id="onPushReceived"
+		type="ScriptText"
+		title="On Push Message Received"
+		group="Events"
+		visible="true"/>
+	<property
+		id="onPushErrorReceived"
+		type="ScriptText"
+		title="On Push Error Message Received"
+		group="Events"
+		visible="true"/>
+
+	<initialization>
+		<defaultValue property="WIDTH">10</defaultValue>
+		<defaultValue property="HEIGHT">10</defaultValue>
+		<defaultValue property="TOP_MARGIN">-2000</defaultValue>
+		<defaultValue property="LEFT_MARGIN">-2000</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="server">ws://echo.websocket.org/</defaultValue>
+		<defaultValue property="sappcp">false</defaultValue>
+	</initialization>
+
+</component>
+</sdkExtension>

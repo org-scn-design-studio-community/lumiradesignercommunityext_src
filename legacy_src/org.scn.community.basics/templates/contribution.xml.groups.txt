@@ -1,0 +1,7 @@
+
+	<group
+		id="ScnCommunityBasics"
+		title="Scn Community Basics [Legacy]"/>
+	<group
+		id="ScnCommunityVisualizations"
+		title="Scn Community Visualizations [Legacy]"/>

@@ -1,0 +1,111 @@
+
+<component
+	id="ActionSheetButton"
+	title="Action Sheet Button 2.0"
+	tooltip="Fiori-Inspired Action Sheet Button menu"
+	icon="res/ActionSheetButton/ActionSheetButton.png"
+	handlerType="sapui5"
+	propertySheetPath="aps/PropertyPage.html"
+	group="ScnCommunityBasics"
+	databound="false"
+	modes="commons m"
+>
+	
+	<requireJs modes="commons m">res/ActionSheetButton/ActionSheetButton</requireJs>
+
+	<cssInclude>res/ActionSheetButton/ActionSheetButton.css</cssInclude>
+	
+	
+	<property
+		id="buttonType"
+		type="String"
+		title="Type"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="icon"
+		type="String"
+		title="Icon"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="items"
+		type="String"
+		title="Items"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="onPopoverSelect"
+		type="ScriptText"
+		title="On Select"
+		group="Events"
+		visible="true">
+
+	</property>
+	<property
+		id="placement"
+		type="String"
+		title="Placement"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+	<property
+		id="selectedItem"
+		type="String"
+		title="Selected Item"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="selectedKey"
+		type="String"
+		title="Selected Key"
+		group="Display"
+		bindable="true"
+		visible="false">
+
+	</property>
+	<property
+		id="text"
+		type="String"
+		title="Title"
+		group="Display"
+		bindable="true"
+		visible="true">
+
+	</property>
+
+
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">32</defaultValue>
+		<defaultValue property="HEIGHT">32</defaultValue>
+		
+		<defaultValue property="buttonType"><![CDATA[Default]]></defaultValue>
+		<defaultValue property="icon"><![CDATA[sap-icon://menu2]]></defaultValue>
+		<defaultValue property="items"><![CDATA[[{"parentKey":"ROOT","key":"ELEMENT","leaf":false,"text":"First Element","icon":"sap-icon://accept"},{"parentKey":"ROOT","key":"ELEMENT1","leaf":false,"icon":"sap-icon://notes","text":"Notes"}]]]></defaultValue>
+		<defaultValue property="onPopoverSelect"><![CDATA[]]></defaultValue>
+		<defaultValue property="placement"><![CDATA[Auto]]></defaultValue>
+		<defaultValue property="selectedItem"><![CDATA[]]></defaultValue>
+		<defaultValue property="selectedKey"><![CDATA[]]></defaultValue>
+		<defaultValue property="text"><![CDATA[]]></defaultValue>
+
+	</initialization>
+
+</component>

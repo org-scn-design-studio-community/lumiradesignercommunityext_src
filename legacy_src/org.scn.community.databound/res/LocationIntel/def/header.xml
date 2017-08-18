@@ -1,0 +1,10 @@
+
+<component id="LocationIntel" 
+	title="Location Intelligence 2.0"
+	icon="res/LocationIntel/LocationIntel.png"
+	handlerType="div"
+	modes="commons m"
+	propertySheetPath="aps/PropertyPage.html"
+	databound = "true"
+	group="ScnCommunityVisualizations">
+	<requireJs modes="commons m">res/LocationIntel/LocationIntel</requireJs>

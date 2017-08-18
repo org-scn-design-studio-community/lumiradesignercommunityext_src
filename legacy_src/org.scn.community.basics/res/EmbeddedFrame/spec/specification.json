@@ -1,0 +1,107 @@
+{
+	"url" : {
+		"type" : "String",
+		"value" : "",
+		"visible": true,
+		"opts" : {
+			"ztlType": "String",
+			"ztlFunction": "-get",
+			"desc" : "Url",
+			"cat" : "Display",
+			"tooltip" : "Url to Embedd",
+			"apsControl" : "text",
+			"noAps":false,
+			"noZtl":false
+		}
+	},
+	"usesandbox": {
+	  "type" : "boolean",
+	  "value" : "true",
+	  "visible": true,
+	  "opts": {
+		    "apsControl": "checkbox",
+		    "cat": "Display",
+		    "desc": "Use Sandbox Attribute",
+		    "noAps": false,
+		    "noZtl": false,
+		    "tooltip": "Use Sandbox Attribute",
+		    "ztlFunction": "-get",
+		    "ztlType": "boolean"
+		  }
+	},
+	"sandbox" : {
+		"type" : "String",
+		"value" : "",
+		"visible": true,
+		"opts" : {
+			"ztlType": "String",
+			"ztlFunction": "-get",
+			"desc" : "Sandbox Attribute Values",
+			"cat" : "Display",
+			"tooltip" : "Sandbox Attribute Values",
+			"apsControl" : "text",
+			"noAps":false,
+			"noZtl":false
+		}
+	},
+	"domainrelaxlevel": {
+	  "type" : "int",
+	  "value" : "0",
+	  "visible": true,
+	  "opts": {
+		    "apsControl": "text",
+		    "cat": "Display",
+		    "desc": "Domain Relax Level",
+		    "noAps": false,
+		    "noZtl": false,
+		    "tooltip": "Level of Domain Relaxation",
+		    "ztlFunction": "-get",
+		    "ztlType": "int"
+		  }
+	},
+	"skipport": {
+	  "type" : "boolean",
+	  "value" : "true",
+	  "visible": true,
+	  "opts": {
+		    "apsControl": "checkbox",
+		    "cat": "Display",
+		    "desc": "Skip port in domain",
+		    "noAps": false,
+		    "noZtl": false,
+		    "tooltip": "Skip port in domain",
+		    "ztlFunction": "-get",
+		    "ztlType": "boolean"
+		  }
+	},
+	"explicitlySetDomain": {
+	  "type" : "boolean",
+	  "value" : "false",
+	  "visible": true,
+	  "opts": {
+		    "apsControl": "checkbox",
+		    "cat": "Display",
+		    "desc": "Explicitly set document domain",
+		    "noAps": false,
+		    "noZtl": false,
+		    "tooltip": "Explicitly set document domain",
+		    "ztlFunction": "-get",
+		    "ztlType": "boolean"
+		  }
+	},
+  	"reload": {
+	    "opts": {
+	      "apsControl": "text",
+	      "cat": "Display",
+	      "desc": "Trigger Reload",
+	      "noAps": true,
+	      "noZtl": true,
+	      "tooltip": "Trigger Reload",
+	      "ztlFunction": "",
+	      "ztlType": "String"
+	    },
+	    "type": "String",
+	    "value": "init",
+	    "visible": false
+	  }
+}

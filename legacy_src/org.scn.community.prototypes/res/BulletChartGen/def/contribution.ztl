@@ -1,0 +1,266 @@
+
+/**
+ * Generated ZTL Class for BulletChartGen
+ * 
+ * DO NOT EDIT, ROOT SOURCE for custom functions in /spec/contribution.ztl
+ */
+class org.scn.community.prototypes.BulletChartGen extends org.scn.community.shared.Component {
+
+	/**
+	 * Sets Clicked Key Property
+	 */	
+	void setClickedgraphkey( /**Clicked Key*/ String clickedgraphkey){*
+		this.clickedgraphkey = clickedgraphkey;
+	*}
+
+	/**
+	 * Gets Clicked Key Property
+	 */	
+	String getClickedgraphkey() {*
+		return this.clickedgraphkey;
+	*}
+
+	/**
+	 * Sets comparon values Property
+	 */	
+	void setComparison( /**comparon values*/ boolean comparison){*
+		this.comparison = comparison;
+	*}
+
+	/**
+	 * Gets comparon values Property
+	 */	
+	boolean getComparison() {*
+		return this.comparison;
+	*}
+
+
+
+	/**
+	 * Sets Extrapolation Values Property
+	 */	
+	void setExtrapolation( /**Extrapolation Values*/ String extrapolation){*
+		this.extrapolation = extrapolation;
+	*}
+
+	/**
+	 * Gets Extrapolation Values Property
+	 */	
+	String getExtrapolation() {*
+		return this.extrapolation;
+	*}
+
+	/**
+	 * Sets Graph Title Property
+	 */	
+	void setGraphTitle( /**Graph Title*/ String graphTitle){*
+		this.graphTitle = graphTitle;
+	*}
+
+	/**
+	 * Gets Graph Title Property
+	 */	
+	String getGraphTitle() {*
+		return this.graphTitle;
+	*}
+
+	/**
+	 * Sets Unique key values Property
+	 */	
+	void setKeydimension( /**Unique key values*/ String keydimension){*
+		this.keydimension = keydimension;
+	*}
+
+	/**
+	 * Gets Unique key values Property
+	 */	
+	String getKeydimension() {*
+		return this.keydimension;
+	*}
+
+	/**
+	 * Sets dimension holding label values Property
+	 */	
+	void setLabeldimension( /**dimension holding label values*/ String labeldimension){*
+		this.labeldimension = labeldimension;
+	*}
+
+	/**
+	 * Gets dimension holding label values Property
+	 */	
+	String getLabeldimension() {*
+		return this.labeldimension;
+	*}
+
+	/**
+	 * Sets max height  Property
+	 */	
+	void setMaxgraphheight( /**max height */ int maxgraphheight){*
+		this.maxgraphheight = maxgraphheight;
+	*}
+
+	/**
+	 * Gets max height  Property
+	 */	
+	int getMaxgraphheight() {*
+		return this.maxgraphheight;
+	*}
+
+	/**
+	 * Sets Minimum Height Property
+	 */	
+	void setMingraphheight( /**Minimum Height*/ int mingraphheight){*
+		this.mingraphheight = mingraphheight;
+	*}
+
+	/**
+	 * Gets Minimum Height Property
+	 */	
+	int getMingraphheight() {*
+		return this.mingraphheight;
+	*}
+
+	/**
+	 * Sets Realization Column Property
+	 */	
+	void setRealization( /**Realization Column*/ String realization){*
+		this.realization = realization;
+	*}
+
+	/**
+	 * Gets Realization Column Property
+	 */	
+	String getRealization() {*
+		return this.realization;
+	*}
+
+	/**
+	 * Sets When to show an alert Property by String
+	 */	
+	void setShowalertByString( /**When to show an alert*/ String showalert){*
+		this.showalert = showalert;
+	*}
+
+	/**
+	 * Gets When to show an alert Property as String
+	 */	
+	String getShowalertAsString() {*
+		return this.showalert;
+	*}
+	
+	/**
+	 * Sets When to show an alert Property by Choice Option
+	 */	
+	void setShowalert( /**When to show an alert*/ org_scn_community_shared_Enumfield showalert){*
+		this.showalert = showalert;
+	*}
+	
+	/**
+	 * Gets When to show an alert Property as Choice Option
+	 */	
+	org_scn_community_shared_Enumfield getShowalert() {*
+		return this.showalert;
+	*}
+
+	/**
+	 * Sets Show X axis Property
+	 */	
+	void setShowaxis( /**Show X axis*/ boolean showaxis){*
+		this.showaxis = showaxis;
+	*}
+
+	/**
+	 * Gets Show X axis Property
+	 */	
+	boolean isShowaxis() {*
+		return this.showaxis;
+	*}
+
+	/**
+	 * Sets Clicked Key Property
+	 */	
+	void setSublabeldimension( /**Clicked Key*/ String sublabeldimension){*
+		this.sublabeldimension = sublabeldimension;
+	*}
+
+	/**
+	 * Gets Clicked Key Property
+	 */	
+	String getSublabeldimension() {*
+		return this.sublabeldimension;
+	*}
+
+	/**
+	 * Sets threshold 1 values Property
+	 */	
+	void setThreshold1( /**threshold 1 values*/ String threshold1){*
+		this.threshold1 = threshold1;
+	*}
+
+	/**
+	 * Gets threshold 1 values Property
+	 */	
+	String getThreshold1() {*
+		return this.threshold1;
+	*}
+
+	/**
+	 * Sets threshold 2 values Property
+	 */	
+	void setThreshold2( /**threshold 2 values*/ String threshold2){*
+		this.threshold2 = threshold2;
+	*}
+
+	/**
+	 * Gets threshold 2 values Property
+	 */	
+	String getThreshold2() {*
+		return this.threshold2;
+	*}
+
+	/**
+	 * Sets threshold 3 values Property
+	 */	
+	void setThreshold3( /**threshold 3 values*/ String threshold3){*
+		this.threshold3 = threshold3;
+	*}
+
+	/**
+	 * Gets threshold 3 values Property
+	 */	
+	String getThreshold3() {*
+		return this.threshold3;
+	*}
+
+	/**
+	 * Sets threshold 4 values Property
+	 */	
+	void setThreshold4( /**threshold 4 values*/ String threshold4){*
+		this.threshold4 = threshold4;
+	*}
+
+	/**
+	 * Gets threshold 4 values Property
+	 */	
+	String getThreshold4() {*
+		return this.threshold4;
+	*}
+
+	/**
+	 * Sets threshold 5 values Property
+	 */	
+	void setThreshold5( /**threshold 5 values*/ String threshold5){*
+		this.threshold5 = threshold5;
+	*}
+
+	/**
+	 * Gets threshold 5 values Property
+	 */	
+	String getThreshold5() {*
+		return this.threshold5;
+	*}
+
+
+	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
+	// here is the place for other custom functions
+}

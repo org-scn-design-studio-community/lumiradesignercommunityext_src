@@ -596,7 +596,7 @@ class org.scn.community.utils.DataIterator extends org.scn.community.shared.Comp
 		//var flat = JSON.parse(this.flat);
 		var flat = this.flatten(this.flat);
 		// APPLICATION.log(JSON.stringify(flat));
-		var ret = createDataRowArray();
+		var ret = this.createDataRowArray();
 		var rowOffset = 0;
 		if(offset) rowOffset = offset;
 		var max = -1;

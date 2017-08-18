@@ -5,33 +5,37 @@
       version="3.0.0.qualifier"
       provider-name="SCN Community Contributors">
 
-   <description url="http://org-scn-design-studio-community.github.io/sdkinstall/web/components/index.html">
+   <description url="https://github.com/org-scn-design-studio-community/lumiradesignercommunityext_src/blob/master/README.md">
       SCN Community Package with free SDK Prototypes. Contains many
 components which can be used based on free Apache 2.0 license.
    </description>
 
    <copyright url="https://github.com/org-scn-design-studio-community/sdkpackage//blob/master/COPYRIGHT">
       /**
- * Copyright 2014, SCN Community Contributors
- * 
- * Original Source Code Location:
- *  https://github.com/org-scn-design-studio-community/sdkpackage/
- * 
- * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- *  
- *  http://www.apache.org/licenses/LICENSE-2.0
- *  
- * Unless required by applicable law or agreed to in writing, software 
- * distributed under the License is distributed on an &quot;AS IS&quot; BASIS, 
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
- * See the License for the specific language governing permissions and 
- * limitations under the License. 
- */
+* Copyright 2017, SCN Community Contributors
+* 
+* Original Source Code Location:
+*  https://github.com/org-scn-design-studio-community/sdkpackage/
+* 
+* Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at 
+*  
+*  http://www.apache.org/licenses/LICENSE-2.0
+*  
+* Unless required by applicable law or agreed to in writing,
+software 
+* distributed under the License is distributed on an &quot;AS IS&quot;
+BASIS, 
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied. 
+* See the License for the specific language governing permissions
+and 
+* limitations under the License. 
+*/
    </copyright>
 
-   <license url="https://github.com/org-scn-design-studio-community/sdkpackage//blob/master/LICENSE">
+   <license url="https://github.com/org-scn-design-studio-community/lumiradesignercommunityext_src/blob/master/LICENSE">
       Content is free for use and distribution under Apache License Version 2.0.
      
 Unless required by applicable law or agreed to in writing, Licensor provides the Work 
@@ -220,8 +224,8 @@ http://www.apache.org/licenses/
    </license>
 
    <url>
-      <discovery label="GitHub Source Code Location" url="https://github.com/org-scn-design-studio-community/sdkpackage/"/>
-      <discovery label="Michael&apos;s Page at SCN" url="http://scn.sap.com/people/mike.howles4"/>
+      <discovery label="GitHub Source Code Location" url="https://github.com/org-scn-design-studio-community/lumiradesignercommunityext_src"/>
+      <discovery label="Mike&apos;s Page at SCN" url="https://people.sap.com/mike.howles4"/>
       <discovery label="Karol&apos;s Page at SCN" url="http://scn.sap.com/people/karol.kalisz"/>
    </url>
 

@@ -91,7 +91,7 @@ class org.scn.community.datasource.BYOData extends SdkDataSource {
 	 * </example> 
 	 */
 	void deleteRow(/*Dimensions*/String dimensions){*
-		var dims = balanceDimension(dimensions);
+		var dims = this.balanceDimension(dimensions);
 		var match = 0;
 		var rows = this.data.split("\n");
 		while(match>-1){

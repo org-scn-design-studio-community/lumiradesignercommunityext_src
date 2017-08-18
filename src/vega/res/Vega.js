@@ -80,7 +80,11 @@ define(["d3", "vg", "./../../org.scn.community.lumiradesigner.shared/os/scn/comp
 				spec.marks = this.parse(this.marks());
 				spec.legends = this.parse(this.legends());
 				spec.signals = this.parse(this.signals());
-				spec.data = this.parse(this.dataSpec());
+				//spec.data = this.parse(this.dataSpec());
+				spec.data = [{
+					name : "table",
+					values : json
+				}];
 				
 				var strSpec = JSON.stringify(spec);
 				// Replace relative row header placeholders
@@ -125,7 +129,7 @@ define(["d3", "vg", "./../../org.scn.community.lumiradesigner.shared/os/scn/comp
 				  .hover()          	 // enable hover encode set processing
 				  .run();                // run the dataflow and render the view
 			}catch(e){
-				that.$().html("Error while parsing spec:" + e);
+				that.$().html("Error while parsing spec:" + e + "<br/><br/>spec:" + JSON.stringify(spec));
 			}
 			
 		};

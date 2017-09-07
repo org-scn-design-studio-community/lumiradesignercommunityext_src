@@ -4,9 +4,10 @@
 	xmlns:core="sap.ui.core"
 	xmlns="sap.m">
 	<List headerText="Appearance" visible="{navState>selected}">
-		<InputListItem label="{/description/title}" tooltip="{/testProperty/tooltip}"><Input value="{/description/value}"/></InputListItem>
-		<InputListItem label="{/autosize/title}">
-			<SegmentedButton selectedKey="{/autosize/value}">
+		<InputListItem label="{/description/title}" tooltip="{/description/tooltip}"><Input value="{/description/value}"/></InputListItem>
+		<InputListItem label="{/name/title}" tooltip="{/name/tooltip}"><Input value="{/name/value}"/></InputListItem>
+		<InputListItem label="{/autoResize/title}">
+			<SegmentedButton selectedKey="{/autoResize/value}">
 				<items>
 					<SegmentedButtonItem key="none" text="None" />
 					<SegmentedButtonItem key="pad" text="Pad"/>

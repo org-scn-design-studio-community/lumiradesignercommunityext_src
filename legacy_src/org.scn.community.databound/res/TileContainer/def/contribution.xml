@@ -1,7 +1,7 @@
 
 <component
 	id="TileContainer"
-	title="TileContainer 1.0"
+	title="TileContainer 3.0"
 	icon="res/TileContainer/TileContainer.png"
 	handlerType="sapui5"
 	group="ScnCommunityBasics"
@@ -15,16 +15,20 @@
 		<option name="includeFormattedData" value="true"/>
 	</property>
 	<property id="DTargetDim" type="String" title="Tile Creation Dimension" visible="true"/>
-	<property id="DMeasureDim" type="String" title="Target Measure Dimension" visible="true"/>
+	<property id="DMeasureDim" type="String" title="Measure Dimension" visible="true"/>
 	<property id="DComparisonDim" type="String" title="Comparison Dimension" visible="true"/>
 	<property id="DComparisonTolerance" type="int" title="Compare Tolerance (%)" visible="true"/>
 	<property id="DTileType" type="String" title="Tile Type" visible="true">
 		<possibleValue>Standard</possibleValue>
 		<possibleValue>Custom</possibleValue>
+		<possibleValue>Picture</possibleValue>
 	</property>
 	<property id="DHeaderDim" type="String" title="Header Dimensions" visible="true"/>
 	<property id="DSubHeaderDim" type="String" title="Sub Header Dimensions" visible="true"/>
 	<property id="DFooterDim" type="String" title="Footer Dimensions" visible="true"/>
+	<property id="DURLDim" type="String" title="URL Dimensions" visible="true"/>
+	<property id="DUnitOverwriteDim" type="String" title="Unit Overwrite Dimension" visible="true"/>
+	<property id="DBackgroundImageDim" type="String" title="Background Image URL Dimension" visible="true"/>
 	<property id="DNumeralString" type="String" title="NumberFormat String (Numeral)" visible="true"/>
 	
 	<property id="DIconMapping" type="Array" title="Icon Mapping" visible="true">
@@ -40,6 +44,10 @@
 	<property id="DCurrentValue" type="float" title="Current Value" visible="false"/>
 	<property id="DCurrentValueText" type="String" title="Current Value Text" visible="false"/>
 	<property id="DCurrentUnit" type="String" title="Current Unit" visible="false"/>
+	<property id="DCurrentURL" type="String" title="Current URL" visible="false"/>
+	<property id="DCurrentUnitOverwrite" type="String" title="Current Unit Overwrite" visible="false"/>
+	<property id="DCurrentBackgroundImage" type="String" title="Current Background Image" visible="false"/>
+	
 	<property id="DCurrentIconString" type="String" title="Current Icon String" visible="false"/>
 	
 	<property id="onTilePress" type="ScriptText" title="Tile Press Event" visible="true" group="Events"/>

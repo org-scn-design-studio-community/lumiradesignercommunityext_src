@@ -21,11 +21,15 @@
  * Thanks to Karol and Mustafa for pointing out how to integrate with sap.m
  * 
  * This implementation uses numeral.js by Adam Draper
+ * 
+ * Update by: Marton Horvath
+ * Added new features: PictureTile, URL, UnitOverwrite property
+ * 
  */
 
-define(["../../../org.scn.community.shared/os/sapui5/load.sap.m_2.0",
-        "../../../org.scn.community.shared/os/numberformat/numeral.min",
-        "../../../org.scn.community.shared/os/numberformat/languages"], function() {
+define(["../../../org.scn.community.shared/os/numberformat/languages",
+		"../../../org.scn.community.shared/os/sapui5/load.sap.m_2.0",
+        "../../../org.scn.community.shared/os/numberformat/numeral.min"], function() {
 	
 	sap.m.TileContainer.extend("org.scn.community.databound.TileContainer", {
 		
@@ -47,16 +51,21 @@ define(["../../../org.scn.community.shared/os/sapui5/load.sap.m_2.0",
 	        	"DHeaderDim":{type: "string"},
 	        	"DSubHeaderDim":{type: "string"},
 	        	"DFooterDim":{type: "string"},
+	        	"DURLDim":{type: "string"},
+	        	"DUnitOverwriteDim":{type: "string"},
+	        	"DBackgroundImageDim":{type: "string"},
 	        	"DNumeralString":{type: "string"},
 	        	"DIconMapping":{type: "object"},
 	        	"DComparisonTolerance":{type: "int"},
-	        	
 	        	"DCurrentHeader": {type: "string"},
 	        	"DCurrentSubHeader": {type: "string"},
 	        	"DCurrentFooter": {type: "string"},
 	        	"DCurrentValue": {type: "float"},
 	        	"DCurrentValueText":{type: "string"},
 	        	"DCurrentUnit": {type: "string"},
+	        	"DCurrentUnitOverwrite": {type: "string"},
+	        	"DCurrentBackgroundImage": {type: "string"},
+	        	"DCurrentURL": {type: "string"},
 	        	"DCurrentIconString": {type: "string"}	        	
 	        }
 		},
@@ -64,10 +73,10 @@ define(["../../../org.scn.community.shared/os/sapui5/load.sap.m_2.0",
 		initDesignStudio: function() {
 			var that = this;
 			
-			//identify language dynamically
-			this.sCurrentLocale = sap.ui.getCore().getConfiguration().getLanguage();
-			// switch between languages
-			numeral.language(this.sCurrentLocale);
+			// Identify language dynamically - Note: commented out because it was not working properly in Lumira 2.0, set to static 'en' instead.
+			// this.sCurrentLocale = sap.ui.getCore().getConfiguration().getLanguage();
+			// this.sCurrentLocale
+			numeral.language("en");
 			
 			this.setWidth("100%");
 			this.setHeight("100%");
@@ -119,13 +128,18 @@ define(["../../../org.scn.community.shared/os/sapui5/load.sap.m_2.0",
 			if(this._data !== "" && this.dataRefreshed && tileCreationDim !== ""){
 				this.currentFlatData = this.flattenData();
 				
+			
 				for(var i=0;i<this.currentFlatData.length;i++){
 					var items = this.currentFlatData[i];
+			
 					if(this.getDTileType() === "Standard"){
 						this.createStandardTile(items);	
 					}
 					else if(this.getDTileType() === "Custom"){
 						this.createCustomTile(items);
+					}
+					else if(this.getDTileType() === "Picture"){
+						this.createPictureTile(items);
 					}
 					else{
 						if(window.console)console.log("unkown tile type");
@@ -151,6 +165,7 @@ define(["../../../org.scn.community.shared/os/sapui5/load.sap.m_2.0",
 			this.dataRefreshed = false;
 		},
 		
+//************* STANDARD TILE ***************************************************		
 		createStandardTile : function(data){
 			var that = this;
 			
@@ -160,6 +175,10 @@ define(["../../../org.scn.community.shared/os/sapui5/load.sap.m_2.0",
 			var headerDim 		= this.getDHeaderDim();
 			var subHeaderDim 	= this.getDSubHeaderDim();
 			var footerDim 		= this.getDFooterDim();
+			
+			var urlDim 		= this.getDURLDim();
+			var unitOverwriteDim 		= this.getDUnitOverwriteDim();
+			var backgroundImageDim 		= this.getDBackgroundImageDim();	
 			
 			var title 		= "";
 			var icon		= "";
@@ -257,6 +276,7 @@ define(["../../../org.scn.community.shared/os/sapui5/load.sap.m_2.0",
 					that.setDCurrentValueText(tile.getNumber());
 					that.setDCurrentUnit(tile.getNumberUnit());
 					that.setDCurrentIconString(iconString);
+					//that.setDCurrentURL();
 					
 					that.fireDesignStudioPropertiesChanged(["DCurrentHeader","DCurrentFooter","DCurrentValue","DCurrentUnit","DCurrentIconString"]);
 					that.fireDesignStudioEvent("onTilePress");
@@ -267,7 +287,8 @@ define(["../../../org.scn.community.shared/os/sapui5/load.sap.m_2.0",
 			this.addTile(tile);
 			
 		},
-		
+
+//************* CUSTOM TILE ***************************************************	
 		createCustomTile : function(data){
 			
 			var that = this;
@@ -278,22 +299,33 @@ define(["../../../org.scn.community.shared/os/sapui5/load.sap.m_2.0",
 			var headerDim 		= this.getDHeaderDim();
 			var subHeaderDim 	= this.getDSubHeaderDim();
 			var footerDim 		= this.getDFooterDim();
+			var unitOverwriteDim = this.getDUnitOverwriteDim();	
 			
-			var headerText 		= "";//"Business SLAsdkjvbnsdksdvsdvsdj";
-			var subHeaderText 	= "";//"suskjdbvjksdbvkjcsdbvkjsdbb";
+			var headerText 		= "";
+			var subHeaderText 	= "";
 			var icon			= "";
-			var value 			= "";//"123";
-			var unit 			= "";//"in €";
+			var tempValue		= "";
+			var value 			= "";
+			var unit 			= "";
 			var scale			= "";
-			var trendIndicator	= "";//"arrow-up";
-			var footer 			= "";//"Some footersdvvvvvvvvvvaaaaaaaaaaaa";
+			var trendIndicator	= "";
+			var footer 			= "";
 			
 			var color_class = "";
 
 			
 			if(data[measureDimension] !== undefined){
 				scale = Math.pow(10, data[measureDimension].scale);
-				value = (data[measureDimension].data)*scale;
+				tempValue = data[measureDimension].data;
+				
+				if (tempValue !== "null")
+				{
+					value = (data[measureDimension].data)*scale;
+				}
+				else
+				{	
+					value = "";
+				}
 				
 				if(data[comparisonDim] !== undefined){
 					var compare = data[comparisonDim].data;
@@ -317,7 +349,15 @@ define(["../../../org.scn.community.shared/os/sapui5/load.sap.m_2.0",
 						color_class = "cc-warning";
 					}
 				}
-				value = numeral(value).format(this.getDNumeralString());
+				
+				if (data[measureDimension].data !== null)
+				{
+					value = numeral(value).format(this.getDNumeralString());
+				}
+				else
+				{
+					value = "";
+				}
 			}
 			
 			if(data[headerDim] !== undefined){
@@ -350,8 +390,13 @@ define(["../../../org.scn.community.shared/os/sapui5/load.sap.m_2.0",
 					footer = data[footerDim];	
 				}
 			}
+			
 			if(data[measureDimension] !== undefined && data[measureDimension].unit !== undefined){
 				unit = data[measureDimension].unit;
+			}
+			
+			if(data[unitOverwriteDim] !== undefined){
+				unit = data[unitOverwriteDim];
 			}
 			
 			var oLayoutVRow1 = new sap.ui.layout.VerticalLayout({
@@ -459,6 +504,125 @@ define(["../../../org.scn.community.shared/os/sapui5/load.sap.m_2.0",
 			this.addTile(tile);
 		},
 		
+		
+//************* PICTURE TILE ***************************************************
+		createPictureTile : function(data){
+				
+			var that = this;
+			
+			var measureDimension	= this.getDMeasureDim();
+			var headerDim 			= this.getDHeaderDim();
+			var subHeaderDim 		= this.getDSubHeaderDim();
+			var footerDim 			= this.getDFooterDim();
+			var backgroundImageDim 	= this.getDBackgroundImageDim();
+			var urlDim 				= this.getDURLDim();
+			
+			var lContentText 		= "";
+			var lSubHeaderText 		= "";
+			var lFooter 			= "";
+			var lBackgroundImage	= "https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/sample/GenericTileAsFeedTile/images/NewsImage1.png";
+			var url					= "";
+			
+			if(data[headerDim] !== undefined){
+				if(that.isMeasure(headerDim)){
+					lContentText = headerDim;
+				}else{
+					lContentText = data[headerDim];	
+				}
+			}
+
+			if(data[subHeaderDim] !== undefined){
+				if(that.isMeasure(subHeaderDim)){
+					lSubHeaderText = subHeaderDim;
+				}else{
+					lSubHeaderText = data[subHeaderDim];	
+				}
+			}
+			
+			if(data[footerDim] !== undefined){
+				if(that.isMeasure(footerDim)){
+					lFooter = footerDim;  
+				}else{
+					lFooter = data[footerDim];	
+				}
+			}
+		
+			if(data[backgroundImageDim] !== undefined){
+				if(that.isMeasure(backgroundImageDim)){
+					lBackgroundImage = backgroundImageDim;  
+				}else{
+					lBackgroundImage = data[backgroundImageDim];	
+				}
+			}
+					
+			var oNewsContent = new sap.m.NewsContent({
+				contentText: 	lContentText,
+				subheader:  	lSubHeaderText
+			}).addStyleClass("ptNewsContent");	
+			
+			var oTileContent = new sap.m.TileContent({
+		    	footer: 		lFooter,
+				content : [oNewsContent]
+			}).addStyleClass("ptTileContent");	 
+			
+			var gTile = new sap.m.GenericTile( {    
+				frameType: 			"TwoByOne",
+				backgroundImage: 	lBackgroundImage,
+				tileContent : [oTileContent]
+			}).addStyleClass("ptGenericTile");
+			
+			var tile = new sap.m.CustomTile({
+				height:"100%",
+				content : [gTile]
+			}).addStyleClass('ptPictureTile').removeStyleClass('sapMCustomTile');
+			
+			//setup a json model to retrieve values on press more easily
+			/*var valueModel = new sap.ui.model.json.JSONModel({
+	            "contentText": lContentText,
+	            "subHeader": lSubHeaderText,
+	            "footer": lFooter,
+	            "backgroundImage": lBackgroundImage
+	        });
+
+			tile.setModel(valueModel);
+
+		    var onTilePress = function(oControlEvent) {
+		    	
+		    	var oLayout = oControlEvent.getSource().getContent();
+		    	var model = oLayout.getModel();
+		    	var content = model.getProperty("/contentText");
+		    	
+				var tileId = oControlEvent.getParameters().id;
+				var tiles = that.getTiles();
+				var tile = null;
+				
+				for(var i=0;i<tiles.length;i++){
+					var currentTile = tiles[i]; 
+					if(tiles[i].sId === tileId){
+						tile = currentTile;
+						tile.addStyleClass("cc-Tile-clicked");
+					}else{
+						currentTile.removeStyleClass("cc-Tile-clicked");
+					}
+				}
+				if(tile === null){
+					if(window.console)console.log("no tile found with id "+tileId);
+				}else{
+					that.setDCurrentHeader(model.getProperty("/header"));
+					that.setDCurrentSubHeader(model.getProperty("/subHeader"));
+					that.setDCurrentFooter(model.getProperty("/footer"));
+					that.setDCurrentValueText(model.getProperty("/value"));
+					
+					that.fireDesignStudioPropertiesChanged(["DCurrentHeader","DCurrentFooter","DCurrentValue","DCurrentValueText","DCurrentUnit","DCurrentIconString"]);
+					that.fireDesignStudioEvent("onTilePress");
+				}
+			};
+			tile.attachPress(onTilePress);*/
+			
+		this.addTile(tile);
+},
+
+
 		flattenData: function(){
 			var result = [];
 			var row_start = "{";

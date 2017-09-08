@@ -21,10 +21,14 @@
  * Thanks to Karol and Mustafa for pointing out how to integrate with sap.m
  * 
  * This implementation uses numeral.js by Adam Draper
+ * 
+ * Update by: Marton Horvath
+ * New features: PictureTile, URL, UnitOverwrite property
+ * 
  */
 
-define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
-        "../../../org.scn.community.shared/os/numberformat/languages"], function() {
+define(["../../../org.scn.community.shared/os/numberformat/languages",
+		"../../../org.scn.community.shared/os/numberformat/numeral.min"], function() {
 	
 	sap.m.TileContainer.extend("org.scn.community.databound.TileContainer", {
 		
@@ -46,16 +50,19 @@ define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
 	        	"DHeaderDim":{type: "string"},
 	        	"DSubHeaderDim":{type: "string"},
 	        	"DFooterDim":{type: "string"},
+	        	"DURLDim":{type: "string"},
+	        	"DUnitOverwriteDim":{type: "string"},
+	        	"DBackgroundImageDim":{type: "string"},
 	        	"DNumeralString":{type: "string"},
 	        	"DIconMapping":{type: "object"},
-	        	"DComparisonTolerance":{type: "int"},
-	        	
+	        	"DComparisonTolerance":{type: "int"},	        	
 	        	"DCurrentHeader": {type: "string"},
 	        	"DCurrentSubHeader": {type: "string"},
 	        	"DCurrentFooter": {type: "string"},
 	        	"DCurrentValue": {type: "float"},
 	        	"DCurrentValueText":{type: "string"},
 	        	"DCurrentUnit": {type: "string"},
+	        	"DCurrentURL": {type: "string"},
 	        	"DCurrentIconString": {type: "string"}	        	
 	        }
 		},
@@ -63,10 +70,10 @@ define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
 		initDesignStudio: function() {
 			var that = this;
 			
-			//identify language dynamically
-			this.sCurrentLocale = sap.ui.getCore().getConfiguration().getLanguage();
-			// switch between languages
-			numeral.language(this.sCurrentLocale);
+			// Identify language dynamically - commented out because it was not working properly in Lumira 2.0, set to static en instead.
+			// this.sCurrentLocale = sap.ui.getCore().getConfiguration().getLanguage();
+			// this.sCurrentLocale
+			numeral.language("en"); 
 			
 			this.setWidth("100%");
 			this.setHeight("100%");
@@ -126,6 +133,9 @@ define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
 					else if(this.getDTileType() === "Custom"){
 						this.createCustomTile(items);
 					}
+					else if(this.getDTileType() === "Picture"){
+						this.createPictureTile(items);
+					}
 					else{
 						if(window.console)console.log("unkown tile type");
 					}
@@ -150,6 +160,7 @@ define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
 			this.dataRefreshed = false;
 		},
 		
+//************* STANDARD TILE ***************************************************
 		createStandardTile : function(data){
 			var that = this;
 			
@@ -267,6 +278,7 @@ define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
 			
 		},
 		
+//************* CUSTOM TILE ***************************************************
 		createCustomTile : function(data){
 			
 			var that = this;
@@ -277,22 +289,37 @@ define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
 			var headerDim 		= this.getDHeaderDim();
 			var subHeaderDim 	= this.getDSubHeaderDim();
 			var footerDim 		= this.getDFooterDim();
+			var unitOverwriteDim = this.getDUnitOverwriteDim();
+			var urlDim 			= this.getDURLDim();
 			
-			var headerText 		= "";//"Business SLAsdkjvbnsdksdvsdvsdj";
-			var subHeaderText 	= "";//"suskjdbvjksdbvkjcsdbvkjsdbb";
+			var headerText 		= "";
+			var subHeaderText 	= "";
 			var icon			= "";
-			var value 			= "";//"123";
-			var unit 			= "";//"in €";
+			var tempValue		= "";
+			var value 			= "";
+			var unit 			= "";
+			var url				= "";
 			var scale			= "";
-			var trendIndicator	= "";//"arrow-up";
-			var footer 			= "";//"Some footersdvvvvvvvvvvaaaaaaaaaaaa";
+			var trendIndicator	= "";
+			var footer 			= "";
 			
 			var color_class = "";
 
 			
-			if(data[measureDimension] !== undefined){
+			if(data[measureDimension] !== undefined)
+			{
 				scale = Math.pow(10, data[measureDimension].scale);
-				value = (data[measureDimension].data)*scale;
+				
+				tempValue = data[measureDimension].data + "x";
+				
+				if (tempValue !== "nullx")
+				{
+					value = (data[measureDimension].data)*scale;
+				}
+				else
+				{	
+					value = "";
+				}
 				
 				if(data[comparisonDim] !== undefined){
 					var compare = data[comparisonDim].data;
@@ -316,7 +343,11 @@ define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
 						color_class = "cc-warning";
 					}
 				}
-				value = numeral(value).format(this.getDNumeralString());
+				
+				if (value !== "")
+				{
+					value = numeral(value).format(this.getDNumeralString());
+				}
 			}
 			
 			if(data[headerDim] !== undefined){
@@ -342,6 +373,7 @@ define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
 					subHeaderText = data[subHeaderDim];	
 				}
 			}
+			
 			if(data[footerDim] !== undefined){
 				if(that.isMeasure(footerDim)){
 					footer = footerDim;
@@ -349,8 +381,25 @@ define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
 					footer = data[footerDim];	
 				}
 			}
+			
 			if(data[measureDimension] !== undefined && data[measureDimension].unit !== undefined){
 				unit = data[measureDimension].unit;
+			}
+			
+			if(data[unitOverwriteDim] !== undefined){
+				if(that.isMeasure(unitOverwriteDim)){
+					unit  = unitOverwriteDim;
+				}else{
+					unit  = data[unitOverwriteDim];	
+				}
+			}
+			
+			if(data[urlDim] !== undefined){
+				if(that.isMeasure(urlDim)){
+					url = urlDim;
+				}else{
+					url = data[urlDim];	
+				}
 			}
 			
 			var oLayoutVRow1 = new sap.ui.layout.VerticalLayout({
@@ -373,7 +422,7 @@ define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
 				
 				content: [
 				          new sap.m.Text({text : ""}).addStyleClass(trendIndicator),
-				          new sap.m.Text({text : unit}).addStyleClass('ccUnitText')
+				          new sap.m.Text({text : unit}).addStyleClass('ccUnitText').addStyleClass(color_class)
 				          ]
 			}).addStyleClass('ccUnitLayout');
 			
@@ -403,6 +452,7 @@ define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
                 "icon": icon,
                 "value": value,
                 "unit": unit,
+                "url": url,
                 "trendIndicator": trendIndicator,
                 "footer": footer,
             });
@@ -447,9 +497,10 @@ define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
 					that.setDCurrentValue(orig_value);
 					that.setDCurrentValueText(model.getProperty("/value"));
 					that.setDCurrentUnit(model.getProperty("/unit"));
+					that.setDCurrentURL(model.getProperty("/url"));
 					that.setDCurrentIconString(iconString);
 					
-					that.fireDesignStudioPropertiesChanged(["DCurrentHeader","DCurrentFooter","DCurrentValue","DCurrentValueText","DCurrentUnit","DCurrentIconString"]);
+					that.fireDesignStudioPropertiesChanged(["DCurrentHeader","DCurrentFooter","DCurrentValue","DCurrentValueText","DCurrentUnit","DCurrentURL","DCurrentIconString"]);
 					that.fireDesignStudioEvent("onTilePress");
 				}
 			};
@@ -457,6 +508,125 @@ define(["../../../org.scn.community.shared/os/numberformat/numeral.min",
 		    
 			this.addTile(tile);
 		},
+		
+		
+//************* PICTURE TILE ***************************************************
+	createPictureTile : function(data){
+			
+		var that = this;
+			
+		var headerDim 			= this.getDHeaderDim();
+		var subHeaderDim 		= this.getDSubHeaderDim();
+		var footerDim 			= this.getDFooterDim();
+		var backgroundImageDim 	= this.getDBackgroundImageDim();
+		var urlDim 				= this.getDURLDim();
+		
+		var lContentText 		= "";
+		var lSubHeaderText 		= "";
+		var lFooter 			= "";
+		var lBackgroundImage	= "https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/sample/GenericTileAsFeedTile/images/NewsImage1.png";
+		var url					= "";
+		
+		if(data[headerDim] !== undefined){
+			if(that.isMeasure(headerDim)){
+				lContentText = headerDim;
+			}else{
+				lContentText = data[headerDim];	
+			}
+		}
+
+		if(data[subHeaderDim] !== undefined){
+			if(that.isMeasure(subHeaderDim)){
+				lSubHeaderText = subHeaderDim;
+			}else{
+				lSubHeaderText = data[subHeaderDim];	
+			}
+		}
+		
+		if(data[footerDim] !== undefined){
+			if(that.isMeasure(footerDim)){
+				lFooter = footerDim;  
+			}else{
+				lFooter = data[footerDim];	
+			}
+		}
+	
+		if(data[backgroundImageDim] !== undefined){
+			if(that.isMeasure(backgroundImageDim)){
+				lBackgroundImage = backgroundImageDim;  
+			}else{
+				lBackgroundImage = data[backgroundImageDim];	
+			}
+		}
+				
+		var oNewsContent = new sap.m.NewsContent({
+			contentText: 	lContentText,
+			subheader:  	lSubHeaderText
+		}).addStyleClass("ptNewsContent");	
+		
+		var oTileContent = new sap.m.TileContent({
+	    	footer: 		lFooter,
+			content : [oNewsContent]
+		}).addStyleClass("ptTileContent");	 
+		
+		var gTile = new sap.m.GenericTile( {    
+			frameType: 			"TwoByOne",
+			backgroundImage: 	lBackgroundImage,
+			tileContent : [oTileContent]
+		}).addStyleClass("ptGenericTile");
+		
+		var tile = new sap.m.CustomTile({
+			height:"100%",
+			content : [gTile]
+		}).addStyleClass('ptPictureTile').removeStyleClass('sapMCustomTile');
+		
+		//setup a json model to retrieve values on press more easily
+		/*var valueModel = new sap.ui.model.json.JSONModel({
+            "contentText": lContentText,
+            "subHeader": lSubHeaderText,
+            "footer": lFooter,
+            "backgroundImage": lBackgroundImage
+        });
+
+		tile.setModel(valueModel);
+
+	    var onTilePress = function(oControlEvent) {
+	    	
+	    	var oLayout = oControlEvent.getSource().getContent();
+	    	var model = oLayout.getModel();
+	    	var content = model.getProperty("/contentText");
+	    	
+			var tileId = oControlEvent.getParameters().id;
+			var tiles = that.getTiles();
+			var tile = null;
+			
+			for(var i=0;i<tiles.length;i++){
+				var currentTile = tiles[i]; 
+				if(tiles[i].sId === tileId){
+					tile = currentTile;
+					tile.addStyleClass("cc-Tile-clicked");
+				}else{
+					currentTile.removeStyleClass("cc-Tile-clicked");
+				}
+			}
+			if(tile === null){
+				if(window.console)console.log("no tile found with id "+tileId);
+			}else{
+				that.setDCurrentHeader(model.getProperty("/header"));
+				that.setDCurrentSubHeader(model.getProperty("/subHeader"));
+				that.setDCurrentFooter(model.getProperty("/footer"));
+				that.setDCurrentValueText(model.getProperty("/value"));
+				
+				that.fireDesignStudioPropertiesChanged(["DCurrentHeader","DCurrentFooter","DCurrentValue","DCurrentValueText","DCurrentUnit","DCurrentIconString"]);
+				that.fireDesignStudioEvent("onTilePress");
+			}
+		};
+		tile.attachPress(onTilePress);*/
+		
+		this.addTile(tile);
+	},
+		
+		
 		
 		flattenData: function(){
 			var result = [];

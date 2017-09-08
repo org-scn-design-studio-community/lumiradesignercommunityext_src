@@ -1,0 +1,59 @@
+<!-- For later, not ready yet... -Mike -->
+<component
+		id="VegaLite"
+		title="Vega-Lite"
+		icon="res/VegaLite.png"
+		handlerType="div"
+		modes="commons m"
+		propertySheetPath="aps/VegaLite.html"
+		group="ScnCommunityVisualizations"
+		databound="true"
+	>
+	<requireJs modes="commons m">res/VegaLite</requireJs>
+	<!-- Base Databound Properties -->
+	<property
+			id="data"
+			title="Data Selection"
+			type="ResultSet"
+			group="DataBinding">
+			<option name="includeFormattedData" value="false"/>
+			<option name="includeData" value="true"/>
+	</property>
+	<!-- Top-Level Specifications -->
+	<property id="dataSpec" type="String" title="Data Spec"/>
+	<property id="schema" type="String" title="Schema"/>
+	<property id="autoResize" type="boolean" title="Auto Resize"/>
+	<property id="background" type="String" title="Background Colour"/>
+	<!-- End of Top-Level Specifications -->
+	<!-- Single View Specifications -->
+	<property id="name" type="String" title="Name"/>
+	<property id="description" type="String" title="Description"/>
+	<property id="transform" type="String" title="Transform"/>
+	<property id="selection" type="String" title="Selection"/>
+	<property id="mark" type="String" title="Mark (Required)"/>
+	<property id="encoding" type="String" title="Encoding (Required)"/>
+	<!-- End of Single View Specifications -->
+	<!-- Layers (TODO) -->
+	<initialization>
+		<defaultValue property="TOP_MARGIN">0</defaultValue>
+		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
+		<defaultValue property="LEFT_MARGIN">0</defaultValue>
+		<defaultValue property="RIGHT_MARGIN">auto</defaultValue>
+		<defaultValue property="WIDTH">400</defaultValue>
+		<defaultValue property="HEIGHT">300</defaultValue>
+		<defaultValue property="ignoreTotals">true</defaultValue>
+		<defaultValue property="ignoreExpandedNodes">true</defaultValue>
+		<defaultValue property="swapAxes">true</defaultValue>
+		<defaultValue property="useMockData">true</defaultValue>
+		
+		<defaultValue property="schema">https://vega.github.io/schema/vega-lite/v2.json</defaultValue>
+		<defaultValue property="description">My Vega-Lite Visualization</defaultValue>
+		<defaultValue property="name">My Vega-Lite Visualization</defaultValue>
+		<defaultValue property="padding">5</defaultValue>
+		<defaultValue property="transform">[]</defaultValue>
+		<defaultValue property="selection">{}</defaultValue>
+		<defaultValue property="mark">{}</defaultValue>
+		<defaultValue property="encoding">{}</defaultValue>
+	</initialization>
+	
+</component>

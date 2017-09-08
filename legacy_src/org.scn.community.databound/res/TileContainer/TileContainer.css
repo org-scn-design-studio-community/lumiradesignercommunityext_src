@@ -12,7 +12,7 @@
 
 .ccSubHeaderText{
 	font-size: 0.8rem!important;
-	color: rgba(102, 102, 102, 0.6)!important; /*#666666!important;*/
+	color: #666666!important;
 	vertical-align: top!important;
     text-align: left!important;
     width: 100%!important;
@@ -27,12 +27,12 @@
     color: #666666;
     font-size: 65px!important;
     position: absolute!important;
-    /*right: 45px!important;*/
+    right: 45px!important;
     bottom: 31px
 }
 
 .ccUnitText{
-	font-size: 0.9rem!important;
+	font-size: 1rem!important;
 	font-family: 'Arial Narrow',HelveticaNeue-CondensedBold,Arial,sans-serif;
     font-stretch: condensed;
     color: #666666;
@@ -40,7 +40,7 @@
 
 .ccFooterText {
 	font-size: 0.8rem!important;
-	color: rgba(102, 102, 102, 0.6)!important; /*#AFAFAF!important;*/
+	color: #AFAFAF!important;
 	vertical-align: top!important;
     text-align: left!important;
     width: 85%!important;
@@ -49,30 +49,29 @@
     max-height: 16px!important;
     white-space: nowrap!important;
     position: absolute!important;
-    bottom: 0.4rem!important;
+    bottom: 13px!important;
 }
 
 .ccRowLayoutHeader{
 	padding-top: 10px!important;
-    /*padding-right: 40px!important;
-    padding-left: 13px!important;*/
+    padding-right: 40px!important;
+    padding-left: 13px!important;
     /* padding-bottom: 1rem!important; */
     display: block!important;
-    height: 3.5rem;
 }
 
 .ccRowLayoutValue{
-   	padding-top: 1.5rem;
-    /*padding-right: 1rem!important;
-    padding-left: 1rem!important;*/
+   	padding-top: 3rem!important;
+    padding-right: 1rem!important;
+    padding-left: 1rem!important;
     padding-bottom: 1rem!important;
     display: block!important;
 }
 
 .ccRowLayoutFooter{
 	padding-top: 1rem!important;
-	/*padding-right: 1rem!important;
-	padding-left: 1rem!important;*/
+	padding-right: 1rem!important;
+	padding-left: 1rem!important;
 	padding-bottom: 1rem!important;
 	display: block!important;
 }
@@ -157,4 +156,8 @@
 
 .cc-normal {
 	color: #666666;
+}
+
+div[id*="TILECONTAINER_"] > div[class*="sapMTile"]{
+	border-radius:5px!important;
 }

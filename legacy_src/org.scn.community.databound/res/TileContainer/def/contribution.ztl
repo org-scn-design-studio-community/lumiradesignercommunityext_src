@@ -11,7 +11,7 @@ class org.scn.community.databound.TileContainer extends org.scn.community.shared
 	 * 		TC.setTileType("Standard");
 	 * 	</code><br>
 	 * </example>
-	 * Possible values are "Standard", "Custom" and "Picture"
+	 * Possible values are "Standard" and "Custom"
 	 */
 	void setTileType(String type){*
 		this.DTileType = type;
@@ -53,25 +53,11 @@ class org.scn.community.databound.TileContainer extends org.scn.community.shared
 		return this.DCurrentUnit;
 	*}
 	/**
-	 * Get current URL
-	 */
-	String getCurrentURL(){*
-		return this.DCurrentURL;
-	*}
-	String getCurrentUnitOverwrite(){*
-		return this.DCurrentUnitOverwrite;
-	*}
-	String getCurrentBackgroundImage(){*
-		return this.DCurrentBackgroundImage;
-	*}
-	/**
 	 * Get current tile icon string
 	 */
 	String getCurrentIconString(){*
 		return this.DCurrentIconString;
 	*}
-	
-	
 	
 	@Visibility(private)
 	/**

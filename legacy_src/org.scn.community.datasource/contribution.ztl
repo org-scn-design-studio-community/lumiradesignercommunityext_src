@@ -156,7 +156,7 @@ class org.scn.community.datasource.BYOData extends SdkDataSource {
 	 */
 	void addRow(/*Dimensions*/ String dimensions, /*Measures*/ String measures, /*Overwrite*/ optional boolean overwrite){*
 		if(overwrite) deleteRow(dimensions);
-		var dims = balanceDimension(dimensions).split(",");
+		var dims = this.balanceDimension(dimensions).split(",");
 		var kfs = measures.split(",");
 		var rows = this.data.split("\n");
 		var columnCount = 0;

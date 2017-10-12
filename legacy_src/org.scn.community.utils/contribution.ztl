@@ -1408,18 +1408,24 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 	String bial(/* Debug */ String bial) {*
 		return JSON.stringify(eval(bial));
 	*}
+	/**
+	Log
+	*/
+	void log(/* Message */ String message) {*
+		if(this.debug) APPLICATION.log(message);
+	*}
 	String checkProfiles(String measurements){*
 		this.measurements = measurements;
 		var width = this.browserWidth;
 		var height = this.browserHeight;
 		var os = this.os;
 		var device = this.device;
-		APPLICATION.log("Checking for a matching profile for [" + width + "x" + height + "] OS: " + os + " Device: " + device);
+		this.log("Checking for a matching profile for [" + width + "x" + height + "] OS: " + os + " Device: " + device);
 		var p = JSON.parse(this.profiles).profiles;
 		for(var i=0;i<p.length;i++){
 			var profile = p[i];
-			APPLICATION.log("Checking profile " + profile.key);
-			APPLICATION.log(profile);
+			this.log("Checking profile " + profile.key);
+			this.log(profile);
 			if((	// If width between, or min/max set to -1
 					(width >= profile.browserMinWidth || profile.browserMinWidth == -1) && 
 					(width <= profile.browserMaxWidth || profile.browserMaxWidth == -1)
@@ -1438,21 +1444,21 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 		return "";
 	*}
 	String loadProfileExt(String profile, String measurements){*
-		APPLICATION.log(profile);
+		this.log(profile);
 		this.measurements = measurements;
 		this.loadProfile(profile);
 		return "done";
 	*}
 	String loadProfile(String profile){*
-		APPLICATION.log("Load Profile called for key '" + profile + "'");
-		APPLICATION.log(this.measurements);
+		this.log("Load Profile called for key '" + profile + "'");
+		this.log(this.measurements);
 		var m = JSON.parse(this.measurements);
 		this.internal_assureGlobalAccess();
 		var global = this.getGlobal();
 		var p = JSON.parse(this.profiles).profiles;
 		for(var i=0;i<p.length;i++){
 			if(profile == p[i].key){
-				APPLICATION.log("Applying layout: " + profile + "...");
+				this.log("Applying layout: " + profile + "...");
 				if(this.currentProfile != profile) this.currentProfile = profile;
 				var layout = p[i].componentLayout.components;
 				for(var j=0;j<layout.length;j++){
@@ -1460,7 +1466,7 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 					if(global[component.key] && 
 							component.key != "me"){
 						// Find parent ID
-						APPLICATION.log(global[component.key].getOwner().getItemType());
+						this.log(global[component.key].getOwner().getItemType());
 						var parent = global[component.key].getOwner().getParent().getId();
 						var pm = {
 							width : 0,
@@ -1474,7 +1480,7 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 						for(var p=0;p<m.length;p++){
 							if(m[p].key == parent) pm = m[p];
 						}
-						APPLICATION.log("Moving " + component.key + JSON.stringify(component.position) + "...");
+						this.log("Moving " + component.key + JSON.stringify(component.position) + "...");
 						if(global[component.key].setVisible){
 							if(component.position.visible == "visible"){
 								global[component.key].setVisible(true);	
@@ -1567,9 +1573,9 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 								global[component.key].setRightMargin("auto");
 							}
 						}
-						APPLICATION.log(JSON.stringify(component.position));
+						this.log(JSON.stringify(component.position));
 					}else{
-						APPLICATION.log("Could not locate " + component.key + "...");
+						this.log("Could not locate " + component.key + "...");
 						// Component gone
 					}
 				}
@@ -1600,7 +1606,7 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 					} 
 				}
 			}catch(e){
-				APPLICATION.log("Error trapped: " + e);
+				this.log("Error trapped: " + e);
 			}
 		}
 		return JSON.stringify(a);
@@ -1618,7 +1624,7 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 				continue;
 			}
 			var component = global[key];
-			APPLICATION.log("Examining " + key);
+			this.log("Examining " + key);
 			try{
 				if(component.getOwner && component.getTopMargin && key != "me") {
 					var visible = false;
@@ -1651,7 +1657,7 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 					});
 				}
 			}catch(e){
-				APPLICATION.log("Error trapped: " + e);
+				this.log("Error trapped: " + e);
 			}
 		}
 		return JSON.stringify(payload);

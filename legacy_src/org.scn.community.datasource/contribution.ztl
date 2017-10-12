@@ -137,7 +137,7 @@ class org.scn.community.datasource.BYOData extends SdkDataSource {
 		while(dims.length>this.kfIndex){
 			dims.splice(dims.length-1,1);
 		}
-		while(dims.length<kfIndex){
+		while(dims.length<this.kfIndex){
 			dims.push("#");
 		}
 		for(var i=0;i<dims.length;i++){

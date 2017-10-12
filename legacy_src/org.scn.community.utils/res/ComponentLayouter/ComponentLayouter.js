@@ -89,6 +89,13 @@ define(["./../../../org.scn.community.shared/os/viz-modules/SDKCore",
 					desc : "Monitor Resizes (Required for Events to fire)"
 				}
 			},
+			debug : {
+				opts : {
+					apsControl : "checkbox",
+					cat : "Events",
+					desc : "Debug output to Application Log"
+				}
+			},
 			onProfileChange :  { 
 				opts : {
 					apsControl : "script",

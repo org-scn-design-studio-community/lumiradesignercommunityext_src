@@ -2015,12 +2015,13 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 		this.internal_assureGlobalAccess();
 	
 		for (var key in this.getGlobal()) {
+			/*
+			Does not work like this anymore in 2.0: 
 			var something = undefined;try{something = eval(key);} catch(e) {continue;}
+			*/
 			
-			if(something == undefined) {
-				continue;
-			}
-			
+			// New way in 2.0:
+			var something = this.getGlobal()[key];
 			if( typeof something == "object" ) {
 				var fitsIntoName = true;
 				if(prefix != undefined && prefix.length > 0) {
@@ -2038,7 +2039,6 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 				if(!fitsIntoName) {
 					continue;
 				}
-				
 				try {
 					if(something.getWidth != undefined) {
 						var componentHolder = {};
@@ -2046,10 +2046,13 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 						componentHolder.name = key;
 						componentHolder.type = this.identifyType(something);
 						componentHolder.component = something;
-						
 						allComponents.push(componentHolder);	
+					}else{
+						
 					}
-				} catch (e) {}
+				} catch (e) {
+					APPLICATION.log("Error inspecting " + key + " :" + e);
+				}
 			}
 		}
 		
@@ -2078,11 +2081,13 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 		this.internal_assureGlobalAccess();
 	
 		for (var key in this.getGlobal()) {
+			/*
+			Does not work like this anymore in 2.0: 
 			var something = undefined;try{something = eval(key);} catch(e) {continue;}
+			*/
 			
-			if(something == undefined) {
-				continue;
-			}
+			// New way in 2.0:
+			var something = this.getGlobal()[key];
 			
 			if( typeof something == "object" ) {
 				var fitsIntoName = true;
@@ -2172,12 +2177,14 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 		this.internal_assureGlobalAccess();
 
 		for (var key in this.getGlobal()) {
+			/*
+			Does not work like this anymore in 2.0: 
 			var something = undefined;try{something = eval(key);} catch(e) {continue;}
-
-			if(something == undefined) {
-				continue;
-			}
+			*/
 			
+			// New way in 2.0:
+			var something = this.getGlobal()[key];
+						
 			if( typeof something == "object" ) {
 				var fitsIntoName = true;
 				if(prefix != undefined && prefix.length > 0) {
@@ -2236,7 +2243,7 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 	 */
 	String identifyType (Component inputComponent, optional boolean keepFullType) {*
 		
-		this.internal_assureGlobalAccess();
+		// this.internal_assureGlobalAccess();
 	  	
 		var type = "UNKNOWN";
 		

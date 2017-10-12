@@ -1460,7 +1460,7 @@ class org.scn.community.shared.Component extends Component {
 			if(this["_dbg" + componentName] == "-") { return false; }
 		}
 	
-		internal_assureGlobalAccess ();
+		this.internal_assureGlobalAccess ();
 		
 		var something = this.getGlobal()[componentName];
 		if(something != undefined) {
@@ -1663,7 +1663,7 @@ class org.scn.community.shared.DataComponent extends DataBoundComponent {
 			if(this["_dbg" + componentName] == "-") { return false; }
 		}
 	
-		internal_assureGlobalAccess ();
+		this.internal_assureGlobalAccess ();
 		
 		var something = this.getGlobal()[componentName];
 		if(something != undefined) {

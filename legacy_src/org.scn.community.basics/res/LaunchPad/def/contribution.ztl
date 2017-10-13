@@ -88,7 +88,7 @@ class org.scn.community.basics.LaunchPad extends org.scn.community.shared.Compon
 		}else{	// Update Tile
 			o[matchIndex] = tile;
 		}
-		tileConfig = JSON.stringify(o);
+		this.tileConfig = JSON.stringify(o);
 	*}
 	/** Remove a tile
  	<example>
@@ -106,6 +106,6 @@ class org.scn.community.basics.LaunchPad extends org.scn.community.shared.Compon
 			if(o[i].title == title) matchIndex = i;
 		}
 		if(matchIndex>-1) o.splice(matchIndex,1);
-		tileConfig = JSON.stringify(o);
+		this.tileConfig = JSON.stringify(o);
 	*}
 }

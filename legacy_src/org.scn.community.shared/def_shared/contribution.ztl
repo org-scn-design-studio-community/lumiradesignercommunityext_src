@@ -71,10 +71,16 @@ class org.scn.community.shared.Component extends Component {
 		var scope = page.getRootScope();
 		var stateProcessor = page.getStateProcessor();
 		var itemNames = stateProcessor.getItemNames(scope);
+		var dataProviderNames = stateProcessor.getDataProviderNames(scope);
 		// APPLICATION.log(itemNames);
 		for(var i=0;i<itemNames.length;i++){
 			if(__COMPONENTS__[itemNames[i]]){
 				g[itemNames[i]] = __COMPONENTS__[itemNames[i]];
+			}
+		}
+		for(var i=0;i<dataProviderNames.length;i++){
+			if(__COMPONENTS__[dataProviderNames[i]]){
+				g[dataProviderNames[i]] = __COMPONENTS__[dataProviderNames[i]];
 			}
 		}
 		return g;

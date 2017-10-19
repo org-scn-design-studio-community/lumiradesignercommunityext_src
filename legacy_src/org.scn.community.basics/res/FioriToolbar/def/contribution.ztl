@@ -31,7 +31,7 @@ class org.scn.community.basics.FioriToolbar extends org.scn.community.shared.Com
 			o[matchIndex].icon = icon;
 			o[matchIndex].type = buttonType || "Default";
 		}		
-		itemConfig = JSON.stringify(o);
+		this.itemConfig = JSON.stringify(o);
 	*}
 	/** Remove All Button
  	<example>
@@ -42,7 +42,7 @@ class org.scn.community.basics.FioriToolbar extends org.scn.community.shared.Com
 	</example>
 	 */
 	void removeAllButtons () {*		
-		itemConfig = JSON.stringify([]);
+		this.itemConfig = JSON.stringify([]);
 	*}
 	/** Remove All Items in a header button
  	<example>
@@ -59,7 +59,7 @@ class org.scn.community.basics.FioriToolbar extends org.scn.community.shared.Com
 			if(o[i].key == buttonKey) matchIndex = i;
 		}
 		if(matchIndex>-1) o[matchIndex].items = [];
-		itemConfig = JSON.stringify(o);
+		this.itemConfig = JSON.stringify(o);
 	*}
 	/** Remove a button
  	<example>
@@ -76,7 +76,7 @@ class org.scn.community.basics.FioriToolbar extends org.scn.community.shared.Com
 			if(o[i].key == buttonKey) matchIndex = i;
 		}
 		if(matchIndex>-1) o.splice(matchIndex,1);
-		itemConfig = JSON.stringify(o);
+		this.itemConfig = JSON.stringify(o);
 	*}
 	/** Add an item to a header button.  Will add the header button if it does not yet exist.
  	<example>
@@ -102,7 +102,7 @@ class org.scn.community.basics.FioriToolbar extends org.scn.community.shared.Com
 			text : itemText,
 			icon : itemIcon || ""
 		});
-		itemConfig = JSON.stringify(o);
+		this.itemConfig = JSON.stringify(o);
 	*}
 	/** Removes an item from a header button.
  	<example>
@@ -125,7 +125,7 @@ class org.scn.community.basics.FioriToolbar extends org.scn.community.shared.Com
 				if(items[i].key == itemKey) itemIndex = i;
 			}
 			if(itemIndex>-1) items.splice(itemIndex,1);
-			itemConfig = JSON.stringify(o);
+			this.itemConfig = JSON.stringify(o);
 		}		
 	*}
 	/**

@@ -183,7 +183,8 @@ sap.m.TileContainer.extend("org.scn.community.basics.LaunchPad", {
 				numberUnit : tileConf.numberUnit,
 				infoState : tileConf.valueState	|| "None"
 			});
-			if(tileConf.styleClass) tile.addStyleClass(tileConf.styleClass);
+			alert(JSON.stringify(tileConf));
+			// if(tileConf.styleClass) tile.addStyleClass(tileConf.styleClass);
 			tile.attachBrowserEvent("click", function(t){return function(oControlEvent){this.tileSelect(t,oControlEvent);};}(tileConf.title),this);
 			this.addTile(tile);
 		}

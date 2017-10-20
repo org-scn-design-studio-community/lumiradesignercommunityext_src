@@ -57,7 +57,7 @@ class org.scn.community.basics.LaunchPad extends org.scn.community.shared.Compon
  	<example>
 	Add/Update a tile called "Sales"
 	<code>
-	LAUNCHPAD_1.addTile("Sales", "YTD", "sap-icon://money-bills", "1234", "USD", "good");<br>
+	LAUNCHPAD_1.addTile("Sales", "YTD", "sap-icon://money-bills", "1234", "USD", "Success", "good");<br>
 	</code>
 	</example>
 	 */
@@ -66,19 +66,27 @@ class org.scn.community.basics.LaunchPad extends org.scn.community.shared.Compon
 			/*Icon*/optional String icon, 
 			/*Number*/optional String number, 
 			/*Number Unit*/optional String numberUnit,
-			/*Value State*/optional String valueState,
+			/*Value State (None, Success, Warning, or Error) */optional String valueState,
 			/*CSS Class*/optional String styleClass) {*		
-		var o = eval(this.tileConfig);
+		var o;
+		try {
+			o = eval(this.tileConfig);
+		}catch(e){
+			o = [];
+		}
 		if(!o) o = [];
+		var vs = valueState;
+		if(vs != "None" && vs != "Success" && vs != "Warning" && vs != "Error") vs = "None";
 		var tile = {
 			title: title,
 			info: info,
 			icon: icon,
 			number: number,
 			numberUnit: numberUnit,
-			valueState : valueState || "None",
+			valueState : vs,
 			styleClass : styleClass
-		};	
+		};
+		// APPLICATION.log(JSON.stringify(tile));
 		var matchIndex = -1;
 		for(var i=0;i<o.length;i++){
 			if(o[i].title == title) matchIndex = i;

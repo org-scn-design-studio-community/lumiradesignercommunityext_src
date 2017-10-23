@@ -21,13 +21,32 @@ define([
 		},
 		// Propagate the ComponentContainer's model down to its Component
 		propagateModel :{
-			ui5Meta : { type : "boolean",
-						defaultValue : true
-			}
+			ui5Meta : { type : "boolean", defaultValue : true }
+		},
+		// Enable Scrolling
+		enableScrolling : {
+			ui5Meta : {type : "boolean"}
+		},
+		// Show Header
+		title : {
+			ui5Meta : { type : "string"}
 		},
 		// Tiles
 		tiles : {
-			ui5Meta : {type : "object[]"}
+			ui5Meta : {type : "object[]"},
+			processing : "JSON"
+		},
+		// Show Footer
+		showFooter : {
+			ui5Meta : {type : "boolean"}
+		},
+		// Show Header
+		showHeader : {
+			ui5Meta : {type : "boolean"}
+		},
+		// Show Sub-Header
+		showSubHeader : {
+			ui5Meta : {type : "boolean"}
 		},
 		selectedTile : { 
 			opts : {
@@ -145,6 +164,7 @@ define([
 	};
 	// Set JSON Model for property storage and binding
 	extension.init = function() {
+		//this.setHeight("100%");
 		var jM = new sap.ui.model.json.JSONModel();
 		jM.setData({
 			title : "Default Title",
@@ -153,8 +173,12 @@ define([
 				
 			}]
 		});
-		this.setModel(jM, "DS");
-		this.bindProperty("tiles","DS>/tiles");
+		this.setModel(jM);
+		for(var p in dsProperties){
+			if(dsProperties[p].ui5Meta){
+				this.bindProperty(p, "/" + p);
+			}
+		}
 	};
 	sap.ui.core.ComponentContainer.extend("org.scn.community.lumiradesigner.tiles.Tiles", extension);
 });

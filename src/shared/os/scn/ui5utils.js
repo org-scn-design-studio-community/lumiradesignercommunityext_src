@@ -22,17 +22,9 @@ define(function () {
 	 */
 	return {
 		init : function (options) {
-			var dsProperties = options.dsProperties || {};
-			var properties = {};
-			// If Design Studio Metadata is intended to be a UI5 metadata property, add it now.
-			for(var p in dsProperties){
-				if(dsProperties[p].ui5Meta) properties[p] = dsProperties[p].ui5Meta;
-			}
 			var extension = {
-				renderer : {},
-				metadata : {
-					properties : properties
-				},
+				renderer : { },
+				metadata : { },
 				/**
 				 * Relays Design Studio Property Information over to Additional Properties Sheet.
 				 */
@@ -61,6 +53,19 @@ define(function () {
 					
 				}
 			};
+			var dsProperties = options.dsProperties || {};
+			var properties = {};
+			// If Design Studio Metadata is intended to be a UI5 metadata property, add it now.
+			for(var p in dsProperties){
+				var property = dsProperties[p];
+				if(property.ui5Meta) {
+					properties[p] = property.ui5Meta;
+					if(property.processing=="JSON"){
+						// TODO
+					}
+				}
+			}
+			extension.metadata.properties = properties;
 			return {
 				componentInfo : componentInfo,
 				extension : extension

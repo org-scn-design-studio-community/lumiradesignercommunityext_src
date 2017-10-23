@@ -5,5 +5,14 @@
   xmlns:l="sap.ui.layout"  
   xmlns:s="sap.suite.ui.commons"
   controllerName="org.scn.community.lumiradesigner.tiles.mvc.Tiles">
-  <Page title = "{DS>/title}" enableScrolling="false" content="{path : 'DS>/tiles', factory : '.renderFactory'}"/>
+  <App>
+	<Page 
+		height = "200px"
+		showFooter = "{/showFooter}"
+		showHeader = "{/showHeader}"
+		showSubHeader = "{/showSubHeader}"
+		title = "{/title}"
+		enableScrolling="{/enableScrolling}" 
+		content="{path : '/tiles', factory : '.renderFactory'}"/>
+	</App>
 </mvc:View>

@@ -17,7 +17,7 @@ sap.ui.define([
 		},
 		createContent : function() {
 	        var oView = sap.ui.view({
-	            id : "idApp",
+	            // id : "idApp",
 	            viewName : "org.scn.community.lumiradesigner.tiles.mvc.Tiles",
 	            type : "XML",
 	            viewData : {

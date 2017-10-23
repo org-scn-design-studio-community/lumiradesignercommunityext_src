@@ -14,7 +14,7 @@ sap.ui.define([
 			var header = oContext.getProperty("header");
 			var tile = new GenericTile({
 				// Shorthand way
-				header : "{DS>header}",
+				header : "{header}",
 				tileContent : [
 					new sap.m.TileContent({
 						content : new sap.m.NumericContent({

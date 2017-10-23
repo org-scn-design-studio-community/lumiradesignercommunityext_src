@@ -208,9 +208,18 @@
 			<option name="includeData" value="true"/>
 	</property>	
 	<property id="tiles" type="String" title="Tile Configuration"/>
-	
+	<property id="title" type="String" title="Title"/>
+	<property id="showFooter" type="boolean" title="Show Footer"/>
+	<property id="showHeader" type="boolean" title="Show Header"/>
+	<property id="enableScrolling" type="boolean" title="Enable Scrolling"/>
+	<property id="showSubHeader" type="boolean" title="Show Sub-Header"/>
 	<initialization>
 		<defaultValue property="tiles">[]</defaultValue>
+		<defaultValue property="title">Title</defaultValue>
+		<defaultValue property="enableScrolling">false</defaultValue>
+		<defaultValue property="showHeader">true</defaultValue>
+		<defaultValue property="showFooter">true</defaultValue>
+		<defaultValue property="showSubHeader">false</defaultValue>
 		<defaultValue property="TOP_MARGIN">0</defaultValue>
 		<defaultValue property="BOTTOM_MARGIN">auto</defaultValue>
 		<defaultValue property="LEFT_MARGIN">0</defaultValue>

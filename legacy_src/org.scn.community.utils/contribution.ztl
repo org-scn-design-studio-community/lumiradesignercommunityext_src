@@ -7743,7 +7743,7 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 	
 		index = index - days;
 		
-		internal_setDateByIndex(index);
+		this.internal_setDateByIndex(index);
 		this.days = "";
 	*}
 	
@@ -7757,7 +7757,7 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 	
 		index = index - (weeks * 7);
 		
-		internal_setDateByIndex(index);
+		this.internal_setDateByIndex(index);
 		this.days = "";
 	*}
 	
@@ -7770,7 +7770,7 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 			/**Months to Roll*/int months) {*
 		this.internal_setup();
 
-		internal_rollMonths(months);
+		this.internal_rollMonths(months);
 		
 		this.days = "";
 	*}
@@ -7784,7 +7784,7 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 			/**Years to Roll*/int years) {*
 		this.internal_setup();
 
-		internal_rollMonths(years * 12);
+		this.internal_rollMonths(years * 12);
 		
 		this.days = "";
 	*}
@@ -7904,7 +7904,7 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 	 * Returns currently only internal format as locale handling is not available yet
 	 */
 	String toLocaleString() {*
-		return format("YYYYMMDD");
+		return this.format("YYYYMMDD");
 	*}
 	
 	/**

@@ -29,6 +29,7 @@ define([
 		},
 		// Show Header
 		title : {
+			apsControl : "Text",
 			ui5Meta : { type : "string"}
 		},
 		// Tiles

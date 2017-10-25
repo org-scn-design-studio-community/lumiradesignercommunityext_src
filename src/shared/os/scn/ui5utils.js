@@ -47,6 +47,12 @@ define(function () {
 					return JSON.stringify(componentInfo);
 				},
 				/**
+				 * Relays Design Studio Properties to APS
+				 */
+				getDSProperties : function(){
+					return JSON.stringify(dsProperties);
+				},
+				/**
 				 * initDesignStudio
 				 */
 				initDesignStudio : function(){
@@ -68,6 +74,7 @@ define(function () {
 			extension.metadata.properties = properties;
 			return {
 				componentInfo : componentInfo,
+				dsProperties : dsProperties,
 				extension : extension
 			};
 		}

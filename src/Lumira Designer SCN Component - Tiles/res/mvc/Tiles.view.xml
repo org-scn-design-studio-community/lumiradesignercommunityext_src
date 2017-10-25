@@ -7,7 +7,6 @@
   controllerName="org.scn.community.lumiradesigner.tiles.mvc.Tiles">
   <App>
 	<Page 
-		height = "200px"
 		showFooter = "{/showFooter}"
 		showHeader = "{/showHeader}"
 		showSubHeader = "{/showSubHeader}"

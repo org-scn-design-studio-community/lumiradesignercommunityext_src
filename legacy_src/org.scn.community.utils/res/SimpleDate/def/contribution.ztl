@@ -5778,9 +5778,9 @@ class org.scn.community.utils.SimpleDate extends org.scn.community.shared.Compon
 		
 		var arrayIndex = index - daysJson[0].i;
 	
-		var beforeYear = getYear();
-		var beforeMonth = getMonth();
-		var beforeDay = getDay();
+		var beforeYear = this.getYear();
+		var beforeMonth = this.getMonth();
+		var beforeDay = this.getDay();
 	
 		var monthBeforeEnteringLoop = beforeMonth;
 			

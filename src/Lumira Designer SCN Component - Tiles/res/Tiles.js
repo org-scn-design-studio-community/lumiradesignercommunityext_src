@@ -29,6 +29,7 @@ define([
 		},
 		// Show Header
 		title : {
+			text : "Header Title",
 			apsControl : "Text",
 			ui5Meta : { type : "string"}
 		},
@@ -43,6 +44,8 @@ define([
 		},
 		// Show Header
 		showHeader : {
+			text : "Show Header",
+			apsControl : "Switch",
 			ui5Meta : {type : "boolean"}
 		},
 		// Show Sub-Header

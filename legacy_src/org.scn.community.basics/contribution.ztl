@@ -6434,7 +6434,20 @@ class org.scn.community.basics.FioriAppHeader extends org.scn.community.shared.C
 	<code>
 	FIORIBAR_1.addItem("MENU", "help", "Help", "sap-icon://sys-help-2");<br>
 	</code>
-	</example>
+	</example>Additional Modelling Restrictions
+The primary additional modelling restrictions when connecting to SAP BW using DirectQuery in Power BI are the following:
+
+No support for calculated columns: The ability to create calculated columns is disabled. This also means that Grouping and Clustering, which create calculated columns, are not available.
+
+Additional limitations for measures: There are additional limitations imposed on the DAX expressions that can be used in measures, to reflect the level of support offered by SAP BW.
+
+No support for defining relationships: The relationships are inherent in the external SAP source, and additional relationships cannot be defined in the model.
+
+No Data View: The Data View normally displays the detail level data in the tables. Given the nature of OLAP sources like SAP BW, this view is not available over SAP BW.
+
+Column and measure details are fixed: The list of columns and measures seen in the field list are fixed by the underlying source, and cannot be modified. For example, it is not possible to delete a column, nor change its datatype (it can, however, be renamed).
+
+Additional limitations in DAX: There are additional limitations on the DAX that can be used in measure definitions, to reflect limitations in the source. For example, it is not possible to use an aggregate function over a table.
 	 */
 	void addItem (/*Button Key*/String buttonKey, /*Item Key*/String itemKey, /*Item Text*/String itemText, /*Item Icon*/optional String itemIcon) {*		
 		var o = eval(this.itemConfig);

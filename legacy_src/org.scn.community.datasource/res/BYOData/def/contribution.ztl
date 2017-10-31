@@ -135,7 +135,7 @@ class org.scn.community.datasource.BYOData extends SdkDataSource {
 	 * </example> 
 	 */
 	void addRow(/*Dimensions*/ String dimensions, /*Measures*/ String measures, /*Overwrite*/ optional boolean overwrite){*
-		if(overwrite) deleteRow(dimensions);
+		if(overwrite) this.deleteRow(dimensions);
 		var dims = this.balanceDimension(dimensions).split(",");
 		var kfs = measures.split(",");
 		var rows = this.data.split("\n");
@@ -181,7 +181,7 @@ class org.scn.community.datasource.BYOData extends SdkDataSource {
 	 * </code>
 	 * </example> 
 	 * <example>
-	 * Remove a row with given 1st and and dimensions
+	 * Remove a row with given 1st and and 2nd dimensions
 	 * <code>
 	 * DS_1.removeRow("Grocery,Big");<br>
 	 * </code>

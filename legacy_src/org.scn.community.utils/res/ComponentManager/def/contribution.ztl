@@ -3,7 +3,24 @@
  * Class for ComponentManager
  */
 class org.scn.community.utils.ComponentManager extends org.scn.community.shared.Component {
-
+	/**
+	 * Cast Component as Panel (backward compatibility function)
+	 * <code>
+	 * var component = COMPONENTMANAGER_1.castComponentAsPanel(COMPONENT_1);
+	 * </code>
+	 */
+	 Panel castComponentAsPanel(Component component) {*
+	    return component;
+	 *}
+	/**
+	 * Cast Panel as Component (backward compatibility function)
+	 * <code>
+	 * var panel = COMPONENTMANAGER_1.castPanelAsComponent(PANEL_1);
+	 * </code>
+	 */
+	 Component castPanelAsComponent(Panel panel) {*
+	    return panel;
+	 *}
 	/**
 	 * Adds a data source to group by name
 	 * Allows grouping of data sources
@@ -174,7 +191,7 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 	 * Now, you have replicated the filters in dynamic way
 	 */
 	org.scn.community.shared.DataSourceArray getDataSourcesFromGroup (String group) {*
-		return getComponentsFromGroup(group);
+		return this.getComponentsFromGroup(group);
 	*}
 	
 	/**

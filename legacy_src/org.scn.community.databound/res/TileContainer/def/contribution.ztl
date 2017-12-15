@@ -70,6 +70,126 @@ class org.scn.community.databound.TileContainer extends org.scn.community.shared
 	String getCurrentIconString(){*
 		return this.DCurrentIconString;
 	*}
+		
+	/**
+	 * Set NewActualValue
+	 */
+	void setNewActualValue(int value){*
+		this.NewActualValue = value;
+	*}
+	
+	/**
+	 * Get NewActualValue
+	 */
+	int getNewActualValue(){*
+		return this.NewActualValue;
+	*}
+	
+	String setMicroChart(/* TileID */ String tileID,
+						 /* MicroChart JSON specification */ String microChartJSONspec){*
+		this.TileID = tileID;
+		this.MicroChartJSONspec = JSON.stringify(microChartJSONspec);
+		this.TriggerMicroChartUpdate = Date().valueOf();
+	*}
+	
+	/* push. */
+	void setMicroChartActualValue(/* int to be pushed to end of array */ int actualValue) {*
+	  this.NewActualValue = actualValue;
+	  this.TriggerMicroChartUpdate = Date().valueOf();
+	*}
+	
+	/* Get ComponentsSpec */
+	String getComponentsSpec() {*
+	  return this.ComponentsSpec;
+	*}
+	
+	/* Get LayoutSpec */
+	String getLayoutSpec() {*
+	  return this.LayoutSpec;
+	*}
+	
+	/* Get ChartSpecification */
+	String getChartSpecification() {*
+	  return this.ChartSpecification;
+	*}
+	
+	void addMicroChart(/* String MicroChart key */ 				String key,
+						/* String MicroChart component type */		String componentType,
+						/* String MicroChart XML Specification */ 	String specification
+		) {*
+		
+		var itemDef = {
+			leaf:false,
+			parentKey:"ROOT",
+			key:key, 
+			componentType:componentType, 
+			top:0, 
+			bottom:0, 
+			left:0, 
+			right:0, 
+			width:"8", 
+			height:"3.5", 
+			specification:specification 
+			};
+		
+		if (this.MicroCharts === undefined || this.MicroCharts === "" || this.MicroCharts === "<delete>"){
+			this.MicroCharts = "[]";
+		}
+		
+		var elementsJson = JSON.parse(this.MicroCharts);
+		
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				alreadyFound = true;
+				break;
+			}
+		}
+		
+		if(!alreadyFound) {
+			elementsJson.push(itemDef);
+		}
+		
+		//this._m = JSON.stringify(elementsJson);
+	
+		this.MicroCharts = JSON.stringify(elementsJson);
+	*}
+	
+	
+	/**
+	 * Returns MicroChart component by the key<br/>
+	 */
+	String getMicroChartByKey(
+			/**/ String key
+			) 
+	{*
+		if (this.MicroCharts === undefined || this.MicroCharts === "" || this.MicroCharts === "<delete>"){
+			return "[]";
+		}
+
+		var elementsJson = JSON.parse(this.MicroCharts);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = JSON.stringify(elementsJson[i]);
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	
+	
+	/**
+	 * Get TriggerMicroChartUpdate
+	 */
+	String getTriggerMicroChartUpdate(){*
+		return this.TriggerMicroChartUpdate;
+	*}
+	
+
 	
 	@Visibility(private)
 	/**
@@ -78,4 +198,6 @@ class org.scn.community.databound.TileContainer extends org.scn.community.shared
 	String calcTimestamp() {*
 		return new Date().valueOf();
 	*}
+	
+	
 }

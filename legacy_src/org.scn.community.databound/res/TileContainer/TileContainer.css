@@ -1,5 +1,83 @@
+.ccMicroChartHeaderText{
+    font-size: 0.875rem!important;
+    font-weight: 500;
+    color: black!important;
+    line-height: 1.2rem!important;
+    vertical-align: top!important;
+    text-align: left!important;
+    width: 100%!important;
+    overflow: hidden;
+    max-height: 3rem!important;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.ccMicroChartSubHeaderText{
+	font-size: 0.7rem!important;
+	color: rgba(102, 102, 102, 0.6)!important;
+	vertical-align: top!important;
+    text-align: left!important;
+    width: 100%!important;
+    overflow: hidden!important;
+    word-break: break-all!important;
+   	max-height:16px!important;
+   	margin-top:2px;
+  	padding-left: 0.5rem;
+}
+
+.ccMicroChartValueText{
+    font-stretch: condensed;
+    color: #666666;
+    font-size: 2.2rem!important;
+    /*position: absolute!important;*/
+    right: 45px!important;*
+    bottom: 31px
+}
+
+.ccMicroChartUnitText{
+	font-size: 0.9rem!important;
+	font-family: 'Arial Narrow',HelveticaNeue-CondensedBold,Arial,sans-serif;
+    font-stretch: condensed;
+    color: #666666;
+}
+
+.ccMicroChartUnitLayout {
+	padding-right: 0.5rem;
+}
+
+.ccMicroChartFooterText {
+	font-size: 0.7rem!important;
+	color: rgba(102, 102, 102, 0.6)!important;
+	vertical-align: top!important;
+    text-align: left!important;
+    width: 85%!important;
+    overflow: hidden!important;
+    word-break: break-word!important;
+    max-height: 16px!important;
+    white-space: nowrap!important;
+    position: absolute!important;
+    bottom: 0.4rem!important;
+}
+
+.ccMicroChartValueAndUnitLayout {
+    text-align: right;
+}
+
+.sapMTileCntContent{
+    height: 3.5rem !important;
+}
+
+
+
+.ccValueVerticalContainer {
+	text-align: right;
+	width: 100%;
+}
+
+/**********************************************************************************/
+
 .ccHeaderText{
-    font-size: 1rem!important;
+    font-size: 0.875rem!important;
     font-weight: 500;
     color: black!important;
     line-height: 1.2rem!important;
@@ -11,7 +89,7 @@
 }
 
 .ccSubHeaderText{
-	font-size: 0.8rem!important;
+	font-size: 0.7rem!important;
 	color: rgba(102, 102, 102, 0.6)!important;
 	vertical-align: top!important;
     text-align: left!important;
@@ -39,7 +117,7 @@
 }
 
 .ccFooterText {
-	font-size: 0.8rem!important;
+	font-size: 0.7rem!important;
 	color: rgba(102, 102, 102, 0.6)!important;
 	vertical-align: top!important;
     text-align: left!important;
@@ -99,16 +177,16 @@
 	cursor: pointer;
     cursor: hand;
     box-shadow: 0rem 0rem 0rem 0.125rem #ffffff!important;
-    border: 1px solid #1084C4!important;
+    border: 1px solid #bb0000!important;
 }
 
 .cc-Tile-clicked{
-	border: 2px solid #1084C4!important;
+	border: 2px solid #bb0000!important;
 }
 
 .cc-Tile-clicked:hover{
-	border: 2px solid #1084C4!important;
-	border-color: #1084C4!important;
+	border: 2px solid #bb0000!important;
+	border-color: #bb0000!important;
 }
 
 .cc-arrow-down {
@@ -148,7 +226,7 @@
 }
 
 .cc-bad {
-	color:#D02E19;
+	color:#bb0000;
 }
 
 .cc-warning {

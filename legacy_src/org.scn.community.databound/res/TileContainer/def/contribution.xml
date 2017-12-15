@@ -7,6 +7,7 @@
 	group="ScnCommunityBasics"
 	databound="true"
 	modes="commons m">
+	
 	<requireJs modes="m">res/TileContainer/TileContainer</requireJs>
 	<requireJs modes="commons">res/TileContainer/TileContainer_commons</requireJs>
 	<cssInclude>res/TileContainer/TileContainer.css</cssInclude>
@@ -22,6 +23,8 @@
 		<possibleValue>Standard</possibleValue>
 		<possibleValue>Custom</possibleValue>
 		<possibleValue>Picture</possibleValue>
+		<possibleValue>MicroChart</possibleValue>		
+		<possibleValue>MultiType</possibleValue>
 	</property>
 	<property id="DHeaderDim" type="String" title="Header Dimensions" visible="true"/>
 	<property id="DSubHeaderDim" type="String" title="Sub Header Dimensions" visible="true"/>
@@ -36,8 +39,7 @@
 			<property id="DDimValue" type="String" title="Value"></property>
 			<property id="DIconString" type="String" title="SAP Icon String"></property>
 		</property>
-	</property>
-	
+	</property>	
 	<property id="DCurrentHeader" type="String" title="Current Header Text" visible="false"/>
 	<property id="DCurrentSubHeader" type="String" title="Current SubHeader Text" visible="false"/>
 	<property id="DCurrentFooter" type="String" title="Current Footer Text" visible="false"/>
@@ -47,13 +49,20 @@
 	<property id="DCurrentURL" type="String" title="Current URL" visible="false"/>
 	<property id="DCurrentUnitOverwrite" type="String" title="Current Unit Overwrite" visible="false"/>
 	<property id="DCurrentBackgroundImage" type="String" title="Current Background Image" visible="false"/>
-	
+	<property id="NewActualValue" type="int" title="MicroChart new actual value" visible="false"/>
+	<property id="ComponentsSpec" type="String" title="" bindable="true" visible="false"/>
+	<property id="TriggerMicroChartUpdate" type="String" title="Trigger helper" visible="false"/>
+	<property id="MicroCharts" type="String" title="MicroCharts JSON container" visible="false"/>
 	<property id="DCurrentIconString" type="String" title="Current Icon String" visible="false"/>
-	
 	<property id="onTilePress" type="ScriptText" title="Tile Press Event" visible="true" group="Events"/>
 	<property id="onTileMove" type="ScriptText" title="Tile Move Event" visible="true" group="Events"/>
 	<property id="onTileAdd" type="ScriptText" title="Tile Add Event" visible="true" group="Events"/>
 	<property id="onTileDelete" type="ScriptText" title="Tile Delete Event" visible="true" group="Events"/>
+	<property id="LayoutSpec" type="String" title="Layout Properties" group="Display" bindable="true" visible="false"></property>
+	<property id="ContentResponsive" type="boolean" title="Respopnsive Content"	group="Display"	bindable="true"	visible="false"></property>
+	<property id="OnClick"	type="ScriptText"	title="On Click" group="Events" 	visible="false"></property>	
+	<property id="OnSelect" type="ScriptText"	title="On Select" 	group="Events"	visible="false"></property>
+	
 	<initialization>
 		<defaultValue property="TOP_MARGIN">0</defaultValue>
 		<defaultValue property="LEFT_MARGIN">0</defaultValue>
@@ -64,5 +73,17 @@
      	<defaultValue property="DTileType">Standard</defaultValue>
      	<defaultValue property="DNumeralString">0a</defaultValue>
      	<defaultValue property="DComparisonTolerance">5</defaultValue>
+     	<defaultValue property="NewActualValue">10</defaultValue>
+     	<defaultValue property="TriggerMicroChartUpdate"></defaultValue>
+     	<defaultValue property="MicroCharts"><![CDATA[[{"parentKey":"ROOT","key":"CHART0","leaf":false,"specification":"<LineMicroChart size='sap.m.Size.Responsive' leftTopLabel='120 Mio' leftBottomLabel='Sept 2016' rightTopLabel='140 Mio' rightBottomLabel='Oct 2016' threshold='' class='sapUiSmallMargin'><points><LineMicroChartEmphasizedPoint x='0' y='80' show='true' color='Error' /><LineMicroChartEmphasizedPoint x='8' y='70' /><LineMicroChartEmphasizedPoint x='20' y='10'/><LineMicroChartEmphasizedPoint x='30' y='30' /><LineMicroChartEmphasizedPoint x='40' y='52' /><LineMicroChartEmphasizedPoint x='100' y='73' show='true' color='Good' /></points></LineMicroChart>",
+     	"componentType":"LineMicroChart","top":0,"left":0,"right":0,"width":"8","height":"3.5","cast":"integer"}]]]>
+     	</defaultValue>
+     	<defaultValue property="LayoutSpec"><![CDATA[[]]]></defaultValue>
+     	<defaultValue property="componentsSpec"><![CDATA[[{"parentKey":"ROOT","key":"CHART0","leaf":false,"specification":"<LineMicroChart size='sap.m.Size.Responsive' leftTopLabel='120 Mio' leftBottomLabel='Sept 2016' rightTopLabel='140 Mio' rightBottomLabel='Oct 2016' class='sapUiSmallMargin'><points><LineMicroChartPoint x='0' y='80' /><LineMicroChartPoint x='8' y='70' /><LineMicroChartPoint x='20' y='10'/><LineMicroChartPoint x='30' y='30' /><LineMicroChartPoint x='40' y='52' /><LineMicroChartPoint x='100' y='73' /></points></LineMicroChart>",
+     	"componentType":"LineMicroChart","top":0,"left":0,"right":0,"width":"8","height":"3.5","cast":"integer"}]]]>
+     	</defaultValue>
+		<defaultValue property="ContentResponsive"><![CDATA[false]]></defaultValue>
+		<defaultValue property="OnClick"><![CDATA[]]></defaultValue>
+		<defaultValue property="OnSelect"><![CDATA[]]></defaultValue>
 	</initialization>
 </component>

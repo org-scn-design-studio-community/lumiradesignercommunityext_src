@@ -1,13 +1,13 @@
 	void startTimer(){*
-		this.start = calcTimestamp();
+		this.start = this.calcTimestamp();
 	*}
 	
 	void stopTimer(){*
-		this.stop = calcTimestamp();
+		this.stop = this.calcTimestamp();
 	*}
 	
 	void logoff(){*
-		this.logoff = calcTimestamp();
+		this.logoff = this.calcTimestamp();
 	*}
 	
 	@Visibility(private)

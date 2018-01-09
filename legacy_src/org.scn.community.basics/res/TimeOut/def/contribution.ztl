@@ -73,15 +73,15 @@ class org.scn.community.basics.TimeOut extends org.scn.community.shared.Componen
 
 	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
 	void startTimer(){*
-		this.start = calcTimestamp();
+		this.start = this.calcTimestamp();
 	*}
 	
 	void stopTimer(){*
-		this.stop = calcTimestamp();
+		this.stop = this.calcTimestamp();
 	*}
 	
 	void logoff(){*
-		this.logoff = calcTimestamp();
+		this.logoff = this.calcTimestamp();
 	*}
 	
 	@Visibility(private)

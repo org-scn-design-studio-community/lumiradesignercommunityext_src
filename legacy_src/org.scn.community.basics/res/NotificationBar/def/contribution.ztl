@@ -198,7 +198,7 @@ class org.scn.community.basics.NotificationBar extends org.scn.community.shared.
 	 * Minimize notification bar (for example on timeout event of TIMEOUT component)
 	 */
 	void minimizeBar(){*
-		this.minimize = calcTimestamp();
+		this.minimize = this.calcTimestamp();
 	*}
 	
 	@Visibility(private)

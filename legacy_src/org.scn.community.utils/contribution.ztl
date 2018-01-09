@@ -396,13 +396,13 @@ class org.scn.community.utils.Audio extends org.scn.community.shared.Component {
 	 * Play the sound
 	 */
 	void play(){*
-		this.play = calcTimestamp();
+		this.play = this.calcTimestamp();
 	*}
 	/**
 	 * Stop the sound
 	 */
 	void stop(){*
-		this.stop = calcTimestamp();
+		this.stop = this.calcTimestamp();
 	*}
 	
 	@Visibility(private)
@@ -7681,7 +7681,7 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 	 * The component will make sure to wait for the data to arrive though.
 	 */
 	void replaceAccordingToMapping(){*
-		this.replace = calcTimestamp();
+		this.replace = this.calcTimestamp();
 	*}
 	
 	void setMappingTable(String obj){*
@@ -13652,21 +13652,21 @@ class org.scn.community.utils.WSPusher extends org.scn.community.shared.Componen
 	void send(optional array pcpField){*
 		var current = pcpField || [];
 		this.sendPcpFields = current;
-		this.send = calcTimestamp();
+		this.send = this.calcTimestamp();
 	*}
 	
 	/**
 	 * Open WebSocket
 	 */
 	void open(){*
-		this.open= calcTimestamp();
+		this.open= this.calcTimestamp();
 	*}
 	
 	/**
 	 * Close WebSocket
 	 */
 	void close(){*
-		this.close = calcTimestamp();
+		this.close = this.calcTimestamp();
 	*}
 	
 	@Visibility(private)

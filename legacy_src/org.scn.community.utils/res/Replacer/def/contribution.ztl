@@ -8,7 +8,7 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 	 * The component will make sure to wait for the data to arrive though.
 	 */
 	void replaceAccordingToMapping(){*
-		this.replace = calcTimestamp();
+		this.replace = this.calcTimestamp();
 	*}
 	
 	void setMappingTable(String obj){*

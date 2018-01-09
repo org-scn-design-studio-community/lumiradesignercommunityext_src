@@ -6,7 +6,7 @@
 	 */	
 	void setDomainrelaxlevel( /**Domain Relax Level*/ int domainrelaxlevel){*
 		this.domainrelaxlevel = domainrelaxlevel;
-		this.reload = calcTimestamp();
+		this.reload = this.calcTimestamp();
 	*}
 
 	/**
@@ -14,7 +14,7 @@
 	 */	
 	void setExplicitlySetDomain( /**Explicitly set document domain*/ boolean explicitlySetDomain){*
 		this.explicitlySetDomain = explicitlySetDomain;
-		this.reload = calcTimestamp();
+		this.reload = this.calcTimestamp();
 	*}
 
 	/**
@@ -22,7 +22,7 @@
 	 */	
 	void setSandbox( /**Sandbox Attribute Values*/ String sandbox){*
 		this.sandbox = sandbox;
-		this.reload = calcTimestamp();
+		this.reload = this.calcTimestamp();
 	*}
 
 	/**
@@ -30,7 +30,7 @@
 	 */	
 	void setSkipport( /**Skip port in domain*/ boolean skipport){*
 		this.skipport = skipport;
-		this.reload = calcTimestamp();	
+		this.reload = this.calcTimestamp();	
 	*}
 
 	/**
@@ -38,7 +38,7 @@
 	 */	
 	void setUrl( /**Url*/ String url){*
 		this.url = url;
-		this.reload = calcTimestamp();
+		this.reload = this.calcTimestamp();
 	*}
 
 	/**
@@ -46,7 +46,7 @@
 	 */	
 	void setUsesandbox( /**Use Sandbox Attribute*/ boolean usesandbox){*
 		this.usesandbox = usesandbox;
-		this.reload = calcTimestamp();
+		this.reload = this.calcTimestamp();
 	*}
 
 	// Special get for BOOLEAN (copy of isSkipPort())
@@ -61,7 +61,7 @@
 	 * Trigger reload of IFrame
 	 */
 	void triggerReload(){*
-		this.reload = calcTimestamp();
+		this.reload = this.calcTimestamp();
 	*}	
 	
 	@Visibility(private)

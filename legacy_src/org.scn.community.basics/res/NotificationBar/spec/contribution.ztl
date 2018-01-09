@@ -98,7 +98,7 @@
 	 * Minimize notification bar (for example on timeout event of TIMEOUT component)
 	 */
 	void minimizeBar(){*
-		this.minimize = calcTimestamp();
+		this.minimize = this.calcTimestamp();
 	*}
 	
 	@Visibility(private)

@@ -146,7 +146,7 @@ Replacer = function () {
 //									 }
 									while (match = pattern.exec(text)) {
 										//console.log(match.index + ' ' + pattern.lastIndex);
-										var remaining = text.substring(pattern.lastIndex);
+										var remaining = text.substring(0, match.index) + item2 + text.substring(pattern.lastIndex);
 										$(this).text(item2 + remaining);
 										$(this).prop("title",item2 + remaining);
 									}
@@ -170,9 +170,9 @@ Replacer = function () {
 //								 }
 								while (match = pattern.exec(text)) {
 									//console.log(match.index + ' ' + pattern.lastIndex);
-									var remaining = text.substring(pattern.lastIndex);
-									$(this).text(item2 + remaining);
-									$(this).prop("title",item2 + remaining);
+									var remaining = text.substring(0, match.index) + item2 + text.substring(pattern.lastIndex);
+									$(this).text(remaining);
+									$(this).prop("title",remaining);
 								}
 							}
 					);	

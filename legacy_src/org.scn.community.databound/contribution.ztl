@@ -5944,7 +5944,7 @@ class org.scn.community.databound.TileContainer extends org.scn.community.shared
 	 * 		TC.setTileType("Standard");
 	 * 	</code><br>
 	 * </example>
-	 * Possible values are "Standard" and "Custom"
+	 * Possible values are "Standard", "Custom", "Picture" and "MicroChart"
 	 */
 	void setTileType(String type){*
 		this.DTileType = type;
@@ -5956,10 +5956,22 @@ class org.scn.community.databound.TileContainer extends org.scn.community.shared
 		return this.DTileType;
 	*}
 	/**
+	 * Get current ID
+	 */
+	String getCurrentID(){*
+		return this.DCurrentID;
+	*}
+	/**
 	 * Get current tile header
 	 */
 	String getCurrentHeader(){*
 		return this.DCurrentHeader;
+	*}
+	/**
+	 * Get current sub-header
+	 */
+	String getCurrentSubHeader(){*
+		return this.DCurrentSubHeader;
 	*}
 	/**
 	 * Get current tile footer
@@ -5986,11 +5998,116 @@ class org.scn.community.databound.TileContainer extends org.scn.community.shared
 		return this.DCurrentUnit;
 	*}
 	/**
+	 * Get current URL
+	 */
+	String getCurrentURL(){*
+		return this.DCurrentURL;
+	*}
+	String getCurrentUnitOverwrite(){*
+		return this.DCurrentUnitOverwrite;
+	*}
+	String getCurrentBackgroundImage(){*
+		return this.DCurrentBackgroundImage;
+	*}
+	/**
 	 * Get current tile icon string
 	 */
 	String getCurrentIconString(){*
 		return this.DCurrentIconString;
 	*}
+	
+	/* Get ComponentsSpec */
+	String getComponentsSpec() {*
+	  return this.ComponentsSpec;
+	*}
+	
+	/* Get LayoutSpec */
+	String getLayoutSpec() {*
+	  return this.LayoutSpec;
+	*}
+	
+	/* Get ChartSpecification */
+	String getChartSpecification() {*
+	  return this.ChartSpecification;
+	*}
+	
+	void addMicroChart(/* String MicroChart key */ 				String key,
+						/* String MicroChart component type */		String componentType,
+						/* String MicroChart XML Specification */ 	String specification
+		) {*
+		
+		var itemDef = {
+			leaf:false,
+			parentKey:"ROOT",
+			key:key, 
+			componentType:componentType, 
+			top:0, 
+			bottom:0, 
+			left:0, 
+			right:0, 
+			width:"8", 
+			height:"3.5", 
+			specification:specification 
+			};
+		
+		if (this.MicroCharts === undefined || this.MicroCharts === "" || this.MicroCharts === "<delete>"){
+			this.MicroCharts = "[]";
+		}
+		
+		var elementsJson = JSON.parse(this.MicroCharts);
+		
+		var alreadyFound = false;
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				alreadyFound = true;
+				break;
+			}
+		}
+		
+		if(!alreadyFound) {
+			elementsJson.push(itemDef);
+		}
+		
+		//this._m = JSON.stringify(elementsJson);
+	
+		this.MicroCharts = JSON.stringify(elementsJson);
+	*}
+	
+	
+	/**
+	 * Returns MicroChart component by the key<br/>
+	 */
+	String getMicroChartByKey(
+			/**/ String key
+			) 
+	{*
+		if (this.MicroCharts === undefined || this.MicroCharts === "" || this.MicroCharts === "<delete>"){
+			return "[]";
+		}
+
+		var elementsJson = JSON.parse(this.MicroCharts);
+
+		var value = "";
+		// loop and find and update
+		for (var i = 0; i < elementsJson.length ; i++){
+			if (elementsJson[i].key == key) {
+				value = JSON.stringify(elementsJson[i]);
+				break;
+			}
+		}
+		
+		return value;
+	*}
+	
+	
+	/**
+	 * Get TriggerMicroChartUpdate
+	 */
+	String getTriggerMicroChartUpdate(){*
+		return this.TriggerMicroChartUpdate;
+	*}
+	
+
 	
 	@Visibility(private)
 	/**
@@ -5999,6 +6116,8 @@ class org.scn.community.databound.TileContainer extends org.scn.community.shared
 	String calcTimestamp() {*
 		return new Date().valueOf();
 	*}
+	
+	
 }
 
 /**

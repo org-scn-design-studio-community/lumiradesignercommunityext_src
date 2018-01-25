@@ -23,14 +23,12 @@
  * This implementation uses numeral.js by Adam Draper
  * 
  * Update by: Marton Horvath
- * Added new features: PictureTile, URL, UnitOverwrite property
+ * Added new features: PictureTile, URL, UnitOverwrite property, MicroChart
  * 
  */
 
 define(["../../../org.scn.community.shared/os/numberformat/languages",
 		"../../../org.scn.community.shared/os/numberformat/numeral.min",
-		//"../../../org.scn.community.basics/os/sapui5/suite/ui/microchart/InteractiveBarChart",
-		//"../../../org.scn.community.basics/os/sapui5/suite/ui/microchart/InteractiveBarChartBar",
 		"../../../org.scn.community.basics/os/sapui5/sap_suite_loader",
 		"../../../org.scn.community.basics/os/x2js/xml2json",
 		"../../../org.scn.community.databound/res/KpiTile/KpiTileSpec"	
@@ -38,68 +36,24 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 	
 	sap.m.TileContainer.extend("org.scn.community.databound.TileContainer", {
 		
-		setData : function(value) {
+	setData : function(value) {
 			this._data = value;
 			return this;
 		},
 		
-		getData : function(value) {
+	getData : function(value) {
 			return this._data;
 		},
-		
-		setTest : function(value) {
-		},
-		
-		getTCTiles : function()	{
-			var that = this;
-			var TCTiles = that.getTiles();
-			return TCTiles;
-		},
-		
-		addMicroCharts: function(key, componentType, specification) {
-			var itemDef = {
-				leaf:false,
-				parentKey:"ROOT",
-				key:key, 
-				componentType:componentType, 
-				top:0, 
-				bottom:0, 
-				left:0, 
-				right:0, 
-				width:"8", 
-				height:"3.5", 
-				specification:specification 
-				};
-			
-			var elementsJson = JSON.parse(this.getMicroCharts());
-			
-			var alreadyFound = false;
-			for (var i = 0; i < elementsJson.length ; i++){
-				if (elementsJson[i].key == key) {
-					alreadyFound = true;
-					break;
-				}
-			}
-			
-			if(!alreadyFound) {
-				elementsJson.push(itemDef);
-			}
-			
-			//this.microCharts = JSON.stringify(elementsJson);
-			this.MicroCharts = JSON.stringify(elementsJson);
-		},
-		
-		getMicroChartByKeyInternal: function(key) 
+
+	getMicroChartByKeyInternal: function(key) 
 		{
 			if (this.getMicroCharts().length == 0){
 				return "[]";
 			}
 
-			var elementsJson = JSON.parse(this.getMicroCharts());
-
+			var elementsJson = JSON.parse(this.getMicroCharts());  // Note: here's the connection between the outer and inner layer (through MicroCharts property)
 			var value = "";
-			// loop and find and update
-			for (var i = 0; i < elementsJson.length ; i++){
+			for (var i = 0; i < elementsJson.length ; i++){ 	   // Loop and find the tile
 				if (elementsJson[i].key == key) {
 					value = JSON.stringify(elementsJson[i]);
 					break;
@@ -111,19 +65,23 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 
 		metadata: {
 	        properties: {
-	        	"DTargetDim": {type: "string"},
+	        	"DTargetDim": {type: "string"},     // It automatically creates get/set
 	        	"DMeasureDim": {type: "string"},
 	        	"DComparisonDim":{type: "string"},
 	        	"DTileType":{type: "string"},
 	        	"DHeaderDim":{type: "string"},
+	        	"RemoveSortHelperPrefix":{type: "boolean"},
 	        	"DSubHeaderDim":{type: "string"},
 	        	"DFooterDim":{type: "string"},
 	        	"DURLDim":{type: "string"},
 	        	"DUnitOverwriteDim":{type: "string"},
 	        	"DBackgroundImageDim":{type: "string"},
+	        	"ExtractPictureURL":{type: "boolean"},
 	        	"DNumeralString":{type: "string"},
 	        	"DIconMapping":{type: "object"},
+	        	"RWModeEnabled":{type: "boolean"},
 	        	"DComparisonTolerance":{type: "int"},
+	        	"DCurrentID": {type: "string"},
 	        	"DCurrentHeader": {type: "string"},
 	        	"DCurrentSubHeader": {type: "string"},
 	        	"DCurrentFooter": {type: "string"},
@@ -153,24 +111,16 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 			// this.sCurrentLocale
 			numeral.language("en"); 
 			
-			//jQuery.sap.require('sap.suite.ui.microchart.InteractiveBarChart');
-			//jQuery.sap.require('sap.suite.ui.microchart.InteractiveBarChartBar');
-			
-
 			this.setWidth("100%");
 			this.setHeight("100%");
-//			this.setEditable(true);
-//			this.setAllowAdd(true);
+			//this.setEditable(true);		// TODO: enhancement opportunity to make the tiles editable: remove, or re-order like in the SAPUI5 example
+			//this.setAllowAdd(true);
 			
 			this.currentData 		= "";
-			this.currentFlatData 	= "";  // TODO: add demo/init flat data
+			this.currentFlatData 	= "";  	// TODO: add demo/init flat data
 			this.dataRefreshed = false;
-			
 			this.chartID = "";
 			this.chartSpecification = "";
-				
-			//this.microCharts = this.getMicroCharts();
-			
 			this.tileType = "Custom";
 			this.triggerMicroChartUpdate = "";
 			this.newActualValue = 10;
@@ -198,14 +148,8 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 		afterDesignStudioUpdate: function() {
 			
 			var that = this;
-			
-			//_microCharts //var microCharts = this._microCharts;
-			
-			var tileCreationDim = this.getDTargetDim();
-			
-			//var tempMicroCharts = [];
-			//tempMicroCharts = this._microCharts;
-					
+						
+			var tileCreationDim = this.getDTargetDim();			
 			this._microCharts = [];
 			
 			if(this.currentData !== this.getData()){
@@ -217,10 +161,8 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 			if(this.tileType !== this.getDTileType()){
 				this.tileType = this.getDTileType();
 				
-				
 				this.dataRefreshed = true;
 				this.destroyTiles();
-				
 			}
 			
 			if(this.triggerMicroChartUpdate !== this.getTriggerMicroChartUpdate()){
@@ -231,10 +173,7 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 				this.triggerMicroChartUpdate = this.getTriggerMicroChartUpdate();
 				this.newActualValue = this.getNewActualValue();
 				
-				//this._microCharts = tempMicroCharts;					
-				//this.microChartSwap();
-				
-				var spec = that.getComponentsSpec(); //getChartSpecification();
+				var spec = that.getComponentsSpec();
 				spec = JSON.parse(spec);
 				spec = that.buildTree(spec);
 				
@@ -247,9 +186,6 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 				
 				var objectContainer = [];
 				objectContainer = that.calculateContent(that, newSpec, layout, "_", "1");
-				
-				//this._microCharts.pop();
-				//this._microCharts.push(objectContainer[4]);
 			}
 			
 			
@@ -257,23 +193,18 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 				this.currentFlatData = this.flattenData();
 				
 				for(var i=0;i<this.currentFlatData.length;i++){
-					var items = this.currentFlatData[i];		// ALL ITEMS
+					var items = this.currentFlatData[i];
 					if(this.getDTileType() === "Standard"){
 						this.createStandardTile(items);	
 					}
 					else if(this.getDTileType() === "Custom"){
-						this.testCreateTile(items, i);
-						//this.createCustomTile(items);
+						this.createCustomTile(items);
 					}
 					else if(this.getDTileType() === "Picture"){
 						this.createPictureTile(items);
 					}
-					else if(this.getDTileType() === "MicroChart"){
-												
-						this.testCreateTile(items, i);
-					}
-					else if(this.getDTileType() === "MultiType"){
-						this.createMultiType(items);							
+					else if(this.getDTileType() === "MicroChart"){			
+						this.createMicroChartTile(items, i);
 					}
 					else{
 						if(window.console)console.log("unkown tile type");
@@ -286,7 +217,7 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 					this.addTile( new sap.m.StandardTile({
 			            title : "Dummy Tile",
 						icon : "sap-icon://play",
-			    		//type : "Create",			//?????
+						tileType : "Standard",
 			    		number : "123.456789",
 			    		numberUnit : "euro",
 			    		scale : "m",
@@ -300,16 +231,6 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 			this.dataRefreshed = false;
 			
 			that.fireDesignStudioPropertiesChanged(["TriggerMicroChartUpdate"]);  // !!!!!!!
-		},
-		
-		createMicroChartFromJSON: function(){
-			
-			var jsonDef = "";
-			
-			//jsonDef = "BulletMicroChart scale='M'";
-					//"<actual><BulletMicroChartData value='120' color='Good' /></actual></BulletMicroChart>";
-			
-			//this._microCharts.push(new sap.suite.ui.microchart["BulletMicroChart"](jsonDef));
 		},
 		
 		createInitialMicroChart : function(){
@@ -333,65 +254,8 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 									      ]
 									    }));
 		}, 
-		
-		removeMicroCharts : function(){
-		},
-		
-		microChartSwap : function() {
-			
-			var that = this;
-					
-			var tempMicroCharts = [];
-			var aV = this.newActualValue;
-			
-			tempMicroCharts = this._microCharts;
-			
-			/*tempMicroCharts.pop();    
-			
-			tempMicroCharts.push(new sap.suite.ui.microchart.BulletMicroChart({
-									      size: "S",
-									      scale: "M",
-									      targetValue: "0",
-									      targetValueLabel: "75",
-									      minValue: 0,
-									      maxValue: 100,
-									      actual: [new sap.suite.ui.microchart.BulletMicroChartData({
-									          value: aV,
-									          color: "Good"
-									        })									    
-										    ],
-									      thresholds: [new sap.suite.ui.microchart.BulletMicroChartData({
-									          value: 35,
-									          color: "Critical"
-									        })
-									      ]
-									    }));*/
-			
-			tempMicroCharts[aV] = new sap.suite.ui.microchart.BulletMicroChart({
-									      size: "S",
-									      scale: "M",
-									      targetValue: "0",
-									      targetValueLabel: "75",
-									      minValue: 0,
-									      maxValue: 100,
-									      actual: [new sap.suite.ui.microchart.BulletMicroChartData({
-									          value: aV*10,
-									          color: "Good"
-									        })									    
-										    ],
-									      thresholds: [new sap.suite.ui.microchart.BulletMicroChartData({
-									          value: 35,
-									          color: "Critical"
-									        })
-									      ]
-									    });
 
-
-			this._microCharts = tempMicroCharts;
-			
-		},
-
-//************* STANDARD TILE ***************************************************
+//************* STANDARD TILE **************************************************
 		createStandardTile : function(data){
 			var that = this;
 			
@@ -452,6 +316,7 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 					}
 				}
 			}
+			
 			if(data[footerDim] !== undefined){
 				if(that.isMeasure(footerDim)){
 					info = footerDim;	
@@ -494,7 +359,6 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 					var orig_value = that.retrieveValueByDimension(tile.getTitle());
 					
 					that.setDCurrentHeader(tile.getTitle());
-//					that.setDCurrentSubHeader(tile.);
 					that.setDCurrentFooter(tile.getInfo());
 					that.setDCurrentValue(orig_value);
 					that.setDCurrentValueText(tile.getNumber());
@@ -511,7 +375,7 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 			
 		},
 		
-//************* CUSTOM TILE ***************************************************
+//************* CUSTOM TILE ****************************************************
 		createCustomTile : function(data){
 			
 			var that = this;
@@ -598,6 +462,7 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 					}
 				}
 			}
+			
 			if(data[subHeaderDim] !== undefined){
 				if(that.isMeasure(subHeaderDim)){
 					subHeaderText = subHeaderDim;
@@ -746,25 +611,57 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 	createPictureTile : function(data){
 			
 		var that = this;
-			
-		var headerDim 			= this.getDHeaderDim();
-		var subHeaderDim 		= this.getDSubHeaderDim();
-		var footerDim 			= this.getDFooterDim();
-		var backgroundImageDim 	= this.getDBackgroundImageDim();
-		var urlDim 				= this.getDURLDim();
-		var tileType			= "Picture";
 		
+		var idDim					= this.getDTargetDim();
+		var headerDim 			    = this.getDHeaderDim();
+		var removeSortHelperPrefix	= this.getRemoveSortHelperPrefix();
+		var subHeaderDim 		    = this.getDSubHeaderDim();
+		var footerDim 			    = this.getDFooterDim();
+		var backgroundImageDim 	    = this.getDBackgroundImageDim();
+		var extractPictureURL       = this.getExtractPictureURL();
+		var urlDim 				    = this.getDURLDim();
+		var rwModeEnabled			= this.getRWModeEnabled();
+		var tileType			    = "Picture";
+		
+		var id					= "";
 		var lContentText 		= "";
 		var lSubHeaderText 		= "";
 		var lFooter 			= "";
 		var lBackgroundImage	= "https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/sample/GenericTileAsFeedTile/images/NewsImage1.png";
 		var url					= "";
+		var serverURL			= document.URL;
+		
+		// Get the server URL
+		serverURL = serverURL.substring(1, serverURL.indexOf("/BOE/"));
+		
+		if(data[idDim] !== undefined){
+			id = data[idDim];
+		}
 		
 		if(data[headerDim] !== undefined){
 			if(that.isMeasure(headerDim)){
 				lContentText = headerDim;
 			}else{
-				lContentText = data[headerDim];	
+				if(removeSortHelperPrefix)
+				{
+					var str = data[headerDim];
+				    var withoutPrefix = str.substr(str.indexOf(' ')+1); 
+
+					if(isNaN(parseInt(str)))
+				    {
+						// if parsed fails -> keep it because it doesn't seems to be a sorting prefix, only a space in the name. Ex: 'Visual Difference'
+						lContentText = data[headerDim];	
+				    }
+				    else
+					{
+				    	// if parsed successfully -> remove the prefix
+				    	lContentText = withoutPrefix;
+				    }
+				}
+				else
+				{	
+					lContentText = data[headerDim];	
+				}
 			}
 		}
 
@@ -787,10 +684,74 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 		if(data[backgroundImageDim] !== undefined){
 			if(that.isMeasure(backgroundImageDim)){
 				lBackgroundImage = backgroundImageDim;  
-			}else{
-				lBackgroundImage = data[backgroundImageDim];	
+			}else
+			{
+				if(extractPictureURL)
+				{
+					var originalDimensionString = "";
+					originalDimensionString = data[backgroundImageDim];
+					var afterPictureURL = originalDimensionString.substr(originalDimensionString.indexOf("PictureURL=")+11);
+					
+					if (afterPictureURL.indexOf(' ') == -1)
+					{
+						lBackgroundImage = afterPictureURL;
+					}
+					else
+					{	
+						var untilFirstSpace = afterPictureURL.substr(0,afterPictureURL.indexOf(' '));
+						lBackgroundImage = untilFirstSpace;	
+					}
+				}
+				else
+				{	
+					lBackgroundImage = data[backgroundImageDim];	
+				}
 			}
 		}
+		
+		if(data[urlDim] !== undefined){
+			if(that.isMeasure(urlDim)){
+				url = urlDim;
+			}else{
+				url = data[urlDim];	
+			}
+		}
+		
+		//* "Launchpad special replacer" - replaced LUMX and AO.Workbbok to business names like Lumira and Analysis for Office *// 
+		
+		if (rwModeEnabled)
+		{	
+			if (lBackgroundImage == "" || lBackgroundImage == data[backgroundImageDim])
+			{
+				// Add default background images
+				if (lSubHeaderText == "Folder")
+				{
+					lBackgroundImage = serverURL + "/images/folder.png";
+					
+				}
+				else if (lSubHeaderText == "AO.Workbook")
+				{
+					lBackgroundImage = serverURL + "/images/A4O.png";
+				}	
+				else if (lSubHeaderText == "LUMX")
+				{
+					lBackgroundImage = serverURL + "/images/Lumira.png";
+				}	
+			}
+
+			// Overwrite "kind"-s
+			if (lSubHeaderText == "AO.Workbook")
+			{
+				lSubHeaderText = "Analysis for Office";
+			}	
+			else if (lSubHeaderText == "LUMX")
+			{
+				lSubHeaderText = "Lumira";
+			}	
+		}
+		
+		
+		/* ****END "Launchpad special replacer" ******************************************************************************** */
 				
 		var oNewsContent = new sap.m.NewsContent({
 			contentText: 	lContentText,
@@ -813,11 +774,14 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 			content : [gTile]
 		}).addStyleClass('ptPictureTile').removeStyleClass('sapMCustomTile');
 		
+		
 		//setup a json model to retrieve values on press more easily
-		/*var valueModel = new sap.ui.model.json.JSONModel({
-            "contentText": lContentText,
+		var valueModel = new sap.ui.model.json.JSONModel({
+			"id": id,
+			"header": lContentText,
             "subHeader": lSubHeaderText,
             "footer": lFooter,
+            "url": url,
             "backgroundImage": lBackgroundImage
         });
 
@@ -845,186 +809,24 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 			if(tile === null){
 				if(window.console)console.log("no tile found with id "+tileId);
 			}else{
+				that.setDCurrentID(model.getProperty("/id"));
 				that.setDCurrentHeader(model.getProperty("/header"));
 				that.setDCurrentSubHeader(model.getProperty("/subHeader"));
 				that.setDCurrentFooter(model.getProperty("/footer"));
+				that.setDCurrentURL(model.getProperty("/url"));
 				that.setDCurrentValueText(model.getProperty("/value"));
 				
-				that.fireDesignStudioPropertiesChanged(["DCurrentHeader","DCurrentFooter","DCurrentValue","DCurrentValueText","DCurrentUnit","DCurrentIconString"]);
-				that.fireDesignStudioEvent("onTilePress");
-			}
-		};
-		tile.attachPress(onTilePress);*/
-		
-		this.addTile(tile);
-	},
-
-	
-//************* MICROCHART TILE ***************************************************
-	createMicroChartTile : function(data){					//data
-			
-		var that = this;
-			
-		var headerDim 			= this.getDHeaderDim();
-		var subHeaderDim 		= this.getDSubHeaderDim();
-		var footerDim 			= this.getDFooterDim();
-		var backgroundImageDim 	= this.getDBackgroundImageDim();
-		var urlDim 				= this.getDURLDim();
-		var tileType			= "MicroChart";
-		
-		var headerText 			= "";
-		var lContentText 		= "";
-		var lSubHeaderText 		= "";
-		var lFooter 			= "";
-		var url					= "";
-		
-		if(data[headerDim] !== undefined){
-			if(that.isMeasure(headerDim)){
-				lContentText = headerDim;
-			}else{
-				lContentText = data[headerDim];	
-			}
-		}
-		
-		if(data[headerDim] !== undefined){
-			if(that.isMeasure(headerDim)){
-				headerText = headerDim;	
-			}else{
-				headerText = data[headerDim];	
-			}
-			var icons = this.getDIconMapping();
-			
-			if(icons !== undefined){
-				for(var i=0;i<icons.length;i++){
-					if(icons[i].DDimValue === headerText){
-						icon = icons[i].DIconString;
-					}
-				}
-			}
-		}
-
-		if(data[subHeaderDim] !== undefined){
-			if(that.isMeasure(subHeaderDim)){
-				lSubHeaderText = subHeaderDim;
-			}else{
-				lSubHeaderText = data[subHeaderDim];	
-			}
-		}
-		
-		if(data[footerDim] !== undefined){
-			if(that.isMeasure(footerDim)){
-				lFooter = footerDim;  
-			}else{
-				lFooter = data[footerDim];	
-			}
-		}
-	
-		if(data[backgroundImageDim] !== undefined){
-			if(that.isMeasure(backgroundImageDim)){
-				lBackgroundImage = backgroundImageDim;  
-			}else{
-				lBackgroundImage = data[backgroundImageDim];	
-			}
-		}
-						
-
-		var oActual = new sap.suite.ui.microchart.BulletMicroChartData();
-	    oActual.setValue(70);
-	    oActual.setColor("Good");
-	  
-	    var oBulletChart = new sap.suite.ui.microchart.BulletMicroChart({
-	      size: "S",
-	      scale: "M",
-	      targetValue: "0",
-	      targetValueLabel: "75",
-	      minValue: 0,
-	      maxValue: 100,
-	      actual: [oActual],
-	      thresholds: [new sap.suite.ui.microchart.BulletMicroChartData({
-	          value: 35,
-	          color: "Critical"
-	        })
-	      ]
-	    });
-	    
-	    var oForecast = new sap.suite.ui.microchart.BulletMicroChartData();
-	    oForecast.setValue(60);
-	    oForecast.setColor("Neutral");
-	    
-	    oBulletChart.setForecastValue(60);
-		
-		var oTileContent = new sap.m.TileContent({
-			footer: 		lFooter
-		}).addStyleClass("ptTileContent");	 
-		
-		oTileContent.setContent(oBulletChart); // !!!!!!!! sap.ui.core.Control 
-		
-		var gTile = new sap.m.GenericTile( {    
-			frameType: 			"OneByOne",
-			header		: "STATIC", //headerText,
-			tileContent : [oTileContent]
-		}).addStyleClass("ptGenericTile");
-		
-		var tile = new sap.m.CustomTile({
-			height:"100%",
-			content : [gTile]
-		}).addStyleClass('sapMTile').addStyleClass('ccTileLayout');
-		
-		//addStyleClass('ptMicroChartTile').removeStyleClass('sapMCustomTile');
-		
-		//setup a json model to retrieve values on press more easily
-		var valueModel = new sap.ui.model.json.JSONModel({
-			"header": headerText,
-            "contentText": lContentText,
-            "subHeader": lSubHeaderText,
-            "footer": lFooter,
-            "backgroundImage": lBackgroundImage
-        });
-
-		tile.setModel(valueModel);
-
-	    var onTilePress = function(oControlEvent) {
-	    	
-	    	var oLayout = oControlEvent.getSource().getContent();
-	    	var model = oLayout.getModel();
-	    	var content = model.getProperty("/contentText");
-	    	
-			var tileId = oControlEvent.getParameters().id;
-			var tiles = that.getTiles();
-			var tile = null;
-			
-			for(var i=0;i<tiles.length;i++)
-			{
-				var currentTile = tiles[i]; 
-				if(tiles[i].sId === tileId){
-					tile = currentTile;
-					tile.addStyleClass("cc-Tile-clicked");
-				}else{
-					currentTile.removeStyleClass("cc-Tile-clicked");
-				}
-			}
-			
-			if(tile === null){
-				if(window.console)console.log("no tile found with id "+tileId);
-			}else{
-				that.setDCurrentHeader(model.getProperty("/header"));				
-				that.setDCurrentSubHeader(model.getProperty("/subHeader"));
-				that.setDCurrentFooter(model.getProperty("/footer"));
-				that.setDCurrentValueText(model.getProperty("/value"));
-				
-				that.fireDesignStudioPropertiesChanged(["DCurrentHeader","DCurrentFooter","DCurrentValue","DCurrentValueText","DCurrentUnit","DCurrentIconString"]);
+				that.fireDesignStudioPropertiesChanged(["DCurrentID", "DCurrentHeader","DCurrentSubHeader","DCurrentFooter","DCurrentValue","DCurrentUnit","DCurrentURL"]);
 				that.fireDesignStudioEvent("onTilePress");
 			}
 		};
 		tile.attachPress(onTilePress);
 		
-		//microCharts.push(tile.getTileContent().getContent());       !!!!!!!!!!!!!!!!!!!
-
 		this.addTile(tile);
 	},
 
-//********************************************************************************
-	testCreateTile : function(data, j){					//data
+//************* MICROCHART TILE ************************************************
+	createMicroChartTile : function(data, j){
 		
 		var that = this;
 		
@@ -1050,9 +852,9 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 		var unit 				= "";
 		var icon				= "";
 		
-		if (this.getMicroChartByKeyInternal(data[idDimension])=="[]")
+		if (this.getMicroChartByKeyInternal(data[idDimension]) == "[]")
 		{
-			this.createCustomTile(data);
+			this.createCustomTile(data);  	// If there is no MicroChart for the given ID, fallback to CustomTile
 		}
 		else
 		{	
@@ -1130,35 +932,16 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 				lFooter = data[footerDim];	
 			}
 		}
-	
-		function fnPointsFactory() {
-			/*if (isEmphasizedMode()) {
-				return new sap.suite.ui.microchart.LineMicroChartEmphasizedPoint({
-					x: "{x}",
-					y: "{y}",
-					show: "{show}",
-					color: "{color}"
-				});
-			} else {*/
-				return new sap.suite.ui.microchart.LineMicroChartPoint({
-					x: "{x}",
-					y: "{y}"
-				});
-			//}
+		
+		if(data[urlDim] !== undefined){
+			if(that.isMeasure(urlDim)){
+				url = urlDim;
+			}else{
+				url = data[urlDim];	
+			}
 		}
 		
-		//function fnPress(oEvent) {
-		//	sap.m.MessageToast.show("The chart is pressed.");
-		//};
-		
-		//if (that._microCharts.length-1 < j)
-		//{
-		//	this.createInitialMicroChart();
-		//}
-		
-		//var oChart = that._microCharts[j];
-		
-		var spec = this.getMicroChartByKeyInternal(data[idDimension]);	//that.getComponentsSpec(); //getChartSpecification();
+		var spec = this.getMicroChartByKeyInternal(data[idDimension]);
 		
 // MicroChart container	- may remain empty
 		var layPanel = new sap.ui.layout.VerticalLayout(
@@ -1205,19 +988,15 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 							compObj.__owner = layPanel;
 							compObj.__mainOwner = that;
 							
-							
 							layPanel.addContent(compObj, comp.__layoutSettings);
-							
-							//that._oComponents[comp.__techKey] = compObj;
-							//that.forwardProperties(that, compObj, comp, false);
 						}
 					}
 				}
 		}
 
-			
-// Trend indicator calculations
-		/*if(data[comparisonDim] !== undefined){
+		// Trend indicator calculations
+		/*
+		 if(data[comparisonDim] !== undefined){
 			var compare = data[comparisonDim].data;
 			var tolerance = this.getDComparisonTolerance()/100;
 			var diff = Math.abs(value-compare);
@@ -1238,7 +1017,9 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 				trendIndicator = "";
 				color_class = "cc-warning";
 			}
-		}*/
+		}
+		*/
+		
 		trendIndicator = "cc-arrow-up";
 		color_class = "cc-good";
 		
@@ -1296,7 +1077,7 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 			content : [oAllContent]
 		}).addStyleClass('sapMTile').addStyleClass('ccMicroChartTileLayout');
 		
-		//setup a json model to retrieve values on press more easily
+// Setup a json model to retrieve values on press more easily
 		var valueModel = new sap.ui.model.json.JSONModel({
             "header": headerText,
             "subHeader": subHeaderText,
@@ -1308,11 +1089,9 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
             "footer": lFooter,
         });
 
-
 		tile.setModel(valueModel);
-		
-
-		 var onTilePress = function(oControlEvent) {
+	
+		var onTilePress = function(oControlEvent) {
 		    	
 		    	var oLayout = oControlEvent.getSource().getContent();
 		    	var model = oLayout.getModel();
@@ -1351,128 +1130,13 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 					that.fireDesignStudioEvent("onTilePress");
 				}
 			};
-		
 		tile.attachPress(onTilePress);
 		
 		that.addTile(tile);
-		} // else of 
+		}
 	},
 
-//************* MULTITYPE TILE ***************************************************
-	createMultiType : function(data){
-		
-		var that = this;
-			
-		var headerDim 			= this.getDHeaderDim();
-		var subHeaderDim 		= this.getDSubHeaderDim();
-		var footerDim 			= this.getDFooterDim();
-		var backgroundImageDim 	= this.getDBackgroundImageDim();
-		var urlDim 				= this.getDURLDim();
-		var tileType			= "MicroChart";
-		
-		var headerText 			= "";
-		var lContentText 		= "";
-		var lSubHeaderText 		= "";
-		var lFooter 			= "";
-		var url					= "";
-		
-		if(data[headerDim] !== undefined){
-			if(that.isMeasure(headerDim)){
-				lContentText = headerDim;
-			}else{
-				lContentText = data[headerDim];	
-			}
-		}
-		
-		
-		if(data[headerDim] !== undefined){
-			if(that.isMeasure(headerDim)){
-				headerText = headerDim;	
-			}else{
-				headerText = data[headerDim];	
-			}
-			var icons = this.getDIconMapping();
-			
-			if(icons !== undefined){
-				for(var i=0;i<icons.length;i++){
-					if(icons[i].DDimValue === headerText){
-						icon = icons[i].DIconString;
-					}
-				}
-			}
-		}
-
-		if(data[subHeaderDim] !== undefined){
-			if(that.isMeasure(subHeaderDim)){
-				lSubHeaderText = subHeaderDim;
-			}else{
-				lSubHeaderText = data[subHeaderDim];	
-			}
-		}
-		
-		if(data[footerDim] !== undefined){
-			if(that.isMeasure(footerDim)){
-				lFooter = footerDim;  
-			}else{
-				lFooter = data[footerDim];	
-			}
-		}
-	
-		if(data[backgroundImageDim] !== undefined){
-			if(that.isMeasure(backgroundImageDim)){
-				lBackgroundImage = backgroundImageDim;  
-			}else{
-				lBackgroundImage = data[backgroundImageDim];	
-			}
-		}
-						
-		
-									var oActual = new sap.suite.ui.microchart.BulletMicroChartData();
-								    oActual.setValue(70);
-								    oActual.setColor("Good");
-								  
-								    var oBulletChart = new sap.suite.ui.microchart.BulletMicroChart({
-								      size: "S",
-								      scale: "M",
-								      targetValue: "0",
-								      targetValueLabel: "75",
-								      minValue: 0,
-								      maxValue: 100,
-								      actual: [oActual],
-								      thresholds: [new sap.suite.ui.microchart.BulletMicroChartData({
-								          value: 35,
-								          color: "Critical"
-								        })
-								      ]
-								    });
-								    
-								    var oForecast = new sap.suite.ui.microchart.BulletMicroChartData();
-								    oForecast.setValue(60);
-								    oForecast.setColor("Neutral");
-	    
-	    oBulletChart.setForecastValue(60);
-		
-		var oTileContent = new sap.m.TileContent({
-			footer: 		lFooter,
-			content : [oBulletChart]
-		}).addStyleClass("ptTileContent");	 
-		
-		var gTile = new sap.m.GenericTile( {    
-			frameType: 			"OneByOne",
-			header		: headerText,
-			tileContent : [oTileContent]
-		}).addStyleClass("ptGenericTile");
-		
-		var tile = new sap.m.CustomTile({
-			height:"100%",
-			content : [gTile]
-		}).addStyleClass('sapMTile').addStyleClass('ccTileLayout');
-			
-		this.addTile(tile);
-	},
-	
-
-	//***********************buildTree******************************************
+//***********************buildTree******************************************
 	buildTree: function (spec){
 		var specTree = [];
 		var specHelper = {};
@@ -1503,7 +1167,7 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 		return specTree;
 	},
 	
-	//**********************calculateContent******************************************
+//**********************calculateContent******************************************
 	calculateContent: function (owner, spec, layout, idPrefix, rowI) {
 		var that = owner;
 		var componentInstances = [];
@@ -1528,28 +1192,11 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 
 		return componentInstances;
 	},
-	
-	// for LineMicroChart
-	fnPointsFactory: function() {
-		if (isEmphasizedMode()) {
-			return new sap.suite.ui.microchart.LineMicroChartEmphasizedPoint({
-				x: "{x}",
-				y: "{y}",
-				show: "{show}",
-				color: "{color}"
-			});
-		} else {
-			return new sap.suite.ui.microchart.LineMicroChartPoint({
-				x: "{x}",
-				y: "{y}"
-			});
-		}
-	},
-	
+		
 	createComponent: function(owner, spec, idPrefix, rowId) {
 		var that = owner;
 
-		spec = that.assureSpecIsCorrect(that, spec);   								// validates if with/height etc is set
+		spec = that.assureSpecIsCorrect(that, spec);   	// validates if with/height etc is set
 
 		var properties = {};
 		var finalProperties = {};
@@ -1566,11 +1213,11 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 			
 			spec.specification = toreplace;
 			
-			specProperties = that.readFullSpec(that, spec.specification);			// readFullSpec ???
+			specProperties = that.readFullSpec(that, spec.specification);
 
 			var content = specProperties[spec.componentType];
 			
-			for (var prName in content) {											// ???
+			for (var prName in content) {
 				var propDef = {};
 				propDef.key = prName;
 				propDef.value = content[prName];
@@ -1674,19 +1321,19 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 		properties.topI = parseInt(spec.top);
 		properties.bottomI = parseInt(spec.bottom);
 
-		var intValue = parseInt(spec.width, 0);//*********************************************************************
+		var intValue = spec.width; //parseInt(spec.width, 0);
 		properties["widthI"] = intValue;
 		if(isNaN(intValue)) {
-			intValue = 8;                     //**********************************************************************
+			intValue = 8;                     	
 		}
 		properties["width"] = intValue + "rem";
 		
-		intValue = parseInt(spec.height, 0);
-		properties["heightI"] = "3.5rem"; //intValue;
+		intValue = spec.height; //parseInt(spec.height, 0);
+		properties["heightI"] = intValue;
 		if(isNaN(intValue)) {
-			intValue = 3.5;                     // !!!!!!
+			intValue = 3.5;      
 		}
-		properties["height"] = "3.5rem";
+		properties["height"] = intValue + "rem";
 		
 		var comp = {};
 		comp.__specification = properties;
@@ -1726,7 +1373,6 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 		var spec = fullSpec;
 
 		if(spec.indexOf("<") == 0) {
-			// xml
 			var converter = new X2JS({
 				 attributePrefix : "",
 				 mixedArrays: true
@@ -1818,7 +1464,7 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 								}
 								
 								if(entryObjectId != "__arrayIndex") {
-									var comp = that.createComponentByJson(that, entryObjectId, properties, true);      //***********************************
+									var comp = that.createComponentByJson(that, entryObjectId, properties, true);
 									comp.__clName = entryObjectId;
 									comp.__arrayIndex = properties._arrayIndex;
 									content.push(comp);
@@ -1834,7 +1480,7 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 							for (var outputEntryIndex in output) {
 								properties[outputEntryIndex] = output[outputEntryIndex];
 							}
-							var comp = that.createComponentByJson(that, entryArrayId, properties, true);     		//*******************************************
+							var comp = that.createComponentByJson(that, entryArrayId, properties, true);
 
 							comp.__clName = entryArrayId;
 							comp.__arrayIndex = 0;
@@ -1856,15 +1502,11 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 					} else {
 						if(content == undefined) {content = {}};
 
-						// simple text
 						var valueRet = that.fixValue(that, entryArrayId, entryArray);
 						content[valueRet.entryArrayId] = valueRet.entryArray;
 					}
 				}
 			}
-			
-			//console.log(content);
-			
 			return content;
 		}
 
@@ -1918,20 +1560,15 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 		return valueRet;
 	},
 	
-	//**********************createComponentByJson******************************************
-	
-	//***********************createComponentByJson******************************************
+//***********************createComponentByJson******************************************
 	createComponentByJson: function (owner, name, jsonDef, createUnique) {
 		var that = owner;
 		var loopObject = undefined;
 		
-		//jQuery.sap.declare('sap.suite.ui.microchart.InteractiveBarChartBar');
-		//jQuery.sap.require('sap.suite.ui.microchart.InteractiveBarChartBar');
-		
 		if(createUnique) {
 			var unique_id = Math.random();
 			jsonDef.id = that.getId() + name + unique_id;//that.nextKey;
-//			that.nextKey = that.nextKey + 1;
+			//that.nextKey = that.nextKey + 1;
 		}
 
 		if(sap.m[name] != undefined) {
@@ -1949,7 +1586,6 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 
 		return loopObject;
 	},
-	
 	
 	afterPrepare: function (owner) {
 		var that = owner;
@@ -1970,10 +1606,10 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 		that._oComponents = [];
 		that._oRowLayyouts = [];
 
-		var lHeight = "100" + "px"; //var lHeight = that.getContentHeight() + "px";
+		var lHeight = "100" + "px"; // var lHeight = that.getContentHeight() + "px";
 
 		for(var RowIn in that._content) {
-			var columns = 1;//that.getColumnNumber();
+			var columns = 1;
 			var minWidth = Math.floor(300 / columns);
 			var layPanel = new sap.zen.commons.layout.AbsoluteLayout(
 																		{
@@ -1995,7 +1631,7 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 				var comp = that._content[RowIn][compIndex];
 				
 				if(comp.__techKey == "__LAYOUT__") {
-					// special case, niy
+					// special case
 					var compObj = that;
 
 					for (var o in comp.__specification) {
@@ -2075,7 +1711,6 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 		if(that._oResize) {that._oResize(true, true);}
 	},
 	
-	
 	forwardProperties: function (owner, compObj, comp, isAll) {
 		var that = owner;
 		
@@ -2134,7 +1769,7 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 
 		var componentId = oEvent.getSource().__specification.__techKey;
 
-		//that.setClickedComponent(componentId);					!!!!
+		//that.setClickedComponent(componentId);
 		//that.setSelectedKey("");
 		//that.fireDesignStudioPropertiesChangedAndEvent(["clickedComponent", "selectedKey"], "OnClick");
 		//that.fireDesignStudioPropertiesChangedAndEvent();
@@ -2213,9 +1848,8 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 			}
 		}
 	},
-	
 		
-		flattenData: function(){
+	flattenData: function(){
 			var result = [];
 			var row_start = "{";
 			var row_end = "}";
@@ -2274,7 +1908,7 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 			return result;
 		},
 		
-		retrieveValueByDimension : function(dim){
+	retrieveValueByDimension : function(dim){
 
 			for(var i=0;i<this.currentFlatData.length;i++){
 				var itm = this.currentFlatData[i];
@@ -2287,7 +1921,7 @@ define(["../../../org.scn.community.shared/os/numberformat/languages",
 			return null;
 		},
 		
-		isMeasure : function(dimension){
+	isMeasure : function(dimension){
 			var members = this.currentData.dimensions[0].members
 			for(var i=0;i<members.length;i++){
 				if(members[i].text === dimension){

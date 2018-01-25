@@ -11,7 +11,7 @@ class org.scn.community.databound.TileContainer extends org.scn.community.shared
 	 * 		TC.setTileType("Standard");
 	 * 	</code><br>
 	 * </example>
-	 * Possible values are "Standard", "Custom" and "Picture"
+	 * Possible values are "Standard", "Custom", "Picture" and "MicroChart"
 	 */
 	void setTileType(String type){*
 		this.DTileType = type;
@@ -23,10 +23,22 @@ class org.scn.community.databound.TileContainer extends org.scn.community.shared
 		return this.DTileType;
 	*}
 	/**
+	 * Get current ID
+	 */
+	String getCurrentID(){*
+		return this.DCurrentID;
+	*}
+	/**
 	 * Get current tile header
 	 */
 	String getCurrentHeader(){*
 		return this.DCurrentHeader;
+	*}
+	/**
+	 * Get current sub-header
+	 */
+	String getCurrentSubHeader(){*
+		return this.DCurrentSubHeader;
 	*}
 	/**
 	 * Get current tile footer
@@ -69,33 +81,6 @@ class org.scn.community.databound.TileContainer extends org.scn.community.shared
 	 */
 	String getCurrentIconString(){*
 		return this.DCurrentIconString;
-	*}
-		
-	/**
-	 * Set NewActualValue
-	 */
-	void setNewActualValue(int value){*
-		this.NewActualValue = value;
-	*}
-	
-	/**
-	 * Get NewActualValue
-	 */
-	int getNewActualValue(){*
-		return this.NewActualValue;
-	*}
-	
-	String setMicroChart(/* TileID */ String tileID,
-						 /* MicroChart JSON specification */ String microChartJSONspec){*
-		this.TileID = tileID;
-		this.MicroChartJSONspec = JSON.stringify(microChartJSONspec);
-		this.TriggerMicroChartUpdate = Date().valueOf();
-	*}
-	
-	/* push. */
-	void setMicroChartActualValue(/* int to be pushed to end of array */ int actualValue) {*
-	  this.NewActualValue = actualValue;
-	  this.TriggerMicroChartUpdate = Date().valueOf();
 	*}
 	
 	/* Get ComponentsSpec */

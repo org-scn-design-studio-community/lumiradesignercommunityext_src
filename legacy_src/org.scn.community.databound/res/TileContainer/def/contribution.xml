@@ -23,15 +23,16 @@
 		<possibleValue>Standard</possibleValue>
 		<possibleValue>Custom</possibleValue>
 		<possibleValue>Picture</possibleValue>
-		<possibleValue>MicroChart</possibleValue>		
-		<possibleValue>MultiType</possibleValue>
+		<possibleValue>MicroChart</possibleValue>
 	</property>
 	<property id="DHeaderDim" type="String" title="Header Dimensions" visible="true"/>
+	<property id="RemoveSortHelperPrefix" type="boolean" bindable="false" title="Remove sorting helper prefix (Removes chars until the first space, if the cast as number is successful. Ex: '1 Sales' will be 'Sales')" visible="true"/>
 	<property id="DSubHeaderDim" type="String" title="Sub Header Dimensions" visible="true"/>
 	<property id="DFooterDim" type="String" title="Footer Dimensions" visible="true"/>
 	<property id="DURLDim" type="String" title="URL Dimensions" visible="true"/>
 	<property id="DUnitOverwriteDim" type="String" title="Unit Overwrite Dimension" visible="true"/>
 	<property id="DBackgroundImageDim" type="String" title="Background Image URL Dimension" visible="true"/>
+	<property id="ExtractPictureURL" type="boolean" bindable="false" title="Extract 1st occurance of PictureURL from dimension string (format: PictureURL=http://example.com/picture.jgp)" visible="true"/>
 	<property id="DNumeralString" type="String" title="NumberFormat String (Numeral)" visible="true"/>
 	
 	<property id="DIconMapping" type="Array" title="Icon Mapping" visible="true">
@@ -40,6 +41,8 @@
 			<property id="DIconString" type="String" title="SAP Icon String"></property>
 		</property>
 	</property>	
+	<property id="RWModeEnabled" type="boolean" bindable="false" title="Enable special replace and default URL options" visible="true"/>
+	<property id="DCurrentID" type="String" title="Current ID aka tile creation dimension value" visible="false"/>
 	<property id="DCurrentHeader" type="String" title="Current Header Text" visible="false"/>
 	<property id="DCurrentSubHeader" type="String" title="Current SubHeader Text" visible="false"/>
 	<property id="DCurrentFooter" type="String" title="Current Footer Text" visible="false"/>
@@ -59,7 +62,7 @@
 	<property id="onTileAdd" type="ScriptText" title="Tile Add Event" visible="true" group="Events"/>
 	<property id="onTileDelete" type="ScriptText" title="Tile Delete Event" visible="true" group="Events"/>
 	<property id="LayoutSpec" type="String" title="Layout Properties" group="Display" bindable="true" visible="false"></property>
-	<property id="ContentResponsive" type="boolean" title="Respopnsive Content"	group="Display"	bindable="true"	visible="false"></property>
+	<property id="ContentResponsive" type="boolean" title="Responsive Content"	group="Display"	bindable="true"	visible="false"></property>
 	<property id="OnClick"	type="ScriptText"	title="On Click" group="Events" 	visible="false"></property>	
 	<property id="OnSelect" type="ScriptText"	title="On Select" 	group="Events"	visible="false"></property>
 	

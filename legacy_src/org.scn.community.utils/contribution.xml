@@ -646,12 +646,14 @@
 	<property id="device" type="String" title="Device" group="Display" visible="false" />
 	<property id="os" type="String" title="OS" group="Display" visible="false" />
 	<property id="monitorResizes" type="boolean" title="Monitor Resize Events" group="Display" visible="false" />
+	<property id="debug" type="boolean" title="Enable Debug Log" group="Display" visible="false" />
 	<property id="onResize" type="ScriptText" title="On Resize" group="Events" />
 	<property id="onProfileChange" type="ScriptText" title="On Profile Change" group="Events" />
 	<property id="tick" type="int" title="Tick" />
 	
 	<initialization>
 		<defaultValue property="monitorResizes">true</defaultValue>
+		<defaultValue property="debug">false</defaultValue>
 		<defaultValue property="WIDTH">256</defaultValue>
 		<defaultValue property="HEIGHT">48</defaultValue>
 		<defaultValue property="TOP_MARGIN">0</defaultValue>

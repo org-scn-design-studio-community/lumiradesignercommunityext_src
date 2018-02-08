@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="lumiradesigner" sequenceNumber="66">
+<?pde version="3.8"?><target name="lumiradesigner" sequenceNumber="72">
 <locations>
 <location path="C:\Program Files\SAP BusinessObjects Lumira\Lumira Designer" type="Profile"/>
 </locations>
 <environment>
 <os>win32</os>
 <ws>win32</ws>
-<arch>x86</arch>
+<arch>x86_64</arch>
 <nl>en</nl>
 </environment>
 <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER"/>

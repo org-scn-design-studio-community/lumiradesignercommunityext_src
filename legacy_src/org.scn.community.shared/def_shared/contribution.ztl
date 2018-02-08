@@ -28,7 +28,7 @@ class org.scn.community.shared.Component extends Component {
 			if(this["_dbg" + componentName] == "-") { return false; }
 		}
 	
-		internal_assureGlobalAccess ();
+		this.internal_assureGlobalAccess ();
 		
 		var something = this.getGlobal()[componentName];
 		if(something != undefined) {
@@ -43,9 +43,13 @@ class org.scn.community.shared.Component extends Component {
 	/**
 	 * Internal function to read return global scope
 	 * http://stackoverflow.com/questions/1162998/how-can-i-add-an-object-property-to-the-global-object-in-rhino-javascript
+	 *
+	 * NOTE - No longer useful in Lumira Designer 2.0.  This function remains for compatibility with SDK Components that
+	 *        call it, but it no longer sets a getGlobal function.
 	 */
 	@Visibility(private)
 	void internal_assureGlobalAccess () {*
+		return;
 		if(this.getGlobal == undefined) {
 			this.getGlobal = function () {
 				return (function() {
@@ -55,6 +59,32 @@ class org.scn.community.shared.Component extends Component {
 		}
 	*}
 	
+	/**
+	 * Hack: New getGlobal function that returns a faux pre-2.0 object that has a collection of all components.
+	 * This is a temporary workaround until if/when SAP provides a way to iterate over the __COMPONENTS__
+	 * object, or some other way to get a collection of all components.
+	 */
+	 @Visibility(private)
+	 Object getGlobal () {*
+		var g = {};
+		var page = APPLICATION.getPage();
+		var scope = page.getRootScope();
+		var stateProcessor = page.getStateProcessor();
+		var itemNames = stateProcessor.getItemNames(scope);
+		var dataProviderNames = stateProcessor.getDataProviderNames(scope);
+		// APPLICATION.log(itemNames);
+		for(var i=0;i<itemNames.length;i++){
+			if(__COMPONENTS__[itemNames[i]]){
+				g[itemNames[i]] = __COMPONENTS__[itemNames[i]];
+			}
+		}
+		for(var i=0;i<dataProviderNames.length;i++){
+			if(__COMPONENTS__[dataProviderNames[i]]){
+				g[dataProviderNames[i]] = __COMPONENTS__[dataProviderNames[i]];
+			}
+		}
+		return g;
+	 *}
 	/**
 	 * Converts Choice values to Strings
 	 */
@@ -207,7 +237,7 @@ class org.scn.community.shared.DataComponent extends DataBoundComponent {
 			if(this["_dbg" + componentName] == "-") { return false; }
 		}
 	
-		internal_assureGlobalAccess ();
+		this.internal_assureGlobalAccess ();
 		
 		var something = this.getGlobal()[componentName];
 		if(something != undefined) {

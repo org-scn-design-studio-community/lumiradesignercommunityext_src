@@ -13,13 +13,13 @@ class org.scn.community.utils.Audio extends org.scn.community.shared.Component {
 	 * Play the sound
 	 */
 	void play(){*
-		this.play = calcTimestamp();
+		this.play = this.calcTimestamp();
 	*}
 	/**
 	 * Stop the sound
 	 */
 	void stop(){*
-		this.stop = calcTimestamp();
+		this.stop = this.calcTimestamp();
 	*}
 	
 	@Visibility(private)

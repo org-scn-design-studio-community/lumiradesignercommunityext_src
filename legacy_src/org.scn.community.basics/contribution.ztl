@@ -5224,7 +5224,7 @@ class org.scn.community.basics.EmbeddedFrame extends org.scn.community.shared.Co
 	 */	
 	void setDomainrelaxlevel( /**Domain Relax Level*/ int domainrelaxlevel){*
 		this.domainrelaxlevel = domainrelaxlevel;
-		this.reload = calcTimestamp();
+		this.reload = this.calcTimestamp();
 	*}
 
 	/**
@@ -5232,7 +5232,7 @@ class org.scn.community.basics.EmbeddedFrame extends org.scn.community.shared.Co
 	 */	
 	void setExplicitlySetDomain( /**Explicitly set document domain*/ boolean explicitlySetDomain){*
 		this.explicitlySetDomain = explicitlySetDomain;
-		this.reload = calcTimestamp();
+		this.reload = this.calcTimestamp();
 	*}
 
 	/**
@@ -5240,7 +5240,7 @@ class org.scn.community.basics.EmbeddedFrame extends org.scn.community.shared.Co
 	 */	
 	void setSandbox( /**Sandbox Attribute Values*/ String sandbox){*
 		this.sandbox = sandbox;
-		this.reload = calcTimestamp();
+		this.reload = this.calcTimestamp();
 	*}
 
 	/**
@@ -5248,7 +5248,7 @@ class org.scn.community.basics.EmbeddedFrame extends org.scn.community.shared.Co
 	 */	
 	void setSkipport( /**Skip port in domain*/ boolean skipport){*
 		this.skipport = skipport;
-		this.reload = calcTimestamp();	
+		this.reload = this.calcTimestamp();	
 	*}
 
 	/**
@@ -5256,7 +5256,7 @@ class org.scn.community.basics.EmbeddedFrame extends org.scn.community.shared.Co
 	 */	
 	void setUrl( /**Url*/ String url){*
 		this.url = url;
-		this.reload = calcTimestamp();
+		this.reload = this.calcTimestamp();
 	*}
 
 	/**
@@ -5264,7 +5264,7 @@ class org.scn.community.basics.EmbeddedFrame extends org.scn.community.shared.Co
 	 */	
 	void setUsesandbox( /**Use Sandbox Attribute*/ boolean usesandbox){*
 		this.usesandbox = usesandbox;
-		this.reload = calcTimestamp();
+		this.reload = this.calcTimestamp();
 	*}
 
 	// Special get for BOOLEAN (copy of isSkipPort())
@@ -5279,7 +5279,7 @@ class org.scn.community.basics.EmbeddedFrame extends org.scn.community.shared.Co
 	 * Trigger reload of IFrame
 	 */
 	void triggerReload(){*
-		this.reload = calcTimestamp();
+		this.reload = this.calcTimestamp();
 	*}	
 	
 	@Visibility(private)
@@ -6381,7 +6381,7 @@ class org.scn.community.basics.FioriAppHeader extends org.scn.community.shared.C
 			o[matchIndex].icon = icon;
 			o[matchIndex].type = buttonType || "Default";
 		}		
-		itemConfig = JSON.stringify(o);
+		this.itemConfig = JSON.stringify(o);
 	*}
 	/** Remove All Buttons
  	<example>
@@ -6392,7 +6392,7 @@ class org.scn.community.basics.FioriAppHeader extends org.scn.community.shared.C
 	</example>
 	 */
 	void removeAllButtons () {*		
-		itemConfig = JSON.stringify([]);
+		this.itemConfig = JSON.stringify([]);
 	*}
 	/** Remove All Items in a header button by key
  	<example>
@@ -6409,7 +6409,7 @@ class org.scn.community.basics.FioriAppHeader extends org.scn.community.shared.C
 			if(o[i].key == buttonKey) matchIndex = i;
 		}
 		if(matchIndex>-1) o[matchIndex].items = [];
-		itemConfig = JSON.stringify(o);
+		this.itemConfig = JSON.stringify(o);
 	*}
 	/** Remove a button by key
  	<example>
@@ -6426,7 +6426,7 @@ class org.scn.community.basics.FioriAppHeader extends org.scn.community.shared.C
 			if(o[i].key == buttonKey) matchIndex = i;
 		}
 		if(matchIndex>-1) o.splice(matchIndex,1);
-		itemConfig = JSON.stringify(o);
+		this.itemConfig = JSON.stringify(o);
 	*}
 	/** Add an item to a header button.  Will also add the header button if it does not yet exist.
  	<example>
@@ -6434,7 +6434,20 @@ class org.scn.community.basics.FioriAppHeader extends org.scn.community.shared.C
 	<code>
 	FIORIBAR_1.addItem("MENU", "help", "Help", "sap-icon://sys-help-2");<br>
 	</code>
-	</example>
+	</example>Additional Modelling Restrictions
+The primary additional modelling restrictions when connecting to SAP BW using DirectQuery in Power BI are the following:
+
+No support for calculated columns: The ability to create calculated columns is disabled. This also means that Grouping and Clustering, which create calculated columns, are not available.
+
+Additional limitations for measures: There are additional limitations imposed on the DAX expressions that can be used in measures, to reflect the level of support offered by SAP BW.
+
+No support for defining relationships: The relationships are inherent in the external SAP source, and additional relationships cannot be defined in the model.
+
+No Data View: The Data View normally displays the detail level data in the tables. Given the nature of OLAP sources like SAP BW, this view is not available over SAP BW.
+
+Column and measure details are fixed: The list of columns and measures seen in the field list are fixed by the underlying source, and cannot be modified. For example, it is not possible to delete a column, nor change its datatype (it can, however, be renamed).
+
+Additional limitations in DAX: There are additional limitations on the DAX that can be used in measure definitions, to reflect limitations in the source. For example, it is not possible to use an aggregate function over a table.
 	 */
 	void addItem (/*Button Key*/String buttonKey, /*Item Key*/String itemKey, /*Item Text*/String itemText, /*Item Icon*/optional String itemIcon) {*		
 		var o = eval(this.itemConfig);
@@ -6452,7 +6465,7 @@ class org.scn.community.basics.FioriAppHeader extends org.scn.community.shared.C
 			text : itemText,
 			icon : itemIcon || ""
 		});
-		itemConfig = JSON.stringify(o);
+		this.itemConfig = JSON.stringify(o);
 	*}
 	/** Removes an item from a header button.
  	<example>
@@ -6475,7 +6488,7 @@ class org.scn.community.basics.FioriAppHeader extends org.scn.community.shared.C
 				if(items[i].key == itemKey) itemIndex = i;
 			}
 			if(itemIndex>-1) items.splice(itemIndex,1);
-			itemConfig = JSON.stringify(o);
+			this.itemConfig = JSON.stringify(o);
 		}		
 	*}
 	/**
@@ -7457,7 +7470,7 @@ class org.scn.community.basics.FioriInput extends org.scn.community.shared.Compo
 			o[matchIndex].icon = icon;
 			o[matchIndex].type = buttonType || "Default";
 		}		
-		itemConfig = JSON.stringify(o);
+		this.itemConfig = JSON.stringify(o);
 	*}
 	/** Remove All Button
  	<example>
@@ -7468,7 +7481,7 @@ class org.scn.community.basics.FioriInput extends org.scn.community.shared.Compo
 	</example>
 	 */
 	void removeAllButtons () {*		
-		itemConfig = JSON.stringify([]);
+		this.itemConfig = JSON.stringify([]);
 	*}
 	/** Remove All Items in a header button
  	<example>
@@ -7485,7 +7498,7 @@ class org.scn.community.basics.FioriInput extends org.scn.community.shared.Compo
 			if(o[i].key == buttonKey) matchIndex = i;
 		}
 		if(matchIndex>-1) o[matchIndex].items = [];
-		itemConfig = JSON.stringify(o);
+		this.itemConfig = JSON.stringify(o);
 	*}
 	/** Remove a button
  	<example>
@@ -7502,7 +7515,7 @@ class org.scn.community.basics.FioriInput extends org.scn.community.shared.Compo
 			if(o[i].key == buttonKey) matchIndex = i;
 		}
 		if(matchIndex>-1) o.splice(matchIndex,1);
-		itemConfig = JSON.stringify(o);
+		this.itemConfig = JSON.stringify(o);
 	*}
 	/** Add an item to a header button.  Will add the header button if it does not yet exist.
  	<example>
@@ -7528,7 +7541,7 @@ class org.scn.community.basics.FioriInput extends org.scn.community.shared.Compo
 			text : itemText,
 			icon : itemIcon || ""
 		});
-		itemConfig = JSON.stringify(o);
+		this.itemConfig = JSON.stringify(o);
 	*}
 	/** Removes an item from a header button.
  	<example>
@@ -7551,7 +7564,7 @@ class org.scn.community.basics.FioriInput extends org.scn.community.shared.Compo
 				if(items[i].key == itemKey) itemIndex = i;
 			}
 			if(itemIndex>-1) items.splice(itemIndex,1);
-			itemConfig = JSON.stringify(o);
+			this.itemConfig = JSON.stringify(o);
 		}		
 	*}
 	/**
@@ -10064,7 +10077,7 @@ class org.scn.community.basics.LaunchPad extends org.scn.community.shared.Compon
  	<example>
 	Add/Update a tile called "Sales"
 	<code>
-	LAUNCHPAD_1.addTile("Sales", "YTD", "sap-icon://money-bills", "1234", "USD", "good");<br>
+	LAUNCHPAD_1.addTile("Sales", "YTD", "sap-icon://money-bills", "1234", "USD", "Success", "good");<br>
 	</code>
 	</example>
 	 */
@@ -10073,19 +10086,27 @@ class org.scn.community.basics.LaunchPad extends org.scn.community.shared.Compon
 			/*Icon*/optional String icon, 
 			/*Number*/optional String number, 
 			/*Number Unit*/optional String numberUnit,
-			/*Value State*/optional String valueState,
+			/*Value State (None, Success, Warning, or Error) */optional String valueState,
 			/*CSS Class*/optional String styleClass) {*		
-		var o = eval(this.tileConfig);
+		var o;
+		try {
+			o = eval(this.tileConfig);
+		}catch(e){
+			o = [];
+		}
 		if(!o) o = [];
+		var vs = valueState;
+		if(vs != "None" && vs != "Success" && vs != "Warning" && vs != "Error") vs = "None";
 		var tile = {
 			title: title,
 			info: info,
 			icon: icon,
 			number: number,
 			numberUnit: numberUnit,
-			valueState : valueState || "None",
+			valueState : vs,
 			styleClass : styleClass
-		};	
+		};
+		// APPLICATION.log(JSON.stringify(tile));
 		var matchIndex = -1;
 		for(var i=0;i<o.length;i++){
 			if(o[i].title == title) matchIndex = i;
@@ -10095,7 +10116,7 @@ class org.scn.community.basics.LaunchPad extends org.scn.community.shared.Compon
 		}else{	// Update Tile
 			o[matchIndex] = tile;
 		}
-		tileConfig = JSON.stringify(o);
+		this.tileConfig = JSON.stringify(o);
 	*}
 	/** Remove a tile
  	<example>
@@ -10113,7 +10134,7 @@ class org.scn.community.basics.LaunchPad extends org.scn.community.shared.Compon
 			if(o[i].title == title) matchIndex = i;
 		}
 		if(matchIndex>-1) o.splice(matchIndex,1);
-		tileConfig = JSON.stringify(o);
+		this.tileConfig = JSON.stringify(o);
 	*}
 }
 
@@ -13987,7 +14008,7 @@ class org.scn.community.basics.NotificationBar extends org.scn.community.shared.
 	 * Minimize notification bar (for example on timeout event of TIMEOUT component)
 	 */
 	void minimizeBar(){*
-		this.minimize = calcTimestamp();
+		this.minimize = this.calcTimestamp();
 	*}
 	
 	@Visibility(private)
@@ -17361,15 +17382,15 @@ class org.scn.community.basics.TimeOut extends org.scn.community.shared.Componen
 
 	/* START HERE PLACE FOR CUSTOM ZTL FUNCTIONS */
 	void startTimer(){*
-		this.start = calcTimestamp();
+		this.start = this.calcTimestamp();
 	*}
 	
 	void stopTimer(){*
-		this.stop = calcTimestamp();
+		this.stop = this.calcTimestamp();
 	*}
 	
 	void logoff(){*
-		this.logoff = calcTimestamp();
+		this.logoff = this.calcTimestamp();
 	*}
 	
 	@Visibility(private)

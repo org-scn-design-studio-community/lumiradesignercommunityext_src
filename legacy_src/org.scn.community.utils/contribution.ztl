@@ -396,13 +396,13 @@ class org.scn.community.utils.Audio extends org.scn.community.shared.Component {
 	 * Play the sound
 	 */
 	void play(){*
-		this.play = calcTimestamp();
+		this.play = this.calcTimestamp();
 	*}
 	/**
 	 * Stop the sound
 	 */
 	void stop(){*
-		this.stop = calcTimestamp();
+		this.stop = this.calcTimestamp();
 	*}
 	
 	@Visibility(private)
@@ -1408,18 +1408,24 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 	String bial(/* Debug */ String bial) {*
 		return JSON.stringify(eval(bial));
 	*}
+	/**
+	Log
+	*/
+	void log(/* Message */ String message) {*
+		if(this.debug) APPLICATION.log(message);
+	*}
 	String checkProfiles(String measurements){*
 		this.measurements = measurements;
 		var width = this.browserWidth;
 		var height = this.browserHeight;
 		var os = this.os;
 		var device = this.device;
-		APPLICATION.log("Checking for a matching profile for [" + width + "x" + height + "] OS: " + os + " Device: " + device);
+		this.log("Checking for a matching profile for [" + width + "x" + height + "] OS: " + os + " Device: " + device);
 		var p = JSON.parse(this.profiles).profiles;
 		for(var i=0;i<p.length;i++){
 			var profile = p[i];
-			APPLICATION.log("Checking profile " + profile.key);
-			APPLICATION.log(profile);
+			this.log("Checking profile " + profile.key);
+			this.log(profile);
 			if((	// If width between, or min/max set to -1
 					(width >= profile.browserMinWidth || profile.browserMinWidth == -1) && 
 					(width <= profile.browserMaxWidth || profile.browserMaxWidth == -1)
@@ -1438,21 +1444,21 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 		return "";
 	*}
 	String loadProfileExt(String profile, String measurements){*
-		APPLICATION.log(profile);
+		this.log(profile);
 		this.measurements = measurements;
 		this.loadProfile(profile);
 		return "done";
 	*}
 	String loadProfile(String profile){*
-		APPLICATION.log("Load Profile called for key '" + profile + "'");
-		APPLICATION.log(this.measurements);
+		this.log("Load Profile called for key '" + profile + "'");
+		this.log(this.measurements);
 		var m = JSON.parse(this.measurements);
 		this.internal_assureGlobalAccess();
 		var global = this.getGlobal();
 		var p = JSON.parse(this.profiles).profiles;
 		for(var i=0;i<p.length;i++){
 			if(profile == p[i].key){
-				APPLICATION.log("Applying layout: " + profile + "...");
+				this.log("Applying layout: " + profile + "...");
 				if(this.currentProfile != profile) this.currentProfile = profile;
 				var layout = p[i].componentLayout.components;
 				for(var j=0;j<layout.length;j++){
@@ -1460,7 +1466,7 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 					if(global[component.key] && 
 							component.key != "me"){
 						// Find parent ID
-						APPLICATION.log(global[component.key].getOwner().getItemType());
+						this.log(global[component.key].getOwner().getItemType());
 						var parent = global[component.key].getOwner().getParent().getId();
 						var pm = {
 							width : 0,
@@ -1474,7 +1480,7 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 						for(var p=0;p<m.length;p++){
 							if(m[p].key == parent) pm = m[p];
 						}
-						APPLICATION.log("Moving " + component.key + JSON.stringify(component.position) + "...");
+						this.log("Moving " + component.key + JSON.stringify(component.position) + "...");
 						if(global[component.key].setVisible){
 							if(component.position.visible == "visible"){
 								global[component.key].setVisible(true);	
@@ -1567,9 +1573,9 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 								global[component.key].setRightMargin("auto");
 							}
 						}
-						APPLICATION.log(JSON.stringify(component.position));
+						this.log(JSON.stringify(component.position));
 					}else{
-						APPLICATION.log("Could not locate " + component.key + "...");
+						this.log("Could not locate " + component.key + "...");
 						// Component gone
 					}
 				}
@@ -1600,7 +1606,7 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 					} 
 				}
 			}catch(e){
-				APPLICATION.log("Error trapped: " + e);
+				this.log("Error trapped: " + e);
 			}
 		}
 		return JSON.stringify(a);
@@ -1618,7 +1624,7 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 				continue;
 			}
 			var component = global[key];
-			APPLICATION.log("Examining " + key);
+			this.log("Examining " + key);
 			try{
 				if(component.getOwner && component.getTopMargin && key != "me") {
 					var visible = false;
@@ -1651,7 +1657,7 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
 					});
 				}
 			}catch(e){
-				APPLICATION.log("Error trapped: " + e);
+				this.log("Error trapped: " + e);
 			}
 		}
 		return JSON.stringify(payload);
@@ -1663,7 +1669,24 @@ class org.scn.community.utils.ComponentLayouter extends org.scn.community.shared
  * Class for ComponentManager
  */
 class org.scn.community.utils.ComponentManager extends org.scn.community.shared.Component {
-
+	/**
+	 * Cast Component as Panel (backward compatibility function)
+	 * <code>
+	 * var component = COMPONENTMANAGER_1.castComponentAsPanel(COMPONENT_1);
+	 * </code>
+	 */
+	 Panel castComponentAsPanel(Component component) {*
+	    return component;
+	 *}
+	/**
+	 * Cast Panel as Component (backward compatibility function)
+	 * <code>
+	 * var panel = COMPONENTMANAGER_1.castPanelAsComponent(PANEL_1);
+	 * </code>
+	 */
+	 Component castPanelAsComponent(Panel panel) {*
+	    return panel;
+	 *}
 	/**
 	 * Adds a data source to group by name
 	 * Allows grouping of data sources
@@ -1834,7 +1857,7 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 	 * Now, you have replicated the filters in dynamic way
 	 */
 	org.scn.community.shared.DataSourceArray getDataSourcesFromGroup (String group) {*
-		return getComponentsFromGroup(group);
+		return this.getComponentsFromGroup(group);
 	*}
 	
 	/**
@@ -2009,12 +2032,13 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 		this.internal_assureGlobalAccess();
 	
 		for (var key in this.getGlobal()) {
+			/*
+			Does not work like this anymore in 2.0: 
 			var something = undefined;try{something = eval(key);} catch(e) {continue;}
+			*/
 			
-			if(something == undefined) {
-				continue;
-			}
-			
+			// New way in 2.0:
+			var something = this.getGlobal()[key];
 			if( typeof something == "object" ) {
 				var fitsIntoName = true;
 				if(prefix != undefined && prefix.length > 0) {
@@ -2032,7 +2056,6 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 				if(!fitsIntoName) {
 					continue;
 				}
-				
 				try {
 					if(something.getWidth != undefined) {
 						var componentHolder = {};
@@ -2040,10 +2063,13 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 						componentHolder.name = key;
 						componentHolder.type = this.identifyType(something);
 						componentHolder.component = something;
-						
 						allComponents.push(componentHolder);	
+					}else{
+						
 					}
-				} catch (e) {}
+				} catch (e) {
+					APPLICATION.log("Error inspecting " + key + " :" + e);
+				}
 			}
 		}
 		
@@ -2072,11 +2098,13 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 		this.internal_assureGlobalAccess();
 	
 		for (var key in this.getGlobal()) {
+			/*
+			Does not work like this anymore in 2.0: 
 			var something = undefined;try{something = eval(key);} catch(e) {continue;}
+			*/
 			
-			if(something == undefined) {
-				continue;
-			}
+			// New way in 2.0:
+			var something = this.getGlobal()[key];
 			
 			if( typeof something == "object" ) {
 				var fitsIntoName = true;
@@ -2166,12 +2194,14 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 		this.internal_assureGlobalAccess();
 
 		for (var key in this.getGlobal()) {
+			/*
+			Does not work like this anymore in 2.0: 
 			var something = undefined;try{something = eval(key);} catch(e) {continue;}
-
-			if(something == undefined) {
-				continue;
-			}
+			*/
 			
+			// New way in 2.0:
+			var something = this.getGlobal()[key];
+						
 			if( typeof something == "object" ) {
 				var fitsIntoName = true;
 				if(prefix != undefined && prefix.length > 0) {
@@ -2230,7 +2260,7 @@ class org.scn.community.utils.ComponentManager extends org.scn.community.shared.
 	 */
 	String identifyType (Component inputComponent, optional boolean keepFullType) {*
 		
-		this.internal_assureGlobalAccess();
+		// this.internal_assureGlobalAccess();
 	  	
 		var type = "UNKNOWN";
 		
@@ -3845,7 +3875,7 @@ class org.scn.community.utils.DataIterator extends org.scn.community.shared.Comp
 			return distincts;
 		},
 		ret.containing = function(options){
-			var newRet = createDataRowArray();
+			var newRet = that.createDataRowArray();
 			var passes = [];
 			for(var i=0;i<this.length;i++) passes.push(false);
 			if(options.dimensions){
@@ -4592,6 +4622,13 @@ class org.scn.community.utils.FlowLayouter extends org.scn.community.shared.Comp
 	void registerParentComponent (Component component) {*
 		this.parentComponent = component;
 	*}
+	/** Register the parent panel in case you want to have a resize for the complete layout 
+	 * This component will be resized to the content + split space on all sides.
+	 * There can be only one parent component.
+	 * */
+	void registerParentPanel (Panel component) {*
+		this.parentComponent = component;
+	*}
 	/** Register components which will be repositioned by this layouter.
 	 * The components will be placed in the registration order in its parent component.
 	 */
@@ -4602,7 +4639,16 @@ class org.scn.community.utils.FlowLayouter extends org.scn.community.shared.Comp
 	
 		this.registeredComponents.push(component);
 	*}
-
+	/** Register panels which will be repositioned by this layouter.
+	 * The components will be placed in the registration order in its parent component.
+	 */
+	void registerPanel (Panel component) {*
+		if(this.registeredComponents == undefined) {
+			this.registeredComponents = [];
+		}
+	
+		this.registeredComponents.push(component);
+	*}
 	/** Unregister component which will be repositioned by this layouter.
 	 * The components will be removed from the registration list.
 	 */
@@ -4613,7 +4659,16 @@ class org.scn.community.utils.FlowLayouter extends org.scn.community.shared.Comp
 			}
 		}
 	*}
-
+	/** Unregister panel which will be repositioned by this layouter.
+	 * The components will be removed from the registration list.
+	 */
+	void unregisterPanel (Panel component) {*
+		for(var i=0;i<this.registeredComponents.length;i++){
+			if(registeredComponents[i] === component) {
+				this.registeredComponents.splice(i, 1);
+			}
+		}
+	*}
 	/** Removes all components from the layouter.
 	 */
 	void removeAllComponents () {*
@@ -7626,7 +7681,7 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 	 * The component will make sure to wait for the data to arrive though.
 	 */
 	void replaceAccordingToMapping(){*
-		this.replace = calcTimestamp();
+		this.replace = this.calcTimestamp();
 	*}
 	
 	void setMappingTable(String obj){*
@@ -7705,7 +7760,7 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 	
 		index = index - days;
 		
-		internal_setDateByIndex(index);
+		this.internal_setDateByIndex(index);
 		this.days = "";
 	*}
 	
@@ -7719,7 +7774,7 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 	
 		index = index - (weeks * 7);
 		
-		internal_setDateByIndex(index);
+		this.internal_setDateByIndex(index);
 		this.days = "";
 	*}
 	
@@ -7732,7 +7787,7 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 			/**Months to Roll*/int months) {*
 		this.internal_setup();
 
-		internal_rollMonths(months);
+		this.internal_rollMonths(months);
 		
 		this.days = "";
 	*}
@@ -7746,7 +7801,7 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 			/**Years to Roll*/int years) {*
 		this.internal_setup();
 
-		internal_rollMonths(years * 12);
+		this.internal_rollMonths(years * 12);
 		
 		this.days = "";
 	*}
@@ -7866,7 +7921,7 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 	 * Returns currently only internal format as locale handling is not available yet
 	 */
 	String toLocaleString() {*
-		return format("YYYYMMDD");
+		return this.format("YYYYMMDD");
 	*}
 	
 	/**
@@ -13417,9 +13472,9 @@ class org.scn.community.utils.Replacer extends org.scn.community.shared.Componen
 		
 		var arrayIndex = index - daysJson[0].i;
 	
-		var beforeYear = getYear();
-		var beforeMonth = getMonth();
-		var beforeDay = getDay();
+		var beforeYear = this.getYear();
+		var beforeMonth = this.getMonth();
+		var beforeDay = this.getDay();
 	
 		var monthBeforeEnteringLoop = beforeMonth;
 			
@@ -13597,21 +13652,21 @@ class org.scn.community.utils.WSPusher extends org.scn.community.shared.Componen
 	void send(optional array pcpField){*
 		var current = pcpField || [];
 		this.sendPcpFields = current;
-		this.send = calcTimestamp();
+		this.send = this.calcTimestamp();
 	*}
 	
 	/**
 	 * Open WebSocket
 	 */
 	void open(){*
-		this.open= calcTimestamp();
+		this.open= this.calcTimestamp();
 	*}
 	
 	/**
 	 * Close WebSocket
 	 */
 	void close(){*
-		this.close = calcTimestamp();
+		this.close = this.calcTimestamp();
 	*}
 	
 	@Visibility(private)

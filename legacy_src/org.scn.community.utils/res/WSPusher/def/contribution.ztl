@@ -49,21 +49,21 @@ class org.scn.community.utils.WSPusher extends org.scn.community.shared.Componen
 	void send(optional array pcpField){*
 		var current = pcpField || [];
 		this.sendPcpFields = current;
-		this.send = calcTimestamp();
+		this.send = this.calcTimestamp();
 	*}
 	
 	/**
 	 * Open WebSocket
 	 */
 	void open(){*
-		this.open= calcTimestamp();
+		this.open= this.calcTimestamp();
 	*}
 	
 	/**
 	 * Close WebSocket
 	 */
 	void close(){*
-		this.close = calcTimestamp();
+		this.close = this.calcTimestamp();
 	*}
 	
 	@Visibility(private)

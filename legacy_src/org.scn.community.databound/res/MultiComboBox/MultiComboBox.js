@@ -34,6 +34,7 @@ sap.m.MultiComboBox.extend("org.scn.community.databound.MultiComboBox", {
 	
 	metadata: {
         properties: {
+              "bound": {type: "string"},
               "DDimension": {type: "string"},
               "DSelectedKey": {type: "string"},
               "DSelectedText": {type: "string"},

@@ -3514,7 +3514,10 @@ __n__}
 		title="Data List"
 		type="ResultSet"
 		group="DataBinding"
-		visible="false" />
+		visible="false">
+		<option name="includeData" value="true"/>
+	    <option name="selectionShape" value="3"/> 
+	</property>
 
 	<property
 		id="DDimension"

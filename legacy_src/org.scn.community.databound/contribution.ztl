@@ -5932,7 +5932,6 @@ class org.scn.community.databound.tagCloud extends org.scn.community.shared.Data
 	
 }
 
-
 /**
  * Class for TileContainer
  */
@@ -6120,7 +6119,6 @@ class org.scn.community.databound.TileContainer extends org.scn.community.shared
 	
 	
 }
-
 
 /**
  * Generated ZTL Class for TopFlop
@@ -7161,8 +7159,8 @@ class org.scn.community.databound.UI5Table extends org.scn.community.shared.Data
 			parentKey:parentKey, 
 			key:key 
 			};
-
-    if (this.DFormattingContentCondition === undefined || this.DFormattingContentCondition === "" || this.DFormattingContentCondition === "<delete>"){
+	
+		if (this.DFormattingContentCondition === undefined || this.DFormattingContentCondition === "" || this.DFormattingContentCondition === "<delete>"){
 			this.DFormattingContentCondition = "[]";
 		}
 		

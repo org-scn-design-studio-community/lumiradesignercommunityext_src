@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generic SAPUI5 View With Databinding
+Bundle-SymbolicName: org.scn.community.ui5view;singleton:=true
+Bundle-Version: 3.0.0.qualifier
+Bundle-Vendor: Lumira Designer SCN Community
+Bundle-ClassPath: .
+Require-Bundle: com.sap.ip.bi.zen.rt.components.sdk.eclipse

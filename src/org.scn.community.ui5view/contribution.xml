@@ -182,9 +182,11 @@
       incurred by, or claims asserted against, such Contributor by reason
       of your accepting any such warranty or additional liability.
   </license>
-	
+	<group
+		id="ScnCommunityBasics"
+		title="Scn Community Basics [Legacy]"/>
 	<component id="XMLView" title="SAPUI5 XML View" handlerType="sapui5"
-		propertySheetPath="aps/xmlview.html" databound="true" modes="m">
+		propertySheetPath="aps/xmlview.html" icon="res/ui5view.png" databound="true" modes="m" group="ScnCommunityBasics">
 		<requireJs modes="m">res/ui5view</requireJs>
 		<property type="String" title="View Xml" id="xml" />
 		<property type="String" title="Controller Javascript" id="js" />

@@ -9,9 +9,11 @@ define([ "sap/designstudio/sdk/SDKModel" ], function(SDKModel) {
 			this._view = null;
 		},
 		setData : function(json) {
-			this._model = new SDKModel(json);
-			if (this._view) {
-				this._view.setModel(this._model);
+			if (json) {
+				this._model = new SDKModel(json);
+				if (this._view) {
+					this._view.setModel(this._model);
+				}
 			}
 		},
 		setJs : function(js) {
@@ -34,6 +36,18 @@ define([ "sap/designstudio/sdk/SDKModel" ], function(SDKModel) {
 				}				
 				this._view.placeAt(this);
 			}
+		},
+		setSelection: function(selection) {
+			this._selection = selection;
+		},
+		getSelection: function() {
+			return this._selection;
+		},
+		setSelectionType: function(type) {
+			this._selectionType = type;
+		},
+		getSelectionType: function() {
+			return this._selectionType;
 		}
 	});
 

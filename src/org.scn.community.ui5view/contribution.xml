@@ -198,7 +198,22 @@
 			<option name="includeAxesTuples" value="true" />
 			<option name="includeConditionalFormats" value="true" />
 			<option name="includeAttributes" value="true" />
-		</property>
+		</property >
+		<property
+			id="selection"
+			title="Visual Selection"
+			type="String"
+			visible="false"/>
+		<property
+			id="selectionType"
+			title="Type of Visual Selection, e.g. DIMENSION, MEMBER, or DATA"
+			type="String"
+			visible="false"/>
+		<property
+			id="onSelect"
+			title="On Select"
+			type="ScriptText"
+			group="Events"/>
 		<initialization>
 			<defaultValue property="LEFT_MARGIN">40</defaultValue>
 			<defaultValue property="TOP_MARGIN">40</defaultValue>

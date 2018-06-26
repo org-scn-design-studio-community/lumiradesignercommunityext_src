@@ -1,5 +1,50 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class com.sap.ip.bi.XMLView extends Component {
+class org.scn.community.ui5view.XMLView extends Component {
   // useful component for prototyping
+  
+  
+	/* Define the subset of the data to be shown in this component */
+	void setDataSelection(/* A selection specifying the result set from a data source */ ResultSetSelection selection) {*
+		this.data = this.stringifySelection(selection);
+	*}
+	
+	/* Returns the current data selection */
+	ResultSetSelectionByString getDataSelection() {*
+		var jsonSelection = {};
+		if (this.selection) {
+			jsonSelection= JSON.parse(this.data	);
+			jsonSelection = new IterableJSON(jsonSelection); // This will add the forEach function to the result
+		}
+		return jsonSelection;
+	*}
+	
+	
+	/* Returns a specification of the visually selected data */
+	ResultSetSelectionByString getSelection() {*
+		var jsonSelection = {};
+		if (this.selection) {
+			jsonSelection= JSON.parse(this.selection);
+			jsonSelection = new IterableJSON(jsonSelection); // This will add the forEach function to the result
+		}
+		return jsonSelection;
+	*}
+
+	/* Selects data visually. */
+	void setSelection(/* A selection specifying the selected visually selected data */ ResultSetSelection selection) {*
+		this.selection = this.stringifySelection(selection);
+	*}
+	
+	/* Returns the selected member. */
+	Member getSelectedMember(/* Dimension of the selected member */ Dimension dimension) {*
+	  var jsonSelection = this.getSelection();
+		var member = jsonSelection[dimension];
+		return this.createMember(dimension, member);
+	*}
+	
+	/* Returns the kind of visual selection, e.g. "DATA", "MEMBER", or "DIMENSION".
+	 * Depending on the usecase your can also transport other data via this property. */
+	String getSelectionType() {*
+		return this.selectionType
+	*}
 }

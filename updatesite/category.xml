@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.scn.community.lumiradesigner.sdk.feature.vega_3.0.0.qualifier.jar" id="org.scn.community.lumiradesigner.sdk.feature.vega" version="3.0.0.qualifier"/>
+   <feature url="features/org.scn.community.sdk.feature.geovis_3.0.0.qualifier.jar" id="org.scn.community.sdk.feature.geovis" version="3.0.0.qualifier"/>
+   <feature url="features/org.scn.community.sdk.feature.main_3.0.0.qualifier.jar" id="org.scn.community.sdk.feature.main" version="3.0.0.qualifier"/>
+   <feature url="features/org.scn.community.sdk.feature.prototypes_3.0.0.qualifier.jar" id="org.scn.community.sdk.feature.prototypes" version="3.0.0.qualifier"/>
+   <category-def name="com.sap.ip.bi.zen.sdk" label="com.sap.ip.bi.zen.sdk"/>
+</site>

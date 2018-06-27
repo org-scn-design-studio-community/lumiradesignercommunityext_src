@@ -1,0 +1,19 @@
+Short explanation of Maven/Tycho build system
+
+Prerequisites:
+* Java (at least 8, best in search path)
+* Maven 3.1 or newer (best in search path)
+* Lumira Designer installed
+
+Before the first build you need ones to run tools/createP2RepoFromDS.bat.
+It creates a so-called P2 Update site from a Lumira Designer or Design Studio.
+
+Then you can simply run
+mvn clean install
+on the root of the Git project.
+
+You find the installable update site in 
+updatesite/target/updatesite-3.0.0-SNAPSHOT.zip
+
+This updatesite contains all features.
+

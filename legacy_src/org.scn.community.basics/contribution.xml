@@ -5308,7 +5308,7 @@
 		group="Display"
 		bindable="true"
 		visible="true">
-
+		<option name="kind" value="CSS"/>
 	</property>
 	<property
 		id="feedUrl"

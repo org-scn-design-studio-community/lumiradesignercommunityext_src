@@ -4945,10 +4945,11 @@ __n__}
 	propertySheetPath="aps/PropertyPage.html"
 	group="ScnCommunityVisualizations"
 	databound="true"
-	modes="commons"
+	modes="commons m"
 >
 	
 	<requireJs modes="commons">res/ResultSetInfo/ResultSetInfo</requireJs>
+	<requireJs modes="m">res/ResultSetInfo/ResultSetInfo_m</requireJs>
 
 	<cssInclude>res/ResultSetInfo/ResultSetInfo.css</cssInclude>
 	

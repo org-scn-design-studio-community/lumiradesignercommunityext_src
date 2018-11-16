@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.scn.community</groupId>
+  <artifactId>parent</artifactId>
+  <version>3.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  
+  <properties>
+		<tycho-version>1.0.0</tycho-version>
+	</properties>
+	<repositories>
+		<repository>
+			<id>designstudio_p2_repo</id>
+			<layout>p2</layout>
+			<url>file:/C:/temp/p2repo/</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<modules>
+		<module>src/org.scn.community.ui5view</module>
+		<module>legacy_src/org.scn.community.basics</module>
+		<module>legacy_src/org.scn.community.databound</module>
+		<module>legacy_src/org.scn.community.datasource</module>
+		<module>legacy_src/org.scn.community.geovis</module>
+		<module>legacy_src/org.scn.community.prototypes</module>
+		<module>legacy_src/org.scn.community.shared</module>
+		<module>legacy_src/org.scn.community.utils</module>
+		<module>src/shared</module>
+		<module>src/Lumira Designer SCN Component - Tiles</module>
+		<module>src/vega</module>
+		<module>features/Lumira Designer SCN Feature - Vega</module>
+		<module>legacy_features/org.scn.community.feature.geovis</module>
+		<module>legacy_features/org.scn.community.feature.main</module>
+		<module>legacy_features/org.scn.community.feature.prototypes</module>
+		<module>updatesite</module>
+	</modules>
+</project>

@@ -4,9 +4,9 @@
   elementFormDefault="qualified"
   xmlns="http://www.w3.org/2001/XMLSchema"
   xmlns:tns="http://www.sap.com/bi/zen/sdk">
-  <annotation>
+    <annotation>
     <documentation>
-      This schema describes an SAP BusinessObjects Design Studio software development kit (SDK)
+      This schema describes an SAP Lumira Component SDK (software development kit)
       extension. A developer uses this schema to express an SDK extension with extension components
       in an XML file.
     </documentation>
@@ -27,7 +27,7 @@
 
   <complexType name="Extension">
     <annotation>
-      <documentation>This is the root type for a Design Studio SDK extension.</documentation>
+      <documentation>This is the root type for an SAP Lumira Component SDK extension.</documentation>
     </annotation>
     <sequence>
       <element
@@ -124,7 +124,7 @@
   <complexType name="Group">
     <annotation>
       <documentation>
-        Specifies a custom group in Design Studio's views. A custom group in the Component view
+        Specifies a custom group in the Lumira Designer's views. A custom group in the Components view
         contains extension components. A custom group in the Properties view contains properties of
         an extension component.
       </documentation>
@@ -137,22 +137,24 @@
 
   <complexType name="Component">
     <annotation>
-      <documentation>
-        Specifies an extension component.
-      </documentation>
+      <documentation>Specifies an extension component.</documentation>
     </annotation>
     <complexContent>
       <extension base="tns:Descriptable">
         <sequence>
+          <element
+            name="requireJs"
+            type="tns:RequireJSType"
+            minOccurs="0"
+            maxOccurs="unbounded">
+          </element>
           <element
             name="stdInclude"
             type="tns:StdInclude"
             minOccurs="0"
             maxOccurs="unbounded">
             <annotation>
-              <documentation>
-                Includes a JavaScript framework.
-              </documentation>
+              <documentation>Includes a JavaScript framework.</documentation>
             </annotation>
           </element>
           <element
@@ -168,6 +170,17 @@
             </annotation>
           </element>
           <element
+            name="biBundle"
+            type="string"
+            minOccurs="0"
+            maxOccurs="unbounded">
+            <annotation>
+              <documentation>
+                This is used only internally to add modules loaded by SAP BI Framework.
+              </documentation>
+            </annotation>
+          </element>
+          <element
             name="cssInclude"
             type="string"
             minOccurs="0"
@@ -178,11 +191,14 @@
                 relative path to the root folder of the SDK extension or a fully qualified URL.
               </documentation>
             </annotation>
-          </element>          <element            name="property"            type="tns:Property"            minOccurs="0"            maxOccurs="unbounded">
+          </element>
+          <element
+            name="property"
+            type="tns:Property"
+            minOccurs="0"
+            maxOccurs="unbounded">
             <annotation>
-              <documentation>
-                Property of the extension component.
-              </documentation>
+              <documentation>Property of the extension component.</documentation>
             </annotation>
           </element>
           <element
@@ -191,9 +207,7 @@
             minOccurs="0"
             maxOccurs="1">
             <annotation>
-              <documentation>
-                Initialization values of properties.
-              </documentation>
+              <documentation>Initialization values of properties.</documentation>
             </annotation>
           </element>
           <element
@@ -204,7 +218,7 @@
             <annotation>
               <documentation>
                 Platform which supports this custom component. Specify one of the following values:
-                LOCAL, BIPLATFORM, HANA, or NETWEAVER. If this element is unspecified, then all
+                LOCAL, BIPLATFORM, LUMX, HANA, or NETWEAVER. If this element is unspecified, then all
                 platforms support this extension component.
               </documentation>
             </annotation>
@@ -215,7 +229,7 @@
           type="string">
           <annotation>
             <documentation>
-              Group in the Design Studio's Component view where this extension component is
+              Group in the Lumira Designer's Components view where this extension component is
               displayed. Specify a custom group you have defined in this SDK extension, otherwise
               this extension component is placed in the default Custom Component group.
             </documentation>
@@ -259,8 +273,8 @@
           default="div">
           <annotation>
             <documentation>
-              Specifies the technology that implements this extension component. Specify one of the 
-              following values: div, sapui5 (default: div).              
+              Specifies the technology that implements this extension component. Specify one of the
+              following values: div, sapui5, datasource (default: div).
             </documentation>
           </annotation>
         </attribute>
@@ -269,12 +283,49 @@
           type="string">
           <annotation>
             <documentation>
-              References an icon displayed with this extension component in Design Studio's 
-              Component and Outline view. The path is relative to the root folder of the SDK
+              References an icon displayed with this extension component in the Lumira Designer's
+              Components and Outline views. The path is relative to the root folder of the SDK
               extension.
             </documentation>
           </annotation>
         </attribute>
+        <attribute
+          name="includeInBookmarkDialog"
+          type="boolean"
+          use="optional"
+          default="true">
+          <annotation>
+            <documentation>
+              Indicates whether this extension component is included in the "Edit Bookmark
+              Definition" Dialog.
+            </documentation>
+          </annotation>
+        </attribute>
+        <attribute
+          name="modes"
+          type="tns:UI5Modes"
+          default="commons">
+        </attribute>
+        <attribute
+          name="supportsExportContent"
+          type="boolean"
+          use="optional"
+          default="false">
+          <annotation>
+            <documentation>
+              Indicates whether this extension component is included in PDF printing solutions.
+            </documentation>
+          </annotation>
+        </attribute>
+        <attribute name="cardinality" default="0_n" use="optional">
+          <simpleType>
+            <restriction base="string">
+              <enumeration value="0_1"></enumeration>
+              <enumeration value="0_n"></enumeration>
+            </restriction>
+          </simpleType>
+        </attribute>
+        <attribute name="loadIncludesOnlyIfVisible" type="boolean" use="optional" default="true"></attribute>        
       </extension>
     </complexContent>
   </complexType>
@@ -292,66 +343,115 @@
     <attribute
       name="title"
       type="string"
-      use="required"></attribute>    <attribute      name="tooltip"      type="string"></attribute>
+      use="required">
+    </attribute>
+    <attribute
+      name="tooltip"
+      type="string">
+    </attribute>
     <attribute
       name="visible"
       type="boolean"
-      default="true"></attribute>
+      default="true">
+    </attribute>
   </complexType>
 
   <complexType name="Property">
     <annotation>
-      <documentation>
-        Property of this extension component.
-      </documentation>
+      <documentation>Property of this extension component.</documentation>
     </annotation>
     <complexContent>
       <extension base="tns:Descriptable">
         <sequence>
           <element
+            name="property"
+            type="tns:Property" 
+            minOccurs="0"
+            maxOccurs="unbounded">
+          </element>
+          <element
             name="possibleValue"
-            type="string"
+            type="tns:PossibleValueType"
             minOccurs="0"
             maxOccurs="unbounded">
           </element>
           <element
             name="option"
-            type="tns:Option" minOccurs="0" maxOccurs="unbounded">
+            type="tns:Option"
+            minOccurs="0"
+            maxOccurs="unbounded">
           </element>
         </sequence>
         <attribute
           name="type"
           type="tns:PropertyType"
-          use="required"></attribute>
+          use="required">
+        </attribute>
         <attribute
           name="group"
           type="string">
           <annotation>
             <documentation>
-              Group in the Design Studio's Properties view where this property is displayed. Specify 
-              a custom group you have defined in this SDK extension or one of the following values: 
+              Group in the Lumira Designer's Properties view where this property is displayed. Specify
+              a custom group you have defined in this SDK extension or one of the following values:
               Display, DataBinding, or Events (default: Display).
             </documentation>
           </annotation>
         </attribute>
+        <attribute
+          name="bindable"
+          type="boolean"
+          default="false">
+        </attribute>
+        <attribute
+          name="modes"
+          type="tns:UI5Modes"
+          default="commons m">
+        </attribute>
+        <attribute
+          name="transient"
+          type="boolean" default="false">
+        </attribute>
+        <attribute
+          name="renderable"
+          type="boolean" default="true">
+        </attribute>
       </extension>
     </complexContent>
+  </complexType>
+
+  <complexType name="PossibleValueType">
+    <simpleContent>
+      <extension base="string">
+        <attribute
+          name="title"
+          type="string"
+          use="optional">
+         </attribute>
+      </extension>
+    </simpleContent>
   </complexType>
 
   <simpleType name="PropertyType">
     <restriction base="string">
       <enumeration value="String"></enumeration>
       <enumeration value="Text"></enumeration>
+      <enumeration value="TranslatableString"></enumeration>
       <enumeration value="int"></enumeration>
       <enumeration value="float"></enumeration>
       <enumeration value="boolean"></enumeration>
       <enumeration value="ScriptText"></enumeration>
+      <enumeration value="MultiLineText"></enumeration>
       <enumeration value="Color"></enumeration>
       <enumeration value="Url"></enumeration>
       <enumeration value="ResultCell"></enumeration>
       <enumeration value="ResultCellSet"></enumeration>
       <enumeration value="ResultCellList"></enumeration>
       <enumeration value="ResultSet"></enumeration>
+      <enumeration value="Object"></enumeration>
+      <enumeration value="Array"></enumeration>
+      <enumeration value="ComponentReference"></enumeration>
+      <enumeration value="Builtin"></enumeration>
     </restriction>
   </simpleType>
 
@@ -388,12 +488,24 @@
     </simpleContent>
   </complexType>
 
+  <complexType name="RequireJSType">
+    <simpleContent>
+      <extension base="string">
+        <attribute
+          name="modes"
+          type="tns:UI5Modes"
+          use="required"></attribute>
+      </extension>
+    </simpleContent>
+  </complexType>
+
   <simpleType name="BackendSystemType">
     <restriction base="string">
       <enumeration value="LOCAL"></enumeration>
       <enumeration value="BIPLATFORM"></enumeration>
       <enumeration value="NETWEAVER"></enumeration>
       <enumeration value="HANA"></enumeration>
+      <enumeration value="LUMX"></enumeration>
     </restriction>
   </simpleType>
 
@@ -415,7 +527,7 @@
   <complexType name="StdInclude">
     <annotation>
       <documentation>
-        Includes a JavaScript framework shipped with Design Studio.
+        Includes a JavaScript framework shipped with Lumira Designer.
       </documentation>
     </annotation>
     <attribute
@@ -440,4 +552,15 @@
       type="string" use="required">
     </attribute>
   </complexType>
+
+  <simpleType name="UI5Mode">
+    <restriction base="string">
+      <enumeration value="commons"></enumeration>
+      <enumeration value="m"></enumeration>
+    </restriction>
+  </simpleType>
+   <simpleType name="UI5Modes">
+    <list itemType="tns:UI5Mode"/>
+   </simpleType>
+  
 </schema>
